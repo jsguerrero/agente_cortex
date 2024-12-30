@@ -1,0 +1,82 @@
+version: '3.8'
+
+services:
+  schema-processor:
+    build: .
+    environment:
+      # API Keys y Credenciales
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+
+      # Rutas y Directorios
+      - CORTEX_SQL_PATH=${CORTEX_SQL_PATH}
+      - OUTPUT_DIR=${OUTPUT_DIR}
+      - WORKSPACE_DIR=${WORKSPACE_DIR}
+
+      # Configuración de Cortex
+      - CORTEX_MODULES=${CORTEX_MODULES}
+      - SAP_FLAVOR=${SAP_FLAVOR}
+      - DEPLOYMENT_MODE=${DEPLOYMENT_MODE}
+
+      # Variables de Proyecto y Datasets
+      - PROJECT_ID_SRC=${PROJECT_ID_SRC}
+      - PROJECT_ID_TGT=${PROJECT_ID_TGT}
+      - DATASET_RAW_LANDING=${DATASET_RAW_LANDING}
+      - DATASET_RAW_LANDING_S4=${DATASET_RAW_LANDING_S4}
+      - DATASET_RAW_LANDING_ECC=${DATASET_RAW_LANDING_ECC}
+      - DATASET_CDC_PROCESSED=${DATASET_CDC_PROCESSED}
+      - DATASET_CDC_PROCESSED_S4=${DATASET_CDC_PROCESSED_S4}
+      - DATASET_CDC_PROCESSED_ECC=${DATASET_CDC_PROCESSED_ECC}
+      - DATASET_REPORTING=${DATASET_REPORTING}
+      - DATASET_MODELS=${DATASET_MODELS}
+
+      # Configuración de Tablas
+      - TABLE_CONFIG=${TABLE_CONFIG}
+
+      # Configuración de Regiones
+      - REGION=${REGION}
+      - LOCATION=${LOCATION}
+      - PROCESSING_LOCATION=${PROCESSING_LOCATION}
+      - MULTIREGION=${MULTIREGION}
+
+      # Configuración de BigQuery
+      - BQ_LOCATION=${BQ_LOCATION}
+
+      # Configuración de Procesamiento
+      - PROCESSING_PROJECT=${PROCESSING_PROJECT}
+      - PROCESSING_DATASET=${PROCESSING_DATASET}
+
+      # Configuración de Marketing
+      - MARKETING_DATASET=${MARKETING_DATASET}
+
+      # Configuración de CDC
+      - CDC_LAG_HOURS=${CDC_LAG_HOURS}
+      - CDC_PROCESSED_DATASET=${CDC_PROCESSED_DATASET}
+
+      # Configuración de Snapshots
+      - SNAPSHOT_LAG_DAYS=${SNAPSHOT_LAG_DAYS}
+
+      # Configuración de Particionamiento
+      - DEFAULT_PARTITION_EXPIRATION=${DEFAULT_PARTITION_EXPIRATION}
+
+      # Configuración de Logging
+      - LOG_LEVEL=${LOG_LEVEL}
+      - LOG_FORMAT=${LOG_FORMAT}
+
+      # Configuración de Rendimiento
+      - BATCH_SIZE=${BATCH_SIZE}
+      - MAX_PARALLEL_JOBS=${MAX_PARALLEL_JOBS}
+
+      # Configuración de Timeouts
+      - REQUEST_TIMEOUT=${REQUEST_TIMEOUT}
+      - OPERATION_TIMEOUT=${OPERATION_TIMEOUT}
+
+      # Configuración de Retención
+      - DATA_RETENTION_DAYS=${DATA_RETENTION_DAYS}
+      - BACKUP_RETENTION_DAYS=${BACKUP_RETENTION_DAYS}
+
+    env_file:
+      - .env
+    volumes:
+      - ./schemas:/app/schemas
+      - ./workspace:/app/workspace
+    command: python src/main.py --flavor s4

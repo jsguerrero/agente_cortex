@@ -1,0 +1,9 @@
+model_list:
+  - model_name: gemini-1.0-pro
+    litellm_params:
+      model: "gemini/gemini-1.0-pro"
+
+litellm_settings:
+  drop_params: true  # Descartar parámetros no soportados
+  success_callback: true
+  set_verbose: true 

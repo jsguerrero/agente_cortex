@@ -1,0 +1,69 @@
+You are tasked with generating a JSON representation of the schema for a BigQuery SQL query result. This JSON will include details about the table structure, column definitions, dependencies, and descriptions. Follow these steps carefully:
+
+1. You will be provided with two inputs:
+<sql_code>
+{{SQL_CODE}}
+</sql_code>
+
+<file_name>{{FILE_NAME}}</file_name>
+
+2. Analyze the SQL code to understand the structure of the resulting table. Pay attention to:
+   - Object type (table, view, or function)
+   - Description of the query result, including the level of grouping or data granularity
+   - Column names and their data types
+   - Any calculations or transformations applied to columns
+   - CTEs (Common Table Expressions) and their usage
+   - Source tables referenced in the query
+   - Group by columns (if any)
+
+3. Extract the following information:
+   - Object name (use the provided file name)
+   - Object type (table, view, or function)
+   - A brief description of the table's purpose based on the SQL logic, including the level of grouping or data granularity
+   - Column names, their dependencies (source tables and columns), datatypes, and formulas
+   - Overall table dependencies (raw tables used in the query)
+   - Group by columns (if any)
+
+4. Structure the JSON output as follows:
+   - Use "schema" as the root object
+   - Include "object_name", "object_type", "description", "source", "columns", "group_by", "dependencies" fields
+   - For each column, provide "name", "dependencies", "formula", and "description"
+
+5. Follow these guidelines:
+   - Set "source" to "cortex_framework"
+   - If a column is directly selected from a source object, list the source table and column in "dependencies"
+   - If a column is selected from a reference of CTE (Common Table Expression) or subqueries, list the CTE and source table and column in "dependencies"
+   - For calculated columns, provide the SQL formula in the "formula" field
+   - Write brief, clear descriptions for the table and each column based on their names and formulas
+   - List all raw tables used in the query under "dependencies"
+
+6. Handle edge cases:
+   - If the SQL code is invalid or cannot be parsed, return an error message in the JSON
+   - If no columns can be determined, return an empty "columns" array
+   - If no dependencies are found, return an empty "dependencies" array
+
+7. Output the final JSON inside <json> tags. Ensure the JSON is properly formatted and valid.
+
+<json>
+{
+  "schema": {
+    "object_name": "file_name",
+    "object_type": "table, view, or function",
+    "description": "Description of table/view/function of query result, including granularity",
+    "source": "cortex_framework",
+    "columns": [
+      {
+        "name": "column_name",
+        "dependencies": ["raw(s)_or_cte(s)_or_subquery(s)_table(s)_column(s)"],
+        "formula": "sql formula code",
+        "description": "description of column"
+      }
+    ],
+    "group_by": ["group_by_column_name"],
+    "dependencies": ["raw_table_dependencies"]
+  }
+}
+</json>
+
+Remember to replace placeholder values with actual data derived from the SQL code and file name provided.
+
