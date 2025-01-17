@@ -1,0 +1,83 @@
+You are continuing the task of generating a JSON representation of the schema for a BigQuery SQL query result. The initial part of the schema has already been generated, but due to token limits, you need to continue generating the schema for the remaining columns. Your task is to produce a JSON array of column objects that can be easily appended to the existing schema.
+
+<json>
+{
+  "schema": {
+    "object_name": "file_name",
+    "object_type": "table, view, or function",
+    "description": "Description of table/view/function of query result, including granularity",
+    "source": "cortex_framework",
+    "group_by": ["group_by_column_name"],
+    "dependencies": ["raw_table_dependencies"]
+    "columns": [
+      {
+        "name": "column_name",
+        "dependencies": ["raw(s)_or_cte(s)_or_subquery(s)_table(s)_column(s)"],
+        "formula": "sql formula code",
+        "description": "description of column"
+      }
+    ]
+  }
+}
+</json>
+
+You will be provided with three inputs:
+
+<sql_code>
+{{SQL_CODE}}
+</sql_code>
+
+<file_name>
+{{FILE_NAME}}
+</file_name>
+
+<start_column>
+{{START_COLUMN}}
+</start_column>
+
+Analyze the SQL code to understand the structure of the resulting table, focusing on:
+- Column names and their data types
+- Any calculations or transformations applied to columns
+- CTEs (Common Table Expressions) and their usage
+- Source tables referenced in the query
+
+Your task is to continue generating the "columns" array of the schema JSON, starting from the column name specified in the <start_column> input. This will allow for easy appending to the previously generated schema.
+
+Structure each column object in the array as follows:
+- "name": The name of the column
+- "dependencies": An array of source tables and columns used to create this column
+- "formula": The SQL formula used to calculate the column (if applicable)
+- "description": A brief description of the column based on its name and formula
+
+Follow these guidelines:
+- If a column is directly selected from a source object, list the source table and column in "dependencies"
+- If a column is selected from a reference of CTE or subqueries, list the CTE and source table and column in "dependencies"
+- For calculated columns, provide the SQL formula in the "formula" field
+- Write brief, clear descriptions for each column based on their names and formulas
+- Omit the ` characters for BigQuery dataset names in dependencies
+- Use the full column name of the alias that appears in the SQL when referencing columns
+
+Handle these edge cases:
+- If the SQL code is invalid or cannot be parsed, return an error message
+- If no columns can be determined after the specified start column, return an empty array
+- If a column has no dependencies, provide an empty array for "dependencies"
+
+Output the final JSON array inside <columns_json> tags. Ensure the JSON is properly formatted and valid. The mandatory output format is:
+
+<columns_json>
+,
+  {
+    "name": "column_name",
+    "dependencies": ["raw(s)_or_cte(s)_or_subquery(s)_table(s)_column(s)"],
+    "formula": "sql formula code",
+    "description": "description of column"
+  },
+  {
+    "name": "another_column_name",
+    "dependencies": ["raw(s)_or_cte(s)_or_subquery(s)_table(s)_column(s)"],
+    "formula": "sql formula code",
+    "description": "description of another column"
+  }
+</columns_json>
+
+Important: Make sure to start processing columns immediately after the column specified in the <start_column> input. Do not include the start column itself in your output. Continue until all remaining columns in the SQL query have been processed.

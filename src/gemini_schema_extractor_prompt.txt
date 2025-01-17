@@ -36,6 +36,8 @@ You are tasked with generating a JSON representation of the schema for a BigQuer
    - For calculated columns, provide the SQL formula in the "formula" field
    - Write brief, clear descriptions for the table and each column based on their names and formulas
    - List all raw tables used in the query under "dependencies"
+   - Omit the ` characters for BigQuery dataset names in dependencies
+   - Use the full column name of the alias that appears in the SQL when referencing columns
 
 6. Handle edge cases:
    - If the SQL code is invalid or cannot be parsed, return an error message in the JSON
@@ -51,6 +53,8 @@ You are tasked with generating a JSON representation of the schema for a BigQuer
     "object_type": "table, view, or function",
     "description": "Description of table/view/function of query result, including granularity",
     "source": "cortex_framework",
+    "group_by": ["group_by_column_name"],
+    "dependencies": ["raw_table_dependencies"]
     "columns": [
       {
         "name": "column_name",
@@ -58,9 +62,7 @@ You are tasked with generating a JSON representation of the schema for a BigQuer
         "formula": "sql formula code",
         "description": "description of column"
       }
-    ],
-    "group_by": ["group_by_column_name"],
-    "dependencies": ["raw_table_dependencies"]
+    ]
   }
 }
 </json>
