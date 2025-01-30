@@ -7,6 +7,7 @@ from pydantic import BaseModel
 from litellm import completion
 from json_processor import process_full_response
 import time
+import json
 
 logger = logging.getLogger(__name__)
 
@@ -35,7 +36,7 @@ class TableSchema(BaseModel):
 
 def load_prompt_template(prompt_type: str) -> str:
     """Carga el template del prompt desde el archivo"""
-    prompt_path = Path(__file__).parent / f"gemini_{prompt_type}_prompt.txt"
+    prompt_path = Path(__file__).parent / "prompts" / f"gemini_{prompt_type}_prompt.txt"
     with open(prompt_path, 'r', encoding='utf-8') as f:
         return f.read()
 
@@ -110,9 +111,42 @@ def call_gemini(sql_code: str, prompt: str, continue_prompt: str, sql_file_name:
     logger.error("Se alcanzó el número máximo de reintentos. Abortando.")
     return ""
 
+def call_gemini_for_joins(sql_code: str, sql_file_name: str) -> str:
+    """Llama a Gemini para obtener información sobre los joins en el SQL"""
+    try:
+        join_prompt = load_prompt_template("join_extractor")
+        current_prompt = join_prompt.replace("{{SQL_CODE}}", sql_code).replace("{{FILE_NAME}}", sql_file_name)
+        
+        response = completion(
+            model="gemini/gemini-1.5-flash",
+            messages=[{"role": "user", "content": current_prompt}],
+            api_key=os.getenv("GEMINI_API_KEY"),
+            response_format={"type": "json_object"},
+            temperature=0.0
+        )
+
+        response_content = response.get('choices', [{}])[0].get('message', {}).get('content')
+        return response_content
+
+    except Exception as e:
+        logger.error(f"Error en la llamada a Gemini para joins: {str(e)}")
+        return ""
+
 def process_schema(sql_code: str, sql_file_name: str) -> dict:
     """Procesa el esquema de un archivo SQL"""
     prompt = load_prompt_template("schema_extractor")
     continue_prompt = load_prompt_template("continue_schema_extractor")
     full_response = call_gemini(sql_code, prompt, continue_prompt, sql_file_name)
-    return process_full_response(full_response)
+    
+    # Procesar el esquema principal
+    schema = process_full_response(full_response)
+    
+    # Obtener información sobre los joins
+    joins_response = call_gemini_for_joins(sql_code, sql_file_name)
+    try:
+        joins_data = json.loads(joins_response)
+        schema['schema']['joins'] = joins_data.get('joins', [])
+    except json.JSONDecodeError as e:
+        logger.error("Error al decodificar JSON de joins: %s", e)
+    
+    return schema

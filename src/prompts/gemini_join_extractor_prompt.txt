@@ -1,0 +1,25 @@
+You are tasked with extracting join information from a BigQuery SQL query. The output should be a JSON array of join objects, each containing details about the join type, base table, join conditions, and any rules or optimizations.
+
+<sql_code>
+{{SQL_CODE}}
+</sql_code>
+
+<file_name>{{FILE_NAME}}</file_name>
+
+Output the join information in the following format:
+
+<json>
+{
+  "joins": [
+    {
+      "view_name": "view_name",
+      "join_type": "join_type",
+      "tabla_base": "base_table",
+      "uniones": [],
+      "is_complex_join": false,
+      "join_conditions": ["condition1", "condition2"],
+      "rules": []
+    }
+  ]
+}
+</json> 
