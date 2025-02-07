@@ -9,6 +9,12 @@ Este proyecto tiene como objetivo documentar en formato JSON las estructuras de 
 - Facilitar el entendimiento y uso de las tablas por parte de los equipos de análisis
 - Permitir el versionamiento y seguimiento de cambios en las estructuras
 
+## Requisitos Previos
+- Python 3.8 o superior
+- Docker y Docker Compose (opcional, si se desea ejecutar en contenedor)
+- Git
+- Una clave de API de Google Cloud Platform con acceso a Gemini API
+
 ## Estructura del Proyecto
 
     /
@@ -27,6 +33,106 @@ Este proyecto tiene como objetivo documentar en formato JSON las estructuras de 
     ├── .env                    # Variables de entorno
     └── README.md               # Este archivo
 
+## Instalación y Configuración
+
+### Método 1: Instalación Local
+
+1. Clonar el repositorio:
+```bash
+git clone https://github.com/tu-usuario/agente_cortex.git
+cd agente_cortex
+```
+
+2. Crear y activar un entorno virtual:
+```bash
+python -m venv venv
+# En Windows
+.\venv\Scripts\activate
+# En Linux/Mac
+source venv/bin/activate
+```
+
+3. Instalar dependencias:
+```bash
+pip install -r requirements.txt
+```
+
+4. Copiar el archivo de variables de entorno y configurarlo:
+```bash
+cp template.env .env
+```
+
+5. Editar el archivo .env con tus configuraciones:
+```
+# API Keys
+GOOGLE_API_KEY=your_api_key
+
+# Configuración Cortex
+SAP_FLAVOR=s4
+DEPLOYMENT_MODE=deploy
+
+# Directorios
+OUTPUT_DIR=./schemas
+WORKSPACE_DIR=./workspace
+```
+
+### Método 2: Usando Docker
+
+1. Clonar el repositorio:
+```bash
+git clone https://github.com/tu-usuario/agente_cortex.git
+cd agente_cortex
+```
+
+2. Copiar y configurar el archivo .env:
+```bash
+cp template.env .env
+# Editar .env con tu editor preferido
+```
+
+3. Construir y ejecutar con Docker Compose:
+```bash
+docker-compose up --build
+```
+
+## Uso
+
+### Ejecución Local
+
+1. Activar el entorno virtual si no está activo:
+```bash
+# En Windows
+.\venv\Scripts\activate
+# En Linux/Mac
+source venv/bin/activate
+```
+
+2. Ejecutar el script principal:
+```bash
+python src/main.py
+```
+
+### Ejecución con Docker
+
+```bash
+docker-compose up
+```
+
+Los esquemas generados se encontrarán en el directorio `schemas/` organizado por módulos (operational, marketing, sustainability).
+
+## Solución de Problemas Comunes
+
+1. Error de API Key:
+   - Verificar que la GOOGLE_API_KEY en .env sea válida
+   - Asegurarse de tener acceso a Gemini API
+
+2. Error de permisos en directorios:
+   - Verificar que los directorios OUTPUT_DIR y WORKSPACE_DIR existan y tengan permisos de escritura
+
+3. Error de dependencias:
+   - Verificar que todas las dependencias estén instaladas: `pip list`
+   - En caso de error, reinstalar dependencias: `pip install -r requirements.txt`
+
 ## Flujo de Trabajo
 
 ### 1. Generación de SQL
@@ -43,29 +149,6 @@ Para cada archivo SQL generado:
 2. Se genera un esquema JSON con la estructura de la tabla
 3. Los esquemas se guardan en el directorio schemas/operational
 4. Los errores se registran en failed_schemas.json
-
-## Configuración y Uso
-
-1. Configurar variables de entorno en .env:
-
-    # API Keys
-    GOOGLE_API_KEY=your_api_key
-    
-    # Configuración Cortex
-    SAP_FLAVOR=s4
-    DEPLOYMENT_MODE=deploy
-    
-    # Directorios
-    OUTPUT_DIR=/app/schemas
-    WORKSPACE_DIR=/app/workspace
-
-2. Construir y ejecutar contenedor:
-
-    docker-compose up --build
-
-3. Los esquemas generados estarán en:
-
-    ./schemas/operational/*.json
 
 ## Formato de Salida
 Los esquemas generados siguen esta estructura:
