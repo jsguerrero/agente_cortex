@@ -7,6 +7,30 @@ logger = logging.getLogger(__name__)
 
 def create_output_json(schema_info, columns):
     """Crea la estructura JSON de salida."""
+    processed_columns = []
+    for column in columns:
+        # Crear nueva estructura para cada columna
+        processed_column = {
+            'name': {
+                'value': column['name'],
+                'is_valid': None
+            },
+            'dependencies': {
+                'value': column['dependencies'],
+                'is_valid': None
+            },
+            'formula': {
+                'value': column['formula'],
+                'is_valid': None
+            },
+            'description': {
+                'value': column['description'],
+                'is_valid': None
+            },
+            'is_valid': None
+        }
+        processed_columns.append(processed_column)
+            
     return {
         "schema": {
             "object_name": schema_info["object_name"],
@@ -15,7 +39,8 @@ def create_output_json(schema_info, columns):
             "source": schema_info["source"],
             "group_by": schema_info["group_by"],
             "dependencies": schema_info["dependencies"],
-            "columns": columns
+            "columns": processed_columns,
+            "is_valid": None
         }
     }
 

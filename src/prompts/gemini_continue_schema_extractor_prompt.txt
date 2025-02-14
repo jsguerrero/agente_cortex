@@ -81,3 +81,5 @@ Output the final JSON array inside <columns_json> tags. Ensure the JSON is prope
 </columns_json>
 
 Important: Make sure to start processing columns immediately after the column specified in the <start_column> input. Do not include the start column itself in your output. Continue until all remaining columns in the SQL query have been processed.
+
+{{VALIDATION_CONTEXT}}

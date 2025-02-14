@@ -46,6 +46,8 @@ You are tasked with generating a JSON representation of the schema for a BigQuer
 
 7. Output the final JSON inside <json> tags. Ensure the JSON is properly formatted and valid.
 
+{{VALIDATION_CONTEXT}}
+
 <json>
 {
   "schema": {

@@ -74,9 +74,17 @@ services:
       - DATA_RETENTION_DAYS=${DATA_RETENTION_DAYS}
       - BACKUP_RETENTION_DAYS=${BACKUP_RETENTION_DAYS}
 
+      # Variables de QA y Validación
+      - QA_THRESHOLD=0.8
+      - VALIDATED_SCHEMAS_DIR=/app/validated_schemas
+      - QA_OUTPUT_DIR=/app/qa_results
+
     env_file:
       - .env
     volumes:
       - ./schemas:/app/schemas
+      - ./schemas/data_dict:/app/schemas/data_dict
       - ./workspace:/app/workspace
-    command: python src/main.py --flavor s4
+      - ./validated_schemas:/app/validated_schemas
+      - ./qa_results:/app/qa_results
+    command: python src/main.py

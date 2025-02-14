@@ -134,12 +134,52 @@ def call_gemini_for_joins(sql_code: str, sql_file_name: str) -> str:
 
 def process_schema(sql_code: str, sql_file_name: str) -> dict:
     """Procesa el esquema de un archivo SQL"""
+    # Verificar si existe un esquema validado
+    validated_schema = check_validated_schema(sql_file_name)
+    
     prompt = load_prompt_template("schema_extractor")
     continue_prompt = load_prompt_template("continue_schema_extractor")
+    
+    # Si existe un esquema validado, agregarlo al contexto del prompt
+    if validated_schema:
+        prompt = enrich_prompt_with_validation(prompt, validated_schema)
+        continue_prompt = enrich_prompt_with_validation(continue_prompt, validated_schema)
+    
     full_response = call_gemini(sql_code, prompt, continue_prompt, sql_file_name)
     
     # Procesar el esquema principal
     schema = process_full_response(full_response)
+    
+    # Agregar campos de validación al esquema y a cada columna
+    if 'schema' in schema:
+        schema['schema']['is_valid'] = None
+        
+        # Agregar is_valid a cada columna y copiar validaciones previas
+        for column in schema['schema'].get('columns', []):
+            column['is_valid'] = None
+            # Asegurar que cada atributo tenga is_valid
+            for attr in ['name', 'dependencies', 'formula', 'description']:
+                if isinstance(column[attr], dict):
+                    if 'is_valid' not in column[attr]:
+                        column[attr]['is_valid'] = None
+                else:
+                    # Convertir el valor simple a estructura con is_valid
+                    value = column[attr]
+                    column[attr] = {
+                        'value': value,
+                        'is_valid': None
+                    }
+            
+            # Si existe un esquema validado, copiar el estado de validación
+            if validated_schema:
+                for validated_column in validated_schema['schema'].get('columns', []):
+                    if column['name']['value'] == validated_column['name']['value']:
+                        column['is_valid'] = validated_column.get('is_valid')
+                        # Copiar atributos validados
+                        for attr in ['dependencies', 'formula', 'description']:
+                            if validated_column[attr].get('is_valid'):
+                                column[attr] = validated_column[attr]
+                        break
     
     # Obtener información sobre los joins
     joins_response = call_gemini_for_joins(sql_code, sql_file_name)
@@ -150,3 +190,33 @@ def process_schema(sql_code: str, sql_file_name: str) -> dict:
         logger.error("Error al decodificar JSON de joins: %s", e)
     
     return schema
+
+def check_validated_schema(sql_file_name: str) -> dict:
+    """Verifica si existe un esquema validado para el archivo SQL"""
+    validated_dir = Path(os.getenv('VALIDATED_SCHEMAS_DIR', '/app/validated_schemas'))
+    validated_file = validated_dir / f"{sql_file_name.replace('.sql', '_dict.json')}"
+    
+    if validated_file.exists():
+        try:
+            with open(validated_file, 'r', encoding='utf-8') as f:
+                validated_schema = json.load(f)
+                logger.info(f"Esquema validado encontrado para {sql_file_name}")
+                return validated_schema
+        except Exception as e:
+            logger.error(f"Error leyendo esquema validado {validated_file}: {str(e)}")
+    return None
+
+def enrich_prompt_with_validation(prompt: str, validated_schema: dict) -> str:
+    """Enriquece el prompt con información del esquema validado"""
+    validation_context = "\nValidated Schema Context:\n"
+    
+    for column in validated_schema['schema'].get('columns', []):
+        if column.get('is_valid') is not None:
+            validation_context += (
+                f"- Column '{column['name']}' "
+                f"({'valid' if column['is_valid'] else 'invalid'}): "
+                f"dependencies={column.get('dependencies', [])}, "
+                f"formula='{column.get('formula', '')}'\n"
+            )
+    
+    return prompt.replace("{{VALIDATION_CONTEXT}}", validation_context)
