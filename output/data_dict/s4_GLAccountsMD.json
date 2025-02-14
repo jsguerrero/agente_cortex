@@ -1,0 +1,493 @@
+{
+    "schema": {
+        "object_name": "s4_GLAccountsMD.sql",
+        "object_type": "view",
+        "description": "This view joins data from the ska1 and skat tables to provide a comprehensive view of GL Accounts, including their attributes and descriptions.  The data is at the GL Account level.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.ska1",
+            "CDC_S4.skat"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKA1.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChartOfAccounts_KTOPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKA1.KTOPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Chart of Accounts",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GlAccountNumber_SAKNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKA1.SAKNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "GL Account Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_AccountIsABalanceSheetAccount_XBILK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKA1.XBILK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Account is a Balance Sheet Account",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GlAccountNumber_SignificantLength_SAKAN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKA1.SAKAN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "GL Account Number (Significant Length)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GroupAccountNumber_BILKT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKA1.BILKT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Group Account Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOnWhichTheRecordWasCreated_ERDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKA1.ERDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date on Which the Record Was Created",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameOfPersonWhoCreatedTheObject_ERNAM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKA1.ERNAM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name of Person Who Created the Object",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PlStatementAccountType_GVTYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKA1.GVTYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PL Statement Account Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GlAccountGroup_KTOKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKA1.KTOKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "GL Account Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfTheSampleAccount_MUSTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKA1.MUSTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of the Sample Account",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyIdOfTradingPartner_VBUND",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKA1.VBUND"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company ID of Trading Partner",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_AccountMarkedForDeletion_XLOEV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKA1.XLOEV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Account Marked for Deletion",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_AccountIsBlockedForCreation_XSPEA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKA1.XSPEA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Account is Blocked for Creation",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_IsAccountBlockedForPosting_XSPEB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKA1.XSPEB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Is Account Blocked for Posting",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_AccountBlockedForPlanning_XSPEP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKA1.XSPEP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Account Blocked for Planning",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SearchTermForUsingMatchcode_MCOD1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKA1.MCOD1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Search Term for Using Matchcode",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FunctionalArea_FUNC_AREA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKA1.FUNC_AREA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Functional Area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Language_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKAT.SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GlAccountShortText_TXT20",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKAT.TXT20"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "GL Account Short Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GlAccountLongText_TXT50",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKAT.TXT50"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "GL Account Long Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SearchTermForMatchcodeSearch_MCOD1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SKAT.MCOD1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Search Term for Matchcode Search",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.ska1`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "SKA1.MANDT = SKAT.MANDT",
+                    "SKA1.KTOPL = SKAT.KTOPL",
+                    "SKA1.SAKNR = SKAT.SAKNR"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

@@ -1,0 +1,976 @@
+{
+    "schema": {
+        "object_name": "s4_SDStatus_Items.sql",
+        "object_type": "view",
+        "description": "This view provides a detailed status overview of sales document items, combining data from VBAP and LIPS tables.  It offers a granular view of each item's status across various aspects like billing, delivery, goods movement, and warehouse management.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.vbap",
+            "CDC_S4.lips"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SDDocumentNumber_VBELN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.VBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales document number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemNumberOfTheSdDocument_POSNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.POSNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item number of the sales document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReferenceStatus_RFSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.RFSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reference status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OverallStatusOfReference_RFGSA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.RFGSA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Overall status of reference",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConfirmationStatusOfDocumentItem_BESTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.BESTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Confirmation status of document item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryStatus_LFSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.LFSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OverallDeliveryStatusOfTheItem_LFGSA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.LFGSA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Overall delivery status of the item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GoodsMovementStatus_WBSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.WBSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Goods movement status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillingStatusOfDelivery_FKSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LIPS.FKSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing status of delivery",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillingStatusForOrder_FKSAA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.FKSAA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing status for order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RejectionStatusForSdItem_ABSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.ABSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rejection status for SD item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OverallProcessingStatusOfTheSdDocumentItem_GBSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.GBSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Overall processing status of the SD document item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PickingStatusputawayStatus_KOSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LIPS.KOSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Picking/putaway status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfWarehouseManagementActivities_LVSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LIPS.LVSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of warehouse management activities",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GeneralIncompletionStatusOfItem_UVALL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.UVALL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "General incompletion status of item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IncompletionStatusOfTheItemWithRegardToDelivery_UVVLK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.UVVLK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Incompletion status of the item with regard to delivery",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemIncompletionStatusWithRespectToBilling_UVFAK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.UVFAK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item incompletion status with respect to billing",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PricingForItemIsIncomplete_UVPRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.UVPRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Pricing for item is incomplete",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IntercompanyBillingStatus_FKIVP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LIPS.FKIVP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Intercompany billing status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerReserves1_ItemStatus_UVP01",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.UVP01"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer reserves 1 (item status)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerReserves2_ItemStatus_UVP02",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.UVP02"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer reserves 2 (item status)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemReserves3_ItemStatus_UVP03",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.UVP03"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item reserves 3 (item status)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemReserves4_ItemStatus_UVP04",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.UVP04"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item reserves 4 (item status)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerReserves5_ItemStatus_UVP05",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.UVP05"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer reserves 5 (item status)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PackingStatusOfItem_PKSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LIPS.PKSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Packing status of item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConfirmationStatusOfPickingputaway_KOQUA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LIPS.KOQUA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Confirmation status of picking/putaway",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfCreditCheckAgainstFinancialDocument_CMPPI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.CMPPI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of credit check against financial document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfCreditCheckAgainstExportCreditInsurance_CMPPJ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.CMPPJ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of credit check against export credit insurance",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IncompleteStatusOfItemForPickingputaway_UVPIK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LIPS.UVPIK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Incomplete status of item for picking/putaway",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IncompleteStatusOfItemForPackaging_UVPAK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LIPS.UVPAK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Incomplete status of item for packaging",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IncompleteStatusOfItemRegardingGoodsIssue_UVWAK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LIPS.UVWAK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Incomplete status of item regarding goods issue",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DelayStatus_DCSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.DCSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delay status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RevenueDeterminationStatus_RRSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "null"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Revenue determination status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DecentralizedWhseProcessing_VLSTP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LIPS.VLSTP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Decentralized warehouse processing",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillingBlockStatusForItems_FSSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.FSSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing block status for items",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryBlockStatusForItem_LSSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.LSSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery block status for item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PodStatusOnItemLevel_PDSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LIPS.PDSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "POD status on item level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ManualCompletionOfContract_MANEK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.MANEK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Manual completion of contract",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InboundDeliveryItemNotYetComplete__onHold___HDALL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LIPS.HDALL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Inbound delivery item not yet complete (on hold)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_StockableTypeSwitchedIntoStandardProduct_LTSPS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "null"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Stockable type switched into standard product",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AllocationStatusOfASalesDocumentItem_FSH_AR_STAT_ITM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "null"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Allocation status of a sales document item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfSalesOrderItem_MILL_VS_VSSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "null"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of sales order item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Billing_Status",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LIPS.FKSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CASE LIPS.FKSTA WHEN 'A' THEN 'Not Yet Processed' WHEN 'B' THEN 'Partially Processed' WHEN 'C' THEN 'Completely Processed' END",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing status description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Delivery_Status",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VBAP.LFSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CASE VBAP.LFSTA WHEN 'A' THEN 'Not Yet Processed' WHEN 'B' THEN 'Partially Processed' WHEN 'C' THEN 'Completely Processed' END",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery status description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.vbap` AS VBAP",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "VBAP.VBELN = LIPS.VGBEL",
+                    "VBAP.POSNR = LIPS.VGPOS",
+                    "VBAP.MANDT = LIPS.MANDT"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

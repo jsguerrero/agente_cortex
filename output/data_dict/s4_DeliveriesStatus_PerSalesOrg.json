@@ -1,0 +1,1088 @@
+{
+    "schema": {
+        "object_name": "s4_DeliveriesStatus_PerSalesOrg.sql",
+        "object_type": "view",
+        "description": "This view joins data from deliveries, sales organizations, and delivery status to provide a comprehensive overview of deliveries, including their status, organizational context, and key attributes.  The data is at the delivery item level.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.Deliveries",
+            "REPORTING.SDStatus_Items",
+            "REPORTING.SalesOrganizationsMD"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.Client_MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Delivery_VBELN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.Delivery_VBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesDistrict_BZIRK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.SalesDistrict_BZIRK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales District",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ShippingPointreceivingPoint_VSTEL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.ShippingPointreceivingPoint_VSTEL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Shipping Point/Receiving Point",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrganization_VKORG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.SalesOrganization_VKORG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Organization",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryType_LFART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.DeliveryType_LFART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompleteDeliveryDefinedForEachSalesOrder_AUTLF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.CompleteDeliveryDefinedForEachSalesOrder_AUTLF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Complete Delivery Defined For Each Sales Order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ActualQuantityDeliveredInStockkeepingUnits_LGMNG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.ActualQuantityDeliveredInStockkeepingUnits_LGMNG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Actual Quantity Delivered In Stock Keeping Units",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BaseUnitOfMeasure_MEINS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.BaseUnitOfMeasure_MEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Base Unit of Measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LoadingDate_LDDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.LoadingDate_LDDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Loading Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TransportationPlanningDate_TDDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.TransportationPlanningDate_TDDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Transportation Planning Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryDate_LFDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.DeliveryDate_LFDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UnloadingPoint_ABLAD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.UnloadingPoint_ABLAD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Unloading Point",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Incoterms__part1___INCO1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.Incoterms__part1___INCO1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Incoterms (part 1)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Incoterms__part2___INCO2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.Incoterms__part2___INCO2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Incoterms (part 2)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExportIndicator_EXPKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.ExportIndicator_EXPKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Export Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Route_ROUTE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.Route_ROUTE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Route",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillingBlockInSdDocument_FAKSK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.BillingBlockInSdDocument_FAKSK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing Block in SD Document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryBlock_documentHeader_LIFSK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.DeliveryBlock_documentHeader_LIFSK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Block (document header)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SdDocumentCategory_VBTYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.SdDocumentCategory_VBTYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "SD Document Category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerFactoryCalendar_KNFAK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.CustomerFactoryCalendar_KNFAK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer Factory Calendar",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ShippingConditions_VSBED",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.ShippingConditions_VSBED"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Shipping Conditions",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ShipToParty_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.ShipToParty_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ship-to Party",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SoldToParty_KUNAG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.SoldToParty_KUNAG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sold-to Party",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerGroup_KDGRP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.CustomerGroup_KDGRP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalWeight_BTGEW",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.TotalWeight_BTGEW"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Weight",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NetWeight_NTGEW",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.NetWeight_NTGEW"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Net Weight",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WeightUnit_GEWEI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.WeightUnit_GEWEI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Weight Unit",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VolumeUnit_VOLEH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.VolumeUnit_VOLEH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Volume Unit",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalNumberOfPackagesInDelivery_ANZPK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.TotalNumberOfPackagesInDelivery_ANZPK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Number of Packages in Delivery",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PickedItemsLocation_BEROT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.PickedItemsLocation_BEROT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Picked Items Location",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TimeOfDelivery_LFUHR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.TimeOfDelivery_LFUHR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Time of Delivery",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LoadingPoint_LSTEL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.LoadingPoint_LSTEL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Loading Point",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SdDocumentCurrency_WAERK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.SdDocumentCurrency_WAERK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "SD Document Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ShippingProcessingTimeForTheEntireDocument_VBEAK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.ShippingProcessingTimeForTheEntireDocument_VBEAK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Shipping Processing Time For The Entire Document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfLastChange_AEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.DateOfLastChange_AEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date Of Last Change",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DocumentDateInDocument_BLDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.DocumentDateInDocument_BLDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Document Date In Document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReferenceDocumentNumber_XBLNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.ReferenceDocumentNumber_XBLNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reference Document Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Date__proofOfDelivery___PODAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.Date__proofOfDelivery___PODAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date (proof of delivery)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryItem_POSNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.DeliveryItem_POSNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialNumber_MATNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.MaterialNumber_MATNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialGroup_MATKL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.MaterialGroup_MATKL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_WERKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.Plant_WERKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StorageLocation_LGORT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.StorageLocation_LGORT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Storage Location",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrgCurrency_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrganizations.SalesOrgCurrency_WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Organization Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrgName_VTEXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrganizations.SalesOrgName_VTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Organization Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Country_LAND1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrganizations.Country_LAND1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Language_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrganizations.Language_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryStatus_LFSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SD.DeliveryStatus_LFSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "is_return",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "del.is_return"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Is Return",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Delivery_StatusItm",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SD.DeliveryStatus_LFSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CASE SD.DeliveryStatus_LFSTA WHEN 'A' THEN 'Not Yet Processed' WHEN 'B' THEN 'Partially Processed' WHEN 'C' THEN 'Completely Processed' END",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Status Item (Categorical) ",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

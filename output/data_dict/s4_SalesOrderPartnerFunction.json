@@ -1,0 +1,562 @@
+{
+    "schema": {
+        "object_name": "s4_SalesOrderPartnerFunction.sql",
+        "object_type": "view",
+        "description": "This view contains partner function data for sales orders from the vbpa table in the CDC_S4 dataset.  It provides a detailed record for each partner involved in a sales order, including customer, vendor, and contact person information.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.vbpa"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesDocument_VBELN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.VBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales document number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Item_POSNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.POSNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PartnerFunction_PARVW",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.PARVW"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Partner function",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Customer_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Vendor_LIFNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.LIFNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PersonnelNumber_PERNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.PERNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Personnel number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfContactPerson_PARNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.PARNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of contact person",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Address_ADRNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.ADRNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Address number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UnloadingPoint_ABLAD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.ABLAD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Unloading point",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Country_LAND1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.LAND1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AddressIndicator_ADRDA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.ADRDA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Address indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndicatorOneTimeAccount_XCPDK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.XCPDK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator for one-time account",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerHierarchyType_HITYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.HITYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer hierarchy type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RelevantForPriceDeterminationID_PRFRE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.PRFRE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Relevant for price determination ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndicatorCustomerToReceiveRebates_BOKRE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.BOKRE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator for customer to receive rebates",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LevelNumberWithinHierarchy_HISTUNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.HISTUNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Level number within hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerDescriptionOfPartner_KNREF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.KNREF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer description of partner",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TransportationZone_LZONE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.LZONE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Transportation zone",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssignmentToHierarchy_HZUOR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.HZUOR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Assignment to hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VATRegistrationNumber_STCEG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.STCEG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "VAT registration number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndicatorFurtherPartners_PARVW_FF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.PARVW_FF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator for further partners",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PersonNumber_ADRNP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.ADRNP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Person number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaintainAppointmentsInCalendar_KALE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.KALE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Maintain appointments in calendar",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DataFilterValueForDataAging_DATAAGING",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.DATAAGING"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Data filter value for data aging",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DummyFunctionInLength1_DUMMY_SDDOCPARTNER_INCL_EEW_PS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbpa.DUMMY_SDDOCPARTNER_INCL_EEW_PS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Dummy function in length 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": []
+    }
+}

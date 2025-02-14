@@ -1,0 +1,15 @@
+{
+    "schema": {
+        "object_name": "s4_fsv_delete_node.sql",
+        "object_type": "function",
+        "description": "This stored procedure deletes nodes from the fsv_flattened table based on chart of accounts and node input. It recursively deletes child nodes as well.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.fsv_flattened"
+        ],
+        "columns": [],
+        "is_valid": null,
+        "joins": []
+    }
+}

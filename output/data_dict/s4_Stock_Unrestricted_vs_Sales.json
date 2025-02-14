@@ -1,0 +1,430 @@
+{
+    "schema": {
+        "object_name": "s4_Stock_Unrestricted_vs_Sales.sql",
+        "object_type": "view",
+        "description": "This view joins stock and sales data to provide a combined view of unrestricted stock and sales quantities at the material, plant, and storage location level, grouped by client, material number, plant, storage location, and language.  It filters results to include only specified languages.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.Stock_NonValuated",
+            "REPORTING.SalesFulfillment_perOrder"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "sales",
+                        "stock",
+                        "REPORTING.SalesFulfillment_perOrder",
+                        "Client_MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialNumber_MATNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "sales",
+                        "stock",
+                        "REPORTING.SalesFulfillment_perOrder",
+                        "MaterialNumber_MATNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialText_MAKTX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "stock",
+                        "REPORTING.Stock_NonValuated",
+                        "MaterialText_MAKTX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_WERKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "sales",
+                        "stock",
+                        "REPORTING.SalesFulfillment_perOrder",
+                        "Plant_WERKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_Name",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "stock",
+                        "REPORTING.Stock_NonValuated",
+                        "Plant_Name"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BaseUnitOfMeasure_MEINS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "stock",
+                        "REPORTING.Stock_NonValuated",
+                        "BaseUnitOfMeasure_MEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Base Unit of Measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProductHierarchy_PRDHA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "stock",
+                        "REPORTING.Stock_NonValuated",
+                        "ProductHierarchy_PRDHA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Product Hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_Region",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "stock",
+                        "REPORTING.Stock_NonValuated",
+                        "Plant_Region"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant Region",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_Country",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "stock",
+                        "REPORTING.Stock_NonValuated",
+                        "Plant_Country"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant Country",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StorageLocation_LGORT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "sales",
+                        "stock",
+                        "REPORTING.SalesFulfillment_perOrder",
+                        "StorageLocation_LGORT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Storage Location",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Language_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "sales",
+                        "stock",
+                        "REPORTING.SalesFulfillment_perOrder",
+                        "Language_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UnrestrictedStock",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "stock",
+                        "REPORTING.Stock_NonValuated",
+                        "ValuatedUnrestrictedUseStock"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(ValuatedUnrestrictedUseStock)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sum of Valuated Unrestricted Use Stock",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesQty",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "sales",
+                        "REPORTING.SalesFulfillment_perOrder",
+                        "SalesQty"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(SalesQty)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sum of Sales Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveredQty",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "sales",
+                        "REPORTING.SalesFulfillment_perOrder",
+                        "DeliveredQty"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(DeliveredQty)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sum of Delivered Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveredUoM_MEINS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "sales",
+                        "REPORTING.SalesFulfillment_perOrder",
+                        "DeliveredUoM_MEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivered Unit of Measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PendingDelivery",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "sales",
+                        "REPORTING.SalesFulfillment_perOrder",
+                        "PendingDelivery"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(PendingDelivery)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sum of Pending Deliveries",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesUnit_VRKME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "sales",
+                        "REPORTING.SalesFulfillment_perOrder",
+                        "SalesUnit_VRKME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Unit",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "sales",
+                "join_type": "LEFT OUTER JOIN",
+                "tabla_base": "stock",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "stock.Client_MANDT = sales.Client_MANDT",
+                    "stock.MaterialNumber_MATNR = sales.MaterialNumber_MATNR",
+                    "stock.Plant_WERKS = sales.Plant_WERKS",
+                    "stock.StorageLocation_LGORT = sales.StorageLocation_LGORT",
+                    "stock.Language_SPRAS = sales.Language_SPRAS",
+                    "stock.BaseUnitOfMeasure_MEINS = sales.DeliveredUoM_MEINS"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

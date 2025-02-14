@@ -1,0 +1,203 @@
+{
+    "schema": {
+        "object_name": "s4_CompaniesMD.sql",
+        "object_type": "view",
+        "description": "This view contains company master data from SAP S4HANA, providing details such as company code, name, address, and other relevant attributes.  The data is at the company code level.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.t001"
+        ],
+        "columns": [
+            {
+                "name": "Client_MANDT",
+                "dependencies": [
+                    "t001.MANDT"
+                ],
+                "formula": null,
+                "description": "Client",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CurrencyCode_WAERS",
+                "dependencies": [
+                    "t001.WAERS"
+                ],
+                "formula": null,
+                "description": "Currency Code",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CompanyCode_BUKRS",
+                "dependencies": [
+                    "t001.BUKRS"
+                ],
+                "formula": null,
+                "description": "Company Code",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CompanyText_BUTXT",
+                "dependencies": [
+                    "t001.BUTXT"
+                ],
+                "formula": null,
+                "description": "Company Text",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CityName_ORT01",
+                "dependencies": [
+                    "t001.ORT01"
+                ],
+                "formula": null,
+                "description": "City Name",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Country_LAND1",
+                "dependencies": [
+                    "t001.LAND1"
+                ],
+                "formula": null,
+                "description": "Country",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Language_SPRAS",
+                "dependencies": [
+                    "t001.SPRAS"
+                ],
+                "formula": null,
+                "description": "Language",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ChartOfAccounts_KTOPL",
+                "dependencies": [
+                    "t001.KTOPL"
+                ],
+                "formula": null,
+                "description": "Chart of Accounts",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalyearVariant_PERIV",
+                "dependencies": [
+                    "t001.PERIV"
+                ],
+                "formula": null,
+                "description": "Fiscal Year Variant",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Company_RCOMP",
+                "dependencies": [
+                    "t001.RCOMP"
+                ],
+                "formula": null,
+                "description": "Company",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CreditControlArea_KKBER",
+                "dependencies": [
+                    "t001.KKBER"
+                ],
+                "formula": null,
+                "description": "Credit Control Area",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CountryChartofAccounts_KTOP2",
+                "dependencies": [
+                    "t001.KTOP2"
+                ],
+                "formula": null,
+                "description": "Country Chart of Accounts",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FundsManagement_FIKRS",
+                "dependencies": [
+                    "t001.FIKRS"
+                ],
+                "formula": null,
+                "description": "Funds Management",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": []
+    }
+}

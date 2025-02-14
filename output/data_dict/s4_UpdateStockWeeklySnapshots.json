@@ -1,0 +1,421 @@
+{
+    "schema": {
+        "object_name": "s4_UpdateStockWeeklySnapshots.sql",
+        "object_type": "procedure",
+        "description": "This procedure updates the stock_weekly_snapshots table with weekly stock data, aggregated at the material level for each week between specified start and end dates.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.stock_weekly_snapshots",
+            "REPORTING.weekly_inventory_aggregation",
+            "K9_PROCESSING.calendar_date_dim"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "mandt",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LastWeekSnapshot.mandt",
+                        "CurrentPeriodMovements.mandt"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "werks",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LastWeekSnapshot.werks",
+                        "CurrentPeriodMovements.werks"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "matnr",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LastWeekSnapshot.matnr",
+                        "CurrentPeriodMovements.matnr"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "charg",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LastWeekSnapshot.charg",
+                        "CurrentPeriodMovements.charg"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Batch Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "lgort",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LastWeekSnapshot.lgort",
+                        "CurrentPeriodMovements.lgort"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Storage Location",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "bukrs",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LastWeekSnapshot.bukrs",
+                        "CurrentPeriodMovements.bukrs"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "cal_year",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "DateDim.cal_year"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "EXTRACT(YEAR FROM weekEndDate)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Calendar Year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "cal_week",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "DateDim.cal_week"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "EXTRACT(WEEK FROM weekEndDate)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Calendar Week",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "meins",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LastWeekSnapshot.meins",
+                        "CurrentPeriodMovements.meins"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Unit of Measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "waers",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LastWeekSnapshot.waers",
+                        "CurrentPeriodMovements.waers"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "stock_characteristic",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LastWeekSnapshot.stock_characteristic",
+                        "CurrentPeriodMovements.stock_characteristic"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Stock Characteristic",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "week_end_date",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "DateDim.week_end_date"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Week End Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "total_weekly_movement_quantity",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentPeriodMovements.total_weekly_movement_quantity",
+                        "LastWeekSnapshot.quantity_weekly_cumulative",
+                        "WeeklyCumulative.total_weekly_movement_quantity_sum"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(total_weekly_movement_quantity, 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Weekly Movement Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "total_weekly_movement_amount",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentPeriodMovements.total_weekly_movement_amount",
+                        "LastWeekSnapshot.amount_weekly_cumulative",
+                        "WeeklyCumulative.total_weekly_movement_amount_sum"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(total_weekly_movement_amount, 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Weekly Movement Amount",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "amount_weekly_cumulative",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "WeeklyCumulative.total_weekly_movement_amount_sum"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(total_weekly_movement_amount_sum) OVER (PARTITION BY mandt, matnr, werks, charg, lgort, bukrs, meins, waers, stock_characteristic ORDER BY week_end_date ASC ROWS UNBOUNDED PRECEDING)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cumulative Amount for the Week",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "quantity_weekly_cumulative",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "WeeklyCumulative.total_weekly_movement_quantity_sum"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(total_weekly_movement_quantity_sum) OVER (PARTITION BY mandt, matnr, werks, charg, lgort, bukrs, meins, waers, stock_characteristic ORDER BY week_end_date ASC ROWS UNBOUNDED PRECEDING)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cumulative Quantity for the Week",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "WeeklyCumulativeRaw",
+                "join_type": "CROSS JOIN",
+                "tabla_base": "DateDim",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [],
+                "rules": []
+            },
+            {
+                "view_name": "WeeklyCumulativeRaw",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "DateDim CROSS JOIN AllMaterialCombinations",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "week_end_date",
+                    "cal_year",
+                    "cal_week",
+                    "mandt",
+                    "werks",
+                    "matnr",
+                    "charg",
+                    "lgort",
+                    "bukrs",
+                    "meins",
+                    "waers",
+                    "stock_characteristic"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "WeeklyCumulative",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "WeeklyCumulative",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "week_end_date",
+                    "cal_year",
+                    "cal_week",
+                    "mandt",
+                    "werks",
+                    "matnr",
+                    "charg",
+                    "lgort",
+                    "bukrs",
+                    "meins",
+                    "waers",
+                    "stock_characteristic"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

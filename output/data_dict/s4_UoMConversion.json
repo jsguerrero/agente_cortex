@@ -1,0 +1,100 @@
+{
+    "schema": {
+        "object_name": "s4_UoMConversion.sql",
+        "object_type": "view",
+        "description": "This view performs a unit of measure conversion calculation. It joins data from the t006 table (twice, once as t6_out and once as t6_in) based on matching mandt and different MSEHI values.  The calculation involves comparing and adjusting values based on several fields (exp10, addko, nennr, zaehl) and potentially handles different scenarios based on the sign of the difference between t6_out.exp10 and t6_in.exp10. The result is a single val_out column representing the converted value.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.t006"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "dimension",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t6_in.dimid",
+                        "t6_out.dimid"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "if(t6_in.dimid != t6_out.dimid, 'ERROR', t6_in.dimid)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Dimension ID from t6_in; returns 'ERROR' if it differs from t6_out.dimid",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "val_out",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t6_out.exp10",
+                        "t6_in.exp10",
+                        "t6_out.addko",
+                        "t6_in.addko",
+                        "t6_out.zaehl",
+                        "t6_in.zaehl",
+                        "t6_out.nennr",
+                        "t6_in.nennr",
+                        "t6_in.to_conv",
+                        "val_in"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "if ( t6_out.exp10 - t6_in.exp10 < 0, (val_in * ( t6_out.zaehl * t6_in.nennr ) ) /  (t6_in.zaehl * t6_out.nennr ) * if(t6_out.exp10 > 0  and t6_in.exp10 > 0, (10 ^ ( - t6_out.exp10 - t6_in.exp10 ) ), 1 ) +  ( (t6_out.addko - t6_in.addko ) * t6_in.to_conv ) * if(t6_in.exp10 <> 0, ( 10 ^ ( -t6_in.exp10 ) ), 1 ), ( val_in * ( (t6_in.zaehl * t6_out.nennr ) * if(t6_out.exp10 > 0  and t6_in.exp10 > 0, (10 ^ (  t6_out.exp10 - t6_in.exp10 ) ), 1 ) ) / ( t6_out.zaehl * t6_in.nennr ) ) + if (t6_out.addko - t6_in.addko <> 0 , ( (t6_out.addko - t6_in.addko ) * t6_in.to_conv ) * if(t6_in.exp10 <>0, ( 10 ^ ( -t6_in.exp10 ) ), 1 ) ,0 ))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Calculated converted value based on various factors and conditions",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "t6_out",
+                "join_type": "LEFT OUTER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.t006`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "T6_out.mandt = t6_in.mandt"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "t6_in",
+                "join_type": null,
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.t006`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "t6_out",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "t6_out.mandt = t6_in.mandt"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

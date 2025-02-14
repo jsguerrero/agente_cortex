@@ -1,0 +1,295 @@
+{
+    "schema": {
+        "object_name": "s4_SalesFulfillment.sql",
+        "object_type": "view",
+        "description": "This view joins Sales Orders data with aggregated Sales Status Items data to provide a combined view of sales order fulfillment status at the Material and Client level.  It aggregates data at the MaterialNumber and Client level.",
+        "source": "cortex_framework",
+        "group_by": [
+            "SO.Client_MANDT",
+            "vbap.SalesUnit_VRKME",
+            "vbap.Currency_WAERK",
+            "SO.MaterialNumber_MATNR",
+            "SO.MaterialText_MAKTX",
+            "SO.DeliveredUoM_MEINS",
+            "SO.DeliveredQty",
+            "SO.DeliveredUoM_MEINS",
+            "SO.DeliveredPendingBilling",
+            "vbap.SalesOrganization_VKORG"
+        ],
+        "dependencies": [
+            "REPORTING.SalesOrders",
+            "REPORTING.SalesStatus_Items"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbap.Client_MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialNumber_MATNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SO.MaterialNumber_MATNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialText_MAKTX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SO.MaterialText_MAKTX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesUnit_VRKME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbap.SalesUnit_VRKME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Unit",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Currency_WAERK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbap.Currency_WAERK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveredQty",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SO.DeliveredQty"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Delivered Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveredUoM_MEINS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SO.DeliveredUoM_MEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Unit of Measure for Delivered Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveredPendingBilling",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SO.DeliveredPendingBilling"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Difference between Delivered and Billed Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrganization_VKORG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbap.SalesOrganization_VKORG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Organization",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesQty",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SUM(vbap.CumulativeOrderQuantity_KWMENG)"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(vbap.CumulativeOrderQuantity_KWMENG)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Sales Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NetPrice",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SUM(vbap.NetPrice_NETWR)"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(vbap.NetPrice_NETWR)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Net Price",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PendingDelivery",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SUM(vbap.CumulativeOrderQuantity_KWMENG)",
+                        "SO.DeliveredQty"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "(SUM(vbap.CumulativeOrderQuantity_KWMENG) - SO.DeliveredQty)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Difference between Sales Quantity and Delivered Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "SO",
+                "join_type": "LEFT OUTER JOIN",
+                "tabla_base": "`cortex-prj-dev.REPORTING.SalesOrders`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "SO.Client_MANDT = vbap.Client_MANDT",
+                    "SO.MaterialNumber_MATNR = vbap.MaterialNumber_MATNR",
+                    "SO.InvoiceCurrency_WAERS = vbap.Currency_WAERK"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

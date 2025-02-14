@@ -1,0 +1,1254 @@
+{
+    "schema": {
+        "object_name": "s4_PlantsMD.sql",
+        "object_type": "view",
+        "description": "This view contains plant master data from SAP S4HANA, providing detailed information about each plant, including its name, address, organizational relationships, and various configuration settings.  The data is at the plant level, with one row per plant.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.t001w"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_WERKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.WERKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name_NAME1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.NAME1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValuationArea_BWKEY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.BWKEY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valuation Area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerNumberOfPlant_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer Number of Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorNumberOfPlant_LIFNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.LIFNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Number of Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FactoryCalendarKey_FABKL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.FABKL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Factory Calendar Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name2_NAME2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.NAME2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StreetAndHouseNumber_STRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.STRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street and House Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PoBox_PFACH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.PFACH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostalCode_PSTLZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.PSTLZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Postal Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "City_ORT01",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.ORT01"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "City",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingOrganization_EKORG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.EKORG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Organization",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrganizationForIntercompanyBilling_VKORG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.VKORG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Organization for Intercompany Billing",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_BatchStatusManagementActive_CHAZV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.CHAZV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Batch Status Management Active",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_ConditionsAtPlantLevel_KKOWK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.KKOWK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Conditions at Plant Level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_SourceListRequirement_KORDB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.KORDB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Source List Requirement",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ActivatingRequirementsPlanning_BEDPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.BEDPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Activating Requirements Planning",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryKey_LAND1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.LAND1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Region_County__REGIO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.REGIO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Region/County",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountyCode_COUNC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.COUNC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "County Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CityCode_CITYC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.CITYC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "City Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Address_ADRNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.ADRNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Address",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaintenancePlanningPlant_IWERK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.IWERK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Maintenance Planning Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxJurisdiction_TXJCD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.TXJCD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax Jurisdiction",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DistributionChannelForIntercompanyBilling_VTWEG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.VTWEG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Distribution Channel for Intercompany Billing",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DivisionForIntercompanyBilling_SPART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.SPART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Division for Intercompany Billing",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Language_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SopPlant_WKSOP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.WKSOP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "SOP Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VarianceKey_AWSLS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.AWSLS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Variance Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_BatchStatusManagementActive_CHAZV_OLD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.CHAZV_OLD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Batch Status Management Active (Old)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PlantCategory_VLFKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.VLFKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant Category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesDistrict_BZIRK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.BZIRK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales District",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SupplyRegion__regionSupplied___ZONE1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.ZONE1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Supply Region (region supplied)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxIndicator_Plant__purchasing___TAXIW",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.TAXIW"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax Indicator (Plant/purchasing)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TakeRegularVendorIntoAccount_BZQHL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.BZQHL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Take Regular Vendor into Account",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfDaysForFirstReminderexpediter_LET01",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.LET01"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of Days for First Reminder (expediter)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfDaysForSecondReminderexpediter_LET02",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.LET02"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of Days for Second Reminder (expediter)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfDaysForThirdReminderexpediter_LET03",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.LET03"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of Days for Third Reminder (expediter)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TextNameOf1stDunningOfVendorDeclarations_TXNAM_MA1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.TXNAM_MA1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Text Name of 1st Dunning of Vendor Declarations",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TextNameOfThe2ndDunningOfVendorDeclarations_TXNAM_MA2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.TXNAM_MA2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Text Name of the 2nd Dunning of Vendor Declarations",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TextNameOf3rdDunningOfVendorDeclarations_TXNAM_MA3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.TXNAM_MA3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Text Name of 3rd Dunning of Vendor Declarations",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfDaysForPoToleranceCompressInfoRecordsSu_BETOL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.BETOL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of Days for PO Tolerance/Compress Info Records/Su",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessPlace_J_1BBRANCH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.J_1BBRANCH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Place",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RuleForDeterminingTheSalesAreaForStockTransfers_VTBFI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.VTBFI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rule for Determining the Sales Area for Stock Transfers",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DistributionProfileAtPlantLevel_FPRFW",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.FPRFW"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Distribution Profile at Plant Level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CentralArchivingMarkerForMasterRecord_ACHVM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.ACHVM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Central Archiving Marker for Master Record",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BatchRecord_TypeOfDmsUsed_DVSART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.DVSART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Batch Record: Type of DMS Used",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NodeType_SupplyChainNetwork_NODETYPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.NODETYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Node Type (Supply Chain Network)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StructureForNameFormation_NSCHEMA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.NSCHEMA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Structure for Name Formation",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CostObjectControllingLinkingActive_PKOSA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.PKOSA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Object Controlling Linking Active",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UpdatingIsActiveForMixedCosting_MISCH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.MISCH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Updating Is Active for Mixed Costing",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UpdatingIsActiveInActualCosting_MGVUPD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.MGVUPD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Updating Is Active in Actual Costing",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ShippingPointreceivingPoint_VSTEL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.VSTEL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Shipping Point/receiving Point",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UpdateOfActivityConsumptionInTheQuantityStructure_MGVLAUPD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.MGVLAUPD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Update of Activity Consumption in the Quantity Structure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ControlOfCreditOfCostCenters_MGVLAREVAL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.MGVLAREVAL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Control of Credit of Cost Centers",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InvokeAddedFunctionSourceDeterminationViaAtp_SOURCING",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.SOURCING"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Invoke Added Function Source Determination via ATP",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StoreCategoryToDifferentiateStoreShop_STORETYPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.STORETYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Store Category to Differentiate Store/Shop",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SuperiorDepartmentStore_DEP_STORE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.DEP_STORE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Superior Department Store",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

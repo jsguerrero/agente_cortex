@@ -1,0 +1,472 @@
+{
+    "schema": {
+        "object_name": "s4_GrossProfitOverview.sql",
+        "object_type": "view",
+        "description": "This view provides a gross profit overview by aggregating data at the Client, Company, ChartOfAccounts, HierarchyName, BusinessArea, ProfitCenter, LedgerInGeneralLedgerAccounting, FiscalYear, FiscalPeriod, and TargetCurrency level.  It calculates Gross Profit by subtracting Cost of Goods Sold from Net Revenue.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.ProfitAndLoss"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "REPORTING.ProfitAndLoss",
+                        "Client"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client identifier",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "REPORTING.ProfitAndLoss",
+                        "CompanyCode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYear",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "REPORTING.ProfitAndLoss",
+                        "FiscalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalPeriod",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "REPORTING.ProfitAndLoss",
+                        "FiscalPeriod"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalQuarter",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "REPORTING.ProfitAndLoss",
+                        "FiscalQuarter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(FiscalQuarter)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal quarter (maximum value)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChartOfAccounts",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "REPORTING.ProfitAndLoss",
+                        "ChartOfAccounts"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Chart of accounts",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GLHierarchy",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "REPORTING.ProfitAndLoss",
+                        "GLHierarchy"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "General Ledger Hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessArea",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "REPORTING.ProfitAndLoss",
+                        "BusinessArea"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LedgerInGeneralLedgerAccounting",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "REPORTING.ProfitAndLoss",
+                        "LedgerInGeneralLedgerAccounting"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ledger in General Ledger Accounting",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProfitCenter",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "REPORTING.ProfitAndLoss",
+                        "ProfitCenter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Profit center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyText",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "REPORTING.ProfitAndLoss",
+                        "CompanyText"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(CompanyText)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company text (maximum value)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInLocalCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "REPORTING.ProfitAndLoss",
+                        "AmountInLocalCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(AmountInLocalCurrency)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sum of amounts in local currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CumulativeAmountInLocalCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "REPORTING.ProfitAndLoss",
+                        "CumulativeAmountInLocalCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(CumulativeAmountInLocalCurrency)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sum of cumulative amounts in local currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "REPORTING.ProfitAndLoss",
+                        "CurrencyKey"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(CurrencyKey)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency key (maximum value)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "REPORTING.ProfitAndLoss",
+                        "AmountInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(AmountInTargetCurrency)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sum of amounts in target currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CumulativeAmountInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "REPORTING.ProfitAndLoss",
+                        "CumulativeAmountInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(CumulativeAmountInTargetCurrency)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sum of cumulative amounts in target currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TargetCurrency_TCURR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "REPORTING.ProfitAndLoss",
+                        "TargetCurrency_TCURR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GrossProfitInLocalCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "CostOfGoodsSold"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "(NetRevenue.AmountInLocalCurrency - CostOfGoodsSold.AmountInLocalCurrency)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Gross profit in local currency (Net Revenue - Cost of Goods Sold)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GrossProfitInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "NetRevenue",
+                        "CostOfGoodsSold"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "(NetRevenue.AmountInTargetCurrency - CostOfGoodsSold.AmountInTargetCurrency)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Gross profit in target currency (Net Revenue - Cost of Goods Sold)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "NetRevenue",
+                "join_type": "INNER JOIN",
+                "tabla_base": "NetRevenue",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "NetRevenue.Client = CostOfGoodsSold.CLient",
+                    "NetRevenue.CompanyCode = CostOfGoodsSold.CompanyCode",
+                    "NetRevenue.FiscalYear = CostOfGoodsSold.FiscalYear",
+                    "NetRevenue.FiscalPeriod = CostOfGoodsSold.FiscalPeriod",
+                    "NetRevenue.ChartOfAccounts = CostOfGoodsSold.ChartOfAccounts",
+                    "NetRevenue.GLHierarchy = CostOfGoodsSold.GLHierarchy",
+                    "NetRevenue.BusinessArea = CostOfGoodsSold.BusinessArea",
+                    "NetRevenue.LedgerInGeneralLedgerAccounting = CostOfGoodsSold.LedgerInGeneralLedgerAccounting",
+                    "NetRevenue.ProfitCenter = CostOfGoodsSold.ProfitCenter",
+                    "NetRevenue.TargetCurrency_TCURR = CostOfGoodsSold.TargetCurrency_TCURR"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

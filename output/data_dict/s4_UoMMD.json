@@ -1,0 +1,161 @@
+{
+    "schema": {
+        "object_name": "s4_UoMMD.sql",
+        "object_type": "view",
+        "description": "This view joins data from tables t006, t006t, and t006a to provide a comprehensive description of units of measurement, including their texts in different languages.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.t006",
+            "CDC_S4.t006t",
+            "CDC_S4.t006a"
+        ],
+        "columns": [
+            {
+                "name": "Client_MANDT",
+                "dependencies": [
+                    "T006.MANDT"
+                ],
+                "formula": null,
+                "description": "Client",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "UnitOfMeasurement_MSEHI",
+                "dependencies": [
+                    "T006.MSEHI"
+                ],
+                "formula": null,
+                "description": "Unit of Measurement",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ThreeCharIndicatorForExternalUnitOfMeasurement_KZEX3",
+                "dependencies": [
+                    "T006.KZEX3"
+                ],
+                "formula": null,
+                "description": "Three-character indicator for external unit of measurement",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SixCharIdForExternalUnitOfMeasurement_KZEX6",
+                "dependencies": [
+                    "T006.KZEX6"
+                ],
+                "formula": null,
+                "description": "Six-character ID for external unit of measurement",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "LanguageKey_SPRAS",
+                "dependencies": [
+                    "T006T.SPRAS"
+                ],
+                "formula": null,
+                "description": "Language Key",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DimensionText_TXDIM",
+                "dependencies": [
+                    "T006T.TXDIM"
+                ],
+                "formula": null,
+                "description": "Dimension Text",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "UnitOfMeasurementText__maximum10Characters___MSEHT",
+                "dependencies": [
+                    "T006A.MSEHT"
+                ],
+                "formula": null,
+                "description": "Unit of Measurement Text (max. 10 characters)",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "UnitOfMeasurementText__maximum30Characters___MSEHL",
+                "dependencies": [
+                    "T006A.MSEHL"
+                ],
+                "formula": null,
+                "description": "Unit of Measurement Text (max. 30 characters)",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.t006`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "T006.MANDT = T006T.MANDT",
+                    "T006.DIMID = T006T.DIMID"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "INNER",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.t006`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "T006.MANDT = T006A.MANDT",
+                    "T006A.SPRAS = T006T.SPRAS",
+                    "T006A.MSEHI = T006.MSEHI"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "schema": {
+        "object_name": "s4_financial_statement_initial_load.sql",
+        "object_type": "table",
+        "description": "This table contains financial statement data for a specific date range.  The start date is dynamically determined as the minimum budat from the acdoca table in the CDC_S4 dataset. The end date is the current date.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.acdoca"
+        ],
+        "columns": [],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        }
+    }
+}

@@ -1,0 +1,700 @@
+{
+    "schema": {
+        "object_name": "s4_SalesOrderStatus.sql",
+        "object_type": "view",
+        "description": "This view joins data from vbap, lips, and vbak tables to provide a comprehensive sales order status, showing the difference between ordered and delivered quantities at the sales order item level.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.vbap",
+            "aecorsoft-prj-dev.CDC_S4.lips",
+            "aecorsoft-prj-dev.CDC_S4.vbak"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "SalesDocument_VBELN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbap.VBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Document Number from vbap table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Item_POSNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbap.POSNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item Number from vbap table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialNumber_MATNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbap.MATNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number from vbap table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesDocumentType_AUART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.AUART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Document Type from vbak table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Reason_AUGRU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.AUGRU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reason from vbak table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerGroup1_KVGR1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.KVGR1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer Group 1 from vbak table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerGroup2_KVGR2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.KVGR2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer Group 2 from vbak table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerGroup3_KVGR3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.KVGR3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer Group 3 from vbak table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerGroup4_KVGR4",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.KVGR4"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer Group 4 from vbak table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerGroup5_KVGR5",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.KVGR5"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer Group 5 from vbak table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryBlock_LIFSK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.LIFSK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Block from vbak table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PlanningPlant_VPWRK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbap.VPWRK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Planning Plant from vbap table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StorageLocation_LGORT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbap.LGORT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Storage Location from vbap table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BatchNumber_CHARG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbap.CHARG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Batch Number from vbap table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CumulativeOrderQuantity_KWMENG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbap.KWMENG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cumulative Order Quantity from vbap table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReferenceDocument_VGBEL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "lips.VGBEL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reference Document from lips table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReferenceItem_VGPOS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "lips.VGPOS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reference Item from lips table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ActualQuantityDelivered_LFIMG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "lips.LFIMG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Actual Quantity Delivered from lips table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DocumentCategory_VGTYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "lips.VGTYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Document Category from lips table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SerialNumberProfile_SERAIL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbap.SERAIL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Serial Number Profile from vbap table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfSerialNumbers_ANZSN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbap.ANZSN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of Serial Numbers from vbap table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HeaderRejectionStatus_ABSTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.ABSTK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Header Rejection Status from vbak table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HeaderDeliveryStatus_LFGSK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.LFGSK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Header Delivery Status from vbak table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GoodsMovementStatus_WBSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "lips.WBSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Goods Movement Status from lips table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CreationDate_ERDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.ERDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Creation Date from vbak table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CreationTime_ERZET",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.ERZET"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Creation Time from vbak table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RequestedDeliveryDate_VDATU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.VDATU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Requested Delivery Date from vbak table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompleteDeliveryFlag_AUTLF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.AUTLF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Complete Delivery Flag from vbak table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Delivery_VBELN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "lips.VBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Document Number from lips table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryItem_POSNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "lips.POSNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Item Number from lips table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OPENQTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbap.KWMENG",
+                        "lips.LFIMG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF((vbap.KWMENG - lips.LFIMG) < 0, 0, (vbap.KWMENG - lips.LFIMG))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Open Quantity (calculated as the difference between CumulativeOrderQuantity and ActualQuantityDelivered, capped at 0)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.vbap`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "vbap.MANDT = lips.MANDT",
+                    "vbap.VBELN = lips.VGBEL",
+                    "vbap.POSNR = lips.VGPOS",
+                    "vbap.MANDT = '100'",
+                    "lips.MANDT = '100'"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.vbap`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "vbap.MANDT = vbak.MANDT",
+                    "vbap.VBELN = vbak.VBELN",
+                    "vbap.MANDT = '100'",
+                    "vbak.MANDT = '100'"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

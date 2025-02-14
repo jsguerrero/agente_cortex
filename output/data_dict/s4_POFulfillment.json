@@ -1,0 +1,446 @@
+{
+    "schema": {
+        "object_name": "s4_POFulfillment.sql",
+        "object_type": "view",
+        "description": "This view joins data from PurchaseDocuments and POSchedule tables to provide a comprehensive view of Purchase Order fulfillment status at the PO item level.  It includes calculations for pending quantities.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.PurchaseDocuments",
+            "REPORTING.POSchedule"
+        ],
+        "columns": [
+            {
+                "name": "Client_MANDT",
+                "dependencies": [
+                    "PO.Client_MANDT"
+                ],
+                "formula": null,
+                "description": "Client ID",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DocumentNumber_EBELN",
+                "dependencies": [
+                    "PO.DocumentNumber_EBELN"
+                ],
+                "formula": null,
+                "description": "Purchasing Document Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Item_EBELP",
+                "dependencies": [
+                    "PO.Item_EBELP"
+                ],
+                "formula": null,
+                "description": "Item Number of Purchasing Document",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DocumentCategory_BSTYP",
+                "dependencies": [
+                    "PO.DocumentCategory_BSTYP"
+                ],
+                "formula": null,
+                "description": "Document Category",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DocumentType_BSART",
+                "dependencies": [
+                    "PO.DocumentType_BSART"
+                ],
+                "formula": null,
+                "description": "Document Type",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "VendorAccountNumber_LIFNR",
+                "dependencies": [
+                    "PO.VendorAccountNumber_LIFNR"
+                ],
+                "formula": null,
+                "description": "Vendor Account Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Language_SPRAS",
+                "dependencies": [
+                    "PO.Language_SPRAS"
+                ],
+                "formula": null,
+                "description": "Language",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TermsPaymentKey_ZTERM",
+                "dependencies": [
+                    "PO.TermsPaymentKey_ZTERM"
+                ],
+                "formula": null,
+                "description": "Terms of Payment Key",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CashDiscountPercentage1_ZBD1P",
+                "dependencies": [
+                    "PO.CashDiscountPercentage1_ZBD1P"
+                ],
+                "formula": null,
+                "description": "Cash Discount Percentage 1",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PurchasingOrganization_EKORG",
+                "dependencies": [
+                    "PO.PurchasingOrganization_EKORG"
+                ],
+                "formula": null,
+                "description": "Purchasing Organization",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PurchasingGroup_EKGRP",
+                "dependencies": [
+                    "PO.PurchasingGroup_EKGRP"
+                ],
+                "formula": null,
+                "description": "Purchasing Group",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CurrencyKey_WAERS",
+                "dependencies": [
+                    "PO.CurrencyKey_WAERS"
+                ],
+                "formula": null,
+                "description": "Currency Key",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MaterialNumber_MATNR",
+                "dependencies": [
+                    "PO.MaterialNumber_MATNR"
+                ],
+                "formula": null,
+                "description": "Material Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ShortText_TXZ01",
+                "dependencies": [
+                    "PO.ShortText_TXZ01"
+                ],
+                "formula": null,
+                "description": "Short Text",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MaterialGroup_MATKL",
+                "dependencies": [
+                    "PO.MaterialGroup_MATKL"
+                ],
+                "formula": null,
+                "description": "Material Group",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "StorageLocation_LGORT",
+                "dependencies": [
+                    "PO.StorageLocation_LGORT"
+                ],
+                "formula": null,
+                "description": "Storage Location",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "POQuantity_MENGE",
+                "dependencies": [
+                    "PO.POQuantity_MENGE"
+                ],
+                "formula": null,
+                "description": "PO Quantity",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "UoM_MEINS",
+                "dependencies": [
+                    "PO.UoM_MEINS"
+                ],
+                "formula": null,
+                "description": "Unit of Measure",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "OrderPriceUnit_BPRME",
+                "dependencies": [
+                    "PO.OrderPriceUnit_BPRME"
+                ],
+                "formula": null,
+                "description": "Order Price Unit",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NetPrice_NETPR",
+                "dependencies": [
+                    "PO.NetPrice_NETPR"
+                ],
+                "formula": null,
+                "description": "Net Price",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NetOrderValueinPOCurrency_NETWR",
+                "dependencies": [
+                    "PO.NetOrderValueinPOCurrency_NETWR"
+                ],
+                "formula": null,
+                "description": "Net Order Value in PO Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "GrossordervalueinPOcurrency_BRTWR",
+                "dependencies": [
+                    "PO.GrossordervalueinPOcurrency_BRTWR"
+                ],
+                "formula": null,
+                "description": "Gross Order Value in PO Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DeliveryCompletedFlag_ELIKZ",
+                "dependencies": [
+                    "PO.DeliveryCompletedFlag_ELIKZ"
+                ],
+                "formula": null,
+                "description": "Delivery Completed Flag",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NetWeight_NTGEW",
+                "dependencies": [
+                    "PO.NetWeight_NTGEW"
+                ],
+                "formula": null,
+                "description": "Net Weight",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ReturnsItem_RETPO",
+                "dependencies": [
+                    "PO.ReturnsItem_RETPO"
+                ],
+                "formula": null,
+                "description": "Returns Item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ItemDeliveryDate_EINDT",
+                "dependencies": [
+                    "delivery.ItemDeliveryDate_EINDT"
+                ],
+                "formula": null,
+                "description": "Item Delivery Date",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TotalScheduledQty",
+                "dependencies": [
+                    "delivery.ScheduledQuantity_MENGE",
+                    "PO.ReturnsItem_RETPO"
+                ],
+                "formula": "if(PO.ReturnsItem_RETPO IS NULL, delivery.ScheduledQuantity_MENGE, delivery.ScheduledQuantity_MENGE * -1 )",
+                "description": "Total Scheduled Quantity (negative if return item)",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TotalReceivedQty",
+                "dependencies": [
+                    "delivery.QuantityOfGoodsReceived_WEMNG",
+                    "PO.ReturnsItem_RETPO"
+                ],
+                "formula": "if(PO.ReturnsItem_RETPO IS NULL, delivery.QuantityOfGoodsReceived_WEMNG, delivery.QuantityOfGoodsReceived_WEMNG * -1 )",
+                "description": "Total Received Quantity (negative if return item)",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PendingQty",
+                "dependencies": [
+                    "delivery.ScheduledQuantity_MENGE",
+                    "delivery.QuantityOfGoodsReceived_WEMNG",
+                    "PO.ReturnsItem_RETPO"
+                ],
+                "formula": "(if(PO.ReturnsItem_RETPO IS NULL, delivery.ScheduledQuantity_MENGE, delivery.ScheduledQuantity_MENGE * -1 ) - if(PO.ReturnsItem_RETPO IS NULL, delivery.QuantityOfGoodsReceived_WEMNG, delivery.QuantityOfGoodsReceived_WEMNG * -1 ) )",
+                "description": "Pending Quantity",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": [
+            {
+                "view_name": "eket",
+                "join_type": "INNER JOIN",
+                "tabla_base": "`cortex-prj-dev.REPORTING.PurchaseDocuments`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "PO.Client_MANDT = delivery.Client_MANDT",
+                    "PO.DocumentNumber_EBELN = delivery.PurchasingDocumentNumber_EBELN",
+                    "PO.Item_EBELP = delivery.ItemNumberOfPurchasingDocument_EBELP"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

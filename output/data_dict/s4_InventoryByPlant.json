@@ -1,0 +1,1000 @@
+{
+    "schema": {
+        "object_name": "s4_InventoryByPlant.sql",
+        "object_type": "view",
+        "description": "This view provides a detailed inventory report at the plant level, including material information, cost, and currency conversions.  It is grouped by plant and material, showing weekly cumulative data.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.Languages_T002",
+            "REPORTING.CurrencyConversion",
+            "REPORTING.StockWeeklySnapshots",
+            "REPORTING.MaterialLedger",
+            "REPORTING.MaterialsBatchMD",
+            "REPORTING.MaterialPlantsMD",
+            "REPORTING.PlantsMD",
+            "REPORTING.StorageLocationsMD",
+            "REPORTING.MaterialsMD",
+            "REPORTING.MaterialTypesMD",
+            "REPORTING.MaterialGroupsMD"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "StockWeeklySnapshots",
+                        "Client_MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialNumber_MATNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "StockWeeklySnapshots",
+                        "MaterialNumber_MATNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BatchNumber_CHARG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "StockWeeklySnapshots",
+                        "BatchNumber_CHARG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Batch Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_WERKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "StockWeeklySnapshots",
+                        "Plant_WERKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StorageLocation_LGORT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "StockWeeklySnapshots",
+                        "StorageLocation_LGORT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Storage Location",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StorageLocationText_LGOBE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "StorageLocationsMD",
+                        "StorageLocationText_LGOBE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Storage Location Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCode_BUKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "StockWeeklySnapshots",
+                        "CompanyCode_BUKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyText_BUTXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "StockWeeklySnapshots",
+                        "CompanyText_BUTXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BaseUnitOfMeasure_MEINS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "StockWeeklySnapshots",
+                        "BaseUnitOfMeasure_MEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Base Unit of Measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "StockWeeklySnapshots",
+                        "CurrencyKey_WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfManufacture_HSDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "MaterialsBatchMD",
+                        "DateOfManufacture_HSDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date of Manufacture",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialText_MAKTX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MaterialsMD",
+                        "MaterialText_MAKTX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LanguageKey",
+                        "Languages_T002",
+                        "LanguageKey_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalShelfLife_MHDHB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MaterialsMD",
+                        "TotalShelfLife_MHDHB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Shelf Life",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialType_MTART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MaterialsMD",
+                        "MaterialType_MTART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DescriptionOfMaterialType_MTBEZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MaterialTypesMD",
+                        "DescriptionOfMaterialType_MTBEZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Description of Material Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StandardCost_STPRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "MaterialCostAndPrice",
+                        "StandardCost_STPRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Standard Cost",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MovingAveragePrice_VERPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "MaterialCostAndPrice",
+                        "MovingAveragePrice_VERPR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Moving Average Price",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialGroup_MATKL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MaterialsMD",
+                        "MaterialGroup_MATKL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialGroupName_WGBEZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MaterialGroupsMD",
+                        "MaterialGroupName_WGBEZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Group Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SafetyStock_EISBE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "MaterialPlantsMD",
+                        "SafetyStock_EISBE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Safety Stock",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PlantName_NAME2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "PlantsMD",
+                        "Name2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryKey_LAND1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "PlantsMD",
+                        "CountryKey_LAND1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DivisionForIntercompanyBilling_SPART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "PlantsMD",
+                        "DivisionForIntercompanyBilling_SPART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Division for Intercompany Billing",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValuationArea_BWKEY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "PlantsMD",
+                        "ValuationArea_BWKEY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valuation Area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CalYear",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "StockWeeklySnapshots",
+                        "CalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Calendar Year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CalWeek",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "StockWeeklySnapshots",
+                        "CalWeek"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Calendar Week",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WeekEndDate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "StockWeeklySnapshots",
+                        "WeekEndDate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(StockWeeklySnapshots.WeekEndDate = LAST_DAY(CURRENT_DATE, WEEK), CURRENT_DATE, StockWeeklySnapshots.WeekEndDate)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Week End Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYear",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "StockWeeklySnapshots",
+                        "FiscalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalPeriod",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "StockWeeklySnapshots",
+                        "FiscalPeriod"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuantityWeeklyCumulative",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "StockWeeklySnapshots",
+                        "QuantityWeeklyCumulative"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quantity Weekly Cumulative",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountWeeklyCumulative",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "StockWeeklySnapshots",
+                        "AmountWeeklyCumulative"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Amount Weekly Cumulative",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StockCharacteristic",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "StockWeeklySnapshots",
+                        "StockCharacteristic"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Stock Characteristic",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrencyConversion",
+                        "ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Exchange Rate",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TargetCurrency_TCURR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrencyConversion",
+                        "ToCurrency_TCURR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountWeeklyCumulativeInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "CurrencyConversion"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CurrentStock.AmountWeeklyCumulative * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Amount Weekly Cumulative in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StandardCostInTargetCurrency_STPRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "CurrencyConversion"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CurrentStock.StandardCost_STPRS * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Standard Cost in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MovingAveragePriceInTargetCurrency_VERPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "CurrencyConversion"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CurrentStock.MovingAveragePrice_VERPR * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Moving Average Price in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InventoryValueInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MaterialsMD",
+                        "CurrentStock",
+                        "CurrencyConversion"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(IF(MaterialsMD.MaterialType_MTART IN ('FERT', 'HALB'), CurrentStock.QuantityWeeklyCumulative * (CurrentStock.StandardCost_STPRS * CurrencyConversion.ExchangeRate_UKURS), IF(MaterialsMD.MaterialType_MTART IN ('ROH', 'HIBE'), CurrentStock.QuantityWeeklyCumulative * (CurrentStock.MovingAveragePrice_VERPR * CurrencyConversion.ExchangeRate_UKURS), 0)), 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Inventory Value in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ObsoleteInventoryValueInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "MaterialsMD",
+                        "CurrencyConversion"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(DATE_ADD(CurrentStock.DateOfManufacture_HSDAT, INTERVAL CAST(MaterialsMD.TotalShelfLife_MHDHB AS INT64) DAY) < CURRENT_DATE, (CurrentStock.AmountWeeklyCumulative * CurrencyConversion.ExchangeRate_UKURS), 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Obsolete Inventory Value in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InventoryValueInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MaterialsMD",
+                        "CurrentStock"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(IF(MaterialsMD.MaterialType_MTART IN ('FERT', 'HALB'), CurrentStock.QuantityWeeklyCumulative * CurrentStock.StandardCost_STPRS, IF(MaterialsMD.MaterialType_MTART IN ('ROH', 'HIBE'), CurrentStock.QuantityWeeklyCumulative * CurrentStock.MovingAveragePrice_VERPR, 0)), 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Inventory Value in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ObsoleteStock",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "MaterialsMD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(DATE_ADD(CurrentStock.DateOfManufacture_HSDAT, INTERVAL CAST(MaterialsMD.TotalShelfLife_MHDHB AS INT64) DAY) < CURRENT_DATE, CurrentStock.QuantityWeeklyCumulative, 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Obsolete Stock",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ObsoleteInventoryValueInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrentStock",
+                        "MaterialsMD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(DATE_ADD(CurrentStock.DateOfManufacture_HSDAT, INTERVAL CAST(MaterialsMD.TotalShelfLife_MHDHB AS INT64) DAY) < CURRENT_DATE, CurrentStock.AmountWeeklyCumulative, 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Obsolete Inventory Value in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

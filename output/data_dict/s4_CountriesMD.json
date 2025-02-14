@@ -1,0 +1,1500 @@
+{
+    "schema": {
+        "object_name": "s4_CountriesMD.sql",
+        "object_type": "view",
+        "description": "This view joins data from tables t005 and t005t to provide a comprehensive view of country-specific settings and configurations.  It offers a single row per country, combining master data with descriptive text.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.t005",
+            "aecorsoft-prj-dev.CDC_S4.t005t"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryKey_LAND1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.LAND1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryName_LANDX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005T.LANDX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Language_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005T.SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Nationality_NATIO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005T.NATIO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Nationality",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryName__max50Characters___LANDX50",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005T.LANDX50"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country Name (max 50 characters)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Nationality__max50Characters___NATIO50",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005T.NATIO50"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Nationality (max 50 characters)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SuperRegionPerCountryText_PRQ_SPREGT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005T.PRQ_SPREGT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Super Region per Country (Text)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VehicleCountryKey_LANDK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.LANDK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vehicle Country Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostalCodeLength_LNPLZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.LNPLZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Postal Code Length",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RuleForThePostalCodeFieldCheck_PRPLZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.PRPLZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rule for the Postal Code Field Check",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FormattingRoutineKeyForPrintingAddresses_ADDRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.ADDRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Formatting Routine Key for Printing Addresses",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_StreetAddressPostalCodeRequiredEntry_XPLZS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.XPLZS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: Street Address Postal Code Required Entry",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_PoBoxPostalCodeRequired_XPLPF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.XPLPF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: PO Box Postal Code Required",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryLanguage_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryVersionFlag_XLAND",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.XLAND"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country Version Flag",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_PrintCountryNameInForeignAddresses_XADDR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.XADDR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: Print Country Name in Foreign Addresses",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StandardNameFormat_NMFMT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.NMFMT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Standard Name Format",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_CityFileAddressCheck_XREGS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.XREGS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: City File Address Check",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FlagStreetSpecificPostalCode__cityFile___XPLST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.XPLST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: Street Specific Postal Code (city File)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryIsoCode_INTCA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.INTCA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country ISO Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IsoCountryCode3Char_INTCA3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.INTCA3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "ISO Country Code (3 characters)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IsoCountryCodeNumeric3Characters_INTCN3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.INTCN3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "ISO Country Code (numeric, 3 characters)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_EuropeanUnionMember_XEGLD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.XEGLD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: European Union Member",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_DiscountBaseAmountIsTheNetValue_XSKFN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.XSKFN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Discount Base Amount is the Net Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_BaseAmountForTaxIsNetOfDiscount_XMWSN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.XMWSN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Base Amount for Tax is Net of Discount",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BankAccountNumberLength_LNBKN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.LNBKN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Bank Account Number Length",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RuleForCheckingBankAccountNumberField_PRBKN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.PRBKN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rule for Checking Bank Account Number Field",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BankNumberLength_LNBLZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.LNBLZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Bank Number Length",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RuleForCheckingBankNumberField_PRBLZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.PRBLZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rule for Checking Bank Number Field",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostOfficeBankCurrentAccountNumberLength_LNPSK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.LNPSK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Post Office Bank Current Account Number Length",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RuleForCheckingPostalCheckAccountNumberField_PRPSK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.PRPSK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rule for Checking Postal Check Account Number Field",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_UseCheckModuleForBankFields_XPRBK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.XPRBK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Use Check Module for Bank Fields",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameOfTheBankKey_BNKEY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.BNKEY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name of the Bank Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LengthOfBankKey_LNBKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.LNBKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Length of Bank Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RuleForCheckingBankKeyField_PRBKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.PRBKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rule for Checking Bank Key Field",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_UseCheckModuleForTaxFieldsEtc_XPRSO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.XPRSO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Use Check Module for Tax Fields etc.",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RuleForCheckingVatRegistrationNumberField_PRUIN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.PRUIN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rule for Checking VAT Registration Number Field",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VatRegistrationNumberLength_UINLN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.UINLN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "VAT Registration Number Length",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PermittedInputLengthForTaxNumbre1_LNST1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.LNST1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Permitted Input Length for Tax Number 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RuleForCheckingTaxCode1Field_PRST1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.PRST1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rule for Checking Tax Code 1 Field",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PermittedInputLengthForTaxNumber2_LNST2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.LNST2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Permitted Input Length for Tax Number 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RuleForCheckingTaxCode2Field_PRST2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.PRST2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rule for Checking Tax Code 2 Field",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PermittedInputLengthForTaxNumber3_LNST3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.LNST3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Permitted Input Length for Tax Number 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RuleForCheckingTaxCode3Field_PRST3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.PRST3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rule for Checking Tax Code 3 Field",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PermittedInputLengthForTaxNumber4_LNST4",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.LNST4"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Permitted Input Length for Tax Number 4",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RuleForCheckingTaxCode4Field_PRST4",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.PRST4"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rule for Checking Tax Code 4 Field",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PermittedInputLengthForTaxNumber5_LNST5",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.LNST5"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Permitted Input Length for Tax Number 5",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RuleForCheckingTaxCode5Field_PRST5",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.PRST5"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rule for Checking Tax Code 5 Field",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Duevo_Nationality_LANDD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.LANDD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Duevo Nationality",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Procedure__pricing_KALSM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.KALSM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Procedure (pricing)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AlternativeCountryKey_LANDA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.LANDA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Alternative Country Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PaymentPeriodForBillOfExchange_WECHF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.WECHF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Payment Period for Bill of Exchange",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ShortNameForForeignTradeStatistics_LKVRZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.LKVRZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Short Name for Foreign Trade Statistics",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IntrastatCode_INTCN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.INTCN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Intrastat Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DecimalPointFormat_XDEZP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.XDEZP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Decimal Point Format",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateFormat_DATFM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.DATFM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date Format",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKeyOfTheIndexBasedCurrency_CURIN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.CURIN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key of the Index-Based Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKeyOfTheHardCurrency_CURHA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.CURHA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key of the Hard Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryCurrency_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExchangeRateTypeForTranslationIntoCountryCurrency_KURST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.KURST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Exchange Rate Type for Translation into Country Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChartOfDepreciatonForAssetValuation_AFAPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.AFAPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Chart of Depreciation for Asset Valuation",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaximumLowValueAssetAmount_GWGWRT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.GWGWRT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Maximum Low Value Asset Amount",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NetBookValueForChangeoverOfDepreciationMethod_UMRWRT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.UMRWRT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Net Book Value for Changeover of Depreciation Method",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndicatorPostNetBookValueForRetirement_KZRBWB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.KZRBWB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Post Net Book Value for Retirement",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndicatorTransferDownPaymentsFromPreviousYears_XANZUM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.XANZUM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Transfer Down Payments from Previous Years",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WithholdingTaxCertificateNumbering_Concepts_CTNCONCEPT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.CTNCONCEPT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Withholding Tax Certificate Numbering (Concepts)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxesAtIndividualServiceLevel_KZSRV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.KZSRV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Taxes at Individual Service Level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_DisplayCapitalGoodsIndicator_XXINVE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.XXINVE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Display Capital Goods Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SuperRegionPerCountry_SUREG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T005.SUREG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Super Region per Country",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.t005` AS T005",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "T005.MANDT = T005T.MANDT",
+                    "T005.LAND1 = T005T.LAND1"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

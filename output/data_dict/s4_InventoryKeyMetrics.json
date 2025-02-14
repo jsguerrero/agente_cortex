@@ -1,0 +1,1229 @@
+{
+    "schema": {
+        "object_name": "s4_InventoryKeyMetrics.sql",
+        "object_type": "view",
+        "description": "This view calculates key inventory metrics, including consumption, demand, cost of goods sold, and inventory value, for each client, material, plant, and month.  It groups data at a granular level, providing insights into inventory performance across various dimensions. The results are presented in both the source and target currencies.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.CurrencyConversion",
+            "REPORTING.StockMonthlySnapshots",
+            "REPORTING.MaterialLedger",
+            "REPORTING.SlowMovingThreshold"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.Client_MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialNumber_MATNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.MaterialNumber_MATNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_WERKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.Plant_WERKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialType_MTART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.MaterialType_MTART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DescriptionOfMaterialType_MTBEZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.DescriptionOfMaterialType_MTBEZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Description of Material Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialText_MAKTX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.MaterialText_MAKTX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialGroup_MATKL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.MaterialGroup_MATKL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialGroupName_WGBEZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.MaterialGroupName_WGBEZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Group Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_Name2_NAME2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.Plant_Name2_NAME2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCode_BUKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.CompanyCode_BUKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyText_BUTXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.CompanyText_BUTXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryKey_LAND1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.CountryKey_LAND1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.LanguageKey_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYear",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.FiscalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalPeriod",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.FiscalPeriod"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CalYear",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.CalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Calendar Year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CalMonth",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.CalMonth"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Calendar Month",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MonthEndDate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.MonthEndDate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Month End Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuantityMonthlyCumulative",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.QuantityMonthlyCumulative"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cumulative Quantity for the Month",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BaseUnitOfMeasure_MEINS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.BaseUnitOfMeasure_MEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Base Unit of Measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountMonthlyCumulative",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.AmountMonthlyCumulative"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cumulative Amount for the Month",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.CurrencyKey_WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StockOnHand",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.StockOnHand"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Stock on Hand",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StockOnHandValue",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.StockOnHandValue"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Stock on Hand Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuantityIssuedToDelivery",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.QuantityIssuedToDelivery"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quantity Issued to Delivery",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalConsumptionQuantity",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.TotalConsumptionQuantity"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Consumption Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValueOfTotalValuatedStock_SALK3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.ValueOfTotalValuatedStock_SALK3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Value of Total Valuated Stock",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StandardCost_STPRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.StandardCost_STPRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Standard Cost",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MovingAveragePrice_VERPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.MovingAveragePrice_VERPR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Moving Average Price",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalConsumptionQuantityForPastYear",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.TotalConsumptionQuantityForPastYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Consumption Quantity for the Past Year (excluding current month)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalConsumptionQuantityForPastYearTillToday",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.TotalConsumptionQuantityForPastYearTillToday"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Consumption Quantity for the Past Year (including current month)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DemandPerDayForPastYearTillToday",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.DemandPerDayForPastYearTillToday"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Demand per Day for the Past Year (including current month)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CostOfGoodsSoldByMonth",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.CostOfGoodsSoldByMonth"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "Inventory.QuantityIssuedToDelivery * Inventory.StandardCost_STPRS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost of Goods Sold for the Month",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InventoryValue",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.InventoryValue"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CASE WHEN CurrentStock.MaterialType_MTART IN ('FERT', 'HALB') THEN CurrentStock.QuantityMonthlyCumulative * CurrentStock.StandardCost_STPRS WHEN CurrentStock.MaterialType_MTART IN ('ROH', 'HIBE') THEN CurrentStock.QuantityMonthlyCumulative * CurrentStock.MovingAveragePrice_VERPR ELSE 0 END",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Inventory Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ThresholdValue",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.ThresholdValue"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Slow Moving Threshold Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InventoryByMonth",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.InventoryByMonth"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Inventory Value for the Previous Month",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AvgInventoryByMonth",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.AvgInventoryByMonth"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Average Inventory Value for the Previous Month",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Exchange Rate",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TargetCurrency_TCURR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrencyConversion.ToCurrency_TCURR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountMonthlyCumulativeInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.AmountMonthlyCumulative",
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "Inventory.AmountMonthlyCumulative * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cumulative Amount in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StockOnHandValueInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.StockOnHandValue",
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "Inventory.StockOnHandValue * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Stock on Hand Value in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StandardCostInTargetCurrency_STPRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.StandardCost_STPRS",
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "Inventory.StandardCost_STPRS * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Standard Cost in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MovingAveragePriceInTargetCurrency_VERPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.MovingAveragePrice_VERPR",
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "Inventory.MovingAveragePrice_VERPR * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Moving Average Price in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CostofGoodsSoldInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.CostOfGoodsSoldByMonth",
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "Inventory.CostOfGoodsSoldByMonth * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost of Goods Sold in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InventoryValueInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.InventoryValue",
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "Inventory.InventoryValue * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Inventory Value in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InventoryByMonthInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.InventoryByMonth",
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "Inventory.InventoryByMonth * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Inventory Value for the Previous Month in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AvgInventoryByMonthInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.AvgInventoryByMonth",
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "Inventory.AvgInventoryByMonth * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Average Inventory Value for the Previous Month in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValueOfTotalValuatedStockInTargetCurrency_SALK3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.ValueOfTotalValuatedStock_SALK3",
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "Inventory.ValueOfTotalValuatedStock_SALK3 * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Value of Total Valuated Stock in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SlowMovingInventoryAsOfPreviousMonthInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.StockOnHand",
+                        "Inventory.TotalConsumptionQuantityForPastYear",
+                        "Inventory.StockOnHandValue",
+                        "Inventory.ThresholdValue",
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(COALESCE(IF(Inventory.MonthEndDate = LAST_DAY(DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH)), SAFE_DIVIDE((Inventory.TotalConsumptionQuantityForPastYear * 100), Inventory.StockOnHand), 0), 0) < Inventory.ThresholdValue, IF(Inventory.MonthEndDate = LAST_DAY(DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH)), (Inventory.StockOnHandValue * CurrencyConversion.ExchangeRate_UKURS), 0), 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Slow Moving Inventory as of Previous Month in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DaysOfSupplyAsOfToday",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.StockOnHand",
+                        "Inventory.DemandPerDayForPastYearTillToday"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(IF(Inventory.MonthEndDate = CURRENT_DATE, SAFE_DIVIDE(Inventory.StockOnHand, Inventory.DemandPerDayForPastYearTillToday), 0), 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Days of Supply as of Today",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SlowMovingIndicatorAsOfPreviousMonth",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.StockOnHand",
+                        "Inventory.TotalConsumptionQuantityForPastYear",
+                        "Inventory.ThresholdValue"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(COALESCE(IF(Inventory.MonthEndDate = LAST_DAY(DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH)), SAFE_DIVIDE((Inventory.TotalConsumptionQuantityForPastYear * 100), Inventory.StockOnHand), 0), 0) < Inventory.ThresholdValue, COALESCE(IF(Inventory.MonthEndDate = LAST_DAY(DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH)), SAFE_DIVIDE((Inventory.TotalConsumptionQuantityForPastYear * 100), Inventory.StockOnHand), 0), 0), 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Slow Moving Indicator as of Previous Month",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SlowMovingInventoryAsOfPreviousMonthInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.StockOnHand",
+                        "Inventory.TotalConsumptionQuantityForPastYear",
+                        "Inventory.StockOnHandValue",
+                        "Inventory.ThresholdValue"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(COALESCE(IF(Inventory.MonthEndDate = LAST_DAY(DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH)), SAFE_DIVIDE((Inventory.TotalConsumptionQuantityForPastYear * 100), Inventory.StockOnHand), 0), 0) < Inventory.ThresholdValue, IF(Inventory.MonthEndDate = LAST_DAY(DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH)), Inventory.StockOnHandValue, 0), 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Slow Moving Inventory as of Previous Month in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InventoryTurnByMonth",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Inventory.CostOfGoodsSoldByMonth",
+                        "Inventory.AvgInventoryByMonth"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(SAFE_DIVIDE(Inventory.CostOfGoodsSoldByMonth, Inventory.AvgInventoryByMonth), 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Inventory Turn for the Month",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "ValueAndCost",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`cortex-prj-dev.REPORTING.StockMonthlySnapshots`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "StockMonthlySnapshots.Client_MANDT = MaterialLedger.Client_MANDT",
+                    "StockMonthlySnapshots.MaterialNumber_MATNR = MaterialLedger.MaterialNumber_MATNR",
+                    "StockMonthlySnapshots.Plant_WERKS = MaterialLedger.ValuationArea_BWKEY",
+                    "StockMonthlySnapshots.FiscalYear = MaterialLedger.FiscalYear",
+                    "StockMonthlySnapshots.FiscalPeriod = MaterialLedger.PostingPeriod",
+                    "MaterialLedger.ValuationType_BWTAR = ''"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "CurrentStock",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`cortex-prj-dev.REPORTING.StockMonthlySnapshots`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "StockMonthlySnapshots.Client_MANDT = ValueAndCost.Client_MANDT",
+                    "StockMonthlySnapshots.MaterialNumber_MATNR = ValueAndCost.MaterialNumber_MATNR",
+                    "StockMonthlySnapshots.Plant_WERKS = ValueAndCost.Plant_WERKS",
+                    "StockMonthlySnapshots.MonthEndDate = ValueAndCost.MonthEndDate",
+                    "StockMonthlySnapshots.FiscalPeriod = ValueAndCost.FiscalPeriod",
+                    "StockMonthlySnapshots.FiscalYear = ValueAndCost.FiscalYear"
+                ],
+                "rules": [
+                    "Evaluate if all columns in StockMonthlySnapshots can be moved into ValueAndCost so we don't need to query the source table twice."
+                ]
+            },
+            {
+                "view_name": "CurrentStock",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`cortex-prj-dev.REPORTING.StockMonthlySnapshots`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "StockMonthlySnapshots.Client_MANDT = SlowMovingThreshold.Client_MANDT",
+                    "StockMonthlySnapshots.MaterialType_MTART = SlowMovingThreshold.MaterialType_MTART"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "Inventory",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "CurrentStock",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "CurrentStock.Client_MANDT = CalculatedMetrics.Client_MANDT",
+                    "CurrentStock.MaterialNumber_MATNR = CalculatedMetrics.MaterialNumber_MATNR",
+                    "CurrentStock.Plant_WERKS = CalculatedMetrics.Plant_WERKS",
+                    "CurrentStock.LanguageKey_SPRAS = CalculatedMetrics.LanguageKey_SPRAS",
+                    "CurrentStock.MonthEndDate = CalculatedMetrics.MonthEndDate",
+                    "CurrentStock.FiscalPeriod = CalculatedMetrics.FiscalPeriod",
+                    "CurrentStock.FiscalYear = CalculatedMetrics.FiscalYear"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "final",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "Inventory",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "Inventory.Client_MANDT = CurrencyConversion.Client_MANDT",
+                    "Inventory.CurrencyKey_WAERS = CurrencyConversion.FromCurrency_FCURR",
+                    "Inventory.MonthEndDate = CurrencyConversion.ConvDate"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

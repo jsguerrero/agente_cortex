@@ -1,0 +1,105 @@
+{
+    "schema": {
+        "object_name": "s4_ProductHierarchy_Flatten.sql",
+        "object_type": "view",
+        "description": "This view flattens the product hierarchy from table t179, showing the relationships between products at levels 1, 2, and 3 based on the prodh field.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.t179"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "prodh1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "h1_h2.prodh1",
+                        "aecorsoft-prj-dev.CDC_S4.t179.prodh"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Product ID at level 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "prodh2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "h1_h2.prodh2",
+                        "aecorsoft-prj-dev.CDC_S4.t179.prodh"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Product ID at level 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "prodh3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "h3.prodh",
+                        "aecorsoft-prj-dev.CDC_S4.t179.prodh"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Product ID at level 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "h1_h2",
+                "join_type": "LEFT OUTER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.t179` AS h1",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "starts_with(h2.prodh, h1.prodh)"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "LEFT OUTER JOIN",
+                "tabla_base": "h1_h2 AS h1_h2",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "starts_with(h3.prodh, h1_h2.prodh2)"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

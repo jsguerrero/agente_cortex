@@ -1,0 +1,499 @@
+{
+    "schema": {
+        "object_name": "s4_ValuationAreasMD.sql",
+        "object_type": "view",
+        "description": "This view contains the settings for valuation areas in SAP S4HANA.  It provides a detailed record for each valuation area, including various activation flags and parameters related to material ledger, price determination, and stock corrections.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.t001k"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValuationArea_BWKEY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.BWKEY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valuation Area Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCode_BUKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.BUKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValuationGroupingCode_BWMOD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.BWMOD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valuation Grouping Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NegativeStocksInValuationAreaAllowed_XBKNG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.XBKNG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag indicating if negative stocks are allowed in the valuation area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialLedgerActivatedInValuationArea_MLBWA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.MLBWA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag indicating if Material Ledger is activated in the valuation area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialLedgerActivatedInValuationArea__compulsory___MLBWV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.MLBWV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag indicating if Material Ledger is activated (compulsory) in the valuation area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesPriceValuationActive_XVKBW",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.XVKBW"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag indicating if sales price valuation is active",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExplanationFacilityForMaterialLedgerActiveinactive_ERKLAERKOM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.ERKLAERKOM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag for explanation facility for Material Ledger",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RetailRevalutionProfile_UPROF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.UPROF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Retail Revaluation Profile",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProfileForValueBasedInventoryManagement_WBPRO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.WBPRO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Profile for Value-Based Inventory Management",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialPriceDetermination_Control_MLAST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.MLAST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Price Determination Control",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PriceDeterminationIsBindingInValuationArea_MLASV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.MLASV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag indicating if price determination is binding in the valuation area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StockCorrectionTolerance_BDIFP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.BDIFP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Stock Correction Tolerance",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PriceDifferencePostingInGrForSubcontractOder_XLBPD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.XLBPD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag for price difference posting in GR for subcontracting orders",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostPurchaseAccountWithReceiptValue_XEWRX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.XEWRX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag for posting purchase account with receipt value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TwoFiDocumentsWithPurchaseAccount_X2FDO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.X2FDO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag for two FI documents with purchase account",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PriceRelease_PRSFR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.PRSFR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Price Release",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ActiveActualCostComponentSplit_MLCCS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.MLCCS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag indicating if actual cost component split is active",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DelCostsToPriceDiffAcctWhenPurchAcctActive_XEFRE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.XEFRE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag for posting delivery costs to price difference account when purchase account is active",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StartOfValidityPeriodFDelCostsInPriceDiffAcct_EFREJ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.EFREJ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Start of validity period for delivery costs in price difference account",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PriceReleaseFlexibleMaterialPrices_FMP_PRSFR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.FMP_PRSFR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Price Release for Flexible Material Prices",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PriceReleaseGroup_FMP_PRFRGR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001K.FMP_PRFRGR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Price Release Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": []
+    }
+}

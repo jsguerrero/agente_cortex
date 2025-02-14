@@ -1,0 +1,20 @@
+{
+    "schema": {
+        "object_name": "s4_profitcenter_node_deletion.sql",
+        "object_type": "function",
+        "description": "This stored procedure deletes a profit center hierarchy node and its children from the profitcenter_flattened table.  The granularity is at the individual node level.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.profitcenter_flattened"
+        ],
+        "columns": [],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": []
+    }
+}

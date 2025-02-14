@@ -1,0 +1,114 @@
+{
+    "schema": {
+        "object_name": "s4_DivisionsMD.sql",
+        "object_type": "view",
+        "description": "This view joins data from tspa and tspat tables to provide a list of client divisions with their names and language keys.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.tspa",
+            "aecorsoft-prj-dev.CDC_S4.tspat"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "TSPA.mandt"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Division_SPART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "TSPA.spart"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Division code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "TSPAT.spras"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language key for division name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DivisionName_VTEXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "TSPAT.vtext"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Division name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.tspa` AS TSPA",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "TSPA.MANDT = TSPAT.MANDT",
+                    "TSPA.SPART = TSPAT.SPART"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

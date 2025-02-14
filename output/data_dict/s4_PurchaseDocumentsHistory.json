@@ -1,0 +1,544 @@
+{
+    "schema": {
+        "object_name": "s4_PurchaseDocumentsHistory.sql",
+        "object_type": "view",
+        "description": "This view provides a detailed history of purchase order items, including goods receipts and invoice receipts.  It combines data from the EKBE table with calendar and currency information for enhanced analysis. The data is at the item level of the purchasing document.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.ekbe",
+            "REPORTING.currency_decimal",
+            "K9_PROCESSING.calendar_date_dim"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekbe.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingDocumentNumber_EBELN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekbe.EBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing document number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemNumberOfPurchasingDocument_EBELP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekbe.EBELP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item number of purchasing document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SequentialNumberOfAccountAssignment_ZEKKN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekbe.ZEKKN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sequential number of account assignment",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TransactioneventType_VGABE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekbe.VGABE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Transaction event type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialDocumentYear_GJAHR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekbe.GJAHR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material document year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfMaterialDocument_BELNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekbe.BELNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of material document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemInMaterialDocument_BUZEI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekbe.BUZEI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item in material document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchaseOrderHistoryCategory_BEWTP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekbe.BEWTP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchase order history category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MovementType__inventoryManagement___BWART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekbe.BWART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Movement type (inventory management)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostingDateInTheDocument_BUDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekbe.BUDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Posting date in the document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Quantity_MENGE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekbe.MENGE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuantityInPurchaseOrderPriceUnit_BPMNG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekbe.BPMNG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quantity in purchase order price unit",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekbe.WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DocumentDateInDocument_BLDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekbe.BLDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Document date in document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "YearOfPostingDateInTheDocument_BUDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_BUDAT.CalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Year of posting date in the document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MonthOfPostingDateInTheDocument_BUDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_BUDAT.CalMonth"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Month of posting date in the document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WeekOfPostingDateInTheDocument_BUDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_BUDAT.CalWeek"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Week of posting date in the document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuarterOfPostingDateInTheDocument_BUDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_BUDAT.CalQuarter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quarter of posting date in the document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "YearOfDocumentDateInDocument_BLDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_BLDAT.CalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Year of document date in document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MonthOfDocumentDateInDocument_BLDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_BLDAT.CalMonth"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Month of document date in document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WeekOfDocumentDateInDocument_BLDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_BLDAT.CalWeek"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Week of document date in document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuarterOfDocumentDateInDocument_BLDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_BLDAT.CalQuarter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quarter of document date in document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInLocalCurrency_DMBTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekbe.DMBTR",
+                        "currency_decimal.CURRFIX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(ekbe.DMBTR * currency_decimal.CURRFIX, ekbe.DMBTR)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Amount in local currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInDocumentCurrency_WRBTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekbe.WRBTR",
+                        "currency_decimal.CURRFIX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(ekbe.WRBTR * currency_decimal.CURRFIX, ekbe.WRBTR)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Amount in document currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

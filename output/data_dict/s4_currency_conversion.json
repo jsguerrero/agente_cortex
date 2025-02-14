@@ -1,0 +1,152 @@
+{
+    "schema": {
+        "object_name": "s4_currency_conversion.sql",
+        "object_type": "table",
+        "description": "This table stores currency conversion rates between different currencies for various date ranges.  It combines data from tcurr and tcurf tables to provide a daily conversion rate, including same-currency conversions.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.tcurr",
+            "aecorsoft-prj-dev.CDC_S4.tcurf"
+        ],
+        "columns": [
+            {
+                "name": "mandt",
+                "dependencies": [
+                    "TCURR.mandt"
+                ],
+                "formula": null,
+                "description": "Client",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "kurst",
+                "dependencies": [
+                    "TCURR.kurst"
+                ],
+                "formula": null,
+                "description": "Currency type",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "fcurr",
+                "dependencies": [
+                    "TCURR.fcurr"
+                ],
+                "description": "From currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "tcurr",
+                "dependencies": [
+                    "TCURR.tcurr"
+                ],
+                "formula": null,
+                "description": "To currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ukurs",
+                "dependencies": [
+                    "TCURR",
+                    "TCURF"
+                ],
+                "formula": "tcurr.ukurs * (tcurf.tfact / tcurf.ffact)",
+                "description": "Exchange rate, adjusted by unit factors",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "start_date",
+                "dependencies": [
+                    "TCURR"
+                ],
+                "formula": null,
+                "description": "Start date of the exchange rate validity",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "end_date",
+                "dependencies": [
+                    "TCURR"
+                ],
+                "formula": null,
+                "description": "End date of the exchange rate validity",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "conv_date",
+                "dependencies": [
+                    "GENERATE_DATE_ARRAY(start_date, end_date)"
+                ],
+                "formula": null,
+                "description": "Conversion date",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": [
+            {
+                "view_name": "CurrencyConversion",
+                "join_type": "INNER JOIN",
+                "tabla_base": "TCURR",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "tcurr.mandt = tcurf.mandt",
+                    "tcurr.kurst = tcurf.kurst",
+                    "tcurr.fcurr = tcurf.fcurr",
+                    "tcurr.tcurr = tcurf.tcurr"
+                ],
+                "rules": [
+                    "tcurr.start_date >= tcurf.start_date",
+                    "tcurr.end_date <= tcurf.end_date"
+                ]
+            }
+        ]
+    }
+}

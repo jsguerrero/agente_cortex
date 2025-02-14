@@ -1,0 +1,100 @@
+{
+    "schema": {
+        "object_name": "s4_BillingBlockingReasonsMD.sql",
+        "object_type": "view",
+        "description": "This view contains billing block reasons from the tvfst table.  It provides the client, language key, block code, and reason text for each billing block.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.tvfst"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.tvfst.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.tvfst.SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Block_FAKSP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.tvfst.FAKSP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing Block Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillingBlockReason_VTEXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.tvfst.VTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reason for Billing Block",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": []
+    }
+}

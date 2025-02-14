@@ -1,0 +1,120 @@
+{
+    "schema": {
+        "object_name": "s4_RegionsMD.sql",
+        "object_type": "view",
+        "description": "This view provides regional information from the t005s table, including client, country, region, provincial tax code, and state of manufacture.  The data is at the regional level.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.t005s"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.t005s.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client identifier",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryKey_LAND1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.t005s.LAND1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Region_BLAND",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.t005s.BLAND"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Region code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProvincialTaxCode_FPRCD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.t005s.FPRCD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Provincial tax code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StateOfManufacture_HERBL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.t005s.HERBL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "State of manufacture",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

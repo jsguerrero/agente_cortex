@@ -1,0 +1,271 @@
+{
+    "schema": {
+        "object_name": "s4_CostCenterHierarchyFlattened.sql",
+        "object_type": "view",
+        "description": "Flattened Cost Center Hierarchy data with language key, providing cost center details across multiple hierarchies and languages.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.Languages_T002",
+            "REPORTING.cost_centers",
+            "REPORTING.CostCenterHierarchiesMD",
+            "REPORTING.CostCentersMD"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostCenters.mandt"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HierarchyClass_SETCLASS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostCenters.setclass"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy Class",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HierarchySubClass_SUBCLASS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostCenters.subclass"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy Subclass",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HierarchyType_HIERBASE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostCenters.hiername"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LanguageKey.LanguageKey_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CostCenter_KOSTL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostCenters.costcenter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Center ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CostCenterNode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostCenters.node"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Center Node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ParentNode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostCenters.parent"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Parent Node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ParentNodeText",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CCParentText.SetName_SETNAME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Parent Node Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CostCenterNodeText",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CCNodeText.SetName_SETNAME",
+                        "CCText.Description_LTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(CCNodeText.SetName_SETNAME, CCText.Description_LTEXT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Center Node Text (Language Dependent)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Level",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostCenters.level"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Level in Hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IsLeafNode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostCenters.isleafnode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicates if it's a leaf node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

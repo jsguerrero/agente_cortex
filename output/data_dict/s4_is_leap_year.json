@@ -1,0 +1,32 @@
+{
+    "schema": {
+        "object_name": "s4_is_leap_year.sql",
+        "object_type": "function",
+        "description": "This function checks if a given year is a leap year.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [],
+        "columns": [
+            {
+                "name": {
+                    "value": "is_leap",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "(MOD(YEAR, 4) = 0 AND MOD(YEAR, 100) != 0) OR MOD(YEAR, 400) = 0",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicates whether the input year is a leap year (TRUE) or not (FALSE)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

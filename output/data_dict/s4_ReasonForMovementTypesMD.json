@@ -1,0 +1,120 @@
+{
+    "schema": {
+        "object_name": "s4_ReasonForMovementTypesMD.sql",
+        "object_type": "view",
+        "description": "This view contains reason for goods movement types from table t157e.  It provides the client, language key, movement type, reason for movement code, and reason for goods movement text.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.t157e"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.t157e.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.t157e.SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MovementType_BWART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.t157e.BWART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Movement Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReasonForMovement_GRUND",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.t157e.GRUND"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reason for Movement Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReasonForGoodsMovement_GRTXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.t157e.GRTXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reason for Goods Movement Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

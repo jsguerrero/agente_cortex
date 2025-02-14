@@ -1,0 +1,226 @@
+{
+    "schema": {
+        "object_name": "s4_FSVTextsMD.sql",
+        "object_type": "view",
+        "description": "This view represents the hierarchy nodes from the hrrp_nodet table in the CDC_S4 dataset.  It provides details such as node class, parent node, validity periods, and descriptions for each node.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.hrrp_nodet"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "hrrp_nodet.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HierarchyID_HRYID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "hrrp_nodet.HRYID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HierarchyVersion_HRYVER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "hrrp_nodet.HRYVER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy Version",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "hrrp_nodet.SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NodeClass_NODECLS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "hrrp_nodet.NODECLS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Node Class",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HierarchyNode_HRYNODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "hrrp_nodet.HRYNODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy Node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HierarchyParentNode_PARNODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "hrrp_nodet.PARNODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy Parent Node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidTo_HRYVALTO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "hrrp_nodet.HRYVALTO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valid To",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidFrom_HRYVALFROM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "hrrp_nodet.HRYVALFROM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valid From",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HierarchyNodeDescription_NODETXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "hrrp_nodet.NODETXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy Node Description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": []
+    }
+}

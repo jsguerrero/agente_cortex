@@ -1,0 +1,4125 @@
+{
+    "schema": {
+        "object_name": "s4_VendorsMD.sql",
+        "object_type": "view",
+        "description": "This view joins data from the LFA1 and ADRC tables to provide a comprehensive view of vendor master data, combining general vendor information with address details.  The data is at the vendor level, with one row per vendor.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.lfa1",
+            "CDC_S4.adrc"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountNumberOfVendorOrCreditor_LIFNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.LIFNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Account Number of Vendor or Creditor",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryKey_LAND1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.LAND1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NAME1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.NAME1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NAME2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.NAME2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NAME3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.NAME3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NAME4",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.NAME4"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 4",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "City_ORT01",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.ORT01"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "City",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "District_ORT02",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.ORT02"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "District",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PoBox_PFACH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.PFACH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "POBoxPostalCode_PSTL2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.PSTL2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box Postal Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostalCode_PSTLZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.PSTLZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Postal Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Region__REGIO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.REGIO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Region",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SortField_SORTL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.SORTL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sort Field",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StreetAndHouseNumber_STRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.STRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street and House Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Address_ADRNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.ADRNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Address",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SearchTermForMatchcodeSearch_MCOD1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.MCOD1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Search Term for Matchcode Search",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SearchTermForMatchcodeSearch_MCOD2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.MCOD2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Search Term for Matchcode Search",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SearchTermForMatchcodeSearch_MCOD3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.MCOD3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Search Term for Matchcode Search",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Title_ANRED",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.ANRED"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Title",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TrainStation_BAHNS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.BAHNS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Train Station",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InternationalLocationNumber__part1___BBBNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.BBBNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "International Location Number (part 1)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InternationalLocationNumber__part2___BBSNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.BBSNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "International Location Number (part 2)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AuthorizationGroup_BEGRU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.BEGRU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Authorization Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndustryKey_BRSCH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.BRSCH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Industry Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CheckDigitForTheInternationalLocationNumber_BUBKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.BUBKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Check Digit for the International Location Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DataCommunicationLineNo_DATLT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.DATLT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Data Communication Line No",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReportKeyForDataMediumExchange_DTAMS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.DTAMS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Report Key for Data Medium Exchange",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InstructionKeyForDataMediumExchange_DTAWS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.DTAWS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Instruction Key for Data Medium Exchange",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOnWhichTheRecordWasCreated_ERDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.ERDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date on Which the Record Was Created",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameOfPersonWhoCreatedTheObject_ERNAM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.ERNAM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name of Person Who Created the Object",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PorSubscriberNumber_ESRNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.ESRNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO or Subscriber Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GroupKey_KONZS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.KONZS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Group Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorAccountGroup_KTOKK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.KTOKK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Account Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerNumber_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountNumberOfTheAlternativePayee_LNRZA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.LNRZA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Account Number of the Alternative Payee",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CentralDeletionFlagForMasterRecord_LOEVM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.LOEVM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Central Deletion Flag for Master Record",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CentralPostingBlock_SPERR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.SPERR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Central Posting Block",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CentrallyImposedPurchasingBlock_SPERM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.SPERM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Centrally Imposed Purchasing Block",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxNumber1_STCD1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.STCD1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax Number 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxNumber2_STCD2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.STCD2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax Number 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_BusinessPartnerSubjectToEqualizationTax_STKZA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.STKZA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Business Partner Subject to Equalization Tax",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LiableForVat_STKZU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.STKZU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Liable for VAT",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TeleboxNumber_TELBX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.TELBX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Telebox Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FirstTelephoneNumber_TELF1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.TELF1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "First Telephone Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SecondTelephoneNumber_TELF2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.TELF2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Second Telephone Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FaxNumber_TELFX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.TELFX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fax Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TeletexNumber_TELTX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.TELTX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Teletex Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TelexNumber_TELX1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.TELX1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Telex Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_IsTheAccountAOneTimeAccount_XCPDK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.XCPDK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Is the Account a One-Time Account",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_AlternativePayeeInDocumentAllowed_XZEMP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.XZEMP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Alternative Payee in Document Allowed",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyIdOfTradingPartner_VBUND",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.VBUND"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company ID of Trading Partner",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountNumberOfTheMasterRecordWithFiscalAddress_FISKN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.FISKN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Account Number of the Master Record with Fiscal Address",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VatRegistrationNumber_STCEG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.STCEG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "VAT Registration Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NaturalPerson_STKZN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.STKZN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Natural Person",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FunctionThatWillBeBlocked_SPERQ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.SPERQ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Function That Will Be Blocked",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PlaceOfBirthOfThePersonSubjectToWithholdingTax_GBORT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.GBORT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Place of Birth of the Person Subject to Withholding Tax",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfBirthOfThePersonSubjectToWithholdingTax_GBDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.GBDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date of Birth of the Person Subject to Withholding Tax",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "KeyForTheSexOfThePersonSubjectToWithholdingTax_SEXKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.SEXKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Key for the Sex of the Person Subject to Withholding Tax",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CreditInformationNumber_KRAUS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.KRAUS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Credit Information Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LastReview__external___REVDB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.REVDB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Last Review (external)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorsQmSystem_QSSYS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.QSSYS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor's QM System",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReferenceAccountGroupForOneTimeAccount_vendor_KTOCK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.KTOCK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reference Account Group for One-Time Account (vendor)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PoBoxCity_PFORT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.PFORT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box City",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant__ownOrExternal___WERKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.WERKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant (own or external)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_VendorSubRangeRelevant_LTSNA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.LTSNA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Vendor Sub-range Relevant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_PlantLevelRelevant_WERKR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.WERKR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Plant Level Relevant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FactoryCalendarKey_PLKAL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.PLKAL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Factory Calendar Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfDataTransferIntoSubsequentRelease_DUEFL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.DUEFL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of Data Transfer into Subsequent Release",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxJurisdiction_TXJCD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.TXJCD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax Jurisdiction",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PaymentBlock_SPERZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.SPERZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Payment Block",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StandardCarrierAccessCode_SCACD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.SCACD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Standard Carrier Access Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ForwardingAgentFreightGroup_SFRGR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.SFRGR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Forwarding Agent Freight Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TransportationZoneToOrFromWhichTheGoodsAreDelivered_LZONE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.LZONE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Transportation Zone to or from which the Goods are Delivered",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_AlternativePayeeUsingAccountNumber_XLFZA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.XLFZA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Alternative Payee Using Account Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ServiceAgentProcedureGroup_DLGRP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.DLGRP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Service Agent Procedure Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxType_FITYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.FITYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxNumberType_STCDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.STCDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax Number Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RegisteredForSocialInsurance_REGSS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.REGSS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Registered for Social Insurance",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ActivityCodeForSocialInsurance_ACTSS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.ACTSS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Activity Code for Social Insurance",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxNumber3_STCD3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.STCD3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax Number 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxNumber4_STCD4",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.STCD4"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax Number 4",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxNumber5_STCD5",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.STCD5"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax Number 5",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxSplit_IPISP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.IPISP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax Split",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxBaseInPercentage_TAXBS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.TAXBS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax Base in Percentage",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Profession_PROFS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.PROFS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Profession",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Shipment_StatisticsGroupTransportationServiceAgent_STGDL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.STGDL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Shipment: Statistics Group Transportation Service Agent",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExternalManufacturerCodeNameOrNumber_EMNFR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.EMNFR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "External Manufacturer Code, Name or Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UniformResourceLocator_LFURL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.LFURL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Uniform Resource Locator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameOfRepresentative_J_1KFREPRE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.J_1KFREPRE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name of Representative",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TypeOfBusiness_J_1KFTBUS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.J_1KFTBUS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Type of Business",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TypeOfIndustry_J_1KFTIND",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.J_1KFTIND"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Type of Industry",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfChangeAuthorization__central___CONFS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.CONFS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of Change Authorization (central)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOnWhichTheChangesWereConfirmed_UPDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.UPDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date on Which the Changes Were Confirmed",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TimeOfLastChangeConfirmation_UPTIM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.UPTIM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Time of Last Change Confirmation",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CentralDeletionBlockForMasterRecord_NODEL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.NODEL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Central Deletion Block for Master Record",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidityDateOfCertification_QSSYSDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.QSSYSDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Validity Date of Certification",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorIndicatorRelevantForProofOfDelivery_PODKZB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.PODKZB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Indicator Relevant for Proof of Delivery",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountNumberOfMasterRecordOfTaxOfficeResponsible_FISKU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.FISKU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Account Number of Master Record of Tax Office Responsible",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxNumberAtResponsibleTaxAuthority_STENR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.STENR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax Number at Responsible Tax Authority",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CarrierConfirmationIsExpected_CARRIER_CONF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.CARRIER_CONF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Carrier Confirmation is Expected",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MicroCompanyIndicator_MIN_COMP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.MIN_COMP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Micro Company Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TermsOfLiability_TERM_LI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.TERM_LI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Terms of Liability",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CrcNumber_CRC_NUM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.CRC_NUM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "CRC Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessPurposeCompletedFlag_CVP_XBLCK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.CVP_XBLCK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Purpose Completed Flag",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RgNumber_RG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.RG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "RG Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IssuedBy_EXP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.EXP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Issued By",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "State_UF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.UF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "State",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RgIssuingDate_RGDATE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.RGDATE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "RG Issuing Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RicNumber_RIC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.RIC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "RIC Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ForeignNationalRegistration_RNE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.RNE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Foreign National Registration",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RneIssuingDate_RNEDATE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.RNEDATE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "RNE Issuing Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Cnae_CNAE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.CNAE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "CNAE",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LegalNature_LEGALNAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.LEGALNAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Legal Nature",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CrtNumber_CRTN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.CRTN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "CRT Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IcmsTaxpayer_ICMSTAXPAY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.ICMSTAXPAY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "ICMS Taxpayer",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndustryMainType_INDTYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.INDTYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Industry Main Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxDeclarationType_TDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.TDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax Declaration Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanySize_COMSIZE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.COMSIZE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Size",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeclarationRegimenForPiscofins_DECREGPC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.DECREGPC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Declaration Regimen for Piscofins",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CapitalAmount_J_SC_CAPITAL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.J_SC_CAPITAL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Capital Amount",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Currency_J_SC_CURRENCY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.J_SC_CURRENCY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AgencyLocationCode_ALC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.ALC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Agency Location Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PaymentOffice_PMT_OFFICE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.PMT_OFFICE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Payment Office",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorIsPpaRelevant_PPA_RELEVANT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.PPA_RELEVANT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor is PPA Relevant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProcessorGroup_PSOFG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.PSOFG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Processor Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SubledgerAcctPreprocessingProcedure_PSOIS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.PSOIS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Subledger Acct Preprocessing Procedure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name1_PSON1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.PSON1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name2_PSON2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.PSON2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name3_PSON3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.PSON3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FirstName_PSOVN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.PSOVN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "First Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Title_PSOTL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.PSOTL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Title",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TransportationChain_TRANSPORT_CHAIN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.TRANSPORT_CHAIN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Transportation Chain",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StagingTimeInDays_STAGING_TIME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.STAGING_TIME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Staging Time in Days",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SchedulingProcedure_SCHEDULING_TYPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.SCHEDULING_TYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Scheduling Procedure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CrossDocking_RelevantForCollectiveNumbering_SUBMI_RELEVANT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LFA1.SUBMI_RELEVANT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cross-Docking: Relevant for Collective Numbering",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidFromDate_DATE_FROM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.DATE_FROM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valid From Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VersionIdForInternationalAddresses_NATION",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.NATION"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Version ID for International Addresses",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidToDate_DATE_TO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.DATE_TO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valid To Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FormOfAddressKey_TITLE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.TITLE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Form of Address Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Addr_NAME1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.NAME1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Address Name 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Addr_NAME2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.NAME2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Address Name 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Addr_NAME3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.NAME3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Address Name 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Addr_NAME4",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.NAME4"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Address Name 4",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Addr_CITY1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.CITY1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Address City 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Addr_District_CITY2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.CITY2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Address District",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CityCode_CITY_CODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.CITY_CODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "City Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DistrictCode_CITYP_CODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.CITYP_CODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "District Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "City_HOME_CITY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.HOME_CITY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "City",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DifferentCityForCitystreetFile_CITYH_CODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.CITYH_CODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Different City for Citystreet File",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RegionalStructureGrouping_REGIOGROUP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.REGIOGROUP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Regional Structure Grouping",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CityPostalCode_POST_CODE1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.POST_CODE1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "City Postal Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PoBoxPostalCode_POST_CODE2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.POST_CODE2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box Postal Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyPostalCode_POST_CODE3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.POST_CODE3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Postal Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PoBox_PO_BOX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.PO_BOX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PoBoxAddressUndeliverableFlag_DONT_USE_P",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.DONT_USE_P"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box Address Undeliverable Flag",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_PoBoxWithoutNumber_PO_BOX_NUM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.PO_BOX_NUM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: PO Box Without Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PoBoxCity_PO_BOX_LOC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.PO_BOX_LOC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box City",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CityPoBoxCode__cityFile___CITY_CODE2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.CITY_CODE2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "City PO Box Code (city file)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RegionForPoBox_PO_BOX_REG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.PO_BOX_REG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Region for PO Box",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PoBoxCountry_PO_BOX_CTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.PO_BOX_CTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box Country",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TransportationZoneToOrFromWhichTheGoodsAreDelivered_TRANSPZONE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.TRANSPZONE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Transportation Zone to or from which the Goods are Delivered",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Street_STREET",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.STREET"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StreetAddressUndeliverableFlag_DONT_USE_S",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.DONT_USE_S"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street Address Undeliverable Flag",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StreetNumberForCitystreetFile_STREETCODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.STREETCODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street Number for Citystreet File",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HouseNumber_HOUSE_NUM1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.HOUSE_NUM1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "House Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HouseNumberSupplement_HOUSE_NUM2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.HOUSE_NUM2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "House Number Supplement",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Street2_STR_SUPPL1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.STR_SUPPL1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Street3_STR_SUPPL2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.STR_SUPPL2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Street4_STR_SUPPL3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.STR_SUPPL3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street 4",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Street5_LOCATION",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.LOCATION"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street 5",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Building__numberOrCode___BUILDING",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.BUILDING"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Building (number or code)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FloorInBuilding_FLOOR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.FLOOR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Floor in Building",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RoomOrAppartmentNumber_ROOMNUMBER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.ROOMNUMBER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Room or Appartment Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Country_COUNTRY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.COUNTRY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Language_LANGU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.LANGU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Region_Addr_REGION",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.REGION"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Region",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AddressGroup__key_businessAddressServices___ADDR_GROUP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.ADDR_GROUP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Address Group (key: business address services)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_ThereAreMoreAddressGroupAssignments_FLAGGROUPS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.FLAGGROUPS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: There are more Address Group Assignments",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_ThisIsAPersonalAddress_PERS_ADDR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.PERS_ADDR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: This is a Personal Address",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SearchTerm1_SORT1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.SORT1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Search Term 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SearchTerm2_SORT2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.SORT2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Search Term 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CommunicationMethod__key_businessAddressServices_DEFLT_COMM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.DEFLT_COMM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Communication Method (key: business address services)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FirstTelephoneNo_DiallingCodenumber_TEL_NUMBER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.TEL_NUMBER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "First Telephone No. (Dialling Code/number)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FirstTelephoneNo_Extension_TEL_EXTENS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.TEL_EXTENS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "First Telephone No. (Extension)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FirstFaxNo_DiallingCodenumber_FAX_NUMBER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.FAX_NUMBER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "First Fax No. (Dialling Code/number)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FirstFaxNo_Extension_FAX_EXTENS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.FAX_EXTENS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "First Fax No. (Extension)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountyCodeForCounty_COUNTY_CODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.COUNTY_CODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "County Code for County",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "County_Addr_COUNTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.COUNTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "County",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TownshipCodeForTownship_TOWNSHIP_CODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.TOWNSHIP_CODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Township Code for Township",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Township_TOWNSHIP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.TOWNSHIP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Township",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountyNameInUpperCaseForSearchHelp_MC_COUNTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.MC_COUNTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "County Name in Upper Case for Search Help",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TownshipNameInUpperCaseForSearchHelp_MC_TOWNSHIP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.MC_TOWNSHIP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Township Name in Upper Case for Search Help",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessPurposeCompletedFlag_XPCPT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.XPCPT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Purpose Completed Flag",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER",
+                "tabla_base": "aecorsoft-prj-dev.CDC_S4.lfa1",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "LFA1.ADRNR = ADRC.addrnumber",
+                    "LFA1.mandt = ADRC.client"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

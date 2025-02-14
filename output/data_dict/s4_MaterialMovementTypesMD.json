@@ -1,0 +1,183 @@
+{
+    "schema": {
+        "object_name": "s4_MaterialMovementTypesMD.sql",
+        "object_type": "view",
+        "description": "This view contains material movement type data from the t156t table, providing details such as client, language key, movement type, special stock indicator, movement indicator, receipt indicator, consumption posting indicator, and movement type text.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.t156t"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.t156t.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.t156t.SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MovementType_BWART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.t156t.BWART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Movement Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SpecialStock_SOBKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.t156t.SOBKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Special Stock Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MovementIndicator_KZBEW",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.t156t.KZBEW"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Movement Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReceiptIndicator_KZZUG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.t156t.KZZUG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Receipt Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConsumptionPosting_KZVBR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.t156t.KZVBR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Consumption Posting Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MovementTypeText_BTEXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.t156t.BTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Movement Type Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

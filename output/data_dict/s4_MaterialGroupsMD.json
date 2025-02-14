@@ -1,0 +1,324 @@
+{
+    "schema": {
+        "object_name": "s4_MaterialGroupsMD.sql",
+        "object_type": "view",
+        "description": "Material Group master data, joining t023 and t023t tables on MANDT and MATKL to include material group name.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.t023",
+            "aecorsoft-prj-dev.CDC_S4.t023t"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t023.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialGroup_MATKL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t023.MATKL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Division_SPART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t023.SPART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Division",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReferenceGroupRefMaterial_WWGDA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t023.WWGDA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reference Group for Reference Material",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GroupMaterial_WWGPA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t023.WWGPA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Group Material",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DepartmentNumber_ABTNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t023.ABTNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Department Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AuthorizationGroup_BEGRU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t023.BEGRU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Authorization Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DefaultUnitofWeight_GEWEI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t023.GEWEI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Default Unit of Weight",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValuationClass_BKLAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t023.BKLAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valuation Class",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingValueKey_EKWSL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t023.EKWSL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Value Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetClass_ANLKL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t023.ANLKL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Class",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PriceLevelGroup_PRICE_GROUP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t023.PRICE_GROUP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Price Level Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialGroupName_WGBEZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t023t.wgbez"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Group Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Language_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t023t.spras"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.t023`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "t023.MANDT = t023t.MANDT",
+                    "t023.MATKL = t023t.MATKL"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

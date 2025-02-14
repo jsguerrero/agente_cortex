@@ -1,0 +1,135 @@
+{
+    "schema": {
+        "object_name": "s4_ProductHierarchiesMD.sql",
+        "object_type": "view",
+        "description": "Product Hierarchy data combining general product hierarchy information from t179 with descriptions from t179t, providing a language-specific description for each hierarchy node.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.t179",
+            "aecorsoft-prj-dev.CDC_S4.t179t"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t179.mandt"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Hierarchy_PRODH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t179.prodh"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Product Hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Level_STUFE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t179.stufe"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy Level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Language_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t179t.spras"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language of Description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Description_VTEXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t179t.vtext"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Description of the Product Hierarchy Node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.t179`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "t179.mandt = t179t.mandt",
+                    "t179.prodh = t179t.prodh"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

@@ -1,0 +1,300 @@
+{
+    "schema": {
+        "object_name": "s4_StockInHand.sql",
+        "object_type": "view",
+        "description": "Aggregated stock quantities from various sources (distribution centers, vendor locations, customer locations, and vendor consignment) with different stock reasons transposed into a single column.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.mard",
+            "CDC_S4.mska",
+            "CDC_S4.matdoc",
+            "CDC_S4.mslb",
+            "CDC_S4.msku",
+            "CDC_S4.mkol"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mard.MANDT",
+                        "mska.MANDT",
+                        "msfd.MANDT",
+                        "mslb.MANDT",
+                        "msku.MANDT",
+                        "mkol.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ArticleNumber_MATNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mard.MATNR",
+                        "mska.MATNR",
+                        "msfd.MATBF",
+                        "mslb.MATNR",
+                        "msku.MATNR",
+                        "mkol.MATNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Article Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Site_WERKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mard.WERKS",
+                        "mska.WERKS",
+                        "msfd.WERKS",
+                        "mslb.WERKS",
+                        "msku.WERKS",
+                        "mkol.WERKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Site",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StorageLocation_LGORT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mard.LGORT",
+                        "mska.LGORT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Storage Location",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BatchNumber_CHARG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mska.CHARG",
+                        "msfd.CHARG_SID",
+                        "mslb.CHARG",
+                        "msku.CHARG",
+                        "mkol.CHARG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CAST(mska.CHARG AS STRING)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Batch Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SpecialStockIndicator_SOBKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mska.SOBKZ",
+                        "msfd.SOBKZ",
+                        "mslb.SOBKZ",
+                        "msku.SOBKZ",
+                        "mkol.SOBKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Special Stock Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SDDocumentNumber_VBELN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mska.VBELN",
+                        "msfd.MAT_KDAUF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "SD Document Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SDDocumentItemNumber_POSNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mska.POSNR",
+                        "msfd.MAT_KDPOS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "SD Document Item Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorAccountNumber_LIFNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "msfd.LIFNR_SID",
+                        "mslb.LIFNR",
+                        "mkol.LIFNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Account Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerNumber_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "msku.KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Qty",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SPLIT(Qty, '@') [OFFSET(0)]"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SPLIT(Qty, '@') [OFFSET(0)]",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StockType",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SPLIT(Qty, '@') [OFFSET(1)]"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SPLIT(Qty, '@') [OFFSET(1)]",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Stock Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

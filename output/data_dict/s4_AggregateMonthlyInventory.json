@@ -1,0 +1,424 @@
+{
+    "schema": {
+        "object_name": "s4_AggregateMonthlyInventory.sql",
+        "object_type": "procedure",
+        "description": "This procedure aggregates monthly inventory data from the matdoc table, joining with a calendar date dimension table to provide monthly snapshots.  The data is grouped by various material and organizational attributes, providing a monthly inventory aggregation at a granular level.",
+        "source": "cortex_framework",
+        "group_by": [
+            "src.mandt",
+            "src.werks",
+            "src.matnr",
+            "src.charg",
+            "src.meins",
+            "src.waers",
+            "src.lgort",
+            "src.bukrs",
+            "src.bwart",
+            "src.insmk",
+            "src.sobkz",
+            "src.shkzg",
+            "src.bstaus_sg",
+            "datedim.calyear",
+            "datedim.monthenddate",
+            "datedim.calmonth"
+        ],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.matdoc",
+            "aecorsoft-prj-dev.K9_PROCESSING.calendar_date_dim"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "mandt",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.mandt"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "werks",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.werks"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "matnr",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.matnr"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "charg",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.charg"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Batch Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "lgort",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.lgort"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Storage Location",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "bukrs",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.bukrs"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "bwart",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.bwart"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Movement Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "insmk",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.insmk"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Special Stock Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "sobkz",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.sobkz"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Special Stock Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "shkzg",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.shkzg"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Stock Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "cal_year",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.K9_PROCESSING.calendar_date_dim.calyear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Calendar Year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "cal_month",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.K9_PROCESSING.calendar_date_dim.calmonth"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Calendar Month",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "meins",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.meins"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Unit of Measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "waers",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.waers"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "month_end_date",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.K9_PROCESSING.calendar_date_dim.monthenddate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Month End Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "bstaus_sg",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.bstaus_sg"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Stock Status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "total_monthly_movement_amount",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.dmbtr_stock"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(src.dmbtr_stock)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Monthly Movement Amount",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "total_monthly_movement_quantity",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.stock_qty"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(src.stock_qty)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Monthly Movement Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.matdoc`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "src.budat = datedim.Date"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

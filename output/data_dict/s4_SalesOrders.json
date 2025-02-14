@@ -1,0 +1,5066 @@
+{
+    "schema": {
+        "object_name": "s4_SalesOrders.sql",
+        "object_type": "view",
+        "description": "This view joins data from multiple SAP S4 HANA tables (VBAP, VBAK, VBPA, KNA1, PRCD_ELEMENTS, TCURX, VBPE) to provide a comprehensive view of sales order data at both header and item levels.  It includes pricing details, customer information, and order quantities. The data is grouped at the sales order item level (VBELN, POSNR).",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.vbak",
+            "CDC_S4.vbap",
+            "CDC_S4.vbpa",
+            "CDC_S4.kna1",
+            "CDC_S4.prcd_elements",
+            "CDC_S4.tcurx",
+            "CDC_S4.vbep"
+        ],
+        "columns": [
+            {
+                "name": "Client_MANDT",
+                "dependencies": [
+                    "CDC_S4.vbak.MANDT"
+                ],
+                "formula": null,
+                "description": "Client number from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SalesDocument_VBELN",
+                "dependencies": [
+                    "CDC_S4.vbak.VBELN"
+                ],
+                "formula": null,
+                "description": "Sales document number from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Item_POSNR",
+                "dependencies": [
+                    "CDC_S4.vbap.POSNR"
+                ],
+                "formula": null,
+                "description": "Item number from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MaterialNumber_MATNR",
+                "dependencies": [
+                    "CDC_S4.vbap.MATNR"
+                ],
+                "formula": null,
+                "description": "Material number from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CreationDate_ERDAT",
+                "dependencies": [
+                    "CDC_S4.vbak.ERDAT"
+                ],
+                "formula": null,
+                "description": "Creation date from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CreationTime_ERZET",
+                "dependencies": [
+                    "CDC_S4.vbak.ERZET"
+                ],
+                "formula": null,
+                "description": "Creation time from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CreatedBy_ERNAM",
+                "dependencies": [
+                    "CDC_S4.vbak.ERNAM"
+                ],
+                "formula": null,
+                "description": "User who created the sales order from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "QuotationDateFrom_ANGDT",
+                "dependencies": [
+                    "CDC_S4.vbak.ANGDT"
+                ],
+                "formula": null,
+                "description": "Quotation date from (start) from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "QuotationDateTo_BNDDT",
+                "dependencies": [
+                    "CDC_S4.vbak.BNDDT"
+                ],
+                "formula": null,
+                "description": "Quotation date to (end) from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DocumentDate_AUDAT",
+                "dependencies": [
+                    "CDC_S4.vbak.AUDAT"
+                ],
+                "formula": null,
+                "description": "Document date from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DocumentCategory_VBTYP",
+                "dependencies": [
+                    "CDC_S4.vbak.VBTYP"
+                ],
+                "formula": null,
+                "description": "Document category from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TransactionGroup_TRVOG",
+                "dependencies": [
+                    "CDC_S4.vbak.TRVOG"
+                ],
+                "formula": null,
+                "description": "Transaction group from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SalesDocumentType_AUART",
+                "dependencies": [
+                    "CDC_S4.vbak.AUART"
+                ],
+                "formula": null,
+                "description": "Sales document type from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Reason_AUGRU",
+                "dependencies": [
+                    "CDC_S4.vbak.AUGRU"
+                ],
+                "formula": null,
+                "description": "Reason code from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "WarrantyDate_GWLDT",
+                "dependencies": [
+                    "CDC_S4.vbak.GWLDT"
+                ],
+                "formula": null,
+                "description": "Warranty date from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CollectiveNumber_SUBMI",
+                "dependencies": [
+                    "CDC_S4.vbak.SUBMI"
+                ],
+                "formula": null,
+                "description": "Collective number from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DeliveryBlock_LIFSK",
+                "dependencies": [
+                    "CDC_S4.vbak.LIFSK"
+                ],
+                "formula": null,
+                "description": "Delivery block from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BillingBlock_FAKSK",
+                "dependencies": [
+                    "CDC_S4.vbak.FAKSK"
+                ],
+                "formula": null,
+                "description": "Billing block from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CurrencyHdr_WAERK",
+                "dependencies": [
+                    "CDC_S4.vbak.WAERK"
+                ],
+                "formula": null,
+                "description": "Currency key from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SalesOrganization_VKORG",
+                "dependencies": [
+                    "CDC_S4.vbak.VKORG"
+                ],
+                "formula": null,
+                "description": "Sales organization from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DistributionChannel_VTWEG",
+                "dependencies": [
+                    "CDC_S4.vbak.VTWEG"
+                ],
+                "formula": null,
+                "description": "Distribution channel from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DivisionHdr_SPART",
+                "dependencies": [
+                    "CDC_S4.vbak.SPART"
+                ],
+                "formula": null,
+                "description": "Division from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SalesGroup_VKGRP",
+                "dependencies": [
+                    "CDC_S4.vbak.VKGRP"
+                ],
+                "formula": null,
+                "description": "Sales group from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SalesOffice_VKBUR",
+                "dependencies": [
+                    "CDC_S4.vbak.VKBUR"
+                ],
+                "formula": null,
+                "description": "Sales office from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BusinessAreaHdr_GSBER",
+                "dependencies": [
+                    "CDC_S4.vbak.GSBER"
+                ],
+                "formula": null,
+                "description": "Business area from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CostCtrBusinessArea_GSKST",
+                "dependencies": [
+                    "CDC_S4.vbak.GSKST"
+                ],
+                "formula": null,
+                "description": "Cost center business area from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AgreementValidFrom_GUEBG",
+                "dependencies": [
+                    "CDC_S4.vbak.GUEBG"
+                ],
+                "formula": null,
+                "description": "Agreement valid from date from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AgreementValidTo_GUEEN",
+                "dependencies": [
+                    "CDC_S4.vbak.GUEEN"
+                ],
+                "formula": null,
+                "description": "Agreement valid to date from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ConditionNumber_KNUMV",
+                "dependencies": [
+                    "CDC_S4.vbak.KNUMV"
+                ],
+                "formula": null,
+                "description": "Condition number from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "RequestedDeliveryDate_VDATU",
+                "dependencies": [
+                    "CDC_S4.vbak.VDATU"
+                ],
+                "formula": null,
+                "description": "Requested delivery date from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ProposedDateType_VPRGR",
+                "dependencies": [
+                    "CDC_S4.vbak.VPRGR"
+                ],
+                "formula": null,
+                "description": "Proposed date type from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CompleteDeliveryFlag_AUTLF",
+                "dependencies": [
+                    "CDC_S4.vbak.AUTLF"
+                ],
+                "formula": null,
+                "description": "Complete delivery flag from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "OriginalSystem_VBKLA",
+                "dependencies": [
+                    "CDC_S4.vbak.VBKLA"
+                ],
+                "formula": null,
+                "description": "Original system from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DocumentIndicator_VBKLT",
+                "dependencies": [
+                    "CDC_S4.vbak.VBKLT"
+                ],
+                "formula": null,
+                "description": "Document indicator from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PricingProcedure_KALSM",
+                "dependencies": [
+                    "CDC_S4.vbak.KALSM"
+                ],
+                "formula": null,
+                "description": "Pricing procedure from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ShippingConditions_VSBED",
+                "dependencies": [
+                    "CDC_S4.vbak.VSBED"
+                ],
+                "formula": null,
+                "description": "Shipping conditions from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ProposedBillingType_FKARA",
+                "dependencies": [
+                    "CDC_S4.vbak.FKARA"
+                ],
+                "formula": null,
+                "description": "Proposed billing type from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SalesProbability_AWAHR",
+                "dependencies": [
+                    "CDC_S4.vbak.AWAHR"
+                ],
+                "formula": null,
+                "description": "Sales probability from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SearchTermForProductProposal_KTEXT",
+                "dependencies": [
+                    "CDC_S4.vbak.KTEXT"
+                ],
+                "formula": null,
+                "description": "Search term for product proposal from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CustomerPurchaseOrderNumber_BSTNK",
+                "dependencies": [
+                    "CDC_S4.vbak.BSTNK"
+                ],
+                "formula": null,
+                "description": "Customer purchase order number from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CustomerPurchaseOrderType_BSARK",
+                "dependencies": [
+                    "CDC_S4.vbak.BSARK"
+                ],
+                "formula": null,
+                "description": "Customer purchase order type from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CustomerPurchaseOrdERDATe_BSTDK",
+                "dependencies": [
+                    "CDC_S4.vbak.BSTDK"
+                ],
+                "formula": null,
+                "description": "Customer purchase order date from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PurchaseOrderNumberSupplement_BSTZD",
+                "dependencies": [
+                    "CDC_S4.vbak.BSTZD"
+                ],
+                "formula": null,
+                "description": "Purchase order number supplement from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "YourReference_IHREZ",
+                "dependencies": [
+                    "CDC_S4.vbak.IHREZ"
+                ],
+                "formula": null,
+                "description": "Your reference from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NameOfOrderer_BNAME",
+                "dependencies": [
+                    "CDC_S4.vbak.BNAME"
+                ],
+                "formula": null,
+                "description": "Name of orderer from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TelephoneNumber_TELF1",
+                "dependencies": [
+                    "CDC_S4.vbak.TELF1"
+                ],
+                "formula": null,
+                "description": "Telephone number from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NumberOfContactsFromTheCustomer_MAHZA",
+                "dependencies": [
+                    "CDC_S4.vbak.MAHZA"
+                ],
+                "formula": null,
+                "description": "Number of contacts from the customer from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "LastCustomerContactDate_MAHDT",
+                "dependencies": [
+                    "CDC_S4.vbak.MAHDT"
+                ],
+                "formula": null,
+                "description": "Last customer contact date from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SoldToParty_KUNNR",
+                "dependencies": [
+                    "CDC_S4.vbak.KUNNR"
+                ],
+                "formula": null,
+                "description": "Sold-to party number from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CostCenterHdr_KOSTL",
+                "dependencies": [
+                    "CDC_S4.vbak.KOSTL"
+                ],
+                "formula": null,
+                "description": "Cost center from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "UpdateGroupForStatistics_STAFO",
+                "dependencies": [
+                    "CDC_S4.vbak.STAFO"
+                ],
+                "formula": null,
+                "description": "Update group for statistics from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "StatisticScurrency_STWAE",
+                "dependencies": [
+                    "CDC_S4.vbak.STWAE"
+                ],
+                "formula": null,
+                "description": "Statistics currency from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ChangedOn_AEDAT",
+                "dependencies": [
+                    "CDC_S4.vbak.AEDAT"
+                ],
+                "formula": null,
+                "description": "Changed on date from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CustomerGroup1_KVGR1",
+                "dependencies": [
+                    "CDC_S4.vbak.KVGR1"
+                ],
+                "formula": null,
+                "description": "Customer group 1 from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CustomerGroup2_KVGR2",
+                "dependencies": [
+                    "CDC_S4.vbak.KVGR2"
+                ],
+                "formula": null,
+                "description": "Customer group 2 from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CustomerGroup3_KVGR3",
+                "dependencies": [
+                    "CDC_S4.vbak.KVGR3"
+                ],
+                "formula": null,
+                "description": "Customer group 3 from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CustomerGroup4_KVGR4",
+                "dependencies": [
+                    "CDC_S4.vbak.KVGR4"
+                ],
+                "formula": null,
+                "description": "Customer group 4 from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CustomerGroup5_KVGR5",
+                "dependencies": [
+                    "CDC_S4.vbak.KVGR5"
+                ],
+                "formula": null,
+                "description": "Customer group 5 from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Agreement_KNUMA",
+                "dependencies": [
+                    "CDC_S4.vbak.KNUMA"
+                ],
+                "formula": null,
+                "description": "Agreement number from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ControllingArea_KOKRS",
+                "dependencies": [
+                    "CDC_S4.vbak.KOKRS"
+                ],
+                "formula": null,
+                "description": "Controlling area from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "WBSElementHdr_PS_PSP_PNR",
+                "dependencies": [
+                    "CDC_S4.vbak.PS_PSP_PNR"
+                ],
+                "formula": null,
+                "description": "WBS element from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ExchangeRateType_KURST",
+                "dependencies": [
+                    "CDC_S4.vbak.KURST"
+                ],
+                "formula": null,
+                "description": "Exchange rate type from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CreditControlArea_KKBER",
+                "dependencies": [
+                    "CDC_S4.vbak.KKBER"
+                ],
+                "formula": null,
+                "description": "Credit control area from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CustomerCreditLimitRef_KNKLI",
+                "dependencies": [
+                    "CDC_S4.vbak.KNKLI"
+                ],
+                "formula": null,
+                "description": "Customer credit limit reference from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CustomerCreditGroup_GRUPP",
+                "dependencies": [
+                    "CDC_S4.vbak.GRUPP"
+                ],
+                "formula": null,
+                "description": "Customer credit group from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CreditRepresentativeGroupForCreditManagement_SBGRP",
+                "dependencies": [
+                    "CDC_S4.vbak.SBGRP"
+                ],
+                "formula": null,
+                "description": "Credit representative group for credit management from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "RiskCategory_CTLPC",
+                "dependencies": [
+                    "CDC_S4.vbak.CTLPC"
+                ],
+                "formula": null,
+                "description": "Risk category from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CurrencyKeyOfCreditControlArea_CMWAE",
+                "dependencies": [
+                    "CDC_S4.vbak.CMWAE"
+                ],
+                "formula": null,
+                "description": "Currency key of credit control area from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ReleaseDateOfTheDocumentDeterminedByCreditManagement_CMFRE",
+                "dependencies": [
+                    "CDC_S4.vbak.CMFRE"
+                ],
+                "formula": null,
+                "description": "Release date of the document determined by credit management from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DateOfNextCreditCheckOfDocument_CMNUP",
+                "dependencies": [
+                    "CDC_S4.vbak.CMNUP"
+                ],
+                "formula": null,
+                "description": "Date of next credit check of document from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NextDate_CMNGV",
+                "dependencies": [
+                    "CDC_S4.vbak.CMNGV"
+                ],
+                "formula": null,
+                "description": "Next date from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ReleasedCreditValueOfTheDocument_AMTBL",
+                "dependencies": [
+                    "CDC_S4.vbak.AMTBL"
+                ],
+                "formula": null,
+                "description": "Released credit value of the document from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "HierarchyTypeForPricing_HITYP_PR",
+                "dependencies": [
+                    "CDC_S4.vbak.HITYP_PR"
+                ],
+                "formula": null,
+                "description": "Hierarchy type for pricing from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "UsageIndicator_ABRVW",
+                "dependencies": [
+                    "CDC_S4.vbak.ABRVW"
+                ],
+                "formula": null,
+                "description": "Usage indicator from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MRPForDeliveryScheduleTypes_ABDIS",
+                "dependencies": [
+                    "CDC_S4.vbak.ABDIS"
+                ],
+                "formula": null,
+                "description": "MRP for delivery schedule types from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DocumentNumberOfTheReferenceDocument_VGBEL",
+                "dependencies": [
+                    "CDC_S4.vbak.VGBEL"
+                ],
+                "formula": null,
+                "description": "Document number of the reference document from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ObjectNumberAtHeaderLevel_OBJNR",
+                "dependencies": [
+                    "CDC_S4.vbak.OBJNR"
+                ],
+                "formula": null,
+                "description": "Object number at header level from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CompanyCodeToBeBilled_BUKRS_VF",
+                "dependencies": [
+                    "CDC_S4.vbak.BUKRS_VF"
+                ],
+                "formula": null,
+                "description": "Company code to be billed from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AlternativeTaxClassification_TAXK1",
+                "dependencies": [
+                    "CDC_S4.vbak.TAXK1"
+                ],
+                "formula": null,
+                "description": "Alternative tax classification from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TaxClassification2_TAXK2",
+                "dependencies": [
+                    "CDC_S4.vbak.TAXK2"
+                ],
+                "formula": null,
+                "description": "Tax classification 2 from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TaxClassification3_TAXK3",
+                "dependencies": [
+                    "CDC_S4.vbak.TAXK3"
+                ],
+                "formula": null,
+                "description": "Tax classification 3 from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TaxClassification4_TAXK4",
+                "dependencies": [
+                    "CDC_S4.vbak.TAXK4"
+                ],
+                "formula": null,
+                "description": "Tax classification 4 from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TaxClassification5_TAXK5",
+                "dependencies": [
+                    "CDC_S4.vbak.TAXK5"
+                ],
+                "formula": null,
+                "description": "Tax classification 5 from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TaxClassification6_TAXK6",
+                "dependencies": [
+                    "CDC_S4.vbak.TAXK6"
+                ],
+                "formula": null,
+                "description": "Tax classification 6 from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TaxClassification7_TAXK7",
+                "dependencies": [
+                    "CDC_S4.vbak.TAXK7"
+                ],
+                "formula": null,
+                "description": "Tax classification 7 from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TaxClassification8_TAXK8",
+                "dependencies": [
+                    "CDC_S4.vbak.TAXK8"
+                ],
+                "formula": null,
+                "description": "Tax classification 8 from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TaxClassification9_TAXK9",
+                "dependencies": [
+                    "CDC_S4.vbak.TAXK9"
+                ],
+                "formula": null,
+                "description": "Tax classification 9 from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ReferenceDocumentNumber_XBLNR",
+                "dependencies": [
+                    "CDC_S4.vbak.XBLNR"
+                ],
+                "formula": null,
+                "description": "Reference document number from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ASsignmentNumber_ZUONR",
+                "dependencies": [
+                    "CDC_S4.vbak.ZUONR"
+                ],
+                "formula": null,
+                "description": "Assignment number from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PreDocCategory_VGTYP",
+                "dependencies": [
+                    "CDC_S4.vbak.VGTYP"
+                ],
+                "formula": null,
+                "description": "Preceding document category from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "OrderNumberHdr_AUFNR",
+                "dependencies": [
+                    "CDC_S4.vbak.AUFNR"
+                ],
+                "formula": null,
+                "description": "Order number from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NotificationNo_QMNUM",
+                "dependencies": [
+                    "CDC_S4.vbak.QMNUM"
+                ],
+                "formula": null,
+                "description": "Notification number from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MasterContractNumber_VBELN_GRP",
+                "dependencies": [
+                    "CDC_S4.vbak.VBELN_GRP"
+                ],
+                "formula": null,
+                "description": "Master contract number from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TaxDestinationCountry_STCEG_L",
+                "dependencies": [
+                    "CDC_S4.vbak.STCEG_L"
+                ],
+                "formula": null,
+                "description": "Tax destination country from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TaxDepartureCountry_LANDTX",
+                "dependencies": [
+                    "CDC_S4.vbak.LANDTX"
+                ],
+                "formula": null,
+                "description": "Tax departure country from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "InternationalUniqueKey_HANDLE",
+                "dependencies": [
+                    "CDC_S4.vbak.HANDLE"
+                ],
+                "formula": null,
+                "description": "International unique key from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DangerousGoodsManagementProfile_PROLI",
+                "dependencies": [
+                    "CDC_S4.vbak.PROLI"
+                ],
+                "formula": null,
+                "description": "Dangerous goods management profile from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DangerousGoodsFlag_CONT_DG",
+                "dependencies": [
+                    "CDC_S4.vbak.CONT_DG"
+                ],
+                "formula": null,
+                "description": "Dangerous goods flag from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "UTCTimeStampL_UPD_TMSTMP",
+                "dependencies": [
+                    "CDC_S4.vbak.UPD_TMSTMP"
+                ],
+                "formula": null,
+                "description": "UTC timestamp from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "RejectionsStatus_ABSTK",
+                "dependencies": [
+                    "CDC_S4.vbak.ABSTK"
+                ],
+                "formula": null,
+                "description": "Rejections status from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ConfirmationStatus_BESTK",
+                "dependencies": [
+                    "CDC_S4.vbak.BESTK"
+                ],
+                "formula": null,
+                "description": "Confirmation status from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "OverallStatusOfCreditChecks_CMGST",
+                "dependencies": [
+                    "CDC_S4.vbak.CMGST"
+                ],
+                "formula": null,
+                "description": "Overall status of credit checks from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DelayStatus_DCSTK",
+                "dependencies": [
+                    "CDC_S4.vbak.DCSTK"
+                ],
+                "formula": null,
+                "description": "Delay status from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BillingBlockStatus_FSSTK",
+                "dependencies": [
+                    "CDC_S4.vbak.FSSTK"
+                ],
+                "formula": null,
+                "description": "Billing block status from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "OverallProcessingStatus_GBSTK",
+                "dependencies": [
+                    "CDC_S4.vbak.GBSTK"
+                ],
+                "formula": null,
+                "description": "Overall processing status from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "OverallDeliveryStatus_LFGSK",
+                "dependencies": [
+                    "CDC_S4.vbak.LFGSK"
+                ],
+                "formula": null,
+                "description": "Overall delivery status from VBAK header",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MaterialEntered_MATWA",
+                "dependencies": [
+                    "CDC_S4.vbap.MATWA"
+                ],
+                "formula": null,
+                "description": "Material entered from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PricingReferenceMaterial_PMATN",
+                "dependencies": [
+                    "CDC_S4.vbap.PMATN"
+                ],
+                "formula": null,
+                "description": "Pricing reference material from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BatchNumber_CHARG",
+                "dependencies": [
+                    "CDC_S4.vbap.CHARG"
+                ],
+                "formula": null,
+                "description": "Batch number from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MaterialGroup_MATKL",
+                "dependencies": [
+                    "CDC_S4.vbap.MATKL"
+                ],
+                "formula": null,
+                "description": "Material group from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ShortText_ARKTX",
+                "dependencies": [
+                    "CDC_S4.vbap.ARKTX"
+                ],
+                "formula": null,
+                "description": "Short text from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ItemCategory_PSTYV",
+                "dependencies": [
+                    "CDC_S4.vbap.PSTYV"
+                ],
+                "formula": null,
+                "description": "Item category from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ItemType_POSAR",
+                "dependencies": [
+                    "CDC_S4.vbap.POSAR"
+                ],
+                "formula": null,
+                "description": "Item type from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "RelevantForDelivery_LFREL",
+                "dependencies": [
+                    "CDC_S4.vbap.LFREL"
+                ],
+                "formula": null,
+                "description": "Relevant for delivery from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "RelevantForBilling_FKREL",
+                "dependencies": [
+                    "CDC_S4.vbap.FKREL"
+                ],
+                "formula": null,
+                "description": "Relevant for billing from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BOMItemLevel_UEPOS",
+                "dependencies": [
+                    "CDC_S4.vbap.UEPOS"
+                ],
+                "formula": null,
+                "description": "BOM item level from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AlternativeForItem_GRPOS",
+                "dependencies": [
+                    "CDC_S4.vbap.GRPOS"
+                ],
+                "formula": null,
+                "description": "Alternative for item from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "RejectionReason_ABGRU",
+                "dependencies": [
+                    "CDC_S4.vbap.ABGRU"
+                ],
+                "formula": null,
+                "description": "Rejection reason from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ProductHierarchy_PRODH",
+                "dependencies": [
+                    "CDC_S4.vbap.PRODH"
+                ],
+                "formula": null,
+                "description": "Product hierarchy from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TargetValue_ZWERT",
+                "dependencies": [
+                    "CDC_S4.vbap.ZWERT"
+                ],
+                "formula": null,
+                "description": "Target value from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TargetQuantityUoM_ZMENG",
+                "dependencies": [
+                    "CDC_S4.vbap.ZMENG"
+                ],
+                "formula": null,
+                "description": "Target quantity UoM from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TargetQuantityUoM_ZIEME",
+                "dependencies": [
+                    "CDC_S4.vbap.ZIEME"
+                ],
+                "formula": null,
+                "description": "Target quantity UoM from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BaseTargetConversionFactor_UMZIZ",
+                "dependencies": [
+                    "CDC_S4.vbap.UMZIZ"
+                ],
+                "formula": null,
+                "description": "Base target conversion factor from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ConversionFactor_UMZIN",
+                "dependencies": [
+                    "CDC_S4.vbap.UMZIN"
+                ],
+                "formula": null,
+                "description": "Conversion factor from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BaseUnitOfMeasure_MEINS",
+                "dependencies": [
+                    "CDC_S4.vbap.MEINS"
+                ],
+                "formula": null,
+                "description": "Base unit of measure from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ScaleQuantity_SMENG",
+                "dependencies": [
+                    "CDC_S4.vbap.SMENG"
+                ],
+                "formula": null,
+                "description": "Scale quantity from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "RoundingQuantityForDelivery_ABLFZ",
+                "dependencies": [
+                    "CDC_S4.vbap.ABLFZ"
+                ],
+                "formula": null,
+                "description": "Rounding quantity for delivery from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ReconciliationDate_ABDAT",
+                "dependencies": [
+                    "CDC_S4.vbap.ABDAT"
+                ],
+                "formula": null,
+                "description": "Reconciliation date from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AllowedDeviation_ABSFZ",
+                "dependencies": [
+                    "CDC_S4.vbap.ABSFZ"
+                ],
+                "formula": null,
+                "description": "Allowed deviation from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ItemNumberOfTheUnderlyingPurchaseOrder_POSEX",
+                "dependencies": [
+                    "CDC_S4.vbap.POSEX"
+                ],
+                "formula": null,
+                "description": "Item number of the underlying purchase order from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KDMAT",
+                "dependencies": [
+                    "CDC_S4.vbap.KDMAT"
+                ],
+                "formula": null,
+                "description": "Customer material number from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KBVER",
+                "dependencies": [
+                    "CDC_S4.vbap.KBVER"
+                ],
+                "formula": null,
+                "description": "Allowed deviation percent from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KEVER",
+                "dependencies": [
+                    "CDC_S4.vbap.KEVER"
+                ],
+                "formula": null,
+                "description": "Days by which the quantity can be shifted from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "VKGRU",
+                "dependencies": [
+                    "CDC_S4.vbap.VKGRU"
+                ],
+                "formula": null,
+                "description": "Repair processing from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "VKAUS",
+                "dependencies": [
+                    "CDC_S4.vbap.VKAUS"
+                ],
+                "formula": null,
+                "description": "Usage indicator from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "GRKOR",
+                "dependencies": [
+                    "CDC_S4.vbap.GRKOR"
+                ],
+                "formula": null,
+                "description": "Delivery group from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FMENG",
+                "dependencies": [
+                    "CDC_S4.vbap.FMENG"
+                ],
+                "formula": null,
+                "description": "Quantity is fixed from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "UEBTK",
+                "dependencies": [
+                    "CDC_S4.vbap.UEBTK"
+                ],
+                "formula": null,
+                "description": "Unlimited over delivery allowed from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "UEBTO",
+                "dependencies": [
+                    "CDC_S4.vbap.UEBTO"
+                ],
+                "formula": null,
+                "description": "Over delivery tolerance limit from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "UNTTO",
+                "dependencies": [
+                    "CDC_S4.vbap.UNTTO"
+                ],
+                "formula": null,
+                "description": "Under delivery tolerance limit from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FAKSP",
+                "dependencies": [
+                    "CDC_S4.vbap.FAKSP"
+                ],
+                "formula": null,
+                "description": "Billing block for item from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ATPKZ",
+                "dependencies": [
+                    "CDC_S4.vbap.ATPKZ"
+                ],
+                "formula": null,
+                "description": "Replacement part from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "RKFKF",
+                "dependencies": [
+                    "CDC_S4.vbap.RKFKF"
+                ],
+                "formula": null,
+                "description": "Form of billing for CO from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SPART",
+                "dependencies": [
+                    "CDC_S4.vbap.SPART"
+                ],
+                "formula": null,
+                "description": "Division from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "GSBER",
+                "dependencies": [
+                    "CDC_S4.vbap.GSBER"
+                ],
+                "formula": null,
+                "description": "Business area from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NETWR",
+                "dependencies": [
+                    "CDC_S4.vbap.NETWR"
+                ],
+                "formula": null,
+                "description": "Net price from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Currency",
+                "dependencies": [
+                    "CDC_S4.vbap.WAERK"
+                ],
+                "formula": null,
+                "description": "Currency key from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ANTLF",
+                "dependencies": [
+                    "CDC_S4.vbap.ANTLF"
+                ],
+                "formula": null,
+                "description": "Maximum partial deliveries from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KZTLF",
+                "dependencies": [
+                    "CDC_S4.vbap.KZTLF"
+                ],
+                "formula": null,
+                "description": "Partial delivery at item level from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CHSPL",
+                "dependencies": [
+                    "CDC_S4.vbap.CHSPL"
+                ],
+                "formula": null,
+                "description": "Batch split allowed from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KWMENG",
+                "dependencies": [
+                    "CDC_S4.vbap.KWMENG"
+                ],
+                "formula": null,
+                "description": "Cumulative order quantity from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "LSMENG",
+                "dependencies": [
+                    "CDC_S4.vbap.LSMENG"
+                ],
+                "formula": null,
+                "description": "Cumulative target delivery qty from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KBMENG",
+                "dependencies": [
+                    "CDC_S4.vbap.KBMENG"
+                ],
+                "formula": null,
+                "description": "Cumulative confirmed quantity from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KLMENG",
+                "dependencies": [
+                    "CDC_S4.vbap.KLMENG"
+                ],
+                "formula": null,
+                "description": "Cumulative confirmed quantity in base UoM from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "VRKME",
+                "dependencies": [
+                    "CDC_S4.vbap.VRKME"
+                ],
+                "formula": null,
+                "description": "Sales unit from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "UMVKZ",
+                "dependencies": [
+                    "CDC_S4.vbap.UMVKZ"
+                ],
+                "formula": null,
+                "description": "Numerator qty from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "UMVKN",
+                "dependencies": [
+                    "CDC_S4.vbap.UMVKN"
+                ],
+                "formula": null,
+                "description": "Denominator qty from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BRGEW",
+                "dependencies": [
+                    "CDC_S4.vbap.BRGEW"
+                ],
+                "formula": null,
+                "description": "Gross weight of item from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NTGEW",
+                "dependencies": [
+                    "CDC_S4.vbap.NTGEW"
+                ],
+                "formula": null,
+                "description": "Net weight of item from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "GEWEI",
+                "dependencies": [
+                    "CDC_S4.vbap.GEWEI"
+                ],
+                "formula": null,
+                "description": "Weight unit from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "VOLUM",
+                "dependencies": [
+                    "CDC_S4.vbap.VOLUM"
+                ],
+                "formula": null,
+                "description": "Volume of the item from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "VOLEH",
+                "dependencies": [
+                    "CDC_S4.vbap.VOLEH"
+                ],
+                "formula": null,
+                "description": "Volume unit from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "VBELV",
+                "dependencies": [
+                    "CDC_S4.vbap.VBELV"
+                ],
+                "formula": null,
+                "description": "Originating document from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "POSNV",
+                "dependencies": [
+                    "CDC_S4.vbap.POSNV"
+                ],
+                "formula": null,
+                "description": "Originating item from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "VGBEL",
+                "dependencies": [
+                    "CDC_S4.vbap.VGBEL"
+                ],
+                "formula": null,
+                "description": "Reference document from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "VGPOS",
+                "dependencies": [
+                    "CDC_S4.vbap.VGPOS"
+                ],
+                "formula": null,
+                "description": "Reference item from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "VOREF",
+                "dependencies": [
+                    "CDC_S4.vbap.VOREF"
+                ],
+                "formula": null,
+                "description": "Reference indicator from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "UPFLU",
+                "dependencies": [
+                    "CDC_S4.vbap.UPFLU"
+                ],
+                "formula": null,
+                "description": "Update indicator from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ERLRE",
+                "dependencies": [
+                    "CDC_S4.vbap.ERLRE"
+                ],
+                "formula": null,
+                "description": "Completion rule for quotation from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "LPRIO",
+                "dependencies": [
+                    "CDC_S4.vbap.LPRIO"
+                ],
+                "formula": null,
+                "description": "Delivery priority from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "WERKS",
+                "dependencies": [
+                    "CDC_S4.vbap.WERKS"
+                ],
+                "formula": null,
+                "description": "Plant from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "LGORT",
+                "dependencies": [
+                    "CDC_S4.vbap.LGORT"
+                ],
+                "formula": null,
+                "description": "Storage location from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "VSTEL",
+                "dependencies": [
+                    "CDC_S4.vbap.VSTEL"
+                ],
+                "formula": null,
+                "description": "Shipping receiving point from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ROUTE",
+                "dependencies": [
+                    "CDC_S4.vbap.ROUTE"
+                ],
+                "formula": null,
+                "description": "Route from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "STKEY",
+                "dependencies": [
+                    "CDC_S4.vbap.STKEY"
+                ],
+                "formula": null,
+                "description": "BOM origin from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "STDAT",
+                "dependencies": [
+                    "CDC_S4.vbap.STDAT"
+                ],
+                "formula": null,
+                "description": "BOM date from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "STLNR",
+                "dependencies": [
+                    "CDC_S4.vbap.STLNR"
+                ],
+                "formula": null,
+                "description": "BOM_STLNR from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AWAHR",
+                "dependencies": [
+                    "CDC_S4.vbap.AWAHR"
+                ],
+                "formula": null,
+                "description": "Order probability of the item from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TAXM1",
+                "dependencies": [
+                    "CDC_S4.vbap.TAXM1"
+                ],
+                "formula": null,
+                "description": "Tax classification 1 from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TAXM2",
+                "dependencies": [
+                    "CDC_S4.vbap.TAXM2"
+                ],
+                "formula": null,
+                "description": "Tax classification 1 from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TAXM3",
+                "dependencies": [
+                    "CDC_S4.vbap.TAXM3"
+                ],
+                "formula": null,
+                "description": "Tax classification 1 from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TAXM4",
+                "dependencies": [
+                    "CDC_S4.vbap.TAXM4"
+                ],
+                "formula": null,
+                "description": "Tax classification 1 from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TAXM5",
+                "dependencies": [
+                    "CDC_S4.vbap.TAXM5"
+                ],
+                "formula": null,
+                "description": "Tax classification 1 from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TAXM6",
+                "dependencies": [
+                    "CDC_S4.vbap.TAXM6"
+                ],
+                "formula": null,
+                "description": "Tax classification 1 from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TAXM7",
+                "dependencies": [
+                    "CDC_S4.vbap.TAXM7"
+                ],
+                "formula": null,
+                "description": "Tax classification 1 from VBAP item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TAXM8",
+                "dependencies": [
+                    "vbap",
+                    "TAXM8"
+                ],
+                "formula": null,
+                "description": "Tax Classification 8",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TAXM9",
+                "dependencies": [
+                    "vbap",
+                    "TAXM9"
+                ],
+                "formula": null,
+                "description": "Tax Classification 9",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "VBEAF",
+                "dependencies": [
+                    "vbap",
+                    "VBEAF"
+                ],
+                "formula": null,
+                "description": "Fixed Shipping Processing Time in Days",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "VBEAV",
+                "dependencies": [
+                    "vbap",
+                    "VBEAV"
+                ],
+                "formula": null,
+                "description": "Variable Shipping Processing Time in Days",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "VGREF",
+                "dependencies": [
+                    "vbap",
+                    "VGREF"
+                ],
+                "formula": null,
+                "description": "Preceding Document Has Resulted From Reference",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NETPR",
+                "dependencies": [
+                    "vbap",
+                    "NETPR"
+                ],
+                "formula": null,
+                "description": "Net Price",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KPEIN",
+                "dependencies": [
+                    "vbap",
+                    "KPEIN"
+                ],
+                "formula": null,
+                "description": "Condition Pricing Unit",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KMEIN",
+                "dependencies": [
+                    "vbap",
+                    "KMEIN"
+                ],
+                "formula": null,
+                "description": "Condition Unit",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SHKZG",
+                "dependencies": [
+                    "vbap",
+                    "SHKZG"
+                ],
+                "formula": null,
+                "description": "Returns Item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SKTOF",
+                "dependencies": [
+                    "vbap",
+                    "SKTOF"
+                ],
+                "formula": null,
+                "description": "Cash Discount Indicator",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MTVFP",
+                "dependencies": [
+                    "vbap",
+                    "MTVFP"
+                ],
+                "formula": null,
+                "description": "Checking Group For Availability Check",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SUMBD",
+                "dependencies": [
+                    "vbap",
+                    "SUMBD"
+                ],
+                "formula": null,
+                "description": "Summing Up Of Requirements",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KONDM",
+                "dependencies": [
+                    "vbap",
+                    "KONDM"
+                ],
+                "formula": null,
+                "description": "Material Pricing Group",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KTGRM",
+                "dependencies": [
+                    "vbap",
+                    "KTGRM"
+                ],
+                "formula": null,
+                "description": "Account Assignment Group For This Material",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BONUS",
+                "dependencies": [
+                    "vbap",
+                    "BONUS"
+                ],
+                "formula": null,
+                "description": "Volume Rebate Group",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PROVG",
+                "dependencies": [
+                    "vbap",
+                    "PROVG"
+                ],
+                "formula": null,
+                "description": "Commission Group",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PRSOK",
+                "dependencies": [
+                    "vbap",
+                    "PRSOK"
+                ],
+                "formula": null,
+                "description": "Pricing Is OK",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BWTAR",
+                "dependencies": [
+                    "vbap",
+                    "BWTAR"
+                ],
+                "formula": null,
+                "description": "Valuation Type",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BWTEX",
+                "dependencies": [
+                    "vbap",
+                    "BWTEX"
+                ],
+                "formula": null,
+                "description": "Separate Valuation",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "XCHPF",
+                "dependencies": [
+                    "vbap",
+                    "XCHPF"
+                ],
+                "formula": null,
+                "description": "Batch Management Requirement Indicator",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "XCHAR",
+                "dependencies": [
+                    "vbap",
+                    "XCHAR"
+                ],
+                "formula": null,
+                "description": "Batch Management Indicator",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "LFMNG",
+                "dependencies": [
+                    "vbap",
+                    "LFMNG"
+                ],
+                "formula": null,
+                "description": "Minimum Delivery Quantity In Delivery Note Processing",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "STAFO",
+                "dependencies": [
+                    "vbap",
+                    "STAFO"
+                ],
+                "formula": null,
+                "description": "Update Group For Statistics Update",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KZWI1",
+                "dependencies": [
+                    "vbap",
+                    "KZWI1"
+                ],
+                "formula": null,
+                "description": "Sub Total 1 From Pricing Procedure For Condition",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KZWI2",
+                "dependencies": [
+                    "vbap",
+                    "KZWI2"
+                ],
+                "formula": null,
+                "description": "Sub Total 2 From Pricing Procedure For Condition",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KZWI3",
+                "dependencies": [
+                    "vbap",
+                    "KZWI3"
+                ],
+                "formula": null,
+                "description": "Sub Total 3 From Pricing Procedure For Condition",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KZWI4",
+                "dependencies": [
+                    "vbap",
+                    "KZWI4"
+                ],
+                "formula": null,
+                "description": "Sub Total 4 From Pricing Procedure For Condition",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KZWI5",
+                "dependencies": [
+                    "vbap",
+                    "KZWI5"
+                ],
+                "formula": null,
+                "description": "Sub Total 5 From Pricing Procedure For Condition",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KZWI6",
+                "dependencies": [
+                    "vbap",
+                    "KZWI6"
+                ],
+                "formula": null,
+                "description": "Sub Total 6 From Pricing Procedure For Condition",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "STCUR",
+                "dependencies": [
+                    "vbap",
+                    "STCUR"
+                ],
+                "formula": null,
+                "description": "Exchange Rate For Statistics",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AEDAT",
+                "dependencies": [
+                    "vbap",
+                    "AEDAT"
+                ],
+                "formula": null,
+                "description": "Last Changed On",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "EAN11",
+                "dependencies": [
+                    "vbap",
+                    "EAN11"
+                ],
+                "formula": null,
+                "description": "International Article Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FIXMG",
+                "dependencies": [
+                    "vbap",
+                    "FIXMG"
+                ],
+                "formula": null,
+                "description": "Delivery Date And Quantity Fixed",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PRCTR",
+                "dependencies": [
+                    "vbap",
+                    "PRCTR"
+                ],
+                "formula": null,
+                "description": "Profit Center",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MVGR1",
+                "dependencies": [
+                    "vbap",
+                    "MVGR1"
+                ],
+                "formula": null,
+                "description": "Material Group 1",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MVGR2",
+                "dependencies": [
+                    "vbap",
+                    "MVGR2"
+                ],
+                "formula": null,
+                "description": "Material Group 2",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MVGR3",
+                "dependencies": [
+                    "vbap",
+                    "MVGR3"
+                ],
+                "formula": null,
+                "description": "Material Group 3",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MVGR4",
+                "dependencies": [
+                    "vbap",
+                    "MVGR4"
+                ],
+                "formula": null,
+                "description": "Material Group 4",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MVGR5",
+                "dependencies": [
+                    "vbap",
+                    "MVGR5"
+                ],
+                "formula": null,
+                "description": "Material Group 5",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KMPMG",
+                "dependencies": [
+                    "vbap",
+                    "KMPMG"
+                ],
+                "formula": null,
+                "description": "Component Quantity",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SUGRD",
+                "dependencies": [
+                    "vbap",
+                    "SUGRD"
+                ],
+                "formula": null,
+                "description": "Reason For Material Substitution",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SOBKZ",
+                "dependencies": [
+                    "vbap",
+                    "SOBKZ"
+                ],
+                "formula": null,
+                "description": "Special Stock Indicator",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "VPZUO",
+                "dependencies": [
+                    "vbap",
+                    "VPZUO"
+                ],
+                "formula": null,
+                "description": "Allocation Indicator",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PAOBJNR",
+                "dependencies": [
+                    "vbap",
+                    "PAOBJNR"
+                ],
+                "formula": null,
+                "description": "Profitability Segment Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PS_PSP_PNR",
+                "dependencies": [
+                    "vbap",
+                    "PS_PSP_PNR"
+                ],
+                "formula": null,
+                "description": "WBSElement",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AUFNR",
+                "dependencies": [
+                    "vbap",
+                    "AUFNR"
+                ],
+                "formula": null,
+                "description": "Order Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "VPMAT",
+                "dependencies": [
+                    "vbap",
+                    "VPMAT"
+                ],
+                "formula": null,
+                "description": "Planning Material",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "VPWRK",
+                "dependencies": [
+                    "vbap",
+                    "VPWRK"
+                ],
+                "formula": null,
+                "description": "Planning Plant",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PRBME",
+                "dependencies": [
+                    "vbap",
+                    "PRBME"
+                ],
+                "formula": null,
+                "description": "Base Unit Of Measure For Product Group",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "UMREF",
+                "dependencies": [
+                    "vbap",
+                    "UMREF"
+                ],
+                "formula": null,
+                "description": "Conversion Factor Quantities",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KNTTP",
+                "dependencies": [
+                    "vbap",
+                    "KNTTP"
+                ],
+                "formula": null,
+                "description": "Account Assignment Category",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KZVBR",
+                "dependencies": [
+                    "vbap",
+                    "KZVBR"
+                ],
+                "formula": null,
+                "description": "Consumption Posting",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SERNR",
+                "dependencies": [
+                    "vbap",
+                    "SERNR"
+                ],
+                "formula": null,
+                "description": "BOM Explosion Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "OBJNR",
+                "dependencies": [
+                    "vbap",
+                    "OBJNR"
+                ],
+                "formula": null,
+                "description": "Object Number At Item Level",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ABGRS",
+                "dependencies": [
+                    "vbap",
+                    "ABGRS"
+                ],
+                "formula": null,
+                "description": "Results Analysis Key",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BEDAE",
+                "dependencies": [
+                    "vbap",
+                    "BEDAE"
+                ],
+                "formula": null,
+                "description": "Requirements Type",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CMPRE",
+                "dependencies": [
+                    "vbap",
+                    "CMPRE"
+                ],
+                "formula": null,
+                "description": "Item Credit Price",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CMTFG",
+                "dependencies": [
+                    "vbap",
+                    "CMTFG"
+                ],
+                "formula": null,
+                "description": "Credit Block",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CMPNT",
+                "dependencies": [
+                    "vbap",
+                    "CMPNT"
+                ],
+                "formula": null,
+                "description": "Relevant For Credit",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CUOBJ",
+                "dependencies": [
+                    "vbap",
+                    "CUOBJ"
+                ],
+                "formula": null,
+                "description": "Configuration",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CUOBJ_CH",
+                "dependencies": [
+                    "vbap",
+                    "CUOBJ_CH"
+                ],
+                "formula": null,
+                "description": "Internal Object Number Of The Batch Classification",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CEPOK",
+                "dependencies": [
+                    "vbap",
+                    "CEPOK"
+                ],
+                "formula": null,
+                "description": "Status Expected Price",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KOUPD",
+                "dependencies": [
+                    "vbap",
+                    "KOUPD"
+                ],
+                "formula": null,
+                "description": "Condition Update",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SERAIL",
+                "dependencies": [
+                    "vbap",
+                    "SERAIL"
+                ],
+                "formula": null,
+                "description": "Serial Number Profile",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ANZSN",
+                "dependencies": [
+                    "vbap",
+                    "ANZSN"
+                ],
+                "formula": null,
+                "description": "Number Of Serial Numbers",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NACHL",
+                "dependencies": [
+                    "vbap",
+                    "NACHL"
+                ],
+                "formula": null,
+                "description": "Customer Has Not Posted Goods Receipt",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MAGRV",
+                "dependencies": [
+                    "vbap",
+                    "MAGRV"
+                ],
+                "formula": null,
+                "description": "Packaging Materials",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MPROK",
+                "dependencies": [
+                    "vbap",
+                    "MPROK"
+                ],
+                "formula": null,
+                "description": "Status Manual Price Change",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "VGTYP",
+                "dependencies": [
+                    "vbap",
+                    "VGTYP"
+                ],
+                "formula": null,
+                "description": "Preceding Doc Category",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KALNR",
+                "dependencies": [
+                    "vbap",
+                    "KALNR"
+                ],
+                "formula": null,
+                "description": "Cost Estimate Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KLVAR",
+                "dependencies": [
+                    "vbap",
+                    "KLVAR"
+                ],
+                "formula": null,
+                "description": "Costing Variant",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SPOSN",
+                "dependencies": [
+                    "vbap",
+                    "SPOSN"
+                ],
+                "formula": null,
+                "description": "BOM Item Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KOWRR",
+                "dependencies": [
+                    "vbap",
+                    "KOWRR"
+                ],
+                "formula": null,
+                "description": "Statistical Values",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "STADAT",
+                "dependencies": [
+                    "vbap",
+                    "STADAT"
+                ],
+                "formula": null,
+                "description": "Statistics Date",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "EXART",
+                "dependencies": [
+                    "vbap",
+                    "EXART"
+                ],
+                "formula": null,
+                "description": "Business Transaction Type For Foreign Trade",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PREFE",
+                "dependencies": [
+                    "vbap",
+                    "PREFE"
+                ],
+                "formula": null,
+                "description": "Import Export Flag",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KNUMH",
+                "dependencies": [
+                    "vbap",
+                    "KNUMH"
+                ],
+                "formula": null,
+                "description": "Number Of Condition Record",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CLINT",
+                "dependencies": [
+                    "vbap",
+                    "CLINT"
+                ],
+                "formula": null,
+                "description": "Internal Class Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "STLTY",
+                "dependencies": [
+                    "vbap",
+                    "STLTY"
+                ],
+                "formula": null,
+                "description": "BOM Category",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "STLKN",
+                "dependencies": [
+                    "vbap",
+                    "STLKN"
+                ],
+                "formula": null,
+                "description": "BOM Item Node Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "STPOZ",
+                "dependencies": [
+                    "vbap",
+                    "STPOZ"
+                ],
+                "formula": null,
+                "description": "Internal Counter",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "STMAN",
+                "dependencies": [
+                    "vbap",
+                    "STMAN"
+                ],
+                "formula": null,
+                "description": "Inconsistent Configuration",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ZSCHL_K",
+                "dependencies": [
+                    "vbap",
+                    "ZSCHL_K"
+                ],
+                "formula": null,
+                "description": "Over Head Key",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KALSM_K",
+                "dependencies": [
+                    "vbap",
+                    "KALSM_K"
+                ],
+                "formula": null,
+                "description": "Costing Sheet",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KALVAR",
+                "dependencies": [
+                    "vbap",
+                    "KALVAR"
+                ],
+                "formula": null,
+                "description": "Costing Variant",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KOSCH",
+                "dependencies": [
+                    "vbap",
+                    "KOSCH"
+                ],
+                "formula": null,
+                "description": "Product Allocation",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "UPMAT",
+                "dependencies": [
+                    "vbap",
+                    "UPMAT"
+                ],
+                "formula": null,
+                "description": "Pricing Reference Material",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "UKONM",
+                "dependencies": [
+                    "vbap",
+                    "UKONM"
+                ],
+                "formula": null,
+                "description": "Material Pricing Group",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MFRGR",
+                "dependencies": [
+                    "vbap",
+                    "MFRGR"
+                ],
+                "formula": null,
+                "description": "Material Freight Group",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PLAVO",
+                "dependencies": [
+                    "vbap",
+                    "PLAVO"
+                ],
+                "formula": null,
+                "description": "Planning Release Regulation",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KANNR",
+                "dependencies": [
+                    "vbap",
+                    "KANNR"
+                ],
+                "formula": null,
+                "description": "KANBAN",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CMPRE_FLT",
+                "dependencies": [
+                    "vbap",
+                    "CMPRE_FLT"
+                ],
+                "formula": null,
+                "description": "Item Credit Price",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ABFOR",
+                "dependencies": [
+                    "vbap",
+                    "ABFOR"
+                ],
+                "formula": null,
+                "description": "Form Of Payment Guarantee",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ABGES",
+                "dependencies": [
+                    "vbap",
+                    "ABGES"
+                ],
+                "formula": null,
+                "description": "Guaranteed Factor",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "WKTNR",
+                "dependencies": [
+                    "vbap",
+                    "WKTNR"
+                ],
+                "formula": null,
+                "description": "Value Contract No",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "WKTPS",
+                "dependencies": [
+                    "vbap",
+                    "WKTPS"
+                ],
+                "formula": null,
+                "description": "Value Contract Item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SKOPF",
+                "dependencies": [
+                    "vbap",
+                    "SKOPF"
+                ],
+                "formula": null,
+                "description": "Assortment Module",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KZBWS",
+                "dependencies": [
+                    "vbap",
+                    "KZBWS"
+                ],
+                "formula": null,
+                "description": "Valuation Of Special Stock",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "WGRU1",
+                "dependencies": [
+                    "vbap",
+                    "WGRU1"
+                ],
+                "formula": null,
+                "description": "Material Group Hierarchy 1",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "WGRU2",
+                "dependencies": [
+                    "vbap",
+                    "WGRU2"
+                ],
+                "formula": null,
+                "description": "Material Group Hierarchy 2",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KNUMA_PI",
+                "dependencies": [
+                    "vbap",
+                    "KNUMA_PI"
+                ],
+                "formula": null,
+                "description": "Promotion",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KNUMA_AG",
+                "dependencies": [
+                    "vbap",
+                    "KNUMA_AG"
+                ],
+                "formula": null,
+                "description": "Sales Deal",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KZFME",
+                "dependencies": [
+                    "vbap",
+                    "KZFME"
+                ],
+                "formula": null,
+                "description": "Leading UoM",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "LSTANR",
+                "dependencies": [
+                    "vbap",
+                    "LSTANR"
+                ],
+                "formula": null,
+                "description": "Free Goods Delivery Control",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TECHS",
+                "dependencies": [
+                    "vbap",
+                    "TECHS"
+                ],
+                "formula": null,
+                "description": "Parameter Variant",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BERID",
+                "dependencies": [
+                    "vbap",
+                    "BERID"
+                ],
+                "formula": null,
+                "description": "MRPArea",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PCTRF",
+                "dependencies": [
+                    "vbap",
+                    "PCTRF"
+                ],
+                "formula": null,
+                "description": "Profit Center For Billing",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "STOCKLOC",
+                "dependencies": [
+                    "vbap",
+                    "STOCKLOC"
+                ],
+                "formula": null,
+                "description": "Managing Location",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SLOCTYPE",
+                "dependencies": [
+                    "vbap",
+                    "SLOCTYPE"
+                ],
+                "formula": null,
+                "description": "Type Of First Inventory",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MSR_RET_REASON",
+                "dependencies": [
+                    "vbap",
+                    "MSR_RET_REASON"
+                ],
+                "formula": null,
+                "description": "Return Reason",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MSR_REFUND_CODE",
+                "dependencies": [
+                    "vbap",
+                    "MSR_REFUND_CODE"
+                ],
+                "formula": null,
+                "description": "Returns Refund Code",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MSR_APPROV_BLOCK",
+                "dependencies": [
+                    "vbap",
+                    "MSR_APPROV_BLOCK"
+                ],
+                "formula": null,
+                "description": "Approval Block",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NRAB_KNUMH",
+                "dependencies": [
+                    "vbap",
+                    "NRAB_KNUMH"
+                ],
+                "formula": null,
+                "description": "Condition Record Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TRMRISK_RELEVANT",
+                "dependencies": [
+                    "vbap",
+                    "TRMRISK_RELEVANT"
+                ],
+                "formula": null,
+                "description": "Risk Relevancy In Sales",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "HANDOVERLOC",
+                "dependencies": [
+                    "vbap",
+                    "HANDOVERLOC"
+                ],
+                "formula": null,
+                "description": "Location For A Physical Hand Over Of Goods",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "HANDOVERDATE",
+                "dependencies": [
+                    "vbap",
+                    "HANDOVERDATE"
+                ],
+                "formula": null,
+                "description": "Hand Over Date At The Hand Over Location",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "HANDOVERTIME",
+                "dependencies": [
+                    "vbap",
+                    "HANDOVERTIME"
+                ],
+                "formula": null,
+                "description": "Hand Over Time At The Hand Over Location",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TC_AUT_DET",
+                "dependencies": [
+                    "vbap",
+                    "TC_AUT_DET"
+                ],
+                "formula": null,
+                "description": "Tax Code Automatically Determined",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MANUAL_TC_REASON",
+                "dependencies": [
+                    "vbap",
+                    "MANUAL_TC_REASON"
+                ],
+                "formula": null,
+                "description": "Manual Tax Code Reason",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FISCAL_INCENTIVE",
+                "dependencies": [
+                    "vbap",
+                    "FISCAL_INCENTIVE"
+                ],
+                "formula": null,
+                "description": "Tax Incentive Type",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FISCAL_INCENTIVE_ID",
+                "dependencies": [
+                    "vbap",
+                    "FISCAL_INCENTIVE_ID"
+                ],
+                "formula": null,
+                "description": "Incentive ID",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SPCSTO",
+                "dependencies": [
+                    "vbap",
+                    "SPCSTO"
+                ],
+                "formula": null,
+                "description": "Not A Fiscal Special Case For CFOP Determination",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KOSTL",
+                "dependencies": [
+                    "vbap",
+                    "KOSTL"
+                ],
+                "formula": null,
+                "description": "Cost Center",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FONDS",
+                "dependencies": [
+                    "vbap",
+                    "FONDS"
+                ],
+                "formula": null,
+                "description": "Fund",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FISTL",
+                "dependencies": [
+                    "vbap",
+                    "FISTL"
+                ],
+                "formula": null,
+                "description": "Funds Center",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FKBER",
+                "dependencies": [
+                    "vbap",
+                    "FKBER"
+                ],
+                "formula": null,
+                "description": "Functional Area",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SoldToPartyItem_KUNNR",
+                "dependencies": [
+                    "AGGVBPAITEM",
+                    "SoldToPartyItem_KUNNR"
+                ],
+                "formula": null,
+                "description": "Sold To Party Item KUNNR",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SoldToPartyItemName_KUNNR",
+                "dependencies": [
+                    "AGGVBPAITEM",
+                    "SoldToPartyItemName_KUNNR"
+                ],
+                "formula": null,
+                "description": "Sold To Party Item Name KUNNR",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ShipToPartyItem_KUNNR",
+                "dependencies": [
+                    "AGGVBPAITEM",
+                    "ShipToPartyItem_KUNNR"
+                ],
+                "formula": null,
+                "description": "Ship To Party Item KUNNR",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ShipToPartyItemName_KUNNR",
+                "dependencies": [
+                    "AGGVBPAITEM",
+                    "ShipToPartyItemName_KUNNR"
+                ],
+                "formula": null,
+                "description": "Ship To Party Item Name KUNNR",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BillToPartyItem_KUNNR",
+                "dependencies": [
+                    "AGGVBPAITEM",
+                    "BillToPartyItem_KUNNR"
+                ],
+                "formula": null,
+                "description": "Bill To Party Item KUNNR",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BillToPartyItemName_KUNNR",
+                "dependencies": [
+                    "AGGVBPAITEM",
+                    "BillToPartyItemName_KUNNR"
+                ],
+                "formula": null,
+                "description": "Bill To Party Item Name KUNNR",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PayerItem_KUNNR",
+                "dependencies": [
+                    "AGGVBPAITEM",
+                    "PayerItem_KUNNR"
+                ],
+                "formula": null,
+                "description": "Payer Item KUNNR",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PayerItemName_KUNNR",
+                "dependencies": [
+                    "AGGVBPAITEM",
+                    "PayerItemName_KUNNR"
+                ],
+                "formula": null,
+                "description": "Payer Item Name KUNNR",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SoldToPartyHeader_KUNNR",
+                "dependencies": [
+                    "AGGVBPAHEADER",
+                    "SoldToPartyHeader_KUNNR"
+                ],
+                "formula": null,
+                "description": "Sold To Party Header KUNNR",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SoldToPartyHeaderName_KUNNR",
+                "dependencies": [
+                    "AGGVBPAHEADER",
+                    "SoldToPartyHeaderName_KUNNR"
+                ],
+                "formula": null,
+                "description": "Sold To Party Header Name KUNNR",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ShipToPartyHeader_KUNNR",
+                "dependencies": [
+                    "AGGVBPAHEADER",
+                    "ShipToPartyHeader_KUNNR"
+                ],
+                "formula": null,
+                "description": "Ship To Party Header KUNNR",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ShipToPartyHeaderName_KUNNR",
+                "dependencies": [
+                    "AGGVBPAHEADER",
+                    "ShipToPartyHeaderName_KUNNR"
+                ],
+                "formula": null,
+                "description": "Ship To Party Header Name KUNNR",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BillToPartyHeader_KUNNR",
+                "dependencies": [
+                    "AGGVBPAHEADER",
+                    "BillToPartyHeader_KUNNR"
+                ],
+                "formula": null,
+                "description": "Bill To Party Header KUNNR",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BillToPartyHeaderName_KUNNR",
+                "dependencies": [
+                    "AGGVBPAHEADER",
+                    "BillToPartyHeaderName_KUNNR"
+                ],
+                "formula": null,
+                "description": "Bill To Party Header Name KUNNR",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PayerHeader_KUNNR",
+                "dependencies": [
+                    "AGGVBPAHEADER",
+                    "PayerHeader_KUNNR"
+                ],
+                "formula": null,
+                "description": "Payer Header KUNNR",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PayerHeaderName_KUNNR",
+                "dependencies": [
+                    "AGGVBPAHEADER",
+                    "PayerHeaderName_KUNNR"
+                ],
+                "formula": null,
+                "description": "Payer Header Name KUNNR",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KNUMV",
+                "dependencies": [
+                    "AGGPRCD_ELEMENTS",
+                    "KNUMV"
+                ],
+                "formula": null,
+                "description": "Condition Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KPOSN",
+                "dependencies": [
+                    "AGGPRCD_ELEMENTS",
+                    "KPOSN"
+                ],
+                "formula": null,
+                "description": "Item Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ListPrice",
+                "dependencies": [
+                    "AGGPRCD_ELEMENTS",
+                    "ListPrice"
+                ],
+                "formula": null,
+                "description": "List Price",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AdjustedPrice",
+                "dependencies": [
+                    "AGGPRCD_ELEMENTS",
+                    "AdjustedPrice"
+                ],
+                "formula": null,
+                "description": "Adjusted Price",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "InterCompanyPrice",
+                "dependencies": [
+                    "AGGPRCD_ELEMENTS",
+                    "InterCompanyPrice"
+                ],
+                "formula": null,
+                "description": "Inter Company Price",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Discount",
+                "dependencies": [
+                    "AGGPRCD_ELEMENTS",
+                    "Discount"
+                ],
+                "formula": null,
+                "description": "Discount",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ConfirmedOrderQuantity_BMENG",
+                "dependencies": [
+                    "AGGVBEP",
+                    "ConfirmedOrderQuantity_BMENG"
+                ],
+                "formula": null,
+                "description": "Confirmed Order Quantity BMENG",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NetValueOfTheSalesOrderInDocumentCurrency_NETWR",
+                "dependencies": [
+                    "vbak",
+                    "tcurx_VBAK",
+                    "WAERK",
+                    "NETWR"
+                ],
+                "formula": "COALESCE(VBAK.NETWR * tcurx_VBAK.CURRFIX, VBAK.NETWR)",
+                "description": "Net Value Of The Sales Order In Document Currency NETWR",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CostInDocumentCurrency_WAVWR",
+                "dependencies": [
+                    "vbap",
+                    "tcurx_VBAP",
+                    "WAERK",
+                    "WAVWR"
+                ],
+                "formula": "COALESCE(VBAP.WAVWR * tcurx_VBAP.CURRFIX, VBAP.WAVWR)",
+                "description": "Cost In Document Currency WAVWR",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TaxAmountInDocumentCurrency_MWSBP",
+                "dependencies": [
+                    "vbap",
+                    "tcurx_VBAP",
+                    "WAERK",
+                    "MWSBP"
+                ],
+                "formula": "COALESCE(VBAP.MWSBP * tcurx_VBAP.CURRFIX, VBAP.MWSBP)",
+                "description": "Tax Amount In Document Currency MWSBP",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "YearOfSalesOrderCreationDate_ERDAT",
+                "dependencies": [
+                    "vbak",
+                    "ERDAT"
+                ],
+                "formula": "EXTRACT(YEAR FROM VBAK.ERDAT)",
+                "description": "Year Of Sales Order Creation Date ERDAT",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MonthOfSalesOrderCreationDate_ERDAT",
+                "dependencies": [
+                    "vbak",
+                    "ERDAT"
+                ],
+                "formula": "EXTRACT(MONTH FROM VBAK.ERDAT)",
+                "description": "Month Of Sales Order Creation Date ERDAT",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "WeekOfSalesOrderCreationDate_ERDAT",
+                "dependencies": [
+                    "vbak",
+                    "ERDAT"
+                ],
+                "formula": "EXTRACT(WEEK FROM VBAK.ERDAT)",
+                "description": "Week Of Sales Order Creation Date ERDAT",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DayOfSalesOrderCreationDate_ERDAT",
+                "dependencies": [
+                    "vbak",
+                    "ERDAT"
+                ],
+                "formula": "EXTRACT(DAY FROM VBAK.ERDAT)",
+                "description": "Day Of Sales Order Creation Date ERDAT",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SalesOrderValueLineItem",
+                "dependencies": [
+                    "vbap",
+                    "NETPR",
+                    "KWMENG"
+                ],
+                "formula": "(VBAP.NETPR * VBAP.KWMENG)",
+                "description": "Sales Order Value Line Item",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": [
+            {
+                "view_name": "AGGVBPAITEM",
+                "join_type": "LEFT OUTER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.vbap`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "VBAP.MANDT = AGGVBPAITEM.MANDT",
+                    "VBAP.VBELN = AGGVBPAITEM.VBELN",
+                    "VBAP.POSNR = AGGVBPAITEM.POSNR"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "AGGVBPAHEADER",
+                "join_type": "LEFT OUTER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.vbap`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "VBAP.MANDT = AGGVBPAHEADER.MANDT",
+                    "VBAP.VBELN = AGGVBPAHEADER.VBELN",
+                    "AGGVBPAHEADER.POSNR IS NULL OR AGGVBPAHEADER.POSNR = '000000'"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "AGGPRCD_ELEMENTS",
+                "join_type": "LEFT OUTER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.vbap`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "CAST(AGGPRCD_ELEMENTS.KNUMV AS STRING) = VBAK.KNUMV",
+                    "CAST(AGGPRCD_ELEMENTS.KPOSN AS STRING) = VBAP.POSNR",
+                    "CAST(AGGPRCD_ELEMENTS.CLIENT AS STRING) = VBAP.MANDT"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "TCURX",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.vbak`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "VBAK.WAERK = tcurx_VBAK.CURRKEY"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "TCURX",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.vbap`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "VBAP.WAERK = tcurx_VBAP.CURRKEY"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "AGGVBEP",
+                "join_type": "LEFT OUTER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.vbap`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "VBAP.VBELN = AGGVBEP.VBELN",
+                    "VBAP.POSNR = AGGVBEP.POSNR",
+                    "VBAP.MANDT = AGGVBEP.MANDT"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "vbap",
+                "join_type": "INNER JOIN",
+                "tabla_base": "vbak",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "VBAK.VBELN = VBAP.VBELN",
+                    "VBAK.MANDT = VBAP.MANDT"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

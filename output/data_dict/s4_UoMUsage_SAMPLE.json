@@ -1,0 +1,179 @@
+{
+    "schema": {
+        "object_name": "s4_UoMUsage_SAMPLE.sql",
+        "object_type": "view",
+        "description": "This view converts the delivered quantity in SalesFulfillment table to a common unit (LB) for materials with UoM in 'G' or 'KG'. It joins with UoMConversionUtil to get the conversion factor.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.SalesFulfillment",
+            "REPORTING.UoMConversionUtil"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "MaterialNumber_MATNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Salesfull.MaterialNumber_MATNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialText_MAKTX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Salesfull.MaterialText_MAKTX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveredUoM_MEINS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Salesfull.DeliveredUoM_MEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Original unit of measure for delivered quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveredQty",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Salesfull.DeliveredQty"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivered quantity in original unit of measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "conv_factor",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "conv.val_out"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Conversion factor from original UoM to LB",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "to_conv",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Salesfull.DeliveredUoM_MEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "if( Salesfull.DeliveredUoM_MEINS IN ('G', 'LB', 'KG'), 'LB', Salesfull.DeliveredUoM_MEINS )",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target unit of measure after conversion (LB for G and KG, otherwise original UoM)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "converted",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Salesfull.DeliveredQty",
+                        "conv.val_out"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "( Salesfull.DeliveredQty * conv.val_out )",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivered quantity converted to the target unit of measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`cortex-prj-dev.REPORTING.SalesFulfillment`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "Salesfull.Client_MANDT = conv.mandt",
+                    "Salesfull.DeliveredUoM_MEINS = conv.unit_from",
+                    "conv.unit_to = if( Salesfull.DeliveredUoM_MEINS IN ('G', 'LB', 'KG'), 'LB', Salesfull.DeliveredUoM_MEINS )"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

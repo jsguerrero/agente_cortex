@@ -1,0 +1,2033 @@
+{
+    "schema": {
+        "object_name": "s4_BusinessPartnersMD.sql",
+        "object_type": "view",
+        "description": "This view joins data from BUT000, BUT020, and ADRC tables to provide a comprehensive view of business partners, including their addresses and regional information.  The data is at the business partner level, with multiple address records possible per business partner.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.but000",
+            "CDC_S4.but020",
+            "REPORTING.AddressesMD"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "CLIENT_CLIENT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.CLIENT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client associated with the business partner",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessPARTNERNumber_PARTNER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.PARTNER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Partner Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessPARTNERCategory_TYPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.TYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Partner Category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessPARTNERType_BPKIND",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.BPKIND"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Partner Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessPARTNERGrouping_BU_GROUP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.BU_GROUP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Partner Grouping",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessPARTNERNumberInExternalSystem_BPEXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.BPEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Partner Number in External System",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SearchTerm1ForBusinessPARTNER_BU_SORT1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.BU_SORT1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Search Term 1 for Business Partner",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SearchTerm2ForBusinessPARTNER_BU_SORT2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.BU_SORT2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Search Term 2 for Business Partner",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DataOriginTypes_SOURCE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.SOURCE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Data Origin Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FormOfAddress_TITLE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.TITLE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Form of Address",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CentralArchivingFlag_XDELE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.XDELE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Central Archiving Flag",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CentralBlockForBusinessPARTNER_XBLCK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.XBLCK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Central Block for Business Partner",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AuthorizationGroup_AUGRP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.AUGRP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Authorization Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Salutation_TITLE_LET",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.TITLE_LET"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Salutation",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LogicalSystem_BU_LOGSYS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.BU_LOGSYS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Logical System",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessPARTNER_ContactPermission_CONTACT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.CONTACT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Partner Contact Permission",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_NotReleased_NOT_RELEASED",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.NOT_RELEASED"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Not Released",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_NotLegallyCompetent_NOT_LG_COMPETENT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.NOT_LG_COMPETENT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Not Legally Competent",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessPARTNERPrintFormat_PRINT_MODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.PRINT_MODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Partner Print Format",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DummyFunctionInLength1_BP_EEW_DUMMY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.BP_EEW_DUMMY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Dummy Function in Length 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Bp_LegalFormOfOrganization_LEGAL_ENTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.LEGAL_ENTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Legal Form of Organization",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndustrySector_IND_SECTOR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.IND_SECTOR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Industry Sector",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LegalEntityOfOrganization_LEGAL_ORG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.LEGAL_ORG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Legal Entity of Organization",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOrganizationFounded_FOUND_DAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.FOUND_DAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date Organization Founded",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LiquidationDateOfOrganization_LIQUID_DAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.LIQUID_DAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Liquidation Date of Organization",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InternationalLocationNumber__part1___LOCATION_1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.LOCATION_1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "International Location Number (part 1)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InternationalLocationNumber__part2___LOCATION_2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.LOCATION_2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "International Location Number (part 2)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CheckDigitForTheInternationalLocationNumber_LOCATION_3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.LOCATION_3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Check Digit for the International Location Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LastNameOfBusinessPARTNER__person___NAME_LAST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.NAME_LAST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Last Name of Business Partner (person)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FirstNameOfBusinessPARTNER__person___NAME_FIRST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.NAME_FIRST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "First Name of Business Partner (person)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OtherLastNameOfAPerson_NAME_LST2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.NAME_LST2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Other Last Name of a Person",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameAtBirthOfBusinessPARTNER_NAME_LAST2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.NAME_LAST2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name at Birth of Business Partner",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MiddleNameOrSecondForenameOfAPerson_NAMEMIDDLE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.NAMEMIDDLE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Middle Name or Second Forename of a Person",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AcademicTitle_Key_TITLE_ACA1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.TITLE_ACA1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Academic Title (Key)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SecondAcademicTitle_TITLE_ACA2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.TITLE_ACA2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Second Academic Title",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameSupplement_TITLE_ROYL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.TITLE_ROYL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name Supplement",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NamePrefix__key___PREFIX1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.PREFIX1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name Prefix (key)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name2Prefix__key___PREFIX2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.PREFIX2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 2 Prefix (key)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FullName_NAME1_TEXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.NAME1_TEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Full Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NicknameOfBusinessPARTNER__person___NICKNAME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.NICKNAME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Nickname of Business Partner (person)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "middleInitial_INITIALS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.INITIALS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Middle Initial",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameFormat_NAMEFORMAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.NAMEFORMAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name Format",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryForNameFormatRule_NAMCOUNTRY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.NAMCOUNTRY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country for Name Format Rule",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessPARTNER_CorrespondenceLanguage_LANGU_CORR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.LANGU_CORR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Partner Correspondence Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Selection_BusinessPARTNERIsMale_XSEXM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.XSEXM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Selection: Business Partner is Male",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Selection_BusinessPARTNERIsFemale_XSEXF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.XSEXF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Selection: Business Partner is Female",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BirthplaceOfBusinessPARTNER_BIRTHPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.BIRTHPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Birthplace of Business Partner",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaritalStatusOfBusinessPARTNER_MARST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.MARST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Marital Status of Business Partner",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameOfEmployerOfANaturalPerson_EMPLO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.EMPLO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name of Employer of a Natural Person",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Occupationgroup_JOBGR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.JOBGR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Occupation Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Nationality_NATIO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.NATIO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Nationality",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ObsoleteField_CNTAX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.CNTAX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Obsolete Field",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CtryOfOrigin_NonResCompanies_CNDSC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.CNDSC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country of Origin (Non-Res Companies)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Selection_SexOfBusinessPARTNERIsNotKnown_XSEXU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.XSEXU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Selection: Sex of Business Partner is Not Known",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ObsoleteField_XUBNAME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.XUBNAME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Obsolete Field",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessPARTNER_Language_BU_LANGU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.BU_LANGU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Partner Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfBirthOfBusinessPARTNER_BIRTHDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.BIRTHDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date of Birth of Business Partner",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfDeathOfBusinessPARTNER_DEATHDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.DEATHDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date of Death of Business Partner",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PersonnelNumber_PERNO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.PERNO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Personnel Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ObsoleteField_CHILDREN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.CHILDREN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Obsolete Field",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ObsoleteField_MEM_HOUSE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.MEM_HOUSE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Obsolete Field",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GroupType_PARTGRPTYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.PARTGRPTYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Group Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name1__group___NAME_GRP1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.NAME_GRP1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 1 (group)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name2__group___NAME_GRP2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.NAME_GRP2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 2 (group)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SearchHelpField1__name1lastName___MC_NAME1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.MC_NAME1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Search Help Field 1 (name1 lastName)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SearchHelpField2__name2firstName___MC_NAME2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.MC_NAME2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Search Help Field 2 (name2 firstName)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UserWhoCreatedTheObject_CRUSR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.CRUSR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "User Who Created the Object",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOnWhichTheObjectWasCreated_CRDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.CRDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date on Which the Object Was Created",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TimeAtWhichTheObjectWasCreated_CRTIM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.CRTIM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Time at Which the Object Was Created",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LastUserToChangeObject_CHUSR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.CHUSR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Last User to Change Object",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateWhenObjectWasLastChanged_CHDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.CHDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date When Object Was Last Changed",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TimeAtWhichObjectWasLastChanged_CHTIM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.CHTIM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Time at Which Object Was Last Changed",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessPARTNERGuid_PARTNER_GUID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.PARTNER_GUID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Partner Guid",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AddressNumber_ADDRCOMM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.ADDRCOMM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Address Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PlannedChangeDocumentsForPARTNERWereConverted_TD_SWITCH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.TD_SWITCH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Planned Change Documents for PARTNER Were Converted",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_BusinessPARTNERIsAlsoAnOrganizationalCenter_IS_ORG_CENTRE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.IS_ORG_CENTRE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Business Partner is Also an Organizational Center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UuidInXForm__binary___DB_KEY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.DB_KEY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Uuid in XForm (binary)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidityStartBUT000BpData_VALID_FROM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.VALID_FROM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Validity Start BUT000 Bp Data",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidityEndBUT000BpData_VALID_TO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.VALID_TO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Validity End BUT000 Bp Data",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessPARTNERIsANaturalPersonUnderTheTaxLaws_NATPERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.NATPERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Partner is a Natural Person Under the Tax Laws",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessPARTNERReleased_PAR_REL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.PAR_REL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Partner Released",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SortField_BP_SORT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.BP_SORT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sort Field",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BankCountryKey_KBANKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.KBANKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Bank Country Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BankKeys_KBANKL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT000.KBANKL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Bank Keys",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BPAddressNumber_ADDRNUMBER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT020.ADDRNUMBER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "BP Address Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_AddressIsStandardAddress_XDFADR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT020.XDFADR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Address is Standard Address",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AddressNumberInExternalSystem_ADEXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT020.ADEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Address Number in External System",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UuidInCharacterForm_GUID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT020.GUID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Uuid in Character Form",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfMoveTargetAddressForAddressMoves_MOVE_ADDR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT020.MOVE_ADDR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of Move Target Address for Address Moves",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateObsolete_DATE_FROM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT020.DATE_FROM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date Obsolete",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GuidOfABusinessPARTNERAddress_ADDRESS_GUID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT020.ADDRESS_GUID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Guid of a Business Partner Address",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidityStartOfABusinessPARTNERAddress_ADDR_VALID_FROM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT020.ADDR_VALID_FROM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Validity Start of a Business Partner Address",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidityEnd_ADDR_VALID_TO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT020.ADDR_VALID_TO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Validity End",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfMoveForAddressMoves_ADDR_MOVE_DATE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "BUT020.ADDR_MOVE_DATE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date of Move for Address Moves",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Region_REGION",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.Region_REGION"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Region",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryKey_COUNTRY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ADRC.CountryKey_COUNTRY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

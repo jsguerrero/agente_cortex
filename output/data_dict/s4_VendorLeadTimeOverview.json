@@ -1,0 +1,352 @@
+{
+    "schema": {
+        "object_name": "s4_VendorLeadTimeOverview.sql",
+        "object_type": "view",
+        "description": "This view provides a summary of vendor lead times, showing the average lead time for each vendor.  The data is aggregated at the vendor level.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.VendorPerformance"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "VendorAccountNumber_LIFNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.VendorPerformance.VendorAccountNumber_LIFNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Account Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorName",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.VendorPerformance.NAME1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorCountry",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.VendorPerformance.CountryKey_LAND1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Country",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Company_BUKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.VendorPerformance.Company_BUKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Company",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.VendorPerformance.CompanyText_BUTXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingGroup_EKGRP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.VendorPerformance.PurchasingGroup_EKGRP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingGroupText_EKNAM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.VendorPerformance.PurchasingGroupText_EKNAM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Group Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingOrganization_EKORG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.VendorPerformance.PurchasingOrganization_EKORG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Organization",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingOrganizationText_EKOTX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.VendorPerformance.PurchasingOrganizationText_EKOTX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Organization Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingDocumentDate_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.VendorPerformance.PurchasingDocumentDate_BEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Document Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "YearOfPurchasingDocumentDate_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.VendorPerformance.PurchasingDocumentDate_BEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Year of Purchasing Document Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MonthOfPurchasingDocumentDate_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.VendorPerformance.PurchasingDocumentDate_BEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Month of Purchasing Document Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WeekOfPurchasingDocumentDate_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.VendorPerformance.PurchasingDocumentDate_BEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Week of Purchasing Document Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TargetCurrency_TCURR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.VendorPerformance.TargetCurrency_TCURR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.VendorPerformance.LanguageKey_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AverageLeadTimeInDays",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.VendorPerformance.VendorCycleTimeInDays"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ROUND(AVG(VendorCycleTimeInDays) OVER (PARTITION BY VendorAccountNumber_LIFNR),1)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Average Lead Time in Days",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": []
+    }
+}

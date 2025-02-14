@@ -1,0 +1,129 @@
+{
+    "schema": {
+        "object_name": "s4_UoMConversionUtil.sql",
+        "object_type": "view",
+        "description": "This view converts units of measure based on data from table t006.  It handles different scenarios based on the values of exp10 and performs calculations involving nennr, zaehl, and addko. The granularity is at the level of unit conversions between different units.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.t006"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "unit_to",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t6_out.msehi"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target unit of measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "unit_from",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t6_in.msehi"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Source unit of measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "mandt",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t6_in.mandt"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "dimension",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t6_in.dimid",
+                        "t6_out.dimid"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "if(t6_in.dimid != t6_out.dimid, 'ERROR', t6_in.dimid)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Dimension ID; returns 'ERROR' if dimid values from t6_in and t6_out don't match",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "val_out",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t6_out.zaehl",
+                        "t6_in.nennr",
+                        "t6_in.zaehl",
+                        "t6_out.nennr",
+                        "t6_out.exp10",
+                        "t6_in.exp10",
+                        "t6_out.addko",
+                        "t6_in.addko",
+                        "t6_in.to_conv"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "if(t6_in.dimid != t6_out.dimid, 'ERROR', t6_in.dimid)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Calculated output value based on unit conversion and addko difference",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

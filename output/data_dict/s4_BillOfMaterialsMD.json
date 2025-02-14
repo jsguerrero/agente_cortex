@@ -1,0 +1,3106 @@
+{
+    "schema": {
+        "object_name": "s4_BillOfMaterialsMD.sql",
+        "object_type": "view",
+        "description": "This view joins four tables (mast, stko, stas, stpo) from the aecorsoft-prj-dev.CDC_S4 dataset to provide a comprehensive view of Bill of Materials data, including material information, BOM header details, BOM item details, and component information.  The data is at the component level, showing details for each component within each BOM.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.mast",
+            "aecorsoft-prj-dev.CDC_S4.stko",
+            "aecorsoft-prj-dev.CDC_S4.stas",
+            "aecorsoft-prj-dev.CDC_S4.stpo"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MAST.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialNumber_MATNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MAST.MATNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_WERKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MAST.WERKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BomUsage_STLAN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MAST.STLAN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "BOM Usage",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillOfMaterial_STLNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MAST.STLNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Bill of Material",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AlternativeBom_STLAL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MAST.STLAL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Alternative BOM",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FromLotSize_LOSVN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MAST.LOSVN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "From Lot Size",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ToLotSize_LOSBS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MAST.LOSBS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "To Lot Size",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_ConfiguredMaterial__materialVariant___CSLTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MAST.CSLTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator for Configured Material (Material Variant)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BomCategory_STLTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.STLTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "BOM Category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InternalCounter_STKOZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.STKOZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Internal Counter",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidFromDate_DATUV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.DATUV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valid From Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TechnicalStatusFrom_TECHV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.TECHV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Technical Status From",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChangeNumber_AENNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.AENNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Change Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeletionIndicator_LKENZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.LKENZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Deletion Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeletionFlagForBoms_LOEKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.LOEKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Deletion Flag for BOMs",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PreviousHeaderCounter_VGKZL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.VGKZL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Previous Header Counter",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BaseUnitOfMeasureForBom_BMEIN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.BMEIN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Base Unit of Measure for BOM",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BaseQuantity_BMENG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.BMENG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Base Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CadIndicator_CADKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.CADKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "CAD Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LaboratorydesignOffice_LABOR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.LABOR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Laboratory/design Office",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LongTextLanguage_ForCreationOfAChangeDocument_LTXSP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.LTXSP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Long Text Language (for creation of a change document)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AlternativeBomText_STKTX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.STKTX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Alternative BOM Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BomStatus_STLST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.STLST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "BOM Status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PlantWhereBomOrAlternativevariantCreated_WRKAN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.WRKAN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant Where BOM or Alternative Variant Created",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfLastDateShift_DVDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.DVDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date of Last Date Shift",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameOfTheUserWhoCarriedOutTheDateShift_DVNAM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.DVNAM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name of the User Who Carried Out the Date Shift",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateShiftHierarchyIndicator_AEHLP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.AEHLP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date Shift Hierarchy Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AleIndicator_ALEKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.ALEKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "ALE Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GlobalIdentificationOfABomHeaderChangeStatus_GUIDX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.GUIDX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Global Identification of a BOM Header Change Status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidToDate_VALID_TO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.VALID_TO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valid To Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChangeNumberTo_ECN_TO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STKO.ECN_TO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Change Number To",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BomItemNodeNumber_STLKN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STAS.STLKN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "BOM Item Node Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InternalCounter_STASZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STAS.STASZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Internal Counter",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SortKeyWithinALogicalItem_LPSRT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STAS.LPSRT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sort Key Within a Logical Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InternalCounter_STPOZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.STPOZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Internal Counter",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PredecessorNode_VGKNT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.VGKNT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Predecessor Node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PreviousItemCounter_VGPZL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.VGPZL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Previous Item Counter",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BomComponent_IDNRK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.IDNRK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "BOM Component",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IssuingPlant_PSWRK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.PSWRK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Issuing Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemCategory__billOfMaterial___POSTP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.POSTP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item Category (bill of material)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BomItemNumber_POSNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.POSNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "BOM Item Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SortString_SORTF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.SORTF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sort String",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ComponentUnitOfMeasure_MEINS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.MEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Component Unit of Measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ComponentQuantity_MENGE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.MENGE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Component Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FixedQty_FMENG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.FMENG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fixed Qty",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ComponentScrapInPercent_AUSCH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.AUSCH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Component Scrap in Percent",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OperationScrap_AVOAU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.AVOAU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Operation Scrap",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_NetScrap_NETAU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.NETAU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Net Scrap",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_BulkMaterial_SCHGT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.SCHGT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Bulk Material",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialProvisionIndicator_BEIKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.BEIKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Provision Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_SparePart_ERSKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.ERSKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Spare Part",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_ItemRelevantToSales_RVREL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.RVREL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Item Relevant to Sales",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_ItemRelevantToProduction_SANFE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.SANFE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Item Relevant to Production",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_ItemRelevantToPlantMaintenance_SANIN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.SANIN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Item Relevant to Plant Maintenance",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndicatorForRelevancyToCosting_SANKA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.SANKA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator for Relevancy to Costing",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_ItemRelevantToEngineering_SANKO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.SANKO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Item Relevant to Engineering",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_HighLevelConfiguration_SANVS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.SANVS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: High Level Configuration",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PmAssemblyIndicator_STKKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.STKKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PM Assembly Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_BomIsRecursive_REKRI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.REKRI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: BOM is Recursive",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_RecursivenessAllowed_REKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.REKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Recursiveness Allowed",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CadIndicator_CADPO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.CADPO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "CAD Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FollowUpMaterialInBomItemNotInUse_NFMAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.NFMAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Follow-up Material in BOM Item (not in use)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LeadTimeOffset_NLFZT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.NLFZT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Lead Time Offset",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DistributionKeyForComponentConsumption_VERTI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.VERTI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Distribution Key for Component Consumption",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_AlternativeItem_ALPOS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.ALPOS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Alternative Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UsageProbabilityInpct__alternativeItem___EWAHR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.EWAHR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Usage Probability in % (alternative item)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingGroup_EKGRP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.EKGRP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryTimeInDays_LIFZT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.LIFZT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Time in Days",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountNumberOfVendorOrCreditor_LIFNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.LIFNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Account Number of Vendor or Creditor",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Price_PREIS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.PREIS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Price",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PriceUnit_PEINH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.PEINH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Price Unit",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CostElement_SAKTO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.SAKTO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Element",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfVariableSizeItems_ROANZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.ROANZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of Variable Size Items",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Size1_ROMS1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.ROMS1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Size 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Size2_ROMS2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.ROMS2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Size 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Size3_ROMS3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.ROMS3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Size 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UnitOfMeasureForSizes1To3_ROMEI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.ROMEI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Unit of Measure for Sizes 1 to 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuantityOfVariableSizeItem_ROMEN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.ROMEN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quantity of Variable Size Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FormulaKey_RFORM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.RFORM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Formula Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_SubItemsExist_UPSKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.UPSKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Sub-items Exist",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_ItemInMoreThanOneAlternative_VALKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.VALKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Item in More Than One Alternative",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BomItemText__line1___POTX1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.POTX1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "BOM Item Text (line 1)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BomItemText__line2___POTX2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.POTX2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "BOM Item Text (line 2)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ObjectType__bomItem___OBJTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.OBJTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Object Type (bom item)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialGroup_MATKL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.MATKL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GoodsReceiptProcessingTimeInDays_WEBAZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.WEBAZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Goods Receipt Processing Time in Days",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DocumentType_DOKAR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.DOKAR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Document Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DocumentNumber_DOKNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.DOKNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Document Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DocumentVersion_DOKVR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.DOKVR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Document Version",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DocumentPart_DOKTL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.DOKTL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Document Part",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AverageMaterialPurityInpct_CSSTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.CSSTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Average Material Purity in %",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ClassNumber_CLASS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.CLASS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Class Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ClassType_KLART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.KLART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Class Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ResultingItemCategory_POTPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.POTPR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Resulting Item Category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SelectionIndicatorForConfigurableBoms_AWAKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.AWAKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Selection Indicator for Configurable BOMs",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InstanceIndicator_INSKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.INSKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Instance Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_NotDisplayedInConfigurationEditor_VCEKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.VCEKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Not Displayed in Configuration Editor",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_NotDisplayedInSingleLevelConfiguration_VSTKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.VSTKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Not Displayed in Single Level Configuration",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_NotDisplayedInAutomaticConfiguration_VACKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.VACKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Not Displayed in Automatic Configuration",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingOrganization_EKORG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.EKORG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Organization",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RequiredComponent_CLOBK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.CLOBK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Required Component",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MultipleSelectionAllowed_CLMUL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.CLMUL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Multiple Selection Allowed",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AlternativeDisplayFormat_CLALT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.CLALT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Alternative Display Format",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OrganizationalArea_CVIEW",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.CVIEW"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Organizational Area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfObjectWithAssignedDependencies_KNOBJ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.KNOBJ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of Object with Assigned Dependencies",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IssueLocationForProductionOrder_LGORT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.LGORT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Issue Location for Production Order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_CoProduct_KZKUP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.KZKUP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Co-product",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IntraMaterial_INTRM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.INTRM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Intra Material",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_RestrictionsExist_TPEKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.TPEKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Restrictions Exist",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InheritedNodeNumberOfBomItem_STVKN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.STVKN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Inherited Node Number of BOM Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExplosionType_DSPST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.DSPST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Explosion Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AlternativeItem_Strategy_ALPST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.ALPST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Alternative Item Strategy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AlternativeItem_RankingOrder_ALPRF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.ALPRF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Alternative Item Ranking Order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AlternativeItem_Group_ALPGR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.ALPGR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Alternative Item Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_FollowUpItem_KZNFP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.KZNFP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Follow-up Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FollowUpGroup_NFGRP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.NFGRP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Follow-up Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DiscontinuationGroup_NFEAG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.NFEAG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Discontinuation Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_ManualChangeToSalesOrderBom_KNDVB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.KNDVB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Manual Change to Sales Order BOM",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_BomItemChangedselectedViaObjDependencies_KNDBZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.KNDBZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: BOM Item Changed/selected via Obj. Dependencies",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BomCategoryOfOriginalSalesOrderBomItem_KSTTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.KSTTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "BOM Category of Original Sales Order BOM Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillOfMaterialForOriginalSalesOrderBomItem_KSTNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.KSTNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Bill of Material for Original Sales Order BOM Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NodeNumberOfOriginalSalesOrderBomItem_KSTKN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.KSTKN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Node Number of Original Sales Order BOM Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CounterForOriginalSalesOrderBomItem_KSTPZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.KSTPZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Counter for Original Sales Order BOM Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ClassificationNumber_CLSZU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.CLSZU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Classification Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_ClassificationAsSelectionCondition_KZCLB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.KZCLB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Classification as Selection Condition",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProductionSupplyArea_PRVBE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.PRVBE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Production Supply Area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LeadTimeOffsetForOperation_NLFZV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.NLFZV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Lead Time Offset for Operation",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UnitForLeadTimeOffsetForOperation_NLFMV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.NLFMV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Unit for Lead Time Offset for Operation",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemGroup_IDPOS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.IDPOS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HistoryCounter_IDHIS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.IDHIS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "History Counter",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ComponentVariant_IDVAR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.IDVAR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Component Variant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExternalIdentificationOfAnItem_ITMID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.ITMID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "External Identification of an Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TemporarilyNotUsed_GUID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.GUID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Temporarily Not Used",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SpecialProcurementTypeForBomItem_ITSOB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.ITSOB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Special Procurement Type for BOM Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReferencePointForBomTransfer_RFPNT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.RFPNT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reference Point for BOM Transfer",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SegmentationMaintainedForBomComponents_SGT_CMKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.SGT_CMKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Segmentation Maintained for BOM Components",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SegmentationValue_SGT_CATV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.SGT_CATV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Segmentation Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeviationValuesMaintainedForComponentAtVariantLevel_FSH_VMKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.FSH_VMKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Deviation Values Maintained for Component at Variant Level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuantityDistributionProfile_FSH_PGQR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.FSH_PGQR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quantity Distribution Profile",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReferenceToQuantityDistributionProfile_FSH_PGQRRF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.FSH_PGQRRF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reference to Quantity Distribution Profile",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CriticalComponentIndicator_FSH_CRITICAL_COMP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.FSH_CRITICAL_COMP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Critical Component Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CrticalLevelOfAComponentInBom_FSH_CRITICAL_LEVEL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.FSH_CRITICAL_LEVEL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Crtical Level of a Component in BOM",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FunctionIdentifier_FUNCID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "STPO.FUNCID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Function Identifier",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.mast` AS MAST",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "MAST.mandt = STKO.mandt",
+                    "MAST.stlnr = STKO.stlnr",
+                    "MAST.stlal = STKO.stlal"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.stko` AS STKO",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "STKO.mandt = STAS.mandt",
+                    "STKO.stlty = STAS.stlty",
+                    "STKO.stlnr = STAS.stlnr",
+                    "STKO.stlal = STAS.stlal"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.stas` AS STAS",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "STAS.mandt = STPO.mandt",
+                    "STAS.stlty = STPO.stlty",
+                    "STAS.stlnr = STPO.stlnr",
+                    "STAS.stlkn = STPO.stlkn"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

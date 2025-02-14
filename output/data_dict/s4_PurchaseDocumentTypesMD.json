@@ -1,0 +1,106 @@
+{
+    "schema": {
+        "object_name": "s4_PurchaseDocumentTypesMD.sql",
+        "object_type": "view",
+        "description": "This view joins data from t161 and t161t tables to provide a list of purchasing document types with their corresponding texts, grouped by client, purchasing document type, and purchasing document category.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.t161",
+            "aecorsoft-prj-dev.CDC_S4.t161t"
+        ],
+        "columns": [
+            {
+                "name": "Client_MANDT",
+                "dependencies": [
+                    "t161.MANDT"
+                ],
+                "formula": null,
+                "description": "Client",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PurchasingDocumentType_BSART",
+                "dependencies": [
+                    "t161.BSART"
+                ],
+                "formula": null,
+                "description": "Purchasing Document Type",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PurchasingDocumentCategory_BSTYP",
+                "dependencies": [
+                    "t161.BSTYP"
+                ],
+                "formula": null,
+                "description": "Purchasing Document Category",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PurchasingDocumentTypeText_BATXT",
+                "dependencies": [
+                    "t161t.BATXT"
+                ],
+                "formula": null,
+                "description": "Text describing the Purchasing Document Type",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Language_SPRAS",
+                "dependencies": [
+                    "t161t.SPRAS"
+                ],
+                "formula": null,
+                "description": "Language of the Purchasing Document Type Text",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.t161`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "t161.MANDT = t161t.MANDT",
+                    "t161.BSART = t161t.BSART",
+                    "t161.BSTYP = t161t.BSTYP"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

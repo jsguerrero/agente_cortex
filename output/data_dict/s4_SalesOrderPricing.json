@@ -1,0 +1,219 @@
+{
+    "schema": {
+        "object_name": "s4_SalesOrderPricing.sql",
+        "object_type": "view",
+        "description": "Aggregated pricing conditions from Sales Orders, grouped by Client, Document Number, and Item Number.  Provides sum of various price components (List Price, Adjusted Price, Discount, InterCompanyPrice).",
+        "source": "cortex_framework",
+        "group_by": [
+            "PricingConditions.Client_MANDT",
+            "PricingConditions.NumberOfTheDocumentCondition_KNUMV",
+            "PricingConditions.ConditionItemNumber_KPOSN"
+        ],
+        "dependencies": [
+            "REPORTING.PricingConditions"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PricingConditions.Client_MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfTheDocumentCondition_KNUMV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PricingConditions.NumberOfTheDocumentCondition_KNUMV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Document Number of the Pricing Condition",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionItemNumber_KPOSN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PricingConditions.ConditionItemNumber_KPOSN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item Number of the Pricing Condition",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionValueCurrencyKey_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PricingConditions.CurrencyKey_WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(CurrencyKey_WAERS)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key of the Pricing Condition (maximum value)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Checkbox_KDATU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PricingConditions.Checkbox_KDATU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(Checkbox_KDATU)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Checkbox Value (maximum value)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ListPrice",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PricingConditions.CalculationTypeForCondition_KRECH",
+                        "PricingConditions.ConditionClass_KOAID",
+                        "PricingConditions.ConditionIsInactive_KINAK",
+                        "PricingConditions.ConditionValue_KWERT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(IF(PricingConditions.CalculationTypeForCondition_KRECH = 'C' AND PricingConditions.ConditionClass_KOAID = 'B' AND PricingConditions.ConditionIsInactive_KINAK IS NULL, PricingConditions.ConditionValue_KWERT, NULL))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sum of List Prices",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AdjustedPrice",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PricingConditions.CalculationTypeForCondition_KRECH",
+                        "PricingConditions.ConditionClass_KOAID",
+                        "PricingConditions.ConditionType_KSCHL",
+                        "PricingConditions.ConditionValue_KWERT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(IF(PricingConditions.CalculationTypeForCondition_KRECH = 'C' AND PricingConditions.ConditionClass_KOAID = 'B' AND PricingConditions.ConditionType_KSCHL = 'PB00', PricingConditions.ConditionValue_KWERT, NULL))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sum of Adjusted Prices",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Discount",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PricingConditions.ConditionClass_KOAID",
+                        "PricingConditions.ConditionIsInactive_KINAK",
+                        "PricingConditions.ConditionValue_KWERT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(IF(PricingConditions.ConditionClass_KOAID = 'A' AND PricingConditions.ConditionIsInactive_KINAK IS NULL, PricingConditions.ConditionValue_KWERT, NULL))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sum of Discounts",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InterCompanyPrice",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PricingConditions.ConditionForInterCompanyBilling_KFKIV",
+                        "PricingConditions.ConditionClass_KOAID",
+                        "PricingConditions.ConditionIsInactive_KINAK",
+                        "PricingConditions.ConditionValue_KWERT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(IF(PricingConditions.ConditionForInterCompanyBilling_KFKIV = 'X' AND PricingConditions.ConditionClass_KOAID = 'B' AND PricingConditions.ConditionIsInactive_KINAK IS NULL, PricingConditions.ConditionValue_KWERT, NULL))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sum of Inter-Company Prices",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

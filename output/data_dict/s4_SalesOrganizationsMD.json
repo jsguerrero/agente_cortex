@@ -1,0 +1,274 @@
+{
+    "schema": {
+        "object_name": "s4_SalesOrganizationsMD.sql",
+        "object_type": "view",
+        "description": "This view joins data from tvko, t001, and tvkot tables to provide details about sales organizations, including their currency, customer, company code, country, fiscal year variant, and name.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.tvko",
+            "CDC_S4.t001",
+            "CDC_S4.tvkot"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "TVKO.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrg_VKORG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "TVKO.VKORG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Organization Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrgCurrency_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "TVKO.WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Organization Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrgCustomer_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "TVKO.KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Organization Customer Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCode_BUKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "TVKO.BUKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Country_LAND1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001.LAND1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CoCoCurrency_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001.WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYrVariant_PERIV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001.PERIV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Year Variant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Company_BUTXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001.BUTXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrgName_VTEXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "TVKOT.VTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Organization Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Language_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "TVKOT.SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "LEFT OUTER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.tvko` AS TVKO",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "TVKO.MANDT = T001.MANDT",
+                    "TVKO.BUKRS = T001.BUKRS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.tvko` AS TVKO",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "TVKO.MANDT = TVKOT.MANDT",
+                    "TVKO.VKORG = TVKOT.VKORG"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

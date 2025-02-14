@@ -1,0 +1,775 @@
+{
+    "schema": {
+        "object_name": "s4_ProfitAndLossOverview_CostCenterHierarchy.sql",
+        "object_type": "view",
+        "description": "This view joins ProfitAndLoss data with CostCenter hierarchy data to provide a Profit and Loss overview at the granularity of Client, Company, ChartOfAccounts, HierarchyName, BusinessArea, ProfitCenter, CostCenter, Ledger, FiscalYear, FiscalPeriod, GL Node, CostCenter Hierarchy Node, Language, and TargetCurrency.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.ProfitAndLoss",
+            "REPORTING.cost_centers",
+            "REPORTING.CostCenterHierarchiesMD",
+            "REPORTING.CostCentersMD"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.Client"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client identifier",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.CompanyCode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYear",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.FiscalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalPeriod",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.FiscalPeriod"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChartOfAccounts",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.ChartOfAccounts"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Chart of accounts",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GLHierarchy",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.GLHierarchy"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "GL Hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessArea",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.BusinessArea"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LedgerInGeneralLedgerAccounting",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.LedgerInGeneralLedgerAccounting"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ledger in General Ledger Accounting",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GLNode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.GLNode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "GL Node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.LanguageKey_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GLParent",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.GLParent"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "GL Parent",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GLFinancialItem",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.GLFinancialItem"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "GL Financial Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GLNodeText",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.GLNodeText"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "GL Node Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GLParentText",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.GLParentText"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "GL Parent Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GLLevel",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.GLLevel"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "GL Level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalQuarter",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.FiscalQuarter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Quarter",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GLIsLeafNode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.GLIsLeafNode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "GL Is Leaf Node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyText",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.CompanyText"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProfitCenter",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.ProfitCenter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Profit Center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CostCenter",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.CostCenter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CCHierarchy",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostCenters.hiername"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Center Hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CCParent",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostCenters.parent"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Center Parent",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CCNode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostCenters.node"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Center Node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CCLevel",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostCenters.level"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Center Level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CCIsLeafNode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostCenters.isleafnode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Center Is Leaf Node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CCParentText",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CCParentText.SetName_SETNAME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Center Parent Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CCNodeText",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CCNodeText.SetName_SETNAME",
+                        "CCText.Description_LTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(CCNodeText.SetName_SETNAME, CCText.Description_LTEXT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Center Node Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInLocalCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.AmountInLocalCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Amount in Local Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CumulativeAmountInLocalCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.CumulativeAmountInLocalCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cumulative Amount in Local Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.CurrencyKey"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExchangeRate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.ExchangeRate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Exchange Rate",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaxExchangeRate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.MaxExchangeRate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Max Exchange Rate",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AvgExchangeRate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.AvgExchangeRate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Average Exchange Rate",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.AmountInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Amount in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CumulativeAmountInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.CumulativeAmountInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cumulative Amount in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TargetCurrency_TCURR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitAndLoss.TargetCurrency_TCURR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

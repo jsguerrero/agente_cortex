@@ -1,0 +1,243 @@
+{
+    "schema": {
+        "object_name": "s4_prod_hierarchy_texts.sql",
+        "object_type": "table",
+        "description": "This table stores product hierarchy texts. It combines product hierarchy data from multiple tables (t179, mara, t179t) to create a comprehensive hierarchy with associated texts in English (spras = 'E'). The data is at the level of individual product hierarchy nodes, linking each level (prodh1, prodh2, prodh3, prodh4) to its corresponding text (HierText1, HierText2).",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.t179",
+            "aecorsoft-prj-dev.CDC_S4.mara",
+            "aecorsoft-prj-dev.CDC_S4.t179t"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "mandt",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "S.mandt"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "prodh1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "S.prodh1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Product hierarchy level 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "prodh2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "S.prodh2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Product hierarchy level 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "prodh3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "S.prodh3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Product hierarchy level 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HierText1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "S.HierText1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Text for product hierarchy level 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "prodh4",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "S.prodh4"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Product hierarchy level 4",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HierText2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "S.HierText2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Text for product hierarchy level 4",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "h1_h2",
+                "join_type": "LEFT OUTER JOIN",
+                "tabla_base": "aecorsoft-prj-dev.CDC_S4.t179",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "starts_with(h2.prodh, h1.prodh)",
+                    "h1.mandt = h2.mandt"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "h1_h2_h3",
+                "join_type": "LEFT OUTER JOIN",
+                "tabla_base": "h1_h2",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "starts_with(h3.prodh, h1_h2.prodh2)",
+                    "h1_h2.mandt = h3.mandt"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "h1_h2_h3",
+                "join_type": "INNER JOIN",
+                "tabla_base": "h1_h2",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "left(mara.prdha, 5 ) = h3.prodh",
+                    "mara.mandt = h3.mandt"
+                ],
+                "rules": [
+                    "CORTEX-CUSTOMER: Modify the left clause to match the number of starting characters\n--so that the hierarchy in the material master matches the higher level one\n-- Alternatively, use starts_with as in the example above"
+                ]
+            },
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "h1_h2_h3",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "hier.mandt = txt.mandt",
+                    "hier.prodh3 = txt.prodh"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "h1_h2_h3",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "hier.mandt = txt2.mandt",
+                    "hier.prodh4 = txt2.prodh"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "MERGE",
+                "tabla_base": "cortex-prj-dev.REPORTING.prod_hierarchy_texts",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "S.mandt = T.mandt",
+                    "S.prodh1 = T.prodh1",
+                    "S.prodh2 = T.prodh2",
+                    "S.prodh3 = T.prodh3",
+                    "S.prodh4 = T.prodh4"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

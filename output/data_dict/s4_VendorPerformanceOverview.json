@@ -1,0 +1,1106 @@
+{
+    "schema": {
+        "object_name": "s4_VendorPerformanceOverview.sql",
+        "object_type": "view",
+        "description": "This view provides a summary of vendor performance, grouped by client, purchasing document date, invoice date, company, purchasing organization, purchasing group, vendor account number, vendor name, country key, fiscal year variant, material number, plant, material type, target currency, and language key.  It's intended for reference in dashboards and not for extensive reporting.",
+        "source": "cortex_framework",
+        "group_by": [
+            "Client_MANDT",
+            "PurchasingDocumentDate_BEDAT",
+            "InvoiceDate",
+            "Company_BUKRS",
+            "PurchasingOrganization_EKORG",
+            "PurchasingGroup_EKGRP",
+            "VendorAccountNumber_LIFNR",
+            "VendorName",
+            "VendorCountry",
+            "FiscalyearVariant_PERIV",
+            "MaterialNumber_MATNR",
+            "Plant_WERKS",
+            "MaterialType_MTART",
+            "TargetCurrency_TCURR",
+            "LanguageKey_SPRAS"
+        ],
+        "dependencies": [
+            "REPORTING.VendorPerformance",
+            "REPORTING.MaterialLedger"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.Client_MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingDocumentDate_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.PurchasingDocumentDate_BEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Document Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "YearOfPurchasingDocumentDate_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.YearOfPurchasingDocumentDate_BEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Year of Purchasing Document Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MonthOfPurchasingDocumentDate_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.MonthOfPurchasingDocumentDate_BEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Month of Purchasing Document Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WeekOfPurchasingDocumentDate_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.WeekOfPurchasingDocumentDate_BEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Week of Purchasing Document Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Company_BUKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.Company_BUKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Company",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.Company"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(CompanyText_BUTXT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingOrganization_EKORG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.PurchasingOrganization_EKORG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Organization",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingOrganization",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.PurchasingOrganization"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(PurchasingOrganizationText_EKOTX)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Organization Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingGroup_EKGRP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.PurchasingGroup_EKGRP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingGroup",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.PurchasingGroup"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(PurchasingGroupText_EKNAM)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Group Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorAccountNumber_LIFNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.VendorAccountNumber_LIFNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Account Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorName",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.VendorName"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorCountry",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.VendorCountry"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Country",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalyearVariant_PERIV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.FiscalyearVariant_PERIV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Year Variant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialNumber_MATNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.MaterialNumber_MATNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_WERKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.Plant_WERKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialType_MTART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.MaterialType_MTART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "POQuantity_MENGE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.POQuantity_MENGE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchase Order Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYear",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.FiscalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalPeriod",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.FiscalPeriod"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InvoiceDate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.InvoiceDate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Invoice Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalSpend",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.TotalSpend"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(SUM(InvoiceAmountInSourceCurrency), 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Spend in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ClearedInvoices",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.ClearedInvoices"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(InvoiceCount)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of Cleared Invoices",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "YearOfInvoiceDate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.YearOfInvoiceDate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Year of Invoice Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MonthOfInvoiceDate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.MonthOfInvoiceDate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Month of Invoice Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WeekOfInvoiceDate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.WeekOfInvoiceDate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Week of Invoice Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AverageNetPrice",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.AverageNetPrice"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "AVG(NetPrice_NETPR)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Average Net Price in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TargetCurrency_TCURR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.TargetCurrency_TCURR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AverageNetPriceInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.AverageNetPriceInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "AVG(NetPriceInTargetCurrency_NETPR)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Average Net Price in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalSpendInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.TotalSpendInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(SUM(InvoiceAmountInTargetCurrency), 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Spend in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountRejectedOrders",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.CountRejectedOrders"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COUNTIF(IsRejected)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Count of Rejected Orders",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountNotRejectedOrders",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.CountNotRejectedOrders"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COUNTIF(NOT IsRejected)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Count of Not Rejected Orders",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountNotDelayedOrders",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.CountNotDelayedOrders"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COUNTIF(VendorOnTimeDelivery = 'NotDelayed')",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Count of Not Delayed Orders",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountDelayedOrders",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.CountDelayedOrders"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COUNTIF(VendorOnTimeDelivery = 'Delayed')",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Count of Delayed Orders",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountInFullOrders",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.CountInFullOrders"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COUNTIF(VendorInFullDelivery = 'DeliveredInFull')",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Count of Orders Delivered In Full",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountNotInFullOrders",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.CountNotInFullOrders"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COUNTIF(VendorInFullDelivery = 'NotDeliveredInFull')",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Count of Orders Not Delivered In Full",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountAccurateInvoices",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.CountAccurateInvoices"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COUNTIF(VendorInvoiceAccuracy = 'AccurateInvoice')",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Count of Accurate Invoices",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountInaccurateInvoices",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.CountInaccurateInvoices"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COUNTIF(VendorInvoiceAccuracy = 'InaccurateInvoice')",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Count of Inaccurate Invoices",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountPastDueOrders",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.CountPastDueOrders"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COUNTIF(PastDueOrOpenItems = 'PastDue')",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Count of Past Due Orders",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountOpenOrders",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.CountOpenOrders"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COUNTIF(PastDueOrOpenItems = 'Open')",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Count of Open Orders",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Material",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.Material"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(MaterialText_MAKTX)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialType",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.MaterialType"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(DescriptionOfMaterialType_MTBEZ)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Type Description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "VendorPerformance.LanguageKey_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValuationPrice",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "MaterialLedger"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CASE WHEN VendorPerformance.MaterialType_MTART = 'FERT' OR VendorPerformance.MaterialType_MTART = 'HALB' THEN COALESCE(MaterialLedger.StandardCost_STPRS, VendorPerformance.AverageNetPrice) WHEN VendorPerformance.MaterialType_MTART = 'ROH' OR VendorPerformance.MaterialType_MTART = 'HIBE' THEN COALESCE(MaterialLedger.MovingAveragePrice, VendorPerformance.AverageNetPrice) END",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valuation Price in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValuationPriceInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "MaterialLedger"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CASE WHEN VendorPerformance.MaterialType_MTART = 'FERT' OR VendorPerformance.MaterialType_MTART = 'HALB' THEN COALESCE(MaterialLedger.StandardCost_STPRS, VendorPerformance.AverageNetPrice) * VendorPerformance.ExchangeRate_UKURS WHEN VendorPerformance.MaterialType_MTART = 'ROH' OR VendorPerformance.MaterialType_MTART = 'HIBE' THEN COALESCE(MaterialLedger.MovingAveragePrice, VendorPerformance.AverageNetPrice) * VendorPerformance.ExchangeRate_UKURS END",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valuation Price in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasePriceVariance",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "MaterialLedger"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ABS(CASE WHEN VendorPerformance.MaterialType_MTART = 'FERT' OR VendorPerformance.MaterialType_MTART = 'HALB' THEN COALESCE(MaterialLedger.StandardCost_STPRS, VendorPerformance.AverageNetPrice) WHEN VendorPerformance.MaterialType_MTART = 'ROH' OR VendorPerformance.MaterialType_MTART = 'HIBE' THEN COALESCE(MaterialLedger.MovingAveragePrice, VendorPerformance.AverageNetPrice) END - VendorPerformance.AverageNetPrice) * VendorPerformance.POQuantity_MENGE",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchase Price Variance in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasePriceVarianceInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorPerformance",
+                        "MaterialLedger"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ABS(CASE WHEN VendorPerformance.MaterialType_MTART = 'FERT' OR VendorPerformance.MaterialType_MTART = 'HALB' THEN COALESCE(MaterialLedger.StandardCost_STPRS, VendorPerformance.AverageNetPrice) WHEN VendorPerformance.MaterialType_MTART = 'ROH' OR VendorPerformance.MaterialType_MTART = 'HIBE' THEN COALESCE(MaterialLedger.MovingAveragePrice, VendorPerformance.AverageNetPrice) END - VendorPerformance.AverageNetPrice) * VendorPerformance.POQuantity_MENGE * VendorPerformance.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchase Price Variance in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "VendorPerformanceOverview",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "VendorPerformance",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "VendorPerformance.Client_MANDT = MaterialLedger.Client_MANDT",
+                    "VendorPerformance.Plant_WERKS = MaterialLedger.ValuationArea_BWKEY",
+                    "VendorPerformance.MaterialNumber_MATNR = MaterialLedger.MaterialNumber_MATNR",
+                    "VendorPerformance.FiscalYear = MaterialLedger.FiscalYear",
+                    "VendorPerformance.FiscalPeriod = MaterialLedger.PostingPeriod",
+                    "MaterialLedger.ValuationType_BWTAR = ''"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

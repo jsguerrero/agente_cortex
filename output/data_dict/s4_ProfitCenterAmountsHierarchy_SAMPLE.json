@@ -1,0 +1,163 @@
+{
+    "schema": {
+        "object_name": "s4_ProfitCenterAmountsHierarchy_SAMPLE.sql",
+        "object_type": "view",
+        "description": "This view joins Profit Center hierarchy data with accounting document data to show the amount in local and document currency for each profit center in a specific hierarchy and language.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.ProfitCenterHierarchyFlattened",
+            "REPORTING.AccountingDocuments"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "ParentHierarchy",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.ProfitCenterHierarchyFlattened.ParentNodeText"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Parent node text in the profit center hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChildHierarchy",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.ProfitCenterHierarchyFlattened.ProfitCenterNode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Child node (profit center) in the hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProfitCenter_PRCTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.ProfitCenterHierarchyFlattened.ProfitCenter_PRCTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Profit Center code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.ProfitCenterHierarchyFlattened.LanguageKey_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProfitCenterDescription",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.ProfitCenterHierarchyFlattened.ProfitCenterNodeText"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Description of the profit center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInLocalCurrency_DMBTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.AccountingDocuments.AmountInLocalCurrency_DMBTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Amount in local currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInDocumentCurrency_WRBTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.AccountingDocuments.AmountInDocumentCurrency_WRBTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Amount in document currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

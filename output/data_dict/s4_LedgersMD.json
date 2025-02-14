@@ -1,0 +1,324 @@
+{
+    "schema": {
+        "object_name": "s4_LedgersMD.sql",
+        "object_type": "view",
+        "description": "This view joins data from tables t881 and t881t to provide ledger information, including client, ledger, currency, and name details.  The data is at the ledger level.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.t881",
+            "aecorsoft-prj-dev.CDC_S4.t881t"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t881.mandt"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Ledger_RLDNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t881.rldnr"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ledger number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Currency_GCURR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t881.gcurr"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company code currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCurrencyRole_CLASS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t881.class"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company currency role",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LogicalSystem_LOGSYS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t881.logsys"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Logical system",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ControllingValuationType_VALUTYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t881.valutyp"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Controlling valuation type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LeadingLedgerFlag_XLEADING",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t881.xleading"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Leading ledger flag",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LedgerApplication_APPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t881.appl"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ledger application",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LedgerSubapplication_SUBAPPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t881.subappl"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ledger subapplication",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AddlCurrRole1_CURT1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t881.curt1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Additional currency role 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AddlCurrRole2_CURT2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t881.curt2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Additional currency role 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AddlCurrRole3_CURT3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t881.curt3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Additional currency role 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Language_LANGU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t881t.langu"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t881t.name"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.t881`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "t881.rldnr = t881t.rldnr",
+                    "t881.mandt = t881t.mandt"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

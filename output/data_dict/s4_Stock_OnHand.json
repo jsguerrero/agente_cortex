@@ -1,0 +1,82 @@
+{
+    "schema": {
+        "object_name": "s4_Stock_OnHand.sql",
+        "object_type": "view",
+        "description": "This view calculates the stock on hand for materials at different plants by summing quantities from two sources: a weekly extract and material documents.  The result is grouped by material and plant.",
+        "source": "cortex_framework",
+        "group_by": [
+            "material_docs.matnr",
+            "material_docs.werks"
+        ],
+        "dependencies": [
+            "CDC_S4.matdoc_extract",
+            "CDC_S4.matdoc"
+        ],
+        "columns": [
+            {
+                "name": "STOCK_ON_HAND",
+                "dependencies": [
+                    "weekly_extract",
+                    "material_docs"
+                ],
+                "formula": "SUM(weekly_extract.Quantity + material_docs.Quantity)",
+                "description": "Total stock on hand, calculated by summing quantities from the weekly extract and material documents.",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Material",
+                "dependencies": [
+                    "material_docs.MATNR"
+                ],
+                "formula": null,
+                "description": "Material number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Plant",
+                "dependencies": [
+                    "material_docs.WERKS"
+                ],
+                "formula": null,
+                "description": "Plant code",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": [
+            {
+                "view_name": "weekly_extract",
+                "join_type": "JOIN",
+                "tabla_base": "material_docs",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "weekly_extract.matbf = material_docs.MATNR",
+                    "material_docs.WERKS = material_docs.WERKS",
+                    "material_docs.mandt = material_docs.mandt"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

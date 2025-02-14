@@ -1,0 +1,1087 @@
+{
+    "schema": {
+        "object_name": "s4_MaterialsBatchMD.sql",
+        "object_type": "view",
+        "description": "This view contains material batch data from the mch1 table in the CDC_S4 dataset.  It provides detailed information about each batch, including creation and modification timestamps, material properties, batch status, and supplier details.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.mch1"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialNumber_MATNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.MATNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BatchNumber_CHARG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.CHARG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Batch Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeletionFlagForAllDataInABatch_LVORM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.LVORM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Deletion Flag for All Data in a Batch",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CreatedOn_ERSDA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.ERSDA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Created On",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameOfPersonWhoCreatedTheObject_ERNAM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.ERNAM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name of Person Who Created the Object",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameOfPersonWhoChangedObject_AENAM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.AENAM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name of Person Who Changed Object",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfLastChange_LAEDA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.LAEDA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date of Last Change",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AvailabilityDate_VERAB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.VERAB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Availability Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ShelfLifeExpirationOrBestBeforeDate_VFDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.VFDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Shelf Life Expiration or Best Before Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BatchStatusKey_ZUSCH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.ZUSCH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Batch Status Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BatchInRestrictedUseStock_ZUSTD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.ZUSTD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Batch in Restricted Use Stock",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfLastStatusChange_ZAEDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.ZAEDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date of Last Status Change",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorsAccountNumber_LIFNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.LIFNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor's Account Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SupplierBatchNumber_LICHA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.LICHA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Supplier Batch Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OriginalBatchNumber_VLCHA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.VLCHA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Original Batch Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OriginalPlant_VLWRK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.VLWRK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Original Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OriginalMaterial_VLMAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.VLMAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Original Material",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BatchID_BatchID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.Batch_ID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Batch ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SingleUnitBatchIndicator_XPCBT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.XPCBT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Single Unit Batch Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UnitOfIssueForBatch_CHAME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.CHAME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Unit of Issue for Batch",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfLastGoodsReceipt_LWEDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.LWEDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date of Last Goods Receipt",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateForFreeUse_FVDT1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.FVDT1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date for Free Use",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateForFreeUse_FVDT2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.FVDT2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date for Free Use",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateForFreeUse_FVDT3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.FVDT3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date for Free Use",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateForFreeUse_FVDT4",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.FVDT4"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date for Free Use",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateForFreeUse_FVDT5",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.FVDT5"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date for Free Use",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateForFreeUse_FVDT6",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.FVDT6"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date for Free Use",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryOfOriginOfMaterial_HERKL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.HERKL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country of Origin of Material",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RegionOfOriginOfMaterial_HERKR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.HERKR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Region of Origin of Material",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialGroupForIntrastat_MTVER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.MTVER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Group for Intrastat",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NextInspectionDate_QNDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.QNDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Next Inspection Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfManufacture_HSDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.HSDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date of Manufacture",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InternalObjectNumberBatchClassification_CUOBJ_BM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.CUOBJ_BM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Internal Object Number Batch Classification",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BatchIsNoLongerActive_DEACT_BM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.DEACT_BM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Batch Is No Longer Active",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TypeOfBatch_BATCH_TYPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.BATCH_TYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Type of Batch",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StockSegment_SGT_SCAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.SGT_SCAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Stock Segment",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeprecatedDoNotUse_ERSDA_TMSTP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.ERSDA_TMSTP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Deprecated: Do Not Use",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeprecatedDoNotUse_ERSDA_TZ_SYS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.ERSDA_TZ_SYS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Deprecated: Do Not Use",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeprecatedDoNotUse_ERSDA_TZ_USR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.ERSDA_TZ_USR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Deprecated: Do Not Use",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfCertification_ZFDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.ZFDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date of Certification",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CreatedOnTimestamp_CREATION_DATETIME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.CREATION_DATETIME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Created On Timestamp",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LastChangeTimestamp_LASTCHANGE_DATETIME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.LASTCHANGE_DATETIME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Last Change Timestamp",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SerializationType_STTPEC_SERTYPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.STTPEC_SERTYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Serialization Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BatchProductionPlant_STTPEC_PLANT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.STTPEC_PLANT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Batch Production Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SynchronizationTimeStamp_STTPEC_SYNCTIME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.STTPEC_SYNCTIME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Synchronization Timestamp",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SynchronizationActive_STTPEC_SYNCACT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.STTPEC_SYNCACT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Synchronization Active",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SeasonYear_FSH_SEASON_YEAR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.FSH_SEASON_YEAR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Season Year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Season_FSH_SEASON",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.FSH_SEASON"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Season",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FashionCollection_FSH_COLLECTION",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.FSH_COLLECTION"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fashion Collection",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FashionTheme_FSH_THEME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mch1.FSH_THEME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fashion Theme",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": []
+    }
+}

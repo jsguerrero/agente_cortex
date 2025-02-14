@@ -1,0 +1,3096 @@
+{
+    "schema": {
+        "object_name": "s4_FixedAssetsMD.sql",
+        "object_type": "view",
+        "description": "This view joins data from the ANLA and ANKT tables to provide a comprehensive view of fixed asset details, including asset master data and asset class information.  The data is at the asset level, with one row per asset.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.anla",
+            "aecorsoft-prj-dev.CDC_S4.ankt"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCode_BUKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.BUKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MainAssetNumber_ANLN1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ANLN1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Main Asset Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetSubnumber_ANLN2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ANLN2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Subnumber",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetClass_ANLKL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ANLKL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Class",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TechnicalAssetNumber_GEGST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.GEGST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Technical Asset Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetTypes_ANLAR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ANLAR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Types",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameOfPersonWhoCreatedTheObject_ERNAM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ERNAM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name of Person Who Created The Object",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOnWhichRecordWasCreated_ERDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ERDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date On Which Record Was Created",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameOfPersonWhoChangedObject_AENAM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.AENAM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name Of Person Who Changed Object",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChangedOn_AEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.AEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Changed On",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_AccountMarkedForDeletion_XLOEV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XLOEV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator_Account Marked For Deletion",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_AssetLockedToAcquisitionPostings_XSPEB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XSPEB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator_Asset Locked To Acquisition Postings",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ScreenLayoutForAssetAccounting_FELEI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.FELEI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Screen Layout For Asset Accounting",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountDetermination_KTOGR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.KTOGR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Account Determination",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetUnderConstructWithLineItemSettlement_XOPVW",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XOPVW"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Under Construct With Line Item Settlement",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetCategory_ANLTP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ANLTP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYearInWhichFirstAcquisitionWasPosted_ZUJHR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ZUJHR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Year In Which First Acquisition Was Posted",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PeriodInWhichFirstAcquisitionWasPosted_ZUPER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ZUPER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Period In Which First Acquisition Was Posted",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetValueDateOfTheFirstPosting_ZUGDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ZUGDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Value Date Of The First Posting",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetCapitalizationDate_AKTIV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.AKTIV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Capitalization Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetValueDateForTheLastRetirement_ABGDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ABGDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Value Date For The Last Retirement",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeactivationDate_DEAKT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.DEAKT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Deactivation Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PlannedRetirementDate_GPLAB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.GPLAB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Planned Retirement Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetPurchaseOrderDate_BSTDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.BSTDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Purchase Order Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "EvaluationGroup1_ORD41",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ORD41"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Evaluation Group 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "EvaluationGroup2_ORD42",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ORD42"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Evaluation Group 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "EvaluationGroup3_ORD43",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ORD43"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Evaluation Group 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "EvaluationGroup4_ORD44",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ORD44"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Evaluation Group 4",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetSuperNumber_ANLUE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ANLUE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Super Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "KeyForSortingAccordingToAssignmentNumbers_ZUAWA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ZUAWA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Key For Sorting According To Assignment Numbers",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_HistoricalManagement_ANEQK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ANEQK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator_Historical Management",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompletenessIndicatorForTheAsset_ANEQS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ANEQS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Completeness Indicator For The Asset",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountNumberOfVendor__otherKeyWord___LIFNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LIFNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Account Number Of Vendor",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetsCountryOfOrigin_LAND1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LAND1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Assets Country Of Origin",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameOfAssetSupplier_LIEFE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LIEFE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name Of Asset Supplier",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ManufacturerOfAsset_HERST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.HERST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Manufacturer Of Asset",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PropertyIndicator_EIGKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.EIGKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Property Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OriginalAssetThatWasTransferred_AIBN1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.AIBN1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Original Asset That Was Transferred",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OriginalAssetThatWasTransferred_AIBN2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.AIBN2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Original Asset That Was Transferred",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OriginalAcquisitionDateOfAucTransferredAsset_AIBDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.AIBDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Original Acquisition Date Of Auc Transferred Asset",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYearOfOriginalAcquisition_URJHR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.URJHR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Year Of Original Acquisition",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OriginalAcquisitionValue_URWRT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.URWRT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Original Acquisition Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InHouseProductionPercentage_ANTEI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ANTEI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "In House Production Percentage",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Old_ProjectNumber_Ps_posnr_PROJN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.PROJN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Old_Project Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InvestmentOrder_EAUFN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.EAUFN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Investment Order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BaseUnitOfMeasure_MEINS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.MEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Base Unit Of Measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Quantity_MENGE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.MENGE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetTypeName_TYPBZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.TYPBZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Type Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReasonForInvestment_IZWEK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.IZWEK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reason For Investment",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InventoryIndicator_INKEN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.INKEN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Inventory Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LastInventoryDate_IVDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.IVDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Last Inventory Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SupplementaryInventorySpecifications_INVZU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.INVZU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Supplementary Inventory Specifications",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PropertyClassificationKey_VMGLI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.VMGLI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Property Classification Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ManualNetWorthTaxValue_XVRMW",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XVRMW"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Manual Net Worth Tax Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ManualNetWorthTaxValue_WRTMA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.WRTMA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Manual Net Worth Tax Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssessedValue_EHWRT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.EHWRT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Assessed Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfConveyance_AUFLA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.AUFLA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date Of Conveyance",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfLastNoticeOfAssessment_EHWZU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.EHWZU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date Of Last Notice Of Assessment",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxNumberOfTheNoticeOfAssessment_EHWNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.EHWNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax Number Of The Notice Of Assessment",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LandRegisterOf_GRUVO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.GRUVO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Land Register Of",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LandRegisterEntryOn_GREIN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.GREIN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Land Register Entry On",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LandRegisterVolume_GRBND",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.GRBND"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Land Register Volume",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LandRegisterPage_GRBLT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.GRBLT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Land Register Page",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LandRegisterEntry_SequenceNumber_GRLFD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.GRLFD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Land Register Entry_Sequence Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LandRegisterMapNumber_FLURK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.FLURK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Land Register Map Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PlotNumber_FLURN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.FLURN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plot Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LocalTaxOffice_FIAMT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.FIAMT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Local Tax Office",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Municipality_STADT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.STADT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Municipality",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReasonForManualValuationOfNetAssets_GRUND",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.GRUND"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reason For Manual Valuation Of Net Assets",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AreaUnit_FEINS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.FEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Area Unit",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SurfaceArea_GRUFL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.GRUFL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Surface Area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InventoryNumber_INVNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.INVNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Inventory Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyIdOfTradingPartner_VBUND",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.VBUND"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Id Of Trading Partner",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKeyANLA_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language Key ANLA",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetDescriptionMD_TXT50",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.TXT50"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Description MD",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AdditionalAssetDescription_TXA50",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.TXA50"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Additional Asset Description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_LongTextActive_XLTXID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XLTXID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator_Long Text Active",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LongTextIndicator_PropertyValues_XVERID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XVERID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Long Text Indicator_Property Values",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_TechnicalViewLongText_XTCHID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XTCHID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator_Technical View Long Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_LongTextActive_XKALID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XKALID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator_Long Text Active",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_LongTextForManufacturerorigin_XHERID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XHERID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator_Long Text For Manufacturer Origin",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_LeasingDataLongText_XLEAID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XLEAID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator_Leasing Data Long Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LeasingCompany_LEAFI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LEAFI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Leasing Company",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LeasingAgreementDate_LVDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LVDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Leasing Agreement Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LeasingAgreementNoticeDate_LKDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LKDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Leasing Agreement Notice Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LeaseStartDate_LEABG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LEABG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Lease Start Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LengthOfLeaseInYears_LEJAR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LEJAR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Length Of Lease In Years",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LengthOfLeaseInPeriods_LEPER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LEPER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Length Of Lease In Periods",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LeasePaymentCycle_LRYTH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LRYTH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Lease Payment Cycle",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PeriodicLeasePaymentPaidToLeasingCompanylessor_LEGEB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LEGEB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Periodic Lease Payment Paid To Leasing Company Lessor",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LeasingBaseValueAsNew_LBASW",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LBASW"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Leasing Base Value As New",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LeasedAssetPurchasePrice_LKAUF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LKAUF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Leased Asset Purchase Price",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LeasingMonthlyInterestRate__capitalLease___LMZIN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LMZIN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Leasing Monthly Interest Rate",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LeasingInterestRate__capitalLease___LZINS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LZINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Leasing Interest Rate",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostingDateOfTheLastLeasePayment_LTZBW",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LTZBW"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Posting Date Of The Last Lease Payment",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalOfPostedLeasingPayments_LKUZA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LKUZA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Of Posted Leasing Payments",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalLeasingInterestPosted_LKUZI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LKUZI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Leasing Interest Posted",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalOfLongTermLeasingLiability_LLAVB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LLAVB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Of Long Term Leasing Liability",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfLeasePayments_LEANZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LEANZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number Of Lease Payments",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LeasingAgreementNumber_LVTNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LVTNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Leasing Agreement Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LeasingDataText_LETXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LETXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Leasing Data Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_CapitalizeFixedAsset_XAKTIV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XAKTIV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator_Capitalize Fixed Asset",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_TypeOfChangeToTable_ANUPD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ANUPD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator_Type Of Change To Table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NoOfLastDocumentWithWhichPostingToAssetWasMade_LBLNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LBLNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "No Of Last Document With Which Posting To Asset Was Made",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChangeDate_View0_XV0DT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XV0DT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Change Date_View 0",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameOfPersonInChargeWhoChangedView0_XV0NM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XV0NM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name Of Person In Charge Who Changed View 0",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChangeDate_View1_XV1DT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XV1DT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Change Date_View 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameOfPersonInChargeWhoChangedView1_XV1NM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XV1NM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name Of Person In Charge Who Changed View 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChangeDate_View2_XV2DT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XV2DT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Change Date_View 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameOfThePersonInChargeWhoChangedView2_XV2NM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XV2NM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name Of The Person In Charge Who Changed View 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChangeDate_View3_XV3DT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XV3DT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Change Date_View 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameOfThePersonInChargeWhoChangedView3_XV3NM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XV3NM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name Of The Person In Charge Who Changed View 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChangeDate_View4_XV4DT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XV4DT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Change Date_View 4",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameOfThePersonInChargeWhoChangedView4_XV4NM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XV4NM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name Of The Person In Charge Who Changed View 4",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChangeDate_View5_XV5DT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XV5DT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Change Date_View 5",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameOfThePersonInChargeWhoChangedView5_XV5NM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XV5NM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name Of The Person In Charge Who Changed View 5",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChangeDate_View6_XV6DT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XV6DT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Change Date_View 6",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NameOfThePersonInChargeWhoChangedView6_XV6NM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XV6NM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name Of The Person In Charge Who Changed View 6",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_RealEstate_AIMMO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.AIMMO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator_Real Estate",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ObjectNumber_OBJNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.OBJNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Object Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LeasingType_LEART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LEART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Leasing Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AdvancePayments_LVORS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LVORS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Advance Payments",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "EvaluationGroup5_GDLGRP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.GDLGRP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Evaluation Group 5",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WbsElementInvestmentProject_POSNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.POSNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Wbs Element Investment Project",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_IgnoreMemoValue_XERWRT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XERWRT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator_Ignore Memo Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetAcquiredUsed_XAFABCH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XAFABCH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Acquired Used",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_AssetIsAGroupAsset_XANLGR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XANLGR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator_Asset Is A Group Asset",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SearchTermForMatchcodeSearch_MCOA1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.MCOA1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Search Term For Matchcode Search",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetUnderConstructionForInvestmentMeasures_XINVM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.XINVM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Under Construction For Investment Measures",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SerialNumber_SERNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.SERNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Serial Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReasonForEnvironmentalInvestment_UMWKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.UMWKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reason For Environmental Investment",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfLastRevaluation_LRVDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LRVDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date Of Last Revaluation",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChangeAssetMasterRecordFromEquipmentMaster_ACT_CHANGE_PM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ACT_CHANGE_PM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Change Asset Master Record From Equipment Master",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetHasTimeDependentValuationParametersInAnlbza_HAS_TDDP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.HAS_TDDP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Has Time Dependent Valuation Parameters In Anlbza",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfLastReorganization_LAST_REORG_DATE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.LAST_REORG_DATE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date Of Last Reorganization",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InternalCode_INTERNAL_CODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.INTERNAL_CODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Internal Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ApprovalDocumentNumber_APPROVAL_NUMBER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.APPROVAL_NUMBER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Approval Document Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ApprovalVersion_APPROVAL_VERSION",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.APPROVAL_VERSION"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Approval Version",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BogusAssetNumber_BOGUS_ANLN1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.BOGUS_ANLN1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Bogus Asset Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetVersion_ASSET_VERSION",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "anla.ASSET_VERSION"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Version",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Language_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ankt.SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ShortTextForAssetClassName_TXK20",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ankt.TXK20"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Short Text For Asset Class Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetClassDescription_TXK50",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ankt.TXK50"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Class Description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetDescription_TXT50",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ankt.TXT50"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssetDescription_TXA50",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ankt.TXA50"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Asset Description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.anla`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "anla.mandt = ankt.mandt",
+                    "anla.anlkl = ankt.anlkl"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

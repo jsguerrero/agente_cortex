@@ -1,0 +1,49 @@
+{
+    "schema": {
+        "object_name": "s4_currency_decimal.sql",
+        "object_type": "table",
+        "description": "This table stores the currency key and a fixed-point decimal representation of the currency.  It derives this from the tcurx table, handling cases where CURRDEC is null.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.tcurx"
+        ],
+        "columns": [
+            {
+                "name": "CURRKEY",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.tcurx.CURRKEY"
+                ],
+                "formula": null,
+                "description": "Currency key",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CURRFIX",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.tcurx.CURRDEC"
+                ],
+                "formula": "CAST(POWER(10, 2 - COALESCE(tcurx.CURRDEC, 0)) AS NUMERIC)",
+                "description": "Fixed-point decimal representation of the currency, calculated from CURRDEC",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": []
+    }
+}

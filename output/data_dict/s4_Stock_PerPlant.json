@@ -1,0 +1,5126 @@
+{
+    "schema": {
+        "object_name": "s4_Stock_PerPlant.sql",
+        "object_type": "view",
+        "description": "Material master data enriched with plant and material descriptions, providing a detailed view of material stock per plant.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.marc",
+            "REPORTING.MaterialsMD",
+            "REPORTING.PlantsMD"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialNumber_MATNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MATNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialText_MAKTX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARA.MaterialText_MAKTX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Language_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARA.Language_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProductHierarchy_PRDHA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARA.ProductHierarchy_PRDHA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Product Hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BaseUnitOfMeasure_MEINS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARA.BaseUnitOfMeasure_MEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Base Unit of Measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialType_MTART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARA.MaterialType_MTART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialGroup_MATKL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARA.MaterialGroup_MATKL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_WERKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.WERKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_Name",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.Name_NAME1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_Region",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.Region_County__REGIO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant Region",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_Country",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "T001W.CountryKey_LAND1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant Country",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaintenanceStatus_PSTAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.PSTAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Maintenance Status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FlagMaterialForDeletionAtPlantLevel_LVORM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.LVORM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag Material For Deletion At Plant Level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValuationCategory_BWTTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.BWTTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valuation Category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BatchManagementIndicator__internal___XCHAR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.XCHAR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Batch Management Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PlantSpecificMaterialStatus_MMSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MMSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant Specific Material Status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateFromWhichThePlantSpecificMaterialStatusIsValid_MMSTD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MMSTD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date From Which The Plant Specific Material Status Is Valid",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AbcIndicator_MAABC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MAABC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Abc Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_CriticalPart_KZKRI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.KZKRI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Critical Part",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingGroup_EKGRP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.EKGRP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UnitOfIssue_AUSME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.AUSME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Unit Of Issue",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Material_MrpProfile_DISPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.DISPR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Mrp Profile",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MrpType_DISMM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.DISMM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Mrp Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MrpController_DISPO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.DISPO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Mrp Controller",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_MrpControllerIsBuyer__deactivated___KZDIE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.KZDIE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Mrp Controller Is Buyer",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PlannedDeliveryTimeInDays_PLIFZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.PLIFZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Planned Delivery Time In Days",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GoodsReceiptProcessingTimeInDays_WEBAZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.WEBAZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Goods Receipt Processing Time In Days",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PeriodIndicator_PERKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.PERKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Period Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AssemblyScrapInPercent_AUSSS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.AUSSS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Assembly Scrap In Percent",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LotSize__materialsPlanning___DISLS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.DISLS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Lot Size",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProcurementType_BESKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.BESKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Procurement Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SpecialProcurementType_SOBSL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SOBSL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Special Procurement Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReorderPoint_MINBE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MINBE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reorder Point",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SafetyStock_EISBE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.EISBE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Safety Stock",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MinimumLotSize_BSTMI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.BSTMI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Minimum Lot Size",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaximumLotSize_BSTMA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.BSTMA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Maximum Lot Size",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FixedLotSize_BSTFE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.BSTFE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fixed Lot Size",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RoundingValueForPurchaseOrderQuantity_BSTRF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.BSTRF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rounding Value For Purchase Order Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaximumStockLevel_MABST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MABST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Maximum Stock Level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OrderingCosts_LOSFX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.LOSFX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ordering Costs",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DependentRequirementsIndForIndividualAndCollReqmts_SBDKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SBDKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Dependent Requirements Ind For Individual And Coll Reqmts",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StorageCostsIndicator_LAGPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.LAGPR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Storage Costs Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MethodForSelectingAlternativeBillsOfMaterial_ALTSL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.ALTSL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Method For Selecting Alternative Bills Of Material",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DiscontinuationIndicator_KZAUS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.KZAUS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Discontinuation Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "EffectiveOutDate_AUSDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.AUSDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Effective Out Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FollowUpMaterial_NFMAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.NFMAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Follow Up Material",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndicatorForRequirementsGrouping_KZBED",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.KZBED"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator For Requirements Grouping",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MixedMrpIndicator_MISKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MISKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Mixed Mrp Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SchedulingMarginKeyForFloats_FHORI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.FHORI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Scheduling Margin Key For Floats",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_AutomaticFixingOfPlannedOrders_PFREI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.PFREI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Automatic Fixing Of Planned Orders",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReleaseIndicatorForProductionOrders_FFREI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.FFREI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Release Indicator For Production Orders",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_Backflush_RGEKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.RGEKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Backflush",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProductionSupervisor_FEVOR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.FEVOR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Production Supervisor",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProcessingTime_BEARZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.BEARZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Processing Time",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SetupAndTeardownTime_RUEZT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.RUEZT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Setup And Teardown Time",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InteroperationTime_TRANZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.TRANZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Interoperation Time",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BaseQuantity_BASMG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.BASMG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Base Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InHouseProductionTime_DZEIT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.DZEIT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "In House Production Time",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaximumStoragePeriod_MAXLZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MAXLZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Maximum Storage Period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UnitForMaximumStoragePeriod_LZEIH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.LZEIH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Unit For Maximum Storage Period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_WithdrawalOfStockFromProductionBin_KZPRO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.KZPRO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Withdrawal Of Stock From Production Bin",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_MaterialIncludedInRoughCutPlanning_GPMKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.GPMKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Material Included In Rough Cut Planning",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OverdeliveryToleranceLimit_UEETO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.UEETO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Overdelivery Tolerance Limit",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_UnlimitedOverdeliveryAllowed_UEETK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.UEETK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Unlimited Overdelivery Allowed",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UnderdeliveryToleranceLimit_UNETO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.UNETO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Underdelivery Tolerance Limit",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalReplenishmentLeadTime__inWorkdays___WZEIT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.WZEIT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Replenishment Lead Time",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReplacementPart_ATPKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.ATPKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Replacement Part",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SurchargeFactorForCostInPercent_VZUSL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VZUSL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Surcharge Factor For Cost In Percent",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StateOfManufacture_HERBL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.HERBL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "State Of Manufacture",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostToInspectionStock_INSMK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.INSMK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Post To Inspection Stock",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SampleForQualityInspection__inpct____deactivated___SPROZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SPROZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sample For Quality Inspection",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuarantinePeriod__deactivated___QUAZT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.QUAZT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quarantine Period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ControlKeyForQualityManagementInProcurement_SSQSS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SSQSS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Control Key For Quality Management In Procurement",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MeanInspectionDuration__deactivated___MPDAU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MPDAU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Mean Inspection Duration",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndicatorForInspectionPlan__deactivated___KZPPV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.KZPPV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator For Inspection Plan",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DocumentationRequiredIndicator_KZDKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.KZDKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Documentation Required Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ActiveSubstanceContent__deactivated___WSTGH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.WSTGH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Active Substance Content",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IntervalUntilNextRecurringInspection_PRFRQ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.PRFRQ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Interval Until Next Recurring Inspection",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateAccordingToCheckSamplingInspection__deactivated___NKMPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.NKMPR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date According To Check Sampling Inspection",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StockInTransfer__plantToPlant___UMLMC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.UMLMC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Stock In Transfer",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LoadingGroup_LADGR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.LADGR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Loading Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BatchManagementRequirementIndicator_XCHPF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.XCHPF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Batch Management Requirement Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuotaArrangementUsage_USEQU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.USEQU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quota Arrangement Usage",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ServiceLevel_LGRAD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.LGRAD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Service Level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SplittingIndicator_AUFTL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.AUFTL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Splitting Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PlanVersion_PLVAR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.PLVAR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plan Version",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ObjectType_OTYPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.OTYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Object Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ObjectId_OBJID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.OBJID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Object Id",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CheckingGroupForAvailabilityCheck_MTVFP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MTVFP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Checking Group For Availability Check",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYearVariant_PERIV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.PERIV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Year Variant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_TakeCorrectionFactorsIntoAccount_KZKFK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.KZKFK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Take Correction Factors Into Account",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ShippingSetupTime_VRVEZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VRVEZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Shipping Setup Time",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BaseQuantityForCapacityPlanningInShipping_VBAMG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VBAMG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Base Quantity For Capacity Planning In Shipping",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ShippingProcessingTime_VBEAZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VBEAZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Shipping Processing Time",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Deactivated_LIZYK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.LIZYK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Deactivated",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SourceOfSupply_BWSCL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.BWSCL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Source Of Supply",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_automaticPurchaseOrderAllowed_KAUTB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.KAUTB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Automatic Purchase Order Allowed",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_SourceListRequirement_KORDB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.KORDB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Source List Requirement",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CommodityCodeimportCodeNumberForForeignTrade_STAWN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.STAWN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Commodity Codeimport Code Number For Foreign Trade",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryOfOriginOfMaterial__nonPreferentialOrigin___HERKL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.HERKL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country Of Origin Of Material",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RegionOfOriginOfMaterial__nonPreferentialOrigin___HERKR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.HERKR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Region Of Origin Of Material",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UnitOfMeasureForCommodityCode__foreignTrade___EXPME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.EXPME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Unit Of Measure For Commodity Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialGroupExportForForeignTrade_MTVER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MTVER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Group Export For Foreign Trade",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProfitCenter_PRCTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.PRCTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Profit Center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StockInTransit_TRAME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.TRAME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Stock In Transit",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PpcPlanningCalendar_MRPPP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MRPPP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ppc Planning Calendar",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Ind_RepetitiveMfgAllowed_SAUFT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SAUFT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ind Repetitive Mfg Allowed",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PlanningTimeFence_FXHOR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.FXHOR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Planning Time Fence",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConsumptionMode_VRMOD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VRMOD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Consumption Mode",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConsumptionPeriod_Backward_VINT1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VINT1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Consumption Period Backward",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConsumptionPeriod_Forward_VINT2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VINT2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Consumption Period Forward",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VersionIndicator_VERKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VERKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Version Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AlternativeBom_STLAL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.STLAL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Alternative Bom",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BomUsage_STLAN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.STLAN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Bom Usage",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "KeyForTaskListGroup_PLNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.PLNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Key For Task List Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GroupCounter_APLAL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.APLAL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Group Counter",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LotSizeForProductCosting_LOSGR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.LOSGR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Lot Size For Product Costing",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SpecialProcurementTypeForCosting_SOBSK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SOBSK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Special Procurement Type For Costing",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProductionUnit_FRTME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.FRTME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Production Unit",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IssueStorageLocation_LGPRO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.LGPRO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Issue Storage Location",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MrpGroup_DISGR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.DISGR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Mrp Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ComponentScrapInPercent_KAUSF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.KAUSF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Component Scrap In Percent",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CertificateType_QZGTP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.QZGTP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Certificate Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InspectionSetupExistsForMaterialplant_QMATV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.QMATV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Inspection Setup Exists For Materialplant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaktTime_TAKZT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.TAKZT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Takt Time",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RangeOfCoverageProfile_RWPRO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.RWPRO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Range Of Coverage Profile",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LocalFieldNameForCopaLinkToSop_COPAM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.COPAM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Local Field Name For Copa Link To Sop",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PhysicalInventoryIndicatorForCycleCounting_ABCIN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.ABCIN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Physical Inventory Indicator For Cycle Counting",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VarianceKey_AWSLS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.AWSLS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Variance Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SerialNumberProfile_SERNP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SERNP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Serial Number Profile",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InternalObjectNumber_CUOBJ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.CUOBJ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Internal Object Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConfigurableMaterial_STDPD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.STDPD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Configurable Material",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RepetitiveManufacturingProfile_SFEPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SFEPR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Repetitive Manufacturing Profile",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NegativeStocksAllowedInPlant_XMCNG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.XMCNG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Negative Stocks Allowed In Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RequiredQmSystemForVendor_QSSYS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.QSSYS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Required Qm System For Vendor",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PlanningCycle_LFRHY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.LFRHY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Planning Cycle",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RoundingProfile_RDPRF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.RDPRF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rounding Profile",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReferenceMaterialForConsumption_VRBMT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VRBMT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reference Material For Consumption",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReferencePlantForConsumption_VRBWK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VRBWK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reference Plant For Consumption",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ToDateOfTheMaterialToBeCopiedForConsumption_VRBDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VRBDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "To Date Of The Material To Be Copied For Consumption",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MultiplierForReferenceMaterialForConsumption_VRBFK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VRBFK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Multiplier For Reference Material For Consumption",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ResetForecastModelAutomatically_AUTRU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.AUTRU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reset Forecast Model Automatically",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PreferenceIndicatorInExportimport_PREFE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.PREFE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Preference Indicator In Exportimport",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExemptionCertificate_IndicatorForLegalControl_PRENC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.PRENC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Exemption Certificate Indicator For Legal Control",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExemptionCertificateNumberForLegalControl_PRENO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.PRENO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Exemption Certificate Number For Legal Control",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExemptionCertificate_IssueDateOfExemptionCertificate_PREND",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.PREND"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Exemption Certificate Issue Date Of Exemption Certificate",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_VendorDeclarationExists_PRENE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.PRENE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Vendor Declaration Exists",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidityDateOfVendorDeclaration_PRENG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.PRENG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Validity Date Of Vendor Declaration",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_MilitaryGoods_ITARK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.ITARK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Military Goods",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IsRServiceLevel_SERVG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SERVG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Is R Service Level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_MaterialCanBeCoProduct_KZKUP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.KZKUP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Material Can Be Co Product",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PlanningStrategyGroup_STRGR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.STRGR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Planning Strategy Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InternalObjectNumberOfConfigurableMaterialForPlanning_CUOBV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.CUOBV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Internal Object Number Of Configurable Material For Planning",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DefaultStorageLocationForExternalProcurement_LGFSB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.LGFSB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Default Storage Location For External Procurement",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_BulkMaterial_SCHGT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SCHGT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Bulk Material",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CcIndicatorIsFixed_CCFIX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.CCFIX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cc Indicator Is Fixed",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StockDeterminationGroup_EPRIO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.EPRIO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Stock Determination Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialAuthorizationGroupForActivitiesInQm_QMATA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.QMATA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Authorization Group For Activities In Qm",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PeriodOfAdjustmentForPlannedIndependentRequirements_RESVP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.RESVP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Period Of Adjustment For Planned Independent Requirements",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaskListType_PLNTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.PLNTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Task List Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UnitOfMearsureGroup__oil_NaturalGas____UOMGR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.UOMGR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Unit Of Mearsure Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConversionGroup__oil_NaturalGas____UMRSL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.UMRSL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Conversion Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AirBouyancyFactor_ABFAC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.ABFAC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Air Bouyancy Factor",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProductionSchedulingProfile_SFCPF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SFCPF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Production Scheduling Profile",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SafetyTimeIndicator__withOrWithoutSafetyTime___SHFLG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SHFLG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Safety Time Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SafetyTime__inWorkdays___SHZET",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SHZET"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Safety Time",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ActionControl_PlannedOrderProcessing_MDACH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MDACH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Action Control Planned Order Processing",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeterminationOfBatchEntryInTheProductionprocessOrder_KZECH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.KZECH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Determination Of Batch Entry In The Productionprocess Order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UnitOfMeasureGroup_MEGRU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MEGRU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Unit Of Measure Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialFreightGroup_MFRGR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MFRGR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Freight Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StockTransferSalesValue__plantToPlant__ForVoMaterial_VKUMC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VKUMC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Stock Transfer Sales Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TransitValueAtSalesPriceForValueOnlyMaterial_VKTRW",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VKTRW"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Transit Value At Sales Price For Value Only Material",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_SmoothPromotionConsumption_KZAGL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.KZAGL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Smooth Promotion Consumption",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProductionVersionToBeCosted_FVIDK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.FVIDK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Production Version To Be Costed",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FixedPriceCoProduct_FXPRU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.FXPRU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fixed Price Co Product",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LogisticsHandlingGroupForWorkloadCalculation_LOGGR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.LOGGR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Logistics Handling Group For Workload Calculation",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DistributionProfileOfMaterialInPlant_FPRFM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.FPRFM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Distribution Profile Of Material In Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TiedEmptiesStock_GLGMG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.GLGMG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tied Empties Stock",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesValueOfTiedEmptiesStock_VKGLG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VKGLG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Value Of Tied Empties Stock",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialCfopCategory_INDUS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.INDUS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Cfop Category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Cap_NumberOfCapProductsList_MOWNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MOWNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cap Number Of Cap Products List",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CommonAgriculturalPolicy_CapProductsGroupForeignTrade_MOGRU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MOGRU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Common Agricultural Policy Cap Products Group Foreign Trade",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CasNumberForPharmaceuticalProductsInForeignTrade_CASNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.CASNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cas Number For Pharmaceutical Products In Foreign Trade",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProductionStatistics_ProdcomNumberForForeignTrade_GPNUM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.GPNUM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Production Statistics Prodcom Number For Foreign Trade",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ControlCodeForConsumptionTaxesInForeignTrade_STEUC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.STEUC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Control Code For Consumption Taxes In Foreign Trade",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_ItemRelevantToJitDeliverySchedules_FABKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.FABKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Item Relevant To Jit Delivery Schedules",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GroupOfMaterialsForTransitionMatrix_MATGR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MATGR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Group Of Materials For Transition Matrix",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProposedSupplyAreaInMaterialMasterRecord_VSPVB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VSPVB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Proposed Supply Area In Material Master Record",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FairShareRule_DPLFS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.DPLFS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fair Share Rule",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_PushDistribution_DPLPU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.DPLPU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Push Distribution",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeploymentHorizonInDays_DPLHO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.DPLHO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Deployment Horizon In Days",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MinimumLotSizeForSupplyDemandMatch_MINLS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MINLS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Minimum Lot Size For Supply Demand Match",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaximumLotSizeForSupplyDemandMatch_MAXLS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MAXLS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Maximum Lot Size For Supply Demand Match",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FixedLotSizeForSupplyDemandMatch_FIXLS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.FIXLS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fixed Lot Size For Supply Demand Match",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LotSizeIncrementForSupplyDemandMatch_LTINC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.LTINC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Lot Size Increment For Supply Demand Match",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ThisFieldIsNoLongerUsed_COMPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.COMPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "This Field Is No Longer Used",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConversionTypesForProductionFigures_CONVT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.CONVT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Conversion Types For Production Figures",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PeriodProfileForSafetyTime_SHPRO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SHPRO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Period Profile For Safety Time",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MrpRelevancyForDependentRequirements_AHDIS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.AHDIS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Mrp Relevancy For Dependent Requirements",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_MrpAreaExists_DIBER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.DIBER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Mrp Area Exists",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndicatorForCrossProjectMaterial_KZPSP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.KZPSP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator For Cross Project Material",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OverallProfileForOrderChangeManagement_OCMPF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.OCMPF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Overall Profile For Order Change Management",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_IsMaterialRelevantForApo_APOKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.APOKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Is Material Relevant For Apo",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MardhRecAlreadyExistsForPerBeforeLastOfMardPer_MCRUE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MCRUE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Mardh Rec Already Exists For Per Before Last Of Mard Per",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrentPeriod__postingPeriod___LFMON",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.LFMON"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Current Period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYearOfCurrentPeriod_LFGJA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.LFGJA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Year Of Current Period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MinimumSafetyStock_EISLO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.EISLO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Minimum Safety Stock",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DoNotCost_NCOST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.NCOST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Do Not Cost",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StrategyForPutawayAndStockRemoval_ROTATION_DATE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.ROTATION_DATE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Strategy For Putaway And Stock Removal",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndicatorForOriginalBatchManagement_UCHKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.UCHKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator For Original Batch Management",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReferenceMaterialForOriginalBatches_UCMAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.UCMAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reference Material For Original Batches",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValuatedGoodsReceiptBlockedStock_BWESB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.BWESB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valuated Goods Receipt Blocked Stock",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SegmentationStrategy_SGT_COVS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SGT_COVS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Segmentation Strategy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SegmentationStatus_SGT_STATC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SGT_STATC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Segmentation Status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SegmentationStrategyScope_SGT_SCOPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SGT_SCOPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Segmentation Strategy Scope",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SortStockBasedOnSegment_SGT_MRPSI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SGT_MRPSI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sort Stock Based On Segment",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SGT_DEFSC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SGT_DEFSC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Default Stock Segment Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SGT_MRP_ATP_STATUS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SGT_MRP_ATP_STATUS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "ATP/MRP Status for Material and Segment",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SGT_MMSTD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SGT_MMSTD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date From Which the Plant Specific Material Status Is Valid",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FSH_MG_ARUN_REQ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.FSH_MG_ARUN_REQ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Order Allocation Run",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FSH_SEAIM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.FSH_SEAIM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator_Season Active in Inventory Management",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FSH_VAR_GROUP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.FSH_VAR_GROUP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Variant Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FSH_KZECH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.FSH_KZECH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator_Batch Assignment During Tr To To Conversion",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FSH_CALENDAR_GROUP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.FSH_CALENDAR_GROUP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Calendar Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PPSKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.PPSKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Advanced Planning",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SAPMP_TOLPRPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SAPMP_TOLPRPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Percentage Tolerance Plus",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SAPMP_TOLPRMI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.SAPMP_TOLPRMI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Percentage Tolerance Minus",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VSO_R_PKGRP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VSO_R_PKGRP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Packing Group of the Material (VSO)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VSO_R_LANE_NUM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VSO_R_LANE_NUM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Line Within the Automatic Picking Zone (VSO)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VSO_R_PAL_VEND",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VSO_R_PAL_VEND"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material No Of The Packaging Material Of The Vendor (VSO)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VSO_R_FORK_DIR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.VSO_R_FORK_DIR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Pick Packaging Materials Only Lengthwise (VSO)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IUID_RELEVANT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.IUID_RELEVANT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "IUID Relevant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IUID_TYPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.IUID_TYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Structure Type Of UII",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UID_IEA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.UID_IEA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "External Allocation Of UII",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CONS_PROCG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.CONS_PROCG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Consignment Control",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GI_PR_TIME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.GI_PR_TIME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Goods Issue Processing Time In Days",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MULTIPLE_EKGRP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MULTIPLE_EKGRP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Across Purchasing Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "REF_SCHEMA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.REF_SCHEMA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reference Determination Schema",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MIN_TROC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MIN_TROC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Minimum Target Range Of Coverage",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MAX_TROC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.MAX_TROC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Maximum Target Range Of Coverage",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TARGET_STOCK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MARC.TARGET_STOCK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target Stock",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.marc` AS MARC",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "MARA.Client_MANDT = MARC.mandt",
+                    "MARA.MaterialNumber_MATNR = MARC.matnr"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`cortex-prj-dev.REPORTING.MaterialsMD` AS MARA",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "T001W.Client_MANDT = MARC.mandt",
+                    "T001W.Plant_WERKS = MARC.werks",
+                    "T001W.Language_SPRAS = MARA.Language_SPRAS"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

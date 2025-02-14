@@ -1,0 +1,771 @@
+{
+    "schema": {
+        "object_name": "s4_BalanceSheet.sql",
+        "object_type": "view",
+        "description": "This view provides a balance sheet report at the Client, Company, ChartOfAccounts, HierarchyName, BusinessArea, LedgerInGeneralLedgerAccounting, FiscalYear, FiscalPeriod, Hierarchy Node, Language, and TargetCurrency level.  It includes amounts in local and target currencies, with cumulative sums.",
+        "source": "cortex_framework",
+        "group_by": [
+            "FSV.Client",
+            "FSV.CompanyCode",
+            "FSV.ChartOfAccounts",
+            "FSV.HierarchyName",
+            "FSV.BusinessArea",
+            "FSV.LedgerInGeneralLedgerAccounting",
+            "FSV.FiscalYear",
+            "FSV.FiscalPeriod",
+            "FSV.Node",
+            "LanguageKey.LanguageKey_SPRAS",
+            "CurrencyConversion.ToCurrency_TCURR"
+        ],
+        "dependencies": [
+            "REPORTING.Languages_T002",
+            "REPORTING.fiscal_date_dim",
+            "REPORTING.CompaniesMD",
+            "REPORTING.CurrencyConversion",
+            "REPORTING.FinancialStatement",
+            "REPORTING.FSVTextsMD",
+            "REPORTING.GLAccountsMD"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "REPORTING.FinancialStatement",
+                        "Client"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client identifier",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "REPORTING.FinancialStatement",
+                        "CompanyCode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYear",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "REPORTING.FinancialStatement",
+                        "FiscalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalPeriod",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "REPORTING.FinancialStatement",
+                        "FiscalPeriod"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChartOfAccounts",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "REPORTING.FinancialStatement",
+                        "ChartOfAccounts"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Chart of accounts",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HierarchyName",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "REPORTING.FinancialStatement",
+                        "HierarchyName"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessArea",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "REPORTING.FinancialStatement",
+                        "BusinessArea"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LedgerInGeneralLedgerAccounting",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "REPORTING.FinancialStatement",
+                        "LedgerInGeneralLedgerAccounting"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ledger in general ledger accounting",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Node",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "REPORTING.FinancialStatement",
+                        "Node"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LanguageKey",
+                        "REPORTING.Languages_T002",
+                        "LanguageKey_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Parent",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "ParentId",
+                        "REPORTING.FinancialStatement",
+                        "Parent"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(FSV.Parent)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Parent node in the hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NodeText",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "NodeText",
+                        "REPORTING.FSVTextsMD",
+                        "GLText",
+                        "REPORTING.GLAccountsMD",
+                        "LanguageKey",
+                        "REPORTING.Languages_T002",
+                        "LanguageKey_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(COALESCE(NodeText.HierarchyNodeDescription_NODETXT, GLText.GlAccountLongText_TXT50))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Description of the node, language dependent",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ParentText",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "ParentText",
+                        "REPORTING.FSVTextsMD",
+                        "LanguageKey",
+                        "REPORTING.Languages_T002",
+                        "LanguageKey_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(ParentText.HierarchyNodeDescription_NODETXT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Description of the parent node, language dependent",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Level",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "REPORTING.FinancialStatement",
+                        "Level"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(FSV.Level)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Level in the hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalQuarter",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "REPORTING.FinancialStatement",
+                        "FiscalQuarter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(FSV.FiscalQuarter)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal quarter",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IsLeafNode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "REPORTING.FinancialStatement",
+                        "IsLeafNode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(FSV.IsLeafNode)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicates if the node is a leaf node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyText",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "REPORTING.FinancialStatement",
+                        "CompanyText"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(FSV.CompanyText)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInLocalCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "REPORTING.FinancialStatement",
+                        "AmountInLocalCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(FSV.AmountInLocalCurrency)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Amount in local currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CumulativeAmountInLocalCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "REPORTING.FinancialStatement",
+                        "AmountInLocalCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(SUM(FSV.AmountInLocalCurrency)) OVER (PARTITION BY FSV.Client, FSV.CompanyCode, FSV.BusinessArea, FSV.LedgerInGeneralLedgerAccounting, FSV.Node, LanguageKey.LanguageKey_SPRAS, CurrencyConversion.ToCurrency_TCURR ORDER BY FSV.FiscalYear ASC, FSV.FiscalPeriod ASC ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cumulative amount in local currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "REPORTING.FinancialStatement",
+                        "CurrencyKey"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(FSV.CurrencyKey)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExchangeRate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrencyConversion",
+                        "REPORTING.fiscal_date_dim",
+                        "REPORTING.CompaniesMD",
+                        "REPORTING.CurrencyConversion",
+                        "ExchangeRate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(CurrencyConversion.ExchangeRate)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Exchange rate",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaxExchangeRate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrencyConversion",
+                        "REPORTING.fiscal_date_dim",
+                        "REPORTING.CompaniesMD",
+                        "REPORTING.CurrencyConversion",
+                        "MaxExchangeRate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(CurrencyConversion.MaxExchangeRate)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Maximum exchange rate",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AvgExchangeRate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrencyConversion",
+                        "REPORTING.fiscal_date_dim",
+                        "REPORTING.CompaniesMD",
+                        "REPORTING.CurrencyConversion",
+                        "AvgExchangeRate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "AVG(CurrencyConversion.AvgExchangeRate)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Average exchange rate",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "REPORTING.FinancialStatement",
+                        "AmountInLocalCurrency",
+                        "CurrencyConversion",
+                        "REPORTING.fiscal_date_dim",
+                        "REPORTING.CompaniesMD",
+                        "REPORTING.CurrencyConversion",
+                        "ExchangeRate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(FSV.AmountInLocalCurrency * CurrencyConversion.ExchangeRate)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Amount in target currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CumulativeAmountInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV",
+                        "REPORTING.FinancialStatement",
+                        "AmountInLocalCurrency",
+                        "CurrencyConversion",
+                        "REPORTING.fiscal_date_dim",
+                        "REPORTING.CompaniesMD",
+                        "REPORTING.CurrencyConversion",
+                        "ExchangeRate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(SUM(FSV.AmountInLocalCurrency * CurrencyConversion.ExchangeRate)) OVER (PARTITION BY FSV.Client, FSV.CompanyCode, FSV.BusinessArea, FSV.LedgerInGeneralLedgerAccounting, FSV.Node, LanguageKey.LanguageKey_SPRAS, CurrencyConversion.ToCurrency_TCURR ORDER BY FSV.FiscalYear ASC, FSV.FiscalPeriod ASC ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cumulative amount in target currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TargetCurrency_TCURR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrencyConversion",
+                        "REPORTING.fiscal_date_dim",
+                        "REPORTING.CompaniesMD",
+                        "REPORTING.CurrencyConversion",
+                        "ToCurrency_TCURR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CurrencyConversion.ToCurrency_TCURR",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "CurrencyConversion",
+                "join_type": "INNER JOIN",
+                "tabla_base": "`cortex-prj-dev.REPORTING.fiscal_date_dim` AS FiscalDateDimension",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "Companies.Client_MANDT = FiscalDateDimension.MANDT",
+                    "Companies.FiscalYearVariant_PERIV = FiscalDateDimension.periv",
+                    "FiscalDateDimension.Date <= CURRENT_DATE()"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "CurrencyConversion",
+                "join_type": "INNER JOIN",
+                "tabla_base": "`cortex-prj-dev.REPORTING.CompaniesMD` AS Companies",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "FiscalDateDimension.MANDT = Currency.Client_MANDT",
+                    "FiscalDateDimension.Date = Currency.ConvDate",
+                    "Companies.CurrencyCode_WAERS = Currency.FromCurrency_FCURR"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "ParentId",
+                "join_type": "INNER JOIN",
+                "tabla_base": "(SELECT Client, CompanyCode, Parent FROM `cortex-prj-dev.REPORTING.FinancialStatement` WHERE BalanceSheetAccountIndicator = 'X') AS fsv_parent",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "fsv_parent.Client = fsv_child.Client",
+                    "fsv_parent.Parent = fsv_child.Node",
+                    "fsv_parent.CompanyCode = fsv_child.CompanyCode"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "ParentId",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "(SELECT Client, CompanyCode, FiscalYear, FiscalPeriod, FiscalQuarter, ChartOfAccounts, HierarchyName, HierarchyVersion, BusinessArea, LedgerInGeneralLedgerAccounting, Node, Parent, FinancialStatementItem, Level, IsLeafNode, CompanyText, AmountInLocalCurrency, CurrencyKey FROM `cortex-prj-dev.REPORTING.FinancialStatement` WHERE BalanceSheetAccountIndicator = 'X') AS FSV",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "FSV.Client = ParentId.Client",
+                    "FSV.Parent = ParentId.Parent",
+                    "FSV.CompanyCode = ParentId.CompanyCode"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "CurrencyConversion",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "(SELECT Client, CompanyCode, FiscalYear, FiscalPeriod, FiscalQuarter, ChartOfAccounts, HierarchyName, HierarchyVersion, BusinessArea, LedgerInGeneralLedgerAccounting, Node, Parent, FinancialStatementItem, Level, IsLeafNode, CompanyText, AmountInLocalCurrency, CurrencyKey FROM `cortex-prj-dev.REPORTING.FinancialStatement` WHERE BalanceSheetAccountIndicator = 'X') AS FSV",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "FSV.Client = CurrencyConversion.Client_MANDT",
+                    "FSV.CompanyCode = CurrencyConversion.CompanyCode_BUKRS",
+                    "FSV.CurrencyKey = CurrencyConversion.FromCurrency_FCURR",
+                    "FSV.FiscalYear = CurrencyConversion.FiscalYear",
+                    "FSV.FiscalPeriod = CurrencyConversion.FiscalPeriod"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "NodeText",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "(SELECT Client, CompanyCode, FiscalYear, FiscalPeriod, FiscalQuarter, ChartOfAccounts, HierarchyName, HierarchyVersion, BusinessArea, LedgerInGeneralLedgerAccounting, Node, Parent, FinancialStatementItem, Level, IsLeafNode, CompanyText, AmountInLocalCurrency, CurrencyKey FROM `cortex-prj-dev.REPORTING.FinancialStatement` WHERE BalanceSheetAccountIndicator = 'X') AS FSV",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "FSV.Client = NodeText.Client_MANDT",
+                    "FSV.HierarchyName = NodeText.HierarchyID_HRYID",
+                    "FSV.HierarchyVersion = NodeText.HierarchyVersion_HRYVER",
+                    "FSV.Node = NodeText.HierarchyNode_HRYNODE",
+                    "NodeText.LanguageKey_SPRAS = LanguageKey.LanguageKey_SPRAS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "GLText",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "(SELECT Client, CompanyCode, FiscalYear, FiscalPeriod, FiscalQuarter, ChartOfAccounts, HierarchyName, HierarchyVersion, BusinessArea, LedgerInGeneralLedgerAccounting, Node, Parent, FinancialStatementItem, Level, IsLeafNode, CompanyText, AmountInLocalCurrency, CurrencyKey FROM `cortex-prj-dev.REPORTING.FinancialStatement` WHERE BalanceSheetAccountIndicator = 'X') AS FSV",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "FSV.Client = GLText.Client_MANDT",
+                    "FSV.ChartOfAccounts = GLText.ChartOfAccounts_KTOPL",
+                    "FSV.FinancialStatementItem = GLText.GlAccountNumber_SAKNR",
+                    "GLText.Language_SPRAS = LanguageKey.LanguageKey_SPRAS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "ParentText",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "(SELECT Client, CompanyCode, FiscalYear, FiscalPeriod, FiscalQuarter, ChartOfAccounts, HierarchyName, HierarchyVersion, BusinessArea, LedgerInGeneralLedgerAccounting, Node, Parent, FinancialStatementItem, Level, IsLeafNode, CompanyText, AmountInLocalCurrency, CurrencyKey FROM `cortex-prj-dev.REPORTING.FinancialStatement` WHERE BalanceSheetAccountIndicator = 'X') AS FSV",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "FSV.Client = ParentText.Client_MANDT",
+                    "FSV.HierarchyName = ParentText.HierarchyID_HRYID",
+                    "FSV.HierarchyVersion = ParentText.HierarchyVersion_HRYVER",
+                    "FSV.Parent = ParentText.HierarchyNode_HRYNODE",
+                    "ParentText.LanguageKey_SPRAS = LanguageKey.LanguageKey_SPRAS"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

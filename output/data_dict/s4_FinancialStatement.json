@@ -1,0 +1,571 @@
+{
+    "schema": {
+        "object_name": "s4_FinancialStatement.sql",
+        "object_type": "view",
+        "description": "This view aggregates financial statement data at the hierarchy node level, providing cumulative amounts.  The data is grouped by client, company, business area, ledger, profit center, cost center, and hierarchy node, and shows the sum of amounts for each fiscal year and period.",
+        "source": "cortex_framework",
+        "group_by": [
+            "Client",
+            "CompanyCode",
+            "ChartOfAccounts",
+            "HierarchyName",
+            "BusinessArea",
+            "LedgerInGeneralLedgerAccounting",
+            "ProfitCenter",
+            "CostCenter",
+            "FiscalYear",
+            "FiscalPeriod",
+            "Node"
+        ],
+        "dependencies": [
+            "REPORTING.financial_statement",
+            "REPORTING.fsv_glaccounts"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "AccountingDocument",
+                        "client"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client identifier",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "AccountingDocument",
+                        "companycode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYear",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "AccountingDocument",
+                        "fiscalyear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalPeriod",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "AccountingDocument",
+                        "fiscalperiod"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChartOfAccounts",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "FinancialStatementVersion",
+                        "chartofaccounts"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Chart of accounts",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HierarchyName",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "FinancialStatementVersion",
+                        "hiername"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessArea",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "AccountingDocument",
+                        "businessarea"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LedgerInGeneralLedgerAccounting",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "AccountingDocument",
+                        "ledger"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ledger in general ledger accounting",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProfitCenter",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "AccountingDocument",
+                        "profitcenter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Profit center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CostCenter",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "AccountingDocument",
+                        "costcenter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Node",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "FinancialStatementVersion",
+                        "node"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HierarchyVersion",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "FinancialStatementVersion",
+                        "hierarchyversion"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(HierarchyVersion)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy version",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Parent",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "FinancialStatementVersion",
+                        "parent"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(Parent)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Parent node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalQuarter",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "AccountingDocument",
+                        "fiscalquarter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(FiscalQuarter)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal quarter",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FinancialStatementItem",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "FinancialStatementVersion",
+                        "nodevalue"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(FinancialStatementItem)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Financial statement item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Level",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "FinancialStatementVersion",
+                        "level"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(Level)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IsLeafNode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "FinancialStatementVersion",
+                        "isleafnode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(IsLeafNode)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicates if the node is a leaf node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BalanceSheetAccountIndicator",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "AccountingDocument",
+                        "balancesheetandplaccountindicator"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(BalanceSheetAccountIndicator)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator for balance sheet account",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PLAccountIndicator",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "AccountingDocument",
+                        "balancesheetandplaccountindicator"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(PLAccountIndicator)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator for P&L account",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyText",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "AccountingDocument",
+                        "companytext"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(CompanyText)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "AccountingDocument",
+                        "currency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(CurrencyKey)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInLocalCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "AccountingDocument",
+                        "amount"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(AmountInLocalCurrency)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sum of amounts in local currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CumulativeAmountInLocalCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSVGLAccounts",
+                        "AccountingDocument",
+                        "amount"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(SUM(AmountInLocalCurrency)) OVER (PARTITION BY Client, CompanyCode, BusinessArea, LedgerInGeneralLedgerAccounting, ProfitCenter, CostCenter, Node ORDER BY FiscalYear ASC, FiscalPeriod ASC ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cumulative sum of amounts in local currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "FSVGLAccounts",
+                "join_type": "INNER JOIN",
+                "tabla_base": "`cortex-prj-dev.REPORTING.financial_statement`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "AccountingDocument.client = FinancialStatementVersion.mandt",
+                    "AccountingDocument.glaccount = FinancialStatementVersion.glaccount"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

@@ -1,0 +1,635 @@
+{
+    "schema": {
+        "object_name": "s4_POScheduleLine.sql",
+        "object_type": "view",
+        "description": "This view provides a detailed overview of Purchase Order Schedule Lines, including open quantities and in-transit quantities.  It joins data from EKKO, EKPO, and EKET tables to provide a comprehensive view at the Purchase Order item level.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.eket",
+            "aecorsoft-prj-dev.CDC_S4.ekpo",
+            "aecorsoft-prj-dev.CDC_S4.ekko"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekko.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingDocumentNumber_EBELN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.EBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Document Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialNumber_MATNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekpo.MATNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemNumberOfPurchasingDocument_EBELP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.EBELP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item Number of Purchasing Document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryScheduleLineCounter_ETENR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.ETENR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Schedule Line Counter",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_WERKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekpo.WERKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StorageLocation_LGORT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekpo.LGORT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Storage Location",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemDeliveryDate_EINDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.EINDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item Delivery Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatisticsRelevantDeliveryDate_SLFDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.SLFDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Statistics Relevant Delivery Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ScheduledQuantity_MENGE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.MENGE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Scheduled Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuantityOfGoodsReceived_WEMNG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.WEMNG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quantity of Goods Received",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IssuedQuantity_WAMNG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.WAMNG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Issued Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingDocumentType_BSART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekko.BSART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Document Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOnWhichRecordWasCreated_AEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekko.AEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date On Which Record Was Created",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorAccountNumber_LIFNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekko.LIFNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Account Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingOrganization_EKORG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekko.EKORG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Organization",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingGroup_EKGRP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekko.EKGRP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingDocumentDate_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekko.BEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Document Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SupplyingPlantInCaseOfStockTransportOrder_RESWK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekko.RESWK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Supplying Plant In Case Of Stock Transport Order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeletionIndicatorInPurchasingDocument_LOEKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekpo.LOEKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Deletion Indicator In Purchasing Document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryCompleted_Indicator_ELIKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekpo.ELIKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Completed Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingDocumentCategory_BSTYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekpo.BSTYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Document Category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchaseRequisitionNumber_BANFN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekpo.BANFN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchase Requisition Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemNumberOfPurchaseRequisition_BNFPO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekpo.BNFPO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item Number Of Purchase Requisition",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReturnsItem_RETPO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekpo.RETPO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Returns Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IssuingStorageLocationForStockTransportOrder_RESLO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekpo.RESLO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Issuing Storage Location For Stock Transport Order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OpenQuantity",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.MENGE",
+                        "eket.WEMNG",
+                        "ekpo.ELIKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(((eket.MENGE - eket.WEMNG) < 0 OR ekpo.ELIKZ = 'X'), 0, (eket.MENGE - eket.WEMNG))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Open Quantity (Scheduled Quantity - Goods Received Quantity, considering completed Purchase Orders)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InTransitQuantity",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.WAMNG",
+                        "eket.WEMNG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "eket.WAMNG - eket.WEMNG",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "In Transit Quantity (Issued Quantity - Goods Received Quantity)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.eket`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "eket.EBELN = ekpo.EBELN",
+                    "eket.EBELP = ekpo.EBELP",
+                    "eket.MANDT = ekpo.MANDT"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.ekpo`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "eket.EBELN = ekko.EBELN",
+                    "eket.MANDT = ekko.MANDT"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

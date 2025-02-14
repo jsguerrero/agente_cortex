@@ -1,0 +1,64 @@
+{
+    "schema": {
+        "object_name": "s4_SlowMovingThreshold.sql",
+        "object_type": "view",
+        "description": "This view provides a threshold value for slow-moving materials based on material type and client.  The granularity is at the material type level for client '100'.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.mara"
+        ],
+        "columns": [
+            {
+                "name": "Client_MANDT",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.mara.mandt"
+                ],
+                "formula": null,
+                "description": "Client ID",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MaterialType_MTART",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.mara.mtart"
+                ],
+                "formula": null,
+                "description": "Material Type",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ThresholdValue",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.mara.mandt",
+                    "aecorsoft-prj-dev.CDC_S4.mara.mtart"
+                ],
+                "formula": "CASE\n    WHEN mara.mandt = '100' AND mara.mtart = 'FERT' THEN 50\n    WHEN mara.mandt = '100' AND mara.mtart = 'ROH' THEN 60\n    WHEN mara.mandt = '100' AND mara.mtart = 'HIBE' THEN 60\n    WHEN mara.mandt = '100' AND mara.mtart = 'HALB' THEN 60\n    ELSE 0\n  END",
+                "description": "Threshold value based on material type and client",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": []
+    }
+}

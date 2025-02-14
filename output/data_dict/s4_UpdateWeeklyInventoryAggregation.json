@@ -1,0 +1,255 @@
+{
+    "schema": {
+        "object_name": "s4_UpdateWeeklyInventoryAggregation.sql",
+        "object_type": "procedure",
+        "description": "This procedure updates the weekly inventory aggregation table. The table is grouped by client, plant, material number, batch number, storage location, company code, unit of measure, currency, stock characteristic, calendar year, calendar week, and week end date.  It aggregates data at a weekly level for inventory movements.",
+        "source": "cortex_framework",
+        "group_by": [
+            "src.mandt",
+            "src.werks",
+            "src.matnr",
+            "src.charg",
+            "src.meins",
+            "src.waers",
+            "src.lgort",
+            "src.bukrs",
+            "StockCharacteristicsConfig.StockCharacteristic",
+            "datedim.WeekEndDate"
+        ],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.matdoc",
+            "aecorsoft-prj-dev.K9_PROCESSING.calendar_date_dim",
+            "cortex-prj-dev.REPORTING.StockCharacteristicsConfig"
+        ],
+        "columns": [
+            {
+                "name": "mandt",
+                "dependencies": [
+                    "src.mandt"
+                ],
+                "formula": null,
+                "description": "Client",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "werks",
+                "dependencies": [
+                    "src.werks"
+                ],
+                "formula": null,
+                "description": "Plant",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "matnr",
+                "dependencies": [
+                    "src.matnr"
+                ],
+                "formula": null,
+                "description": "Material Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "charg",
+                "dependencies": [
+                    "src.charg"
+                ],
+                "formula": null,
+                "description": "Batch Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "lgort",
+                "dependencies": [
+                    "src.lgort"
+                ],
+                "formula": null,
+                "description": "Storage Location",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "bukrs",
+                "dependencies": [
+                    "src.bukrs"
+                ],
+                "formula": null,
+                "description": "Company Code",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "meins",
+                "dependencies": [
+                    "src.meins"
+                ],
+                "formula": null,
+                "description": "Unit of Measure",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "waers",
+                "dependencies": [
+                    "src.waers"
+                ],
+                "formula": null,
+                "description": "Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "stock_characteristic",
+                "dependencies": [
+                    "StockCharacteristicsConfig.StockCharacteristic"
+                ],
+                "formula": null,
+                "description": "Stock Characteristic",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "cal_year",
+                "dependencies": [
+                    "datedim.weekEndDate"
+                ],
+                "formula": "EXTRACT(YEAR FROM datedim.weekEndDate)",
+                "description": "Calendar Year",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "cal_week",
+                "dependencies": [
+                    "datedim.weekEndDate"
+                ],
+                "formula": "EXTRACT(WEEK FROM datedim.weekEndDate)",
+                "description": "Calendar Week",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "week_end_date",
+                "dependencies": [
+                    "datedim.WeekEndDate"
+                ],
+                "formula": null,
+                "description": "Week End Date",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "total_weekly_movement_amount",
+                "dependencies": [
+                    "src.dmbtr_stock"
+                ],
+                "formula": "SUM(src.dmbtr_stock)",
+                "description": "Total Weekly Movement Amount",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "total_weekly_movement_quantity",
+                "dependencies": [
+                    "src.stock_qty"
+                ],
+                "formula": "SUM(src.stock_qty)",
+                "description": "Total Weekly Movement Quantity",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.matdoc`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "src.budat = datedim.Date"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.matdoc`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "src.mandt = StockCharacteristicsConfig.Client_MANDT",
+                    "src.sobkz = StockCharacteristicsConfig.SpecialStockIndicator_SOBKZ",
+                    "src.bstaus_sg = StockCharacteristicsConfig.StockCharacteristic_BSTAUS_SG"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

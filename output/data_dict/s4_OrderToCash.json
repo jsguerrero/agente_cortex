@@ -1,0 +1,2603 @@
+{
+    "schema": {
+        "object_name": "s4_OrderToCash.sql",
+        "object_type": "view",
+        "description": "This view consolidates data from Sales Orders, Deliveries, Billing, and Customer and Material master data to provide a comprehensive overview of the order-to-cash process.  It includes various calculated metrics such as order cycle time, fill rate, and OTIF. The data is at the sales order item level, with additional aggregations at the sales order and client level.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "SalesOrders",
+            "Deliveries",
+            "Billing",
+            "CustomersMD",
+            "MaterialsMD",
+            "SalesOrganizationsMD",
+            "DistributionChannelMD",
+            "CountriesMD",
+            "OneTouchOrder",
+            "DivisionsMD",
+            "DeliveryBlockingReasonsMD",
+            "BillingBlockingReasonsMD"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.Client_MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Delivery_VBELN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.Delivery_VBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Document Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryItem_POSNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.DeliveryItem_POSNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Item Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesDocument_VBELN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.SalesDocument_VBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Document Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Item_POSNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.Item_POSNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Order Item Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ActualQuantityDelivered_InSalesUnits_LFIMG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.ActualQuantityDelivered_InSalesUnits_LFIMG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Actual Quantity Delivered",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BaseUoM_MEINS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.BaseUnitOfMeasure_MEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Base Unit of Measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NetPrice_NETPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.NetPrice_NETPR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Net Price",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NetValueInDocumentCurrency_NETWR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.NetValueInDocumentCurrency_NETWR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Net Value in Document Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryDocumentCurrency_WAERK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.SdDocumentCurrency_WAERK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Document Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryBlock_DocumentHeader_LIFSK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.DeliveryBlock_DocumentHeader_LIFSK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Block (Document Header)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillingBlockInSdDocument_FAKSK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.BillingBlockInSdDocument_FAKSK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing Block in SD Document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Date__proofOfDelivery___PODAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.Date__proofOfDelivery___PODAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Proof of Delivery Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillingDateForBillingIndexAndPrintout_FKDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.BillingDateForBillingIndexAndPrintout_FKDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrderNumber",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.SalesOrderNumber_VGBEL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Order Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryDate_LFDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.DeliveryDate_LFDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ActualGoodsMovementDate_WADAT_IST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.ActualGoodsMovementDate_WADAT_IST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Actual Goods Movement Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExchangeRateType_KURST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.ExchangeRateType_KURST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Exchange Rate Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Requesteddeliverydate_VDATU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.Requesteddeliverydate_VDATU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Requested Delivery Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrderQty",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.CumulativeOrderQuantity_KWMENG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Order Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BaseUnitofMeasure_MEINS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.BaseUnitofMeasure_MEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Base Unit of Measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrderNetPrice",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.Netprice_NETPR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Order Net Price",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrderDocumentCurrency_WAERK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.Currency_WAERK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Order Document Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ShippingLocation",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.ShippingReceivingPoint_VSTEL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Shipping Location",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SoldToParty_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.SoldToParty_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sold-to Party",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SoldToPartyItem_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.SoldToPartyItem_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sold-to Party Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SoldToPartyItemName_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.SoldToPartyItemName_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sold-to Party Item Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ShipToPartyItem_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.ShipToPartyItem_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ship-to Party Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ShipToPartyItemName_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.ShipToPartyItemName_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ship-to Party Item Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillToPartyItem_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.BillToPartyItem_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Bill-to Party Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillToPartyItemName_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.BillToPartyItemName_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Bill-to Party Item Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PayerItem_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.PayerItem_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Payer Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PayerItemName_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.PayerItemName_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Payer Item Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SoldToPartyHeader_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.SoldToPartyHeader_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sold-to Party Header",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SoldToPartyHeaderName_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.SoldToPartyHeaderName_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sold-to Party Header Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ShipToPartyHeader_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.ShipToPartyHeader_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ship-to Party Header",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ShipToPartyHeaderName_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.ShipToPartyHeaderName_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ship-to Party Header Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillToPartyHeader_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.BillToPartyHeader_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Bill-to Party Header",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillToPartyHeaderName_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.BillToPartyHeaderName_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Bill-to Party Header Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PayerHeader_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.PayerHeader_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Payer Header",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PayerHeaderName_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.PayerHeaderName_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Payer Header Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrganization",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.SalesOrganization_VKORG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Organization",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DistributionChannel",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.DistributionChannel_VTWEG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Distribution Channel",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryStatus",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.OverallDeliveryStatus_LFGSK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ListPrice",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.ListPrice"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "List Price",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AdjustedPrice",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.AdjustedPrice"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Adjusted Price",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InterCompanyPrice",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.InterCompanyPrice"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Inter-Company Price",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Discount",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.Discount"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Discount",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConfirmedOrderQuantity_BMENG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.ConfirmedOrderQuantity_BMENG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Confirmed Order Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesUnitMeasure",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.BaseUnitofMeasure_MEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Unit of Measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CreationDate_ERDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.CreationDate_ERDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Creation Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DocumentCategory_VBTYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.DocumentCategory_VBTYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Document Category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PrecedingDocCategory_VGTYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.PrecedingDocCategory_VGTYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Preceding Document Category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Documentnumberofthereferencedocument_VGBEL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.Documentnumberofthereferencedocument_VGBEL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Document Number of the Referenced Document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReferenceItem_VGPOS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.ReferenceItem_VGPOS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reference Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RejectionReason_ABGRU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.RejectionReason_ABGRU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rejection Reason",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerNumber",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CustomersMD.CustomerNumber_KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerName1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CustomersMD.Name1_NAME1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer Name 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerName2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CustomersMD.Name2_NAME2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer Name 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "City",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CustomersMD.City_ORT01"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "City",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Country",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CustomersMD.CountryKey_LAND1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostalCode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CustomersMD.PostalCode_PSTLZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Postal Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerRegion",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CustomersMD.CustomerRegion_REGIO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer Region",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerAddress",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CustomersMD.Address_ADRNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer Address",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerLanguage",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CustomersMD.LanguageKey_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialNumber",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MaterialsMD.MaterialNumber_MATNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialType",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MaterialsMD.MaterialType_MTART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Division",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MaterialsMD.Division_SPART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Division",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProductCategory",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MaterialsMD.MaterialCategory_ATTYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Product Category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Brand",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MaterialsMD.Brand_BRAND_ID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Brand",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialDescription",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MaterialsMD.MaterialText_MAKTX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Language_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MaterialsMD.Language_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BilledQty",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Billing.ActualBilledQuantity_FKIMG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billed Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillingDocument_VBELN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Billing.BillingDocument_VBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing Document Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Rebate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Billing.Rebate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rebate",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxAmount_MWSBK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Billing.TaxAmount_MWSBK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax Amount",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Volume_VOLUM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Billing.Volume_VOLUM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Volume",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GrossWeight_BRGEW",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Billing.GrossWeight_BRGEW"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Gross Weight",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillingDate_FKDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Billing.BillingDate_FKDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillingItem_POSNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Billing.BillingItem_POSNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing Item Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NetWeight_NTGEW",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Billing.NetWeight_NTGEW"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Net Weight",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillingNetValue",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Billing.NetValue_NETWR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing Net Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillingDOcumentCurrency_WAERK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Billing.SdDocumentCurrency_WAERK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing Document Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrganizationName",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrganizationsMD.SalesOrgName_VTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Organization Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DistributionChannelName",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "DistributionChannelMD.DistributionChannelName_VTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Distribution Channel Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RegionDescription",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CountriesMD.CountryName_LANDX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Region Description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OneTouchOrderCount",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "OneTouchOrder.OneTouchOrderCount"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "OneTouchOrder Count",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OneTouchOrders",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "OneTouchOrder.VBAPSalesDocument_VBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "OneTouchOrders",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DivisionDescription",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "DivisionsMD.DivisionName_VTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Division Description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OverallProcessingStatus_GBSTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.OverallProcessingStatus_GBSTK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Overall Processing Status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryBlockReasonDescription",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "TVLST.DeliveryBlockReason_VTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Block Reason Description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillingBlockReasonDescription",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "TVFST.BillingBlockReason_VTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing Block Reason Description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReturnOrderDescription",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.OverallProcessingStatus_GBSTK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CASE SalesOrders.OverallProcessingStatus_GBSTK WHEN 'A' THEN 'Not yet Processed' WHEN 'B' THEN 'Partially Processed' WHEN 'C' THEN 'Completely Processed' ELSE 'Not relevant' END",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Return Order Description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveredValue",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.ActualQuantityDelivered_InSalesUnits_LFIMG",
+                        "Deliveries.NetPrice_NETPR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "Deliveries.ActualQuantityDelivered_InSalesUnits_LFIMG * Deliveries.NetPrice_NETPR",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivered Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Value",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.ActualQuantityDelivered_InSalesUnits_LFIMG",
+                        "Deliveries.NetValueInDocumentCurrency_NETWR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "Deliveries.ActualQuantityDelivered_InSalesUnits_LFIMG * Deliveries.NetValueInDocumentCurrency_NETWR",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrderNetValue",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.CumulativeOrderQuantity_KWMENG",
+                        "SalesOrders.Netprice_NETPR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SalesOrders.CumulativeOrderQuantity_KWMENG * SalesOrders.Netprice_NETPR",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Order Net Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveredNetValue",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.ActualQuantityDelivered_InSalesUnits_LFIMG",
+                        "Deliveries.NetPrice_NETPR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(Deliveries.ActualQuantityDelivered_InSalesUnits_LFIMG * Deliveries.NetPrice_NETPR) OVER (PARTITION BY Deliveries.DeliveryItem_POSNR, Deliveries.Delivery_VBELN)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivered Net Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LateDeliveries",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.Date__proofOfDelivery___PODAT",
+                        "Deliveries.DeliveryDate_LFDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(Deliveries.Date__proofOfDelivery___PODAT > Deliveries.DeliveryDate_LFDAT, 'Delayed', 'NotDelayed')",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Late Deliveries",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BlockedSalesOrder",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.DeliveryBlock_documentHeader_LIFSK",
+                        "Deliveries.BillingBlockInSdDocument_FAKSK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(Deliveries.DeliveryBlock_documentHeader_LIFSK IS NULL AND Deliveries.BillingBlockInSdDocument_FAKSK IS NULL, 'NotBlocked', 'Blocked')",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Blocked Sales Order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalOrders",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.SalesDocument_VBELN",
+                        "SalesOrders.Client_MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COUNT(DISTINCT SalesOrders.SalesDocument_VBELN) OVER (PARTITION BY SalesOrders.Client_MANDT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Orders",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalOrderItems",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.Item_POSNR",
+                        "SalesOrders.Client_MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COUNT(SalesOrders.Item_POSNR) OVER (PARTITION BY SalesOrders.Client_MANDT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Order Items",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalDeliveries",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.DeliveryItem_POSNR",
+                        "SalesOrders.Client_MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COUNT(Deliveries.DeliveryItem_POSNR) OVER (PARTITION BY SalesOrders.Client_MANDT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Deliveries",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrderQuantity",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.CumulativeOrderQuantity_KWMENG",
+                        "SalesOrders.Client_MANDT",
+                        "SalesOrders.SalesDocument_VBELN",
+                        "SalesOrders.Item_POSNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(SalesOrders.CumulativeOrderQuantity_KWMENG) OVER (PARTITION BY SalesOrders.Client_MANDT, SalesOrders.SalesDocument_VBELN, SalesOrders.Item_POSNR)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Order Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrderValue",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.Netprice_NETPR",
+                        "SalesOrders.CumulativeOrderQuantity_KWMENG",
+                        "SalesOrders.Client_MANDT",
+                        "SalesOrders.SalesDocument_VBELN",
+                        "SalesOrders.Item_POSNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(SalesOrders.Netprice_NETPR * SalesOrders.CumulativeOrderQuantity_KWMENG) OVER (PARTITION BY SalesOrders.Client_MANDT, SalesOrders.SalesDocument_VBELN, SalesOrders.Item_POSNR)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Order Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IncomingOrderNum",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.DocumentCategory_VBTYP",
+                        "SalesOrders.SalesDocument_VBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(SalesOrders.DocumentCategory_VBTYP = 'C', SalesOrders.SalesDocument_VBELN, NULL)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Incoming Order Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InFullDelivery",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.CumulativeOrderQuantity_KWMENG",
+                        "Deliveries.ActualQuantityDelivered_InSalesUnits_LFIMG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(SalesOrders.CumulativeOrderQuantity_KWMENG = Deliveries.ActualQuantityDelivered_InSalesUnits_LFIMG, 'DeliveredInFull', 'NotDeliverdInFull')",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "In Full Delivery",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OTIF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.Date__proofOfDelivery___PODAT",
+                        "Deliveries.DeliveryDate_LFDAT",
+                        "SalesOrders.CumulativeOrderQuantity_KWMENG",
+                        "Deliveries.ActualQuantityDelivered_InSalesUnits_LFIMG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(Deliveries.Date__proofOfDelivery___PODAT <= Deliveries.DeliveryDate_LFDAT AND SalesOrders.CumulativeOrderQuantity_KWMENG = Deliveries.ActualQuantityDelivered_InSalesUnits_LFIMG, 'OTIF', 'NotOTIF')",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "On Time In Full",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FillRatePercent",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.ConfirmedOrderQuantity_BMENG",
+                        "SalesOrders.CumulativeOrderQuantity_KWMENG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SAFE_DIVIDE(SalesOrders.ConfirmedOrderQuantity_BMENG, SalesOrders.CumulativeOrderQuantity_KWMENG) * 100",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fill Rate Percentage",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BackOrder",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.CumulativeOrderQuantity_KWMENG",
+                        "SalesOrders.ConfirmedOrderQuantity_BMENG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(SalesOrders.CumulativeOrderQuantity_KWMENG > SalesOrders.ConfirmedOrderQuantity_BMENG, 'BackOrder', 'NotBackOrder')",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Back Order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OpenOrder",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.ActualQuantityDelivered_InSalesUnits_LFIMG",
+                        "SalesOrders.CumulativeOrderQuantity_KWMENG",
+                        "Billing.ActualBilledQuantity_FKIMG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(Deliveries.ActualQuantityDelivered_InSalesUnits_LFIMG = SalesOrders.CumulativeOrderQuantity_KWMENG AND SalesOrders.CumulativeOrderQuantity_KWMENG = Billing.ActualBilledQuantity_FKIMG, 'NotOpenOrder', 'OpenOrder')",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Open Order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReturnOrder",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.DocumentCategory_VBTYP",
+                        "SalesOrders.PrecedingDocCategory_VGTYP",
+                        "SalesOrders.ReferenceDocument_VGBEL",
+                        "SalesOrders.Documentnumberofthereferencedocument_VGBEL",
+                        "SalesOrders.Item_POSNR",
+                        "SalesOrders.ReferenceItem_VGPOS",
+                        "Billing.DocumentNumberOfTheReferenceDocument_VGBEL",
+                        "Billing.ItemNumberOfTheReferenceItem_VGPOS",
+                        "Billing.SalesDocument_AUBEL",
+                        "Billing.SalesDocumentItem_AUPOS",
+                        "SalesOrders.SalesDocument_VBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(SalesOrders.DocumentCategory_VBTYP = 'H', IF(SalesOrders.PrecedingDocCategory_VGTYP = 'C' AND SalesOrders.ReferenceDocument_VGBEL = SalesOrders.Documentnumberofthereferencedocument_VGBEL AND SalesOrders.Item_POSNR = SalesOrders.ReferenceItem_VGPOS, 'Returned', 'NotReturned'), IF(SalesOrders.PrecedingDocCategory_VGTYP = 'M' AND SalesOrders.ReferenceDocument_VGBEL = Billing.DocumentNumberOfTheReferenceDocument_VGBEL AND SalesOrders.ReferenceItem_VGPOS = Billing.ItemNumberOfTheReferenceItem_VGPOS AND Billing.SalesDocument_AUBEL = SalesOrders.SalesDocument_VBELN AND Billing.SalesDocumentItem_AUPOS = SalesOrders.Item_POSNR, 'Returned', 'NotReturned'))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Return Order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CanceledOrder",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.RejectionReason_ABGRU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(SalesOrders.RejectionReason_ABGRU IS NOT NULL, 'Canceled', 'NotCanceled')",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Canceled Order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OrderCycleTimeInDays",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.ActualGoodsMovementDate_WADAT_IST",
+                        "Deliveries.Date__proofOfDelivery___PODAT",
+                        "Deliveries.ConfirmationTime_POTIM",
+                        "SalesOrders.CreationDate_ERDAT",
+                        "SalesOrders.CreationTime_ERZET"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(Deliveries.ActualGoodsMovementDate_WADAT_IST IS NOT NULL, TIMESTAMP_DIFF(CAST(CONCAT(Deliveries.Date__proofOfDelivery___PODAT, ' ', Deliveries.ConfirmationTime_POTIM) AS TIMESTAMP), CAST(CONCAT(SalesOrders.CreationDate_ERDAT, ' ', SalesOrders.CreationTime_ERZET) AS TIMESTAMP), DAY), NULL)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Order Cycle Time in Days",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OnTimeDelivery",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.Date__proofOfDelivery___PODAT",
+                        "Deliveries.DeliveryDate_LFDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(Deliveries.Date__proofOfDelivery___PODAT <= Deliveries.DeliveryDate_LFDAT, 'DeliveredOnTime', 'NotDeliveredOnTime')",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "On Time Delivery",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "Deliveries",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "SalesOrders",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "SalesOrders.SalesDocument_VBELN = Deliveries.SalesOrderNumber_VGBEL",
+                    "SalesOrders.Item_POSNR = Deliveries.SalesOrderItem_VGPOS",
+                    "SalesOrders.Client_MANDT = Deliveries.Client_MANDT"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "Billing",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "SalesOrders",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "SalesOrders.SalesDocument_VBELN = Billing.SalesDocument_AUBEL",
+                    "SalesOrders.Item_POSNR = Billing.SalesDocumentItem_AUPOS",
+                    "SalesOrders.Client_MANDT = Billing.Client_MANDT"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "CustomersMD",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "SalesOrders",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "SalesOrders.SoldtoParty_KUNNR = CustomersMD.CustomerNumber_KUNNR",
+                    "SalesOrders.Client_MANDT = CustomersMD.Client_MANDT"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "MaterialsMD",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "SalesOrders",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "SalesOrders.MaterialNumber_MATNR = MaterialsMD.MaterialNumber_MATNR",
+                    "SalesOrders.Client_MANDT = MaterialsMD.Client_MANDT"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "SalesOrganizationsMD",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "SalesOrders",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "SalesOrders.Client_MANDT = SalesOrganizationsMD.Client_MANDT",
+                    "SalesOrders.SalesOrganization_VKORG = SalesOrganizationsMD.SalesOrg_VKORG",
+                    "SalesOrganizationsMD.Language_SPRAS = MaterialsMD.Language_SPRAS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "DistributionChannelMD",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "SalesOrders",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "SalesOrders.Client_MANDT = DistributionChannelMD.Client_MANDT",
+                    "SalesOrders.DistributionChannel_VTWEG = DistributionChannelMD.DistributionChannel_VTWEG",
+                    "DistributionChannelMD.Language_SPRAS = MaterialsMD.Language_SPRAS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "CountriesMD",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "SalesOrders",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "SalesOrders.Client_MANDT = CountriesMD.Client_MANDT",
+                    "CustomersMD.CountryKey_LAND1 = CountriesMD.CountryKey_LAND1",
+                    "CountriesMD.Language_SPRAS = MaterialsMD.Language_SPRAS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "OneTouchOrder",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "SalesOrders",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "SalesOrders.Client_MANDT = OneTouchOrder.VBAPClient_MANDT",
+                    "SalesOrders.SalesDocument_VBELN = OneTouchOrder.VBAPSalesDocument_VBELN",
+                    "SalesOrders.Item_POSNR = OneTouchOrder.VBAPSalesDocument_Item_POSNR"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "DivisionsMD",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "MaterialsMD",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "MaterialsMD.Client_MANDT = DivisionsMD.Client_MANDT",
+                    "MaterialsMD.Division_SPART = DivisionsMD.Division_SPART",
+                    "DivisionsMD.LanguageKey_SPRAS = MaterialsMD.Language_SPRAS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "TVLST",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "Deliveries",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "Deliveries.Client_MANDT = TVLST.Client_MANDT",
+                    "Deliveries.DeliveryBlock_DocumentHeader_LIFSK = TVLST.DefaultDeliveryBlock_LIFSP",
+                    "MaterialsMD.Language_SPRAS = TVLST.LanguageKey_SPRAS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "TVFST",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "Deliveries",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "Deliveries.Client_MANDT = TVFST.Client_MANDT",
+                    "Deliveries.BillingBlockInSdDocument_FAKSK = TVFST.Block_FAKSP",
+                    "TVFST.LanguageKey_SPRAS = MaterialsMD.Language_SPRAS"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

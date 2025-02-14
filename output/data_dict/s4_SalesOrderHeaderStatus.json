@@ -1,0 +1,1704 @@
+{
+    "schema": {
+        "object_name": "s4_SalesOrderHeaderStatus.sql",
+        "object_type": "view",
+        "description": "This view provides a comprehensive overview of the status of sales order headers from the SAP S4HANA system.  It includes various status indicators related to billing, delivery, goods movement, credit checks, and other relevant aspects of order processing. The data is at the sales order header level.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.vbak"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesDocument_VBELN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.VBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales document number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReferenceDocumentHeaderStatus_RFSTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.RFSTK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reference document header status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OverallReferenceStatusAllItems_RFGSK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.RFGSK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Overall reference status for all items",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConfirmationStatus_BESTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.BESTK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Confirmation status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryStatus_LFSTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.LFSTK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OverallDeliveryStatus_LFGSK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.LFGSK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Overall delivery status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalGoodsMovementStatus_WBSTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.WBSTK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total goods movement status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillingStatus_FKSTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OrderRelatedBillingStatusAllItems_FKSAK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.FKSAK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Order-related billing status for all items",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostingStatusOfBillingDocument_BUCHK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Posting status of billing document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RejectionsStatus_ABSTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.ABSTK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rejections status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OverallProcessingStatus_GBSTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.GBSTK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Overall processing status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OverallPickingPutawayStatus_KOSTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Overall picking/putaway status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OverallStatusOfWarehouseManagementActivities_LVSTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Overall status of warehouse management activities",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IncompletionStatusAllItems_UVALS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.UVALS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Incompletion status for all items",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryIncompletionStatusAllItems_UVVLS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.UVVLS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery incompletion status for all items",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillingIncompletionStatusAllItems_UVFAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.UVFAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing incompletion status for all items",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IncompletionStatusHeader_UVALL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.UVALL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Incompletion status header",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryIncompletionStatusHeader_UVVLK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.UVVLK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery incompletion status header",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillingIncompletionStatusHeader_UVFAK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.UVFAK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing incompletion status header",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PricingIncompletionStatusAllItems_UVPRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.UVPRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Pricing incompletion status for all items",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DocumentCategory_VBTYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.VBTYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Document category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SdDocumentObject_VBOBJ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "SD document object",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChangedOn_AEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.AEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Changed on",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillingTotalsStatusForIntercompanyBilling_FKIVK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing totals status for intercompany billing",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InvoiceListStatusOfBillingDocument_RELIK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Invoice list status of billing document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerReserves1HeaderStatus_UVK01",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.UVK01"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer reserves 1 header status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerReserves2HeaderStatus_UVK02",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.UVK02"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer reserves 2 header status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerReserves3HeaderStatus_UVK03",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.UVK03"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer reserves 3 header status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustmerReserves4HeaderStatus_UVK04",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.UVK04"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer reserves 4 header status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerReserves5HeaderStatus_UVK05",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.UVK05"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer reserves 5 header status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerReserves1SumOfAllItems_UVS01",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.UVS01"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer reserves 1 sum of all items",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerReserves2SumOfAllItems_UVS02",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.UVS02"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer reserves 2 sum of all items",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerReserves3SumOfAllItems_UVS03",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.UVS03"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer reserves 3 sum of all items",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerReserves4SumOfAllItems_UVS04",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.UVS04"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer reserves 4 sum of all items",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerReserves5SumOfAllItems_UVS05",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.UVS05"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer reserves 5 sum of all items",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OverallPackingStatusOfAllItems_PKSTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Overall packing status of all items",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfStaticCreditLimitCheck_CMPSA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of static credit limit check",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfDynamicCreditLimitCheckInTheCreditHorizon_CMPSB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of dynamic credit limit check in the credit horizon",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfCreditCheckAgainstMaximumDocumentValue_CMPSC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.CMPSC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of credit check against maximum document value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfCreditCheckAgainstTermsOfPayment_CMPSD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.CMPSD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of credit check against terms of payment",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfCreditCheckAgainstCustomerReviewDate_CMPSE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of credit check against customer review date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfCreditCheckAgainstOpenItemsDue_CMPSF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of credit check against open items due",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfCreditCheckAgainstOldestOpenItems_CMPSG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of credit check against oldest open items",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfCreditCheckAgainstHighestDunningLevel_CMPSH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of credit check against highest dunning level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfCreditCheckAgainstFinancialDocument_CMPSI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.CMPSI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of credit check against financial document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfCreditCheckAgainstExportCreditInsurance_CMPSJ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.CMPSJ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of credit check against export credit insurance",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfCreditCheckAgainstPaymentCardAuthorization_CMPSK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.CMPSK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of credit check against payment card authorization",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfCreditCheckOfReserves4_CMPSL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of credit check of reserves 4",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfCreditCheckForCustomerReserve1_CMPS0",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of credit check for customer reserve 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfCreditCheckForCustomerReserve2_CMPS1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of credit check for customer reserve 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfCreditCheckForCustomerReserve3_CMPS2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of credit check for customer reserve 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OverallStatusOfCreditChecks_CMGST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.CMGST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Overall status of credit checks",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TransportationPlanningStatusHeader_TRSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.TRSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Transportation planning status header",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfPickConfirmation_KOQUK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of pick confirmation",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConfirmationStatusForAle_COSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.COSTA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Confirmation status for ALE",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SapRelease_SAPRL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "SAP release",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalsIncompleteStatusForAllItemsPackaging_UVPAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Totals incomplete status for all items packaging",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalsIncompleteStatusForAllItemsPicking_UVPIS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Totals incomplete status for all items picking",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalIncompleteStatusOfAllItemsPostGoodsMovement_UVWAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total incomplete status of all items post goods movement",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HeaderIncompleteStatusForPackaging_UVPAK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Header incomplete status for packaging",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HeaderIncompleteStatusForPickingPutaway_UVPIK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Header incomplete status for picking/putaway",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostHeaderIncompleteStatusForGoodsMovement_UVWAK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Post header incomplete status for goods movement",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Unused_UVGEK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Unused",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CreditCheckDataIsObsolete_CMPSM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Credit check data is obsolete",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DelayStatus_DCSTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.DCSTK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delay status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HandlingUnitPlacedInStock_VESTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Handling unit placed in stock",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DistributionStatusDecentralizedWarehouseProcessing_VLSTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Distribution status decentralized warehouse processing",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RevenueDeterminationStatus_RRSTA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Revenue determination status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndicatorDocumentPreselectedForArchiving_BLOCK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator document preselected for archiving",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BillingBlockStatus_FSSTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.FSSTK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Billing block status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OverallDeliveryBlockStatusAllItems_LSSTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.LSSTK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Overall delivery block status for all items",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OverallBlockStatusHeader_SPSTG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.SPSTG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Overall block status header",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PodStatusOnHeaderLevel_PDSTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "POD status on header level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusFundsManagement_FMSTK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.FMSTK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status funds management",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ManualCompletionOfContract_MANEK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.MANEK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Manual completion of contract",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TemporaryInboundDelivery_SPE_TMPID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Temporary inbound delivery",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InboundDeliveryHeaderNotYetCompleteOnHold_HDALL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Inbound delivery header not yet complete (on hold)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AtLeastOneOfIdItemsNotYetCompleteOnHold_HDALS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "At least one of ID items not yet complete (on hold)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfCreditCheckSapCreditManagement_CMPS_CM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.CMPS_CM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of credit check SAP Credit Management",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatusOfTechnicalErrorSapCreditManagement_CMPS_TE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbak.CMPS_TE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of technical error SAP Credit Management",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExtensionOfSdDocumentCategory_VBTYP_EXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Extension of SD document category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OverallAllocationStatusSalesDocumentHeader_FSH_AR_STAT_HDR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "NULL",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Overall allocation status sales document header",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": []
+    }
+}

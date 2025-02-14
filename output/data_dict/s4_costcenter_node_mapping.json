@@ -1,0 +1,221 @@
+{
+    "schema": {
+        "object_name": "s4_costcenter_node_mapping.sql",
+        "object_type": "table",
+        "description": "This table maps each cost center to its ancestor nodes in the cost center hierarchy.  It includes leaf nodes and their parent nodes up to the root of the hierarchy.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.costcenter_flattened"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "mandt",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostHierarchy.mandt"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "setclass",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostHierarchy.setclass"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Center Set Class",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "subclass",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostHierarchy.subclass"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Center Subclass",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "hiername",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostHierarchy.hiername"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "parent",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostHierarchy.parent"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Parent Node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "node",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostHierarchy.node"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Current Node in Hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "costcenter",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostHierarchy.costcenter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Center ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "level",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostHierarchy.level"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Level in the Hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "isleafnode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CostHierarchy.isleafnode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicates if the node is a leaf node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "CostHierarchy",
+                "join_type": "INNER JOIN",
+                "tabla_base": "CostHierarchy",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "CostHierarchy.mandt = CostCenterFlattened.mandt",
+                    "CostHierarchy.setclass = CostCenterFlattened.setclass",
+                    "CostHierarchy.subclass = CostCenterFlattened.subclass",
+                    "CostHierarchy.hiername = CostCenterFlattened.hiername",
+                    "CostHierarchy.parent = CostCenterFlattened.node"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

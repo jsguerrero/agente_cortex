@@ -1,0 +1,1404 @@
+{
+    "schema": {
+        "object_name": "s4_GLDocumentsHdr.sql",
+        "object_type": "view",
+        "description": "This view joins data from the BKPF and FAGLFLEXA tables in the CDC_S4 dataset and LedgersMD table in the REPORTING dataset to provide a comprehensive view of S4 HANA General Ledger Documents.  It filters for leading FI-GL ledgers and includes calculated fields such as FISCAL_YEAR.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.bkpf",
+            "CDC_S4.faglflexa",
+            "REPORTING.LedgersMD"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_RCLNT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.RCLNT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYear_RYEAR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.RYEAR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Year from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountingDocumentNumber_DOCNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.DOCNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Accounting Document Number from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LedgerInGeneralLedgerAccounting_RLDNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.RLDNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ledger in General Ledger Accounting from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCode_RBUKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.RBUKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SixCharacterPostingItemForLedger_DOCLN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.DOCLN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Six Character Posting Item For Ledger from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiSlBusinessTransaction_ACTIV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.ACTIV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "FI-SL Business Transaction from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TransactionType_RMVCT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.RMVCT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Transaction Type from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey_RTCUR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.RTCUR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BaseUnitOfMeasure_RUNIT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.RUNIT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Base Unit Of Measure from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReferenceProcedure_AWTYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.AWTYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reference Procedure from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RecordType_RRCTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.RRCTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Record Type from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Version_RVERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.RVERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Version from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LogicalSystem_LOGSYS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.LOGSYS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Logical System from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountNumber_RACCT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.RACCT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Account Number from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CostElement_COST_ELEM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.COST_ELEM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Element from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CostCenter_RCNTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.RCNTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Center from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProfitCenter_PRCTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.PRCTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Profit Center from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FunctionalArea_RFAREA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.RFAREA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Functional Area from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessArea_RBUSA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.RBUSA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Area from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ControllingArea_KOKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.KOKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Controlling Area from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SegmentForSegmentalReporting_SEGMENT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.SEGMENT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Segment For Segmental Reporting from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SenderCostCenter_SCNTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.SCNTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sender Cost Center from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PartnerProfitCenter_PPRCTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.PPRCTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Partner Profit Center from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PartnerFunctionalArea_SFAREA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.SFAREA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Partner Functional Area from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TradingPartnerBusinessArea_SBUSA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.SBUSA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Trading Partner Business Area from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyIdOfTradingPartner_RASSC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.RASSC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Id Of Trading Partner from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PartnerSegmentForSegmentalReporting_PSEGMENT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.PSEGMENT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Partner Segment For Segmental Reporting from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValueInTransactionCurrency_TSL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.TSL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Value In Transaction Currency from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValueInLocalCurrency_HSL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.HSL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Value In Local Currency from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValueInGroupCurrency_KSL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.KSL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Value In Group Currency from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValueInAnotherCurrency_OSL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.OSL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Value In Another Currency from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Quantity_MSL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.MSL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quantity from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValueInOriginalTransactionCurrency__documentCurrency___WSL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.WSL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Value In Original Transaction Currency (document Currency) from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DebitcreditIndicator_DRCRK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.DRCRK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Debit/Credit Indicator from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostingPeriod_POPER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.POPER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Posting Period from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKeyOfTheOriginalTransactionCurrency_RWCUR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.RWCUR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key Of The Original Transaction Currency from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYear_GJAHR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.GJAHR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Year from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostingDateInTheDocument_BUDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.BUDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Posting Date In The Document from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountingDocumentNumber_BELNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.BELNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Accounting Document Number from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfLineItemWithinAccountingDocument_BUZEI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.BUZEI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number Of Line Item Within Accounting Document from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostingKey_BSCHL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.BSCHL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Posting Key from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DocumentStatus_BSTAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.BSTAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Document Status from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemCategory_LINETYPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.LINETYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item Category from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemChangedByDocumentSplitting_XSPLITMOD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.XSPLITMOD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item Changed By Document Splitting from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UtcTimeStampInShortForm_TIMESTAMP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.TIMESTAMP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "UTC Time Stamp In Short Form from FAGLFLEXA table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DocumentType_BLART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.BLART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Document Type from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DocumentDateInDocument_BLDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.BLDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Document Date In Document from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalPeriod_MONAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.MONAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Period from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DayOnWhichAccountingDocumentWasEntered_CPUDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.CPUDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Day On Which Accounting Document Was Entered from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TimeOfEntry_CPUTM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.CPUTM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Time Of Entry from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfTheLastDocumentChangeByTransaction_AEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.AEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date Of The Last Document Change By Transaction from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfTheLastDocumentUpdate_UPDDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.UPDDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date Of The Last Document Update from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TranslationDate_WWERT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.WWERT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Translation Date from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UserName_USNAM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.USNAM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "User Name from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TransactionCode_TCODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.TCODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Transaction Code from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReferenceDocumentNumber_XBLNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.XBLNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reference Document Number from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReverseDocumentNumber_STBLG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.STBLG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reverse Document Number from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReverseDocumentFiscalYear_STJAH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.STJAH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reverse Document Fiscal Year from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DocumentHeaderText_BKTXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.BKTXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Document Header Text from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExchangeRate_KURSF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.KURSF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Exchange Rate from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKeyForTheGroupCurrency_KZWRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.KZWRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key For The Group Currency from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GroupCurrencyExchangeRate_KZKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.KZKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Group Currency Exchange Rate from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_DocumentPostedNet_XNETB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "bkpf.XNETB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Document Posted Net from BKPF table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FISCAL_YEAR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "faglflexa.GJAHR",
+                        "faglflexa.RYEAR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(faglflexa.GJAHR != \"0000\", faglflexa.GJAHR, faglflexa.RYEAR)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Year, using GJAHR if not 0000, otherwise RYEAR",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

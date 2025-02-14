@@ -1,0 +1,1503 @@
+{
+    "schema": {
+        "object_name": "s4_VendorPerformance.sql",
+        "object_type": "view",
+        "description": "Vendor performance analysis at the Purchase Order Item level, aggregated from various SAP S4 HANA tables.  Includes vendor cycle time, quality, on-time delivery, in-full delivery, invoice accuracy, and spend analysis in both source and target currencies.",
+        "source": "cortex_framework",
+        "group_by": [
+            "PurchaseOrdersGoodsReceipt.Client_MANDT",
+            "PurchaseOrdersGoodsReceipt.DocumentNumber_EBELN",
+            "PurchaseOrdersGoodsReceipt.Item_EBELP"
+        ],
+        "dependencies": [
+            "REPORTING.Languages_T002",
+            "REPORTING.CurrencyConversion",
+            "REPORTING.PurchaseDocuments",
+            "REPORTING.POSchedule",
+            "REPORTING.PurchaseDocumentsHistory",
+            "REPORTING.PurchasingOrganizationsMD",
+            "REPORTING.PurchasingGroupsMD",
+            "REPORTING.VendorsMD",
+            "REPORTING.CompaniesMD",
+            "REPORTING.fiscal_date_dim",
+            "REPORTING.MaterialsMD",
+            "REPORTING.MaterialTypesMD"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.Client_MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DocumentNumber_EBELN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.DocumentNumber_EBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchase Order Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Item_EBELP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.Item_EBELP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchase Order Item Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingDocumentDate_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.PurchasingDocumentDate_BEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(PurchaseOrdersGoodsReceipt.PurchasingDocumentDate_BEDAT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchase Order Creation Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NetOrderValueinPOCurrency_NETWR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.NetOrderValueinPOCurrency_NETWR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "AVG(PurchaseOrdersGoodsReceipt.NetOrderValueinPOCurrency_NETWR)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Net Order Value in PO Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.CurrencyKey_WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(PurchaseOrdersGoodsReceipt.CurrencyKey_WAERS)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key of the Purchase Order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemDeliveryDate_EINDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.ItemDeliveryDate_EINDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(PurchaseOrdersGoodsReceipt.ItemDeliveryDate_EINDT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Scheduled Item Delivery Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OrderDateOfScheduleLine_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.OrderDateOfScheduleLine_BEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(PurchaseOrdersGoodsReceipt.OrderDateOfScheduleLine_BEDAT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Order Date of Schedule Line",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostingDateInTheDocument_BUDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.PostingDateInTheDocument_BUDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(PurchaseOrdersGoodsReceipt.PostingDateInTheDocument_BUDAT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Goods Receipt Posting Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInLocalCurrency_DMBTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.AmountInLocalCurrency_DMBTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(PurchaseOrdersGoodsReceipt.AmountInLocalCurrency_DMBTR)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Goods Receipt Amount in Local Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "POOrderHistoryCurrencyKey_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.POOrderHistoryCurrencyKey_WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(PurchaseOrdersGoodsReceipt.POOrderHistoryCurrencyKey_WAERS)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key from Purchase Order History",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "POQuantity_MENGE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.POQuantity_MENGE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "AVG(PurchaseOrdersGoodsReceipt.POQuantity_MENGE)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchase Order Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UoM_MEINS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.UoM_MEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(PurchaseOrdersGoodsReceipt.UoM_MEINS)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Unit of Measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NetPrice_NETPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.NetPrice_NETPR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "AVG(PurchaseOrdersGoodsReceipt.NetPrice_NETPR)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Net Price",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CreatedOn_AEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.CreatedOn_AEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(PurchaseOrdersGoodsReceipt.CreatedOn_AEDAT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchase Order Creation Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Status_STATU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.Status_STATU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(PurchaseOrdersGoodsReceipt.Status_STATU)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchase Order Status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialNumber_MATNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.MaterialNumber_MATNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(PurchaseOrdersGoodsReceipt.MaterialNumber_MATNR)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialType_MTART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.MaterialType_MTART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(PurchaseOrdersGoodsReceipt.MaterialType_MTART)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialGroup_MATKL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.MaterialGroup_MATKL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(PurchaseOrdersGoodsReceipt.MaterialGroup_MATKL)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingOrganization_EKORG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.PurchasingOrganization_EKORG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(PurchaseOrdersGoodsReceipt.PurchasingOrganization_EKORG)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Organization",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingGroup_EKGRP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.PurchasingGroup_EKGRP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(PurchaseOrdersGoodsReceipt.PurchasingGroup_EKGRP)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Group",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorAccountNumber_LIFNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.VendorAccountNumber_LIFNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(PurchaseOrdersGoodsReceipt.VendorAccountNumber_LIFNR)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Account Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Company_BUKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.Company_BUKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(PurchaseOrdersGoodsReceipt.Company_BUKRS)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_WERKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.Plant_WERKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(PurchaseOrdersGoodsReceipt.Plant_WERKS)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "YearOfPurchasingDocumentDate_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.YearOfPurchasingDocumentDate_BEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(PurchaseOrdersGoodsReceipt.YearOfPurchasingDocumentDate_BEDAT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Year of Purchase Order Creation Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MonthOfPurchasingDocumentDate_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.MonthOfPurchasingDocumentDate_BEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(PurchaseOrdersGoodsReceipt.MonthOfPurchasingDocumentDate_BEDAT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Month of Purchase Order Creation Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WeekOfPurchasingDocumentDate_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.WeekOfPurchasingDocumentDate_BEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(PurchaseOrdersGoodsReceipt.WeekOfPurchasingDocumentDate_BEDAT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Week of Purchase Order Creation Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYear",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FiscalDateDimension_BEDAT.FiscalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalPeriod",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FiscalDateDimension_BEDAT.FiscalPeriod"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InvoiceQuantity",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseOrdersInvoiceReceipt.InvoiceQuantity"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(Quantity_MENGE)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Invoice Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InvoiceAmountInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseOrdersInvoiceReceipt.InvoiceAmountInSourceCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(AmountInLocalCurrency_DMBTR)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Invoice Amount in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InvoiceDate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseOrdersInvoiceReceipt.InvoiceDate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(PostingDateInTheDocument_BUDAT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Invoice Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "YearOfInvoiceDate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseOrdersInvoiceReceipt.YearOfInvoiceDate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(YearOfPostingDateInTheDocument_BUDAT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Year of Invoice Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MonthOfInvoiceDate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseOrdersInvoiceReceipt.MonthOfInvoiceDate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(MonthOfPostingDateInTheDocument_BUDAT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Month of Invoice Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WeekOfInvoiceDate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseOrdersInvoiceReceipt.WeekOfInvoiceDate"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(WeekOfPostingDateInTheDocument_BUDAT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Week of Invoice Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InvoiceCount",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseOrdersInvoiceReceipt.InvoiceCount"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COUNT(PurchasingDocumentNumber_EBELN)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of Invoices",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingOrganizationText_EKOTX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchasingOrganizations.PurchasingOrganizationText_EKOTX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Organization Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingGroupText_EKNAM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchasingGroups.PurchasingGroupText_EKNAM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Group Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryKey_LAND1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Vendors.CountryKey_LAND1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Country Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NAME1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Vendors.NAME1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyText_BUTXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Companies.CompanyText_BUTXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalyearVariant_PERIV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Companies.FiscalyearVariant_PERIV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Year Variant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LanguageKey.LanguageKey_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialText_MAKTX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Materials.MaterialText_MAKTX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DescriptionOfMaterialType_MTBEZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MaterialTypes.DescriptionOfMaterialType_MTBEZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Description of Material Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorCycleTimeInDays",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.VendorCycleTimeInDays"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(PurchaseOrdersGoodsReceipt.VendorCycleTimeInDays)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Cycle Time in Days",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RejectedQuantity",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.RejectedQuantity"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(PurchaseOrdersGoodsReceipt.RejectedQuantity)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Rejected Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GoodsReceiptQuantity",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.GoodsReceiptQuantity"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(PurchaseOrdersGoodsReceipt.GoodsReceiptQuantity)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Goods Receipt Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GoodsReceiptAmountInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.GoodsReceiptAmountInSourceCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(PurchaseOrdersGoodsReceipt.GoodsReceiptAmountInSourceCurrency)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Goods Receipt Amount in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Exchange Rate",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TargetCurrency_TCURR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrencyConversion.ToCurrency_TCURR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInTargetCurrency_DMBTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.AmountInLocalCurrency_DMBTR",
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "PurchaseDocuments.AmountInLocalCurrency_DMBTR * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Goods Receipt Amount in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NetPriceInTargetCurrency_NETPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.NetPrice_NETPR",
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "PurchaseDocuments.NetPrice_NETPR * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Net Price in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NetOrderValueinTargetCurrency_NETWR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.NetOrderValueinPOCurrency_NETWR",
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "PurchaseDocuments.NetOrderValueinPOCurrency_NETWR * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Net Order Value in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GoodsReceiptAmountInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.GoodsReceiptAmountInSourceCurrency",
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "PurchaseDocuments.GoodsReceiptAmountInSourceCurrency * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Goods Receipt Amount in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InvoiceAmountInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseOrdersInvoiceReceipt.InvoiceAmountInSourceCurrency",
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "PurchaseOrdersInvoiceReceipt.InvoiceAmountInSourceCurrency * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Invoice Amount in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IsDelivered",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.IsDelivered"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(PurchaseDocuments.IsDelivered, TRUE, FALSE)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicates if the Purchase Order Item is delivered",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IsRejected",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.IsRejected"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(PurchaseDocuments.IsRejected, TRUE, FALSE)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicates if the Purchase Order Item is rejected",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorOnTimeDelivery",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.IsDeliveredOnTime"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(PurchaseDocuments.IsDeliveredOnTime IS NULL, 'NotApplicable', IF(PurchaseDocuments.IsDeliveredOnTime, 'NotDelayed', 'Delayed'))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor On-Time Delivery Status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorInFullDelivery",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.IsDeliveredInFull"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(PurchaseDocuments.IsDeliveredInFull IS NULL, 'NotApplicable', IF(PurchaseDocuments.IsDeliveredInFull, 'DeliveredInFull', 'NotDeliveredInFull'))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor In-Full Delivery Status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorOnTimeInFullDelivery",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.IsDeliveredInFull",
+                        "PurchaseDocuments.IsDeliveredOnTime"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(PurchaseDocuments.IsDeliveredInFull IS NULL OR PurchaseDocuments.IsDeliveredOnTime IS NULL, 'NotApplicable', IF(PurchaseDocuments.IsDeliveredInFull AND PurchaseDocuments.IsDeliveredOnTime, 'OTIF', 'NotOTIF'))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor On-Time In-Full Delivery Status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorInvoiceAccuracy",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.IsGoodsReceiptAccurate",
+                        "PurchaseOrdersInvoiceReceipt.InvoiceQuantity",
+                        "PurchaseDocuments.POQuantity_MENGE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(PurchaseDocuments.IsGoodsReceiptAccurate IS NULL OR PurchaseOrdersInvoiceReceipt.InvoiceQuantity IS NULL, 'NotApplicable', IF(PurchaseDocuments.IsGoodsReceiptAccurate AND PurchaseDocuments.POQuantity_MENGE = PurchaseOrdersInvoiceReceipt.InvoiceQuantity, 'AccurateInvoice', 'InaccurateInvoice'))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Invoice Accuracy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PastDueOrOpenItems",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PurchaseDocuments.IsDelivered",
+                        "PurchaseDocuments.ItemDeliveryDate_EINDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(PurchaseDocuments.IsDelivered, 'NotApplicable', IF(CURRENT_DATE() > PurchaseDocuments.ItemDeliveryDate_EINDT, 'PastDue', 'Open'))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicates if the Purchase Order Item is Past Due or Open",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "PurchaseOrderScheduleLine",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "PurchaseDocuments",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "PurchaseOrders.Client_MANDT = POScheduleLine.Client_MANDT",
+                    "PurchaseOrders.DocumentNumber_EBELN = POScheduleLine.PurchasingDocumentNumber_EBELN",
+                    "PurchaseOrders.Item_EBELP = POScheduleLine.ItemNumberOfPurchasingDocument_EBELP"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "PurchaseOrdersGoodsReceipt",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "PurchaseOrderScheduleLine",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "PurchaseOrderScheduleLine.Client_MANDT = POOrderHistory.Client_MANDT",
+                    "PurchaseOrderScheduleLine.DocumentNumber_EBELN = POOrderHistory.PurchasingDocumentNumber_EBELN",
+                    "PurchaseOrderScheduleLine.Item_EBELP = POOrderHistory.ItemNumberOfPurchasingDocument_EBELP"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "PurchaseDocuments",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "PurchaseOrdersGoodsReceipt",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "PurchaseDocuments.Client_MANDT = PurchaseOrdersInvoiceReceipt.Client_MANDT",
+                    "PurchaseDocuments.DocumentNumber_EBELN = PurchaseOrdersInvoiceReceipt.PurchasingDocumentNumber_EBELN",
+                    "PurchaseDocuments.Item_EBELP = PurchaseOrdersInvoiceReceipt.ItemNumberOfPurchasingDocument_EBELP"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "CurrencyConversion",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "PurchaseDocuments",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "PurchaseDocuments.Client_MANDT = CurrencyConversion.Client_MANDT",
+                    "PurchaseDocuments.CurrencyKey_WAERS = CurrencyConversion.FromCurrency_FCURR",
+                    "PurchaseDocuments.PurchasingDocumentDate_BEDAT = CurrencyConversion.ConvDate"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "PurchasingOrganizations",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "PurchaseDocuments",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "PurchaseDocuments.Client_MANDT = PurchasingOrganizations.Client_MANDT",
+                    "PurchaseDocuments.PurchasingOrganization_EKORG = PurchasingOrganizations.PurchasingOrganization_EKORG"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "PurchasingGroups",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "PurchaseDocuments",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "PurchaseDocuments.Client_MANDT = PurchasingGroups.Client_MANDT",
+                    "PurchaseDocuments.PurchasingGroup_EKGRP = PurchasingGroups.PurchasingGroup_EKGRP"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "Vendors",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "PurchaseDocuments",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "PurchaseDocuments.Client_MANDT = Vendors.Client_MANDT",
+                    "PurchaseDocuments.VendorAccountNumber_LIFNR = Vendors.AccountNumberOfVendorOrCreditor_LIFNR"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "Companies",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "PurchaseDocuments",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "PurchaseDocuments.Client_MANDT = Companies.Client_MANDT",
+                    "PurchaseDocuments.Company_BUKRS = Companies.CompanyCode_BUKRS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "FiscalDateDimension_BEDAT",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "PurchaseDocuments",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "PurchaseDocuments.Client_MANDT = FiscalDateDimension_BEDAT.MANDT",
+                    "Companies.FiscalyearVariant_PERIV = FiscalDateDimension_BEDAT.PERIV",
+                    "PurchaseDocuments.PurchasingDocumentDate_BEDAT = FiscalDateDimension_BEDAT.DATE"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "Materials",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "PurchaseDocuments",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "PurchaseDocuments.Client_MANDT = Materials.Client_MANDT",
+                    "PurchaseDocuments.MaterialNumber_MATNR = Materials.MaterialNumber_MATNR",
+                    "Materials.Language_SPRAS = LanguageKey.LanguageKey_SPRAS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "MaterialTypes",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "PurchaseDocuments",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "PurchaseDocuments.Client_MANDT = MaterialTypes.Client_MANDT",
+                    "PurchaseDocuments.MaterialType_MTART = MaterialTypes.MaterialType_MTART",
+                    "MaterialTypes.LanguageKey_SPRAS = LanguageKey.LanguageKey_SPRAS"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

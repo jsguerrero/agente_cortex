@@ -1,0 +1,305 @@
+{
+    "schema": {
+        "object_name": "s4_FSVHierarchyFlattened.sql",
+        "object_type": "view",
+        "description": "This view provides a flattened hierarchy of GL accounts, including language-dependent descriptions.  The granularity is Client, Chart of accounts, Hierarchy name, GLNode, GLAccount, and Language Key.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.Languages_T002",
+            "REPORTING.fsv_glaccounts",
+            "REPORTING.FSVTextsMD",
+            "REPORTING.GLAccountsMD"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV.mandt"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChartOfAccounts",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV.chartofaccounts"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Chart of Accounts",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HierarchyName",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV.hiername"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LanguageKey.LanguageKey_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GeneralLedgerAccount",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV.glaccount"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "General Ledger Account",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GLNode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV.node"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "GL Node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ParentNode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV.parent"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Parent Node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ParentNodeText",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GLParentText.HierarchyNodeDescription_NODETXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Description of the parent node, language-dependent",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GLNodeText",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GLNodeText.HierarchyNodeDescription_NODETXT",
+                        "GLText.GlAccountLongText_TXT50"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(GLNodeText.HierarchyNodeDescription_NODETXT, GLText.GlAccountLongText_TXT50)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Description of the GL Node, language-dependent. Uses GLNodeText if available, otherwise uses GLText",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Level",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV.level"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Level in the hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IsLeafNode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FSV.isleafnode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicates if the node is a leaf node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "LanguageKey",
+                "join_type": "CROSS JOIN",
+                "tabla_base": "fsv_glaccounts",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [],
+                "rules": []
+            },
+            {
+                "view_name": "GLNodeText",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "fsv_glaccounts",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "FSV.mandt = GLNodeText.Client_MANDT",
+                    "FSV.hiername = GLNodeText.HierarchyID_HRYID",
+                    "FSV.HierarchyVersion = GLNodeText.HierarchyVersion_HRYVER",
+                    "FSV.Node = GLNodeText.HierarchyNode_HRYNODE",
+                    "GLNodeText.LanguageKey_SPRAS = LanguageKey.LanguageKey_SPRAS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "GLText",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "fsv_glaccounts",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "FSV.mandt = GLText.Client_MANDT",
+                    "FSV.chartofaccounts = GLText.ChartOfAccounts_KTOPL",
+                    "FSV.nodevalue = GLText.GlAccountNumber_SAKNR",
+                    "GLText.Language_SPRAS = LanguageKey.LanguageKey_SPRAS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "GLParentText",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "fsv_glaccounts",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "FSV.mandt = GLParentText.Client_MANDT",
+                    "FSV.hiername = GLParentText.HierarchyID_HRYID",
+                    "FSV.HierarchyVersion = GLParentText.HierarchyVersion_HRYVER",
+                    "FSV.Parent = GLParentText.HierarchyNode_HRYNODE",
+                    "GLParentText.LanguageKey_SPRAS = LanguageKey.LanguageKey_SPRAS"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

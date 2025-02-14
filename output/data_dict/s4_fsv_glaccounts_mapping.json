@@ -1,0 +1,250 @@
+{
+    "schema": {
+        "object_name": "s4_fsv_glaccounts_mapping.sql",
+        "object_type": "table",
+        "description": "This table maps G/L accounts to FSV hierarchy nodes. It includes leaf nodes and their ancestor nodes, linking them through G/L accounts.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.fsv_flattened"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "mandt",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.fsv_flattened.mandt"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "chartofaccounts",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.fsv_flattened.chartofaccounts"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Chart of Accounts",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "hiername",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.fsv_flattened.hiername"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "hierarchyversion",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.fsv_flattened.hierarchyversion"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy Version",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "parent",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.fsv_flattened.parent"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Parent Node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "node",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.fsv_flattened.node"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "nodevalue",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.fsv_flattened.nodevalue"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Node Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "glaccount",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GLAccountsByLeafParents.glaccount",
+                        "REPORTING.fsv_flattened.nodevalue"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "nodevalue",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "G/L Account",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "level",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.fsv_flattened.level"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Level in Hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "isleafnode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.fsv_flattened.isleafnode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicates if the node is a leaf node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`cortex-prj-dev.REPORTING.fsv_flattened` AS FSVFlattened",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "FSVFlattened.node = Parents.parent"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "Parents",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "Parents.leaf_parent = GLAccountsByLeafParents.leaf_parent"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

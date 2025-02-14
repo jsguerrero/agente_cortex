@@ -1,0 +1,800 @@
+{
+    "schema": {
+        "object_name": "s4_POVendorConfirmation.sql",
+        "object_type": "view",
+        "description": "This view joins data from EKES, PurchaseDocuments, and VendorsMD tables to provide a comprehensive view of Purchase Order Vendor Confirmations, including vendor details and payment terms.  The data is at the level of individual confirmation items.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.ekes",
+            "REPORTING.PurchaseDocuments",
+            "REPORTING.VendorsMD"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingDocumentNumber_EBELN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.EBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Document Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemNumberOfPurchasingDocument_EBELP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.EBELP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item Number of Purchasing Document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SequentialNumberOfVendorConfirmation_ETENS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.ETENS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sequential Number of Vendor Confirmation",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConfirmationCategory_EBTYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.EBTYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Confirmation Category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryDateOfVendorConfirmation_EINDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.EINDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Date of Vendor Confirmation",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateCategoryOfDeliveryDateInVendorConfirmation_LPEIN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.LPEIN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date Category of Delivery Date in Vendor Confirmation",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryDateTimeSpotInVendorConfirmation_UZEIT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.UZEIT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Date Time Spot in Vendor Confirmation",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CreationDateOfConfirmation_ERDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.ERDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Creation Date of Confirmation",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TimeAtWhichVendorConfirmationWasCreated_EZEIT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.EZEIT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Time at Which Vendor Confirmation Was Created",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuantityAsPerVendorConfirmation_MENGE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.MENGE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quantity As Per Vendor Confirmation",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuantityReduced__mrp___DABMG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.DABMG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quantity Reduced (MRP)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CreationIndicator_VendorConfirmation_ESTKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.ESTKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Creation Indicator (Vendor Confirmation)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorConfirmationDeletionIndicator_LOEKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.LOEKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Confirmation Deletion Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_ConfirmationIsRelevantToMaterialsPlanning_KZDIS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.KZDIS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: Confirmation Is Relevant To Materials Planning",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReferenceDocumentNumber__forDependenciesSeeLongText___XBLNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.XBLNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reference Document Number (for dependencies see long text)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Delivery_VBELN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.VBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryItem_VBELP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.VBELP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MfrPartProfile_MPROF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.MPROF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Mfr Part Profile",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialNumberCorrespondingToManufacturerPartNumber_EMATN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.EMATN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number Corresponding To Manufacturer Part Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfRemindersexpediters_MAHNZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.MAHNZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number Of Reminders/expediters",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BatchNumber_CHARG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.CHARG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Batch Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HigherLevelItemOfBatchSplitItem_UECHA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.UECHA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Higher Level Item Of Batch Split Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SequentialNumberOfVendorConfirmation_REF_ETENS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.REF_ETENS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sequential Number of Vendor Confirmation",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryHasStatusinPlant_IMWRK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.IMWRK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Has Status in Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Delivery_VBELN_ST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.VBELN_ST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryItem_VBELP_ST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.VBELP_ST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HandoverDateAtTheHandoverLocation_HANDOVERDATE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.HANDOVERDATE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Handover Date At The Handover Location",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HandoverTimeAtTheHandoverLocation_HANDOVERTIME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.HANDOVERTIME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Handover Time At The Handover Location",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StockSegment_SGT_SCAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.SGT_SCAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Stock Segment",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AllocatedStockQuantity_FSH_SALLOC_QTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ekes.FSH_SALLOC_QTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Allocated Stock Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountNumberOfVendorOrCreditor_LIFNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vendor.AccountNumberOfVendorOrCreditor_LIFNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Account Number Of Vendor Or Creditor",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NAME1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vendor.NAME1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Name 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NAME2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vendor.NAME2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Name 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TermsPaymentKey_ZTERM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "docs.TermsPaymentKey_ZTERM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Terms Payment Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DiscountDays1_ZBD1T",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "docs.DiscountDays1_ZBD1T"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Discount Days 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "null",
+                "join_type": "INNER",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.ekes`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "EKES.MANDT = docs.Client_MANDT",
+                    "EKES.EBELN = docs.DocumentNumber_EBELN",
+                    "docs.Item_EBELP = EKES.EBELP"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "null",
+                "join_type": "INNER",
+                "tabla_base": "`cortex-prj-dev.REPORTING.PurchaseDocuments`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "vendor.Client_MANDT = docs.Client_MANDT",
+                    "vendor.AccountNumberOfVendorOrCreditor_LIFNR = docs.VendorAccountNumber_LIFNR"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

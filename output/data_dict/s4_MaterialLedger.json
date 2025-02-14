@@ -1,0 +1,323 @@
+{
+    "schema": {
+        "object_name": "s4_MaterialLedger.sql",
+        "object_type": "view",
+        "description": "This view joins data from CKMLHD and CKMLCR tables in S/4HANA Material Ledger to provide material cost information.  It handles currency conversion using a currency conversion table and does not include a date dimension, only fiscal year and period.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.ckmlhd",
+            "CDC_S4.ckmlcr",
+            "CDC_S4.t001k",
+            "CDC_S4.t001",
+            "REPORTING.currency_decimal"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ckmlhd.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialNumber_MATNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ckmlhd.MATNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValuationType_BWTAR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ckmlhd.BWTAR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valuation Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValuationArea_BWKEY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ckmlhd.BWKEY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valuation Area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PriceUnit_PEINH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ckmlcr.PEINH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Price Unit",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostingPeriod",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ckmlcr.POPER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Posting Period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYear",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ckmlcr.BDATJ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PriceControlIndicator_VPRSV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ckmlcr.VPRSV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Price Control Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StandardCost_STPRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ckmlcr.STPRS",
+                        "currency_decimal.CURRFIX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(ckmlcr.STPRS * currency_decimal.CURRFIX, ckmlcr.STPRS)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Standard Cost, adjusted for currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValueOfTotalValuatedStock_SALK3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ckmlcr.SALK3",
+                        "currency_decimal.CURRFIX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(ckmlcr.SALK3 * currency_decimal.CURRFIX, ckmlcr.SALK3)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Value of Total Valuated Stock, adjusted for currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MovingAveragePrice",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ckmlcr.PVPRS",
+                        "currency_decimal.CURRFIX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(ckmlcr.PVPRS * currency_decimal.CURRFIX, ckmlcr.PVPRS)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Moving Average Price, adjusted for currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t001.WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "ckmlhd",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "aecorsoft-prj-dev.CDC_S4.ckmlhd",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "ckmlhd.mandt = ckmlcr.mandt",
+                    "ckmlhd.kalnr = ckmlcr.kalnr"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "t001k",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "aecorsoft-prj-dev.CDC_S4.ckmlcr",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "ckmlhd.MANDT = t001k.MANDT",
+                    "ckmlhd.BWKEY = t001k.BWKEY"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "t001",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "aecorsoft-prj-dev.CDC_S4.t001k",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "t001.MANDT = t001k.MANDT",
+                    "t001.BUKRS = t001k.BUKRS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "currency_decimal",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "cortex-prj-dev.REPORTING.currency_decimal",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "t001.WAERS = currency_decimal.CURRKEY"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

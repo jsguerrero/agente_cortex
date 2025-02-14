@@ -1,0 +1,1835 @@
+{
+    "schema": {
+        "object_name": "s4_SalesOrderScheduleLine.sql",
+        "object_type": "view",
+        "description": "This view provides a detailed breakdown of sales order schedule lines, enriched with calendar date dimensions.  It offers a granular view of each schedule line, including order quantities, confirmed quantities, dates, and various status indicators. The data is at the sales order schedule line level.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.vbep",
+            "K9_PROCESSING.calendar_date_dim"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesDocument_VBELN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.VBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Document Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesDocumentItem_POSNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.POSNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Document Item Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ScheduleLineNumber_ETENR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.ETENR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Schedule Line Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ScheduleLineCategory_ETTYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.ETTYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Schedule Line Category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemRelevantforDelivery_LFREL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.LFREL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item Relevant for Delivery",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ScheduleLineDate_EDATU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.EDATU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Schedule Line Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ArrivalTime_EZEIT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.EZEIT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Arrival Time",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OrderQuantityInSalesUnits_WMENG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.WMENG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Order Quantity in Sales Units",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConfirmedQuantity_BMENG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.BMENG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Confirmed Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesUnit_VRKME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.VRKME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales Unit",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RequiredQuantityForMatManagementInStockkeepingUnits_LMENG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.LMENG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Required Quantity for Material Management in Stockkeeping Units",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BaseUnitOfMeasure_MEINS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.MEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Base Unit of Measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RequirementDate_BDDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.BDDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Requirement Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RequirementType_BDART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.BDART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Requirement Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PlanningType_PLART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.PLART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Planning Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessDocumentNumber_VBELE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.VBELE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Document Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessItemNumber_POSNE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.POSNE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Item Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ScheduleLine_ETENE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.ETENE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Schedule Line",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "EarliestPossibleReservationDate_RSDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.RSDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Earliest Possible Reservation Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaintenanceRequest_IDNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.IDNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Maintenance Request",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchaseRequisitionNumber_BANFN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.BANFN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchase Requisition Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OrderType_BSART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.BSART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Order Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingDocumentCategory_BSTYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.BSTYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Document Category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConfirmationStatusOfScheduleLine_WEPOS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.WEPOS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Confirmation Status of Schedule Line",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "InvoiceReceiptIndicator_REPOS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.REPOS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Invoice Receipt Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReturnDateForReturnablePackaging_LRGDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.LRGDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Return Date for Returnable Packaging",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateType_PRGRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.PRGRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TransportationPlanningDate_TDDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.TDDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Transportation Planning Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialAvailabilityDate_MBDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.MBDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Availability Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LoadingDate_LDDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.LDDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Loading Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GoodsIssueDate_WADAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.WADAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Goods Issue Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CorrectedQuantityInSalesUnit_CMENG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.CMENG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Corrected Quantity in Sales Unit",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ScheduleLineBlockedForDelivery_LIFSP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.LIFSP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Schedule Line Blocked for Delivery",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GroupDefinitionOfStructureData_GRSTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.GRSTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Group Definition of Structure Data",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RelType_ABART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.ABART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Relationship Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ForecastDeliveryScheduleNumber_ABRUF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.ABRUF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Forecast Delivery Schedule Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CommittedQuantity_ROMS1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.ROMS1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Committed Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Size2_ROMS2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.ROMS2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Size 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Size3_ROMS3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.ROMS3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Size 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UnitOfMeasureForSizes1to3_ROMEI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.ROMEI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Unit of Measure for Sizes 1 to 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FormulaKey_RFORM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.RFORM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Formula Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumeratorForConversionOfSalesQuantityIntoSKU_UMVKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.UMVKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Numerator for Conversion of Sales Quantity into SKU",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DenominatorForConversionOfSalesQtyIntoSKU_UMVKN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.UMVKN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Denominator for Conversion of Sales Qty into SKU",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AvailabilityConfirmedAutomatically_VERFP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.VERFP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Availability Confirmed Automatically",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MovementType_BWART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.BWART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Movement Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemNumberOfPurchaseRequisition_BNFPO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.BNFPO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item Number of Purchase Requisition",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ScheduleLineTypeEDI_ETART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.ETART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Schedule Line Type EDI",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OrderNumber_AUFNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.AUFNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Order Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PlannedOrderNumber_PLNUM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.PLNUM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Planned Order Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BOMExplosionNumber_SERNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.SERNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "BOM Explosion Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerEngineeringChangeStatus_AESKD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.AESKD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer Engineering Change Status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Guaranteed_ABGES",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.ABGES"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Guaranteed",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialStagingTime_MBUHR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.MBUHR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Staging Time",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TranspPlanningTime_TDUHR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.TDUHR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Transportation Planning Time",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LoadingTime_LDUHR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.LDUHR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Loading Time",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TimeOfGoodsIssue_WAUHR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.WAUHR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Time of Goods Issue",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RouteSchedule_AULWE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.AULWE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Route Schedule",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HandoverDateAtTheHandoverLocation_HANDOVERDATE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.HANDOVERDATE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Handover Date at the Handover Location",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HandoverTimeAtTheHandoverLocation_HANDOVERTIME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.HANDOVERTIME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Handover Time at the Handover Location",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryDateRule_DELIVERY_DATE_TYPE_RULE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.DELIVERY_DATE_TYPE_RULE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Date Rule",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveredQuantity_DLVQTY_BU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.DLVQTY_BU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivered Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveredQuantity_DLVQTY_SU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.DLVQTY_SU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivered Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OpenConfirmedDeliveryQuantity_OCDQTY_BU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.OCDQTY_BU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Open Confirmed Delivery Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OpenConfirmedDeliveryQuantity_OCDQTY_SU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.OCDQTY_SU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Open Confirmed Delivery Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OpenRequestedDeliveryQuantity_ORDQTY_BU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.ORDQTY_BU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Open Requested Delivery Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OpenRequestedDeliveryQuantity_ORDQTY_SU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.ORDQTY_SU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Open Requested Delivery Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryCreationDate_CREA_DLVDATE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.CREA_DLVDATE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Creation Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ScheduleLineDate_REQ_DLVDATE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.REQ_DLVDATE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Schedule Line Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RequirementsClass_BEDAR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.BEDAR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Requirements Class",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DataFilterValueForDataAging_DATAAGING",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.DATAAGING"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Data Filter Value for Data Aging",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SDDocumentCurrency_WAERK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.WAERK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "SD Document Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OpenDeliveryNetAmount_ODN_AMOUNT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.ODN_AMOUNT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Open Delivery Net Amount",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GUIDInRAWFormat_HANDLE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.HANDLE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "GUID in RAW Format",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LegalControlCheckStatus_LCCST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.LCCST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Legal Control Check Status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RequestedRequirementQuantityInBaseUnit_RRQQTY_BU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.RRQQTY_BU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Requested Requirement Quantity in Base Unit",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConfirmedRequirementQuantityInBaseUnit_CRQQTY_BU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.CRQQTY_BU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Confirmed Requirement Quantity in Base Unit",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DummyFunctionInLength1_DUMMY_SLSDOCSCHEDL_INCL_EEW_PS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.DUMMY_SLSDOCSCHEDL_INCL_EEW_PS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Dummy Function in Length 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ARunRequirementAllocatedQuantity_FSH_RALLOC_QTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.FSH_RALLOC_QTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "A Run Requirement Allocated Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OrderSchedulingGroupID_FSH_OS_ID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.FSH_OS_ID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Order Scheduling Group ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RejectionCodeForPartialQuantityRejection_FSH_PQR_RC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.FSH_PQR_RC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rejection Code for Partial Quantity Rejection",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialAvailabilityDateThirdPartyOrderPlanning_MBDAT_DRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbep.MBDAT_DRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Availability Date Third Party Order Planning",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "YearOfChangeDate_EDATU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_EDATU.CalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Year of Change Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MonthOfChangeDate_EDATU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_EDATU.CalMonth"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Month of Change Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WeekOfChangeDate_EDATU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_EDATU.CalWeek"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Week of Change Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuarterOfChangeDate_EDATU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_EDATU.CalQuarter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quarter of Change Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.vbep` AS vbep",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "CalendarDateDimension_EDATU.Date = vbep.EDATU"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

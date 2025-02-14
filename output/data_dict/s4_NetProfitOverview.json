@@ -1,0 +1,503 @@
+{
+    "schema": {
+        "object_name": "s4_NetProfitOverview.sql",
+        "object_type": "view",
+        "description": "Net profit overview at the Client, Company, ChartOfAccounts, HierarchyName, BusinessArea, ProfitCenter, LedgerInGeneralLedgerAccounting, FiscalYear, FiscalPeriod, and TargetCurrency level.  Calculates net profit by subtracting expenses and adding other income to gross profit.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.ProfitAndLoss",
+            "REPORTING.GrossProfitOverview"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.Client"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client identifier",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.CompanyCode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYear",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.FiscalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalPeriod",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.FiscalPeriod"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalQuarter",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.FiscalQuarter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal quarter",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChartOfAccounts",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.ChartOfAccounts"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Chart of accounts",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GLHierarchy",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.GLHierarchy"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "General ledger hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessArea",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.BusinessArea"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LedgerInGeneralLedgerAccounting",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.LedgerInGeneralLedgerAccounting"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ledger in general ledger accounting",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProfitCenter",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.ProfitCenter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Profit center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyText",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.CompanyText"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInLocalCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.AmountInLocalCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Amount in local currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CumulativeAmountInLocalCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.CumulativeAmountInLocalCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cumulative amount in local currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.CurrencyKey"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.AmountInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Amount in target currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CumulativeAmountInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.CumulativeAmountInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cumulative amount in target currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TargetCurrency_TCURR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.TargetCurrency_TCURR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GrossProfitInLocalCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.GrossProfitInLocalCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Gross profit in local currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GrossProfitInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.GrossProfitInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Gross profit in target currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NetProfitInLocalCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.GrossProfitInLocalCurrency",
+                        "Expenses.AmountInLocalCurrency",
+                        "OtherIncome.AmountInLocalCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "GrossProfit.GrossProfitInLocalCurrency - Expenses.AmountInLocalCurrency + OtherIncome.AmountInLocalCurrency",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Net profit in local currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NetProfitInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "GrossProfit.GrossProfitInTargetCurrency",
+                        "Expenses.AmountInTargetCurrency",
+                        "OtherIncome.AmountInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "GrossProfit.GrossProfitInTargetCurrency - Expenses.AmountInTargetCurrency + OtherIncome.AmountInTargetCurrency",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Net profit in target currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "Expenses",
+                "join_type": "INNER",
+                "tabla_base": "GrossProfit",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "Expenses.Client = GrossProfit.CLient",
+                    "Expenses.CompanyCode = GrossProfit.CompanyCode",
+                    "Expenses.FiscalYear = GrossProfit.FiscalYear",
+                    "Expenses.FiscalPeriod = GrossProfit.FiscalPeriod",
+                    "Expenses.ChartOfAccounts = GrossProfit.ChartOfAccounts",
+                    "Expenses.GLHierarchy = GrossProfit.GLHierarchy",
+                    "Expenses.BusinessArea = GrossProfit.BusinessArea",
+                    "Expenses.LedgerInGeneralLedgerAccounting = GrossProfit.LedgerInGeneralLedgerAccounting",
+                    "Expenses.ProfitCenter = GrossProfit.ProfitCenter",
+                    "Expenses.TargetCurrency_TCURR = GrossProfit.TargetCurrency_TCURR"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "OtherIncome",
+                "join_type": "INNER",
+                "tabla_base": "GrossProfit",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "OtherIncome.Client = GrossProfit.CLient",
+                    "OtherIncome.CompanyCode = GrossProfit.CompanyCode",
+                    "OtherIncome.FiscalYear = GrossProfit.FiscalYear",
+                    "OtherIncome.FiscalPeriod = GrossProfit.FiscalPeriod",
+                    "OtherIncome.ChartOfAccounts = GrossProfit.ChartOfAccounts",
+                    "OtherIncome.GLHierarchy = GrossProfit.GLHierarchy",
+                    "OtherIncome.BusinessArea = GrossProfit.BusinessArea",
+                    "OtherIncome.LedgerInGeneralLedgerAccounting = GrossProfit.LedgerInGeneralLedgerAccounting",
+                    "OtherIncome.ProfitCenter = GrossProfit.ProfitCenter",
+                    "OtherIncome.TargetCurrency_TCURR = GrossProfit.TargetCurrency_TCURR"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

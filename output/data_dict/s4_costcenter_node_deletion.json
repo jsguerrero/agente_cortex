@@ -1,0 +1,15 @@
+{
+    "schema": {
+        "object_name": "s4_costcenter_node_deletion.sql",
+        "object_type": "function",
+        "description": "This stored procedure deletes a cost center hierarchy node and its children from the costcenter_flattened table.  It uses a recursive approach to identify all child nodes.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.costcenter_flattened"
+        ],
+        "columns": [],
+        "is_valid": null,
+        "joins": []
+    }
+}

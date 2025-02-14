@@ -1,0 +1,194 @@
+{
+    "schema": {
+        "object_name": "s4_profitcenter_hierarchy.sql",
+        "object_type": "table",
+        "description": "Flattened representation of the profit center hierarchy.  Combines data from sethanahier0106 and cepc tables to provide a single table with leaf and non-leaf nodes.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.sethanahier0106",
+            "aecorsoft-prj-dev.CDC_S4.cepc"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "mandt",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.sethanahier0106.mandt"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "setclass",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.sethanahier0106.setclass"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Set class",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "subclass",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.sethanahier0106.subclass"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Subclass",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "hiername",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.sethanahier0106.hierbase"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "node",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.sethanahier0106.succ",
+                        "aecorsoft-prj-dev.CDC_S4.cepc.prctr"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CAST(succ AS STRING)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Profit center node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "parent",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.sethanahier0106.pred"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CAST(pred AS STRING)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Parent node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "level",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.sethanahier0106.hlevel"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "isleafnode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicates if the node is a leaf node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "CROSS JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.sethanahier0106`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [],
+                "rules": []
+            }
+        ]
+    }
+}

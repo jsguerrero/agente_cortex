@@ -1,0 +1,119 @@
+{
+    "schema": {
+        "object_name": "s4_MaterialTypesMD.sql",
+        "object_type": "view",
+        "description": "Material Type master data from SAP S4HANA.  Provides a description for each material type.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.t134",
+            "CDC_S4.t134t"
+        ],
+        "columns": [
+            {
+                "name": "Client_MANDT",
+                "dependencies": [
+                    "T134.MANDT"
+                ],
+                "formula": null,
+                "description": "Client",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MaterialType_MTART",
+                "dependencies": [
+                    "T134.MTART"
+                ],
+                "formula": null,
+                "description": "Material Type",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ReferenceMaterialType_MTREF",
+                "dependencies": [
+                    "T134.MTREF"
+                ],
+                "formula": null,
+                "description": "Reference Material Type",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ScreenReferenceDependingOnTheMaterialType_MBREF",
+                "dependencies": [
+                    "T134.MBREF"
+                ],
+                "formula": null,
+                "description": "Screen Reference Depending On The Material Type",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "LanguageKey_SPRAS",
+                "dependencies": [
+                    "T134T.SPRAS"
+                ],
+                "formula": null,
+                "description": "Language Key",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DescriptionOfMaterialType_MTBEZ",
+                "dependencies": [
+                    "T134T.MTBEZ"
+                ],
+                "formula": null,
+                "description": "Description Of Material Type",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.t134`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "T134.MANDT = T134T.MANDT",
+                    "T134.MTART = T134T.MTART"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

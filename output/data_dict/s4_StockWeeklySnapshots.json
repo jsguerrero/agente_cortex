@@ -1,0 +1,457 @@
+{
+    "schema": {
+        "object_name": "s4_StockWeeklySnapshots.sql",
+        "object_type": "view",
+        "description": "Weekly stock snapshots with company details and fiscal information. Data is at the material, plant, batch, and week level.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.stock_weekly_snapshots",
+            "REPORTING.CompaniesMD",
+            "REPORTING.fiscal_date_dim",
+            "REPORTING.currency_decimal"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "StockWeeklySnapshots.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialNumber_MATNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "StockWeeklySnapshots.MATNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_WERKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "StockWeeklySnapshots.WERKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BatchNumber_CHARG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "StockWeeklySnapshots.CHARG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Batch Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StorageLocation_LGORT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "StockWeeklySnapshots.LGORT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Storage Location",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCode_BUKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "StockWeeklySnapshots.BUKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyText_BUTXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CompaniesMD.CompanyText_BUTXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYear",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FiscalDateDimension_WEEKENDDATE.FiscalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalPeriod",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FiscalDateDimension_WEEKENDDATE.FiscalPeriod"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CalYear",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "StockWeeklySnapshots.cal_year"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Calendar Year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CalWeek",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "StockWeeklySnapshots.cal_week"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Calendar Week",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WeekEndDate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "StockWeeklySnapshots.week_end_date"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Week End Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BaseUnitOfMeasure_MEINS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "StockWeeklySnapshots.MEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Base Unit of Measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "StockWeeklySnapshots.WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalWeeklyMovementQuantity",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "StockWeeklySnapshots.total_weekly_movement_quantity"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Weekly Movement Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuantityWeeklyCumulative",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "StockWeeklySnapshots.quantity_weekly_cumulative"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quantity Weekly Cumulative",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalWeeklyMovementAmount",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "StockWeeklySnapshots.total_weekly_movement_amount",
+                        "currency_decimal.CURRFIX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(StockWeeklySnapshots.total_weekly_movement_amount * currency_decimal.CURRFIX, StockWeeklySnapshots.total_weekly_movement_amount)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Weekly Movement Amount in local currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountWeeklyCumulative",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "StockWeeklySnapshots.amount_weekly_cumulative",
+                        "currency_decimal.CURRFIX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(StockWeeklySnapshots.amount_weekly_cumulative * currency_decimal.CURRFIX, StockWeeklySnapshots.amount_weekly_cumulative)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Amount Weekly Cumulative in local currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StockCharacteristic",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "StockWeeklySnapshots.stock_characteristic"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Stock Characteristic",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "CompaniesMD",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "StockWeeklySnapshots",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "StockWeeklySnapshots.MANDT = CompaniesMD.Client_MANDT",
+                    "StockWeeklySnapshots.BUKRS = CompaniesMD.CompanyCode_BUKRS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "FiscalDateDimension_WEEKENDDATE",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "StockWeeklySnapshots",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "StockWeeklySnapshots.MANDT = FiscalDateDimension_WEEKENDDATE.MANDT",
+                    "CompaniesMD.FiscalyearVariant_PERIV = FiscalDateDimension_WEEKENDDATE.PERIV",
+                    "StockWeeklySnapshots.WEEK_END_DATE = FiscalDateDimension_WEEKENDDATE.DATE"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "currency_decimal",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "StockWeeklySnapshots",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "StockWeeklySnapshots.WAERS = currency_decimal.CURRKEY"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

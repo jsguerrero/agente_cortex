@@ -1,0 +1,1664 @@
+{
+    "schema": {
+        "object_name": "s4_PricingConditions.sql",
+        "object_type": "view",
+        "description": "This view provides pricing condition details from the prcd_elements table, enriched with calendar date dimensions and currency information.  It offers a granular view of each pricing condition, including its attributes, associated accounts, and relevant dates.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "prcd_elements",
+            "currency_decimal",
+            "calendar_date_dim"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.CLIENT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfTheDocumentCondition_KNUMV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KNUMV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of the document condition",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionItemNumber_KPOSN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KPOSN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition item number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StepNumber_STUNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.STUNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Step number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionCounter_ZAEHK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.ZAEHK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition counter",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Application_KAPPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KAPPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Application",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionType_KSCHL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KSCHL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CalculationTypeForCondition_KRECH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KRECH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Calculation type for condition",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Checkbox_KAWRT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KAWRT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Checkbox",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionAmountOrPercentage_KBETR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KBETR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition amount or percentage",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionExchangeRateForConversionToLocalCurrency_KKURS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition exchange rate for conversion to local currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionPricingUnit_KPEIN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KPEIN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition pricing unit",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionUnitInTheDocument_KMEIN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KMEIN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition unit in the document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumeratorForConvertingConditionUnitsToBaseUnits_KUMZA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KUMZA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Numerator for converting condition units to base units",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DenominatorForConvertingConditionUnitsToBaseUnits_KUMNE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KUMNE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Denominator for converting condition units to base units",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionCategory_KNTYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KNTYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionIsUsedForStatistics_KSTAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KSTAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition is used for statistics",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ScaleType_KNPRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KNPRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Scale type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionIsRelevantForAccrual_KRUEK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KRUEK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition is relevant for accrual",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionForInvoiceList_KRELI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KRELI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition for invoice list",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OriginOfTheCondition_KHERK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KHERK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Origin of the condition",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GroupCondition_KGRPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KGRPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Group condition",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionUpdate_KOUPD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KOUPD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition update",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccessSequenceAccessNumber_KOLNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KOLNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Access sequence access number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfConditionRecordFromBatchDetermination_KNUMH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KNUMH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of condition record from batch determination",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SequentialNumberOfTheCondition_KOPOS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KOPOS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sequential number of the condition",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountKey_KVSL1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KVSL1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Account key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GLAccountNumber_SAKN1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.SAKN1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "GL account number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxOnSalesPurchasesCode_MWSK1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.MWSK1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax on sales/purchases code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountKeyAccrualsProvisions_KVSL2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KVSL2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Account key accruals/provisions",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GLAccountNumber_SAKN2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.SAKN2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "GL account number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WithholdingTaxCode_MWSK2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.MWSK2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Withholding tax code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountNumberOfVendorORCreditor_LIFNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.LIFNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Account number of vendor/creditor",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CustomerNumber_KUNNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KUNNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Customer number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RoundingOffDifferenceOfTheCondition_KDIFF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KDIFF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Rounding off difference of the condition",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionControl_KSTEU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KSTEU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition control",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionIsInactive_KINAK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KINAK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition is inactive",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionClass_KOAID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KOAID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition class",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionCounter_ZAEKO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.ZAEKO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition counter",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndicatorForMaximumConditionBaseValue_KMXAW",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KMXAW"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator for maximum condition base value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndicatorForMaximumConditionAmount_KMXWR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KMXWR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator for maximum condition amount",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FactorForConditionBaseValue_KFAKTOR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KFAKTOR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Factor for condition base value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StructureCondition_KDUPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KDUPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Structure condition",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FactorForConditionBasis_KFAKTOR1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KFAKTOR1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Factor for condition basis",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ScaleBasisIndicator_KZBZG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KZBZG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Scale basis indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ScaleBaseValueOfTheCondition_KSTBS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KSTBS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Scale base value of the condition",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionScaleUnitOfMeasure_KONMS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KONMS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition scale unit of measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ScaleCurrency_KONWS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KONWS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Scale currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UpdatedInformationInRelatedUserDataField_KAWRT_K",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KAWRT_K"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Updated information in related user data field",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionCurrency_KWAEH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KWAEH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionValue_KWERT_K",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KWERT_K"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionForIntercompanyBilling_KFKIV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KFKIV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition for intercompany billing",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VariantCond_KVARC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KVARC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Variant condition",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionChangedManually_KMPRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KMPRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition changed manually",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PriceSource_PRSQU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.PRSQU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Price source",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VariantCondition_VARCOND",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.VARCOND"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Variant condition",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RelevanceForAccountAssignment_KTREL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KTREL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Relevance for account assignment",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndicatorMatrixMaintenance_MDFLG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.MDFLG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator matrix maintenance",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxJurisdictionCodeLevel_TXJLV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.TXJLV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax jurisdiction code level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BitEncryptedFlagsInPricing_KBFLAG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KBFLAG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Bit encrypted flags in pricing",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IdentifierOfCPFFormulaInDocument_CPF_GUID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.CPF_GUID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Identifier of CPF formula in document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AdjustedQuantity_KAQTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KAQTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Adjusted quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "YearOfChangeDate_KDATU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_KDATU.CalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Year of change date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MonthOfChangeDate_KDATU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_KDATU.CalMonth"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Month of change date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WeekOfChangeDate_KDATU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_KDATU.CalWeek"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Week of change date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuarterOfChangeDate_KDATU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_KDATU.CalQuarter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quarter of change date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Checkbox_KDATU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KDATU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "PARSE_DATE('%Y%m%d', SUBSTRING(prcd_elements.KDATU, 1, 8))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Change date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Level_STUFE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CAST(NULL AS NUMERIC)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Path_WEGXX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CAST(NULL AS NUMERIC)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Path",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccessSequenceAccessNumber_KOLNR3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CAST(NULL AS STRING)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Access sequence access number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProcessConditionsWithValueEqualToZero_VAL_ZERO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.VAL_ZERO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Process conditions with value equal to zero",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatisticalAndRelevantForAccountDetermination_IS_ACCT_DETN_RELEVANT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.IS_ACCT_DETN_RELEVANT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Statistical and relevant for account determination",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxReportingCountry_TAX_COUNTRY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.TAX_COUNTRY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax reporting country",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SDDocumentCurrency_WAERK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.WAERK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "SD document currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DataFilterValueForDataAging_DATAAGING",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.DATAAGING"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Data filter value for data aging",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(prcd_elements.WAERS, '')",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConditionValue_KWERT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "prcd_elements.KWERT",
+                        "currency_decimal.CURRFIX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(prcd_elements.KWERT * currency_decimal.CURRFIX, prcd_elements.KWERT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Condition value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.prcd_elements` AS prcd_elements",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "COALESCE(prcd_elements.WAERS, '') = currency_decimal.CURRKEY"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`cortex-prj-dev.REPORTING.currency_decimal` AS currency_decimal",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "COALESCE(prcd_elements.WAERS, '') = currency_decimal.CURRKEY"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.K9_PROCESSING.calendar_date_dim` AS CalendarDateDimension_KDATU",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "CalendarDateDimension_KDATU.Date = PARSE_DATE('%Y%m%d', SUBSTRING(prcd_elements.KDATU, 1, 8))"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

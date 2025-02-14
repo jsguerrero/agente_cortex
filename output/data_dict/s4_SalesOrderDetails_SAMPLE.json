@@ -1,0 +1,632 @@
+{
+    "schema": {
+        "object_name": "s4_SalesOrderDetails_SAMPLE.sql",
+        "object_type": "view",
+        "description": "This view provides a detailed overview of sales order information, including order status, delivery details, and financial data.  It aggregates data at the sales order line item level.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "SalesOrders_V2",
+            "Deliveries",
+            "Billing",
+            "CustomersMD",
+            "MaterialsMD",
+            "SalesOrganizationsMD",
+            "DistributionChannelsMD",
+            "DivisionsMD",
+            "CountriesMD",
+            "CurrencyConversion"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Country",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CountriesMD.CountryName_LANDX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country of the customer",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CreationDate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.CreationDate_ERDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Creation date of the sales order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DistributionChannel",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "DistributionChannelMD.DistributionChannelName_VTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Distribution channel of the sales order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrganization",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrganizationsMD.SalesOrgName_VTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales organization of the sales order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Division",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "DivisionsMD.DivisionName_VTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Division of the material",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Product",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "MaterialsMD.MaterialText_MAKTX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Description of the product",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrencyConversion.ToCurrency_TCURR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target currency for conversion",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Customer",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CustomersMD.Name1_NAME1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name of the customer",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrder",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.SalesDocument_VBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales order number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrderLineItem",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.Item_POSNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales order line item number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReqDeliveryDate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.DeliveryDate_LFDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Requested delivery date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ActualDeliveryDate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.Date__proofOfDelivery___PODAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Actual delivery date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BaseUom",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.BaseUnitofMeasure_MEINS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Base unit of measure",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LocalCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.Currency_WAERK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Local currency of the sales order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrderNetValueLocalCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.NetValueOfTheSalesOrderInDocumentCurrency_NETWR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Net value of the sales order in local currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrderQty",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.CumulativeOrderQuantity_KWMENG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales order quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrderValueLocalCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.SalesOrderValueLineItemSourceCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales order value in local currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrderNetValueTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.NetValueOfTheSalesOrderInDocumentCurrency_NETWR",
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SalesOrders.NetValueOfTheSalesOrderInDocumentCurrency_NETWR * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Net value of the sales order in target currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SalesOrderValueTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.SalesOrderValueLineItemSourceCurrency",
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SalesOrders.SalesOrderValueLineItemSourceCurrency * CurrencyConversion.ExchangeRate_UKURS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales order value in target currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OrderStatus",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.RejectionReason_ABGRU",
+                        "Deliveries.ActualQuantityDelivered_InSalesUnits_LFIMG",
+                        "SalesOrders.CumulativeOrderQuantity_KWMENG",
+                        "Billing.ActualBilledQuantity_FKIMG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(SalesOrders.RejectionReason_ABGRU IS NOT NULL,'Canceled',IF(Deliveries.ActualQuantityDelivered_InSalesUnits_LFIMG = SalesOrders.CumulativeOrderQuantity_KWMENG AND SalesOrders.CumulativeOrderQuantity_KWMENG = Billing.ActualBilledQuantity_FKIMG,'Closed','Open'))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Status of the sales order (Open, Closed, or Canceled)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IsOrderBlocked",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Deliveries.DeliveryBlock_documentHeader_LIFSK",
+                        "Deliveries.BillingBlockInSdDocument_FAKSK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "(Deliveries.DeliveryBlock_documentHeader_LIFSK IS NOT NULL OR Deliveries.BillingBlockInSdDocument_FAKSK IS NOT NULL)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicates if the order is blocked",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IsIncomingOrder",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "SalesOrders.DocumentCategory_VBTYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SalesOrders.DocumentCategory_VBTYP = 'C'",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicates if the order is an incoming order",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExchangeRate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CurrencyConversion.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SAFE_DIVIDE(1, CurrencyConversion.ExchangeRate_UKURS)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Exchange rate",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "Deliveries",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "SalesOrders",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "SalesOrders.SalesDocument_VBELN = Deliveries.SalesOrderNumber_VGBEL",
+                    "SalesOrders.Item_POSNR = Deliveries.SalesOrderItem_VGPOS",
+                    "SalesOrders.Client_MANDT = Deliveries.Client_MANDT"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "Billing",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "SalesOrders",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "SalesOrders.SalesDocument_VBELN = Billing.SalesDocument_AUBEL",
+                    "SalesOrders.Item_POSNR = Billing.SalesDocumentItem_AUPOS",
+                    "SalesOrders.Client_MANDT = Billing.Client_MANDT"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "CustomersMD",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "SalesOrders",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "SalesOrders.SoldtoParty_KUNNR = CustomersMD.CustomerNumber_KUNNR",
+                    "SalesOrders.Client_MANDT = CustomersMD.Client_MANDT"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "MaterialsMD",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "SalesOrders",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "SalesOrders.MaterialNumber_MATNR = MaterialsMD.MaterialNumber_MATNR",
+                    "SalesOrders.Client_MANDT = MaterialsMD.Client_MANDT"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "SalesOrganizationsMD",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "SalesOrders",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "SalesOrders.Client_MANDT = SalesOrganizationsMD.Client_MANDT",
+                    "SalesOrders.SalesOrganization_VKORG = SalesOrganizationsMD.SalesOrg_VKORG",
+                    "SalesOrganizationsMD.Language_SPRAS = MaterialsMD.Language_SPRAS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "DistributionChannelMD",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "SalesOrders",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "SalesOrders.Client_MANDT = DistributionChannelMD.Client_MANDT",
+                    "SalesOrders.DistributionChannel_VTWEG = DistributionChannelMD.DistributionChannel_VTWEG",
+                    "DistributionChannelMD.Language_SPRAS = MaterialsMD.Language_SPRAS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "DivisionsMD",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "MaterialsMD",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "MaterialsMD.Client_MANDT = DivisionsMD.Client_MANDT",
+                    "MaterialsMD.Division_SPART = DivisionsMD.Division_SPART",
+                    "DivisionsMD.LanguageKey_SPRAS = MaterialsMD.Language_SPRAS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "CountriesMD",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "SalesOrders",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "SalesOrders.Client_MANDT = CountriesMD.Client_MANDT",
+                    "CustomersMD.CountryKey_LAND1 = CountriesMD.CountryKey_LAND1",
+                    "CountriesMD.Language_SPRAS = MaterialsMD.Language_SPRAS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "CurrencyConversion",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "SalesOrders",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "SalesOrders.Client_MANDT = CurrencyConversion.Client_MANDT",
+                    "SalesOrders.CurrencyHdr_WAERK = CurrencyConversion.FromCurrency_FCURR",
+                    "SalesOrders.DocumentDate_AUDAT = CurrencyConversion.ConvDate",
+                    "CurrencyConversion.ToCurrency_TCURR IN UNNEST(['USD', 'EUR', 'GBP', 'JPY'])",
+                    "CurrencyConversion.ExchangeRateType_KURST = 'M'"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

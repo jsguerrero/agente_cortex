@@ -1,0 +1,606 @@
+{
+    "schema": {
+        "object_name": "s4_StockMonthlySnapshots.sql",
+        "object_type": "view",
+        "description": "This view aggregates monthly stock snapshots, providing summarized data at the level of Client, Material, Plant, Storage Location, Company Code, and Calendar Year/Month.  It calculates key metrics such as total quantity and value of stock on hand, quantity issued to delivery, and total consumption quantity.",
+        "source": "cortex_framework",
+        "group_by": [
+            "StockMonthlySnapshots.Client_MANDT",
+            "StockMonthlySnapshots.MaterialNumber_MATNR",
+            "StockMonthlySnapshots.MaterialType_MTART",
+            "StockMonthlySnapshots.DescriptionOfMaterialType_MTBEZ",
+            "StockMonthlySnapshots.MaterialText_MAKTX",
+            "StockMonthlySnapshots.MaterialGroup_MATKL",
+            "StockMonthlySnapshots.MaterialGroupName_WGBEZ",
+            "StockMonthlySnapshots.Plant_WERKS",
+            "StockMonthlySnapshots.Plant_Name2_NAME2",
+            "StockMonthlySnapshots.StorageLocation_LGORT",
+            "StockMonthlySnapshots.StorageLocationText_LGOBE",
+            "StockMonthlySnapshots.LanguageKey_SPRAS",
+            "StockMonthlySnapshots.BatchNumber_CHARG",
+            "StockMonthlySnapshots.CompanyCode_BUKRS",
+            "StockMonthlySnapshots.CompanyText_BUTXT",
+            "StockMonthlySnapshots.CountryKey_LAND1",
+            "StockMonthlySnapshots.StockCharacteristic",
+            "StockMonthlySnapshots.FiscalYear",
+            "StockMonthlySnapshots.FiscalPeriod",
+            "StockMonthlySnapshots.CalYear",
+            "StockMonthlySnapshots.CalMonth",
+            "StockMonthlySnapshots.MonthEndDate",
+            "StockMonthlySnapshots.BaseUnitOfMeasure_MEINS",
+            "StockMonthlySnapshots.CurrencyKey_WAERS"
+        ],
+        "dependencies": [
+            "REPORTING.stock_monthly_snapshots",
+            "REPORTING.StockCharacteristicsConfig",
+            "REPORTING.currency_decimal",
+            "REPORTING.StorageLocationsMD",
+            "REPORTING.CompaniesMD",
+            "REPORTING.fiscal_date_dim",
+            "REPORTING.PlantsMD",
+            "REPORTING.Languages_T002",
+            "REPORTING.MaterialsMD",
+            "REPORTING.MaterialTypesMD",
+            "REPORTING.MaterialGroupsMD"
+        ],
+        "columns": [
+            {
+                "name": "Client_MANDT",
+                "dependencies": [
+                    "StockMonthlySnapshots.MANDT"
+                ],
+                "formula": null,
+                "description": "Client",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MaterialNumber_MATNR",
+                "dependencies": [
+                    "StockMonthlySnapshots.MATNR"
+                ],
+                "formula": null,
+                "description": "Material Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MaterialType_MTART",
+                "dependencies": [
+                    "MaterialsMD.MaterialType_MTART"
+                ],
+                "formula": null,
+                "description": "Material Type",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DescriptionOfMaterialType_MTBEZ",
+                "dependencies": [
+                    "MaterialTypesMD.DescriptionOfMaterialType_MTBEZ"
+                ],
+                "formula": null,
+                "description": "Description of Material Type",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MaterialText_MAKTX",
+                "dependencies": [
+                    "MaterialsMD.MaterialText_MAKTX"
+                ],
+                "formula": null,
+                "description": "Material Text",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MaterialGroup_MATKL",
+                "dependencies": [
+                    "MaterialsMD.MaterialGroup_MATKL"
+                ],
+                "formula": null,
+                "description": "Material Group",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MaterialGroupName_WGBEZ",
+                "dependencies": [
+                    "MaterialGroupsMD.MaterialGroupName_WGBEZ"
+                ],
+                "formula": null,
+                "description": "Material Group Name",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Plant_WERKS",
+                "dependencies": [
+                    "StockMonthlySnapshots.WERKS"
+                ],
+                "formula": null,
+                "description": "Plant",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Plant_Name2_NAME2",
+                "dependencies": [
+                    "PlantsMD.Name2_NAME2"
+                ],
+                "formula": null,
+                "description": "Plant Name",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "StorageLocation_LGORT",
+                "dependencies": [
+                    "StockMonthlySnapshots.LGORT"
+                ],
+                "formula": null,
+                "description": "Storage Location",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "StorageLocationText_LGOBE",
+                "dependencies": [
+                    "StorageLocationsMD.StorageLocationText_LGOBE"
+                ],
+                "formula": null,
+                "description": "Storage Location Text",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BatchNumber_CHARG",
+                "dependencies": [
+                    "StockMonthlySnapshots.CHARG"
+                ],
+                "formula": null,
+                "description": "Batch Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CompanyCode_BUKRS",
+                "dependencies": [
+                    "StockMonthlySnapshots.BUKRS"
+                ],
+                "formula": null,
+                "description": "Company Code",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CompanyText_BUTXT",
+                "dependencies": [
+                    "CompaniesMD.CompanyText_BUTXT"
+                ],
+                "formula": null,
+                "description": "Company Text",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CountryKey_LAND1",
+                "dependencies": [
+                    "PlantsMD.CountryKey_LAND1"
+                ],
+                "formula": null,
+                "description": "Country Key",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "LanguageKey_SPRAS",
+                "dependencies": [
+                    "LanguageKey.LanguageKey_SPRAS"
+                ],
+                "formula": null,
+                "description": "Language Key",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "BaseUnitOfMeasure_MEINS",
+                "dependencies": [
+                    "StockMonthlySnapshots.MEINS"
+                ],
+                "formula": null,
+                "description": "Base Unit of Measure",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "StockCharacteristic",
+                "dependencies": [
+                    "StockCharacteristicsConfig.StockCharacteristic"
+                ],
+                "formula": null,
+                "description": "Stock Characteristic",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CurrencyKey_WAERS",
+                "dependencies": [
+                    "StockMonthlySnapshots.WAERS"
+                ],
+                "formula": null,
+                "description": "Currency Key",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalYear",
+                "dependencies": [
+                    "FiscalDateDimension_MONTHENDDATE.FiscalYear"
+                ],
+                "formula": null,
+                "description": "Fiscal Year",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalPeriod",
+                "dependencies": [
+                    "FiscalDateDimension_MONTHENDDATE.FiscalPeriod"
+                ],
+                "formula": null,
+                "description": "Fiscal Period",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CalYear",
+                "dependencies": [
+                    "StockMonthlySnapshots.CalYear"
+                ],
+                "formula": null,
+                "description": "Calendar Year",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CalMonth",
+                "dependencies": [
+                    "StockMonthlySnapshots.CalMonth"
+                ],
+                "formula": null,
+                "description": "Calendar Month",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MonthEndDate",
+                "dependencies": [
+                    "StockMonthlySnapshots.Month_End_Date"
+                ],
+                "formula": null,
+                "description": "Month End Date",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "QuantityMonthlyCumulative",
+                "dependencies": [
+                    "StockMonthlySnapshots.QuantityMonthlyCumulative"
+                ],
+                "formula": "SUM(StockMonthlySnapshots.QuantityMonthlyCumulative)",
+                "description": "Sum of Monthly Cumulative Quantity",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AmountMonthlyCumulative",
+                "dependencies": [
+                    "StockMonthlySnapshots.amount_monthly_cumulative",
+                    "currency_decimal.CURRFIX"
+                ],
+                "formula": "SUM(StockMonthlySnapshots.AmountMonthlyCumulative)",
+                "description": "Sum of Monthly Cumulative Amount",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "StockOnHand",
+                "dependencies": [
+                    "StockMonthlySnapshots.quantity_monthly_cumulative",
+                    "StockCharacteristicsConfig.StockCharacteristic"
+                ],
+                "formula": "SUM(StockMonthlySnapshots.StockOnHand)",
+                "description": "Sum of Stock On Hand",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "StockOnHandValue",
+                "dependencies": [
+                    "StockMonthlySnapshots.amount_monthly_cumulative",
+                    "currency_decimal.CURRFIX",
+                    "StockCharacteristicsConfig.StockCharacteristic"
+                ],
+                "formula": "SUM(StockMonthlySnapshots.StockOnHandValue)",
+                "description": "Sum of Stock On Hand Value",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "QuantityIssuedToDelivery",
+                "dependencies": [
+                    "StockMonthlySnapshots.total_monthly_movement_quantity",
+                    "StockMonthlySnapshots.BWART"
+                ],
+                "formula": "SUM(StockMonthlySnapshots.QuantityIssuedToDelivery)",
+                "description": "Sum of Quantity Issued to Delivery",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TotalConsumptionQuantity",
+                "dependencies": [
+                    "StockMonthlySnapshots.total_monthly_movement_quantity",
+                    "MaterialsMD.MaterialType_MTART",
+                    "StockMonthlySnapshots.BWART"
+                ],
+                "formula": "SUM(StockMonthlySnapshots.TotalConsumptionQuantity)",
+                "description": "Sum of Total Consumption Quantity",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": [
+            {
+                "view_name": "StockMonthlySnapshots",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "cortex-prj-dev.REPORTING.stock_monthly_snapshots",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "StockMonthlySnapshots.mandt = StockCharacteristicsConfig.Client_MANDT",
+                    "StockMonthlySnapshots.sobkz = StockCharacteristicsConfig.SpecialStockIndicator_SOBKZ",
+                    "StockMonthlySnapshots.bstaus_sg = StockCharacteristicsConfig.StockCharacteristic_BSTAUS_SG"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "StockMonthlySnapshots",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "cortex-prj-dev.REPORTING.currency_decimal",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "StockMonthlySnapshots.WAERS = currency_decimal.CURRKEY"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "StockMonthlySnapshots",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "cortex-prj-dev.REPORTING.StorageLocationsMD",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "StockMonthlySnapshots.MANDT = StorageLocationsMD.Client_MANDT",
+                    "StockMonthlySnapshots.LGORT = StorageLocationsMD.StorageLocation_LGORT",
+                    "StockMonthlySnapshots.WERKS = StorageLocationsMD.Plant_WERKS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "StockMonthlySnapshots",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "cortex-prj-dev.REPORTING.CompaniesMD",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "StockMonthlySnapshots.MANDT = CompaniesMD.Client_MANDT",
+                    "StockMonthlySnapshots.BUKRS = CompaniesMD.CompanyCode_BUKRS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "StockMonthlySnapshots",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "cortex-prj-dev.REPORTING.fiscal_date_dim",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "StockMonthlySnapshots.MANDT = FiscalDateDimension_MONTHENDDATE.MANDT",
+                    "CompaniesMD.FiscalyearVariant_PERIV = FiscalDateDimension_MONTHENDDATE.PERIV",
+                    "StockMonthlySnapshots.Month_End_Date = FiscalDateDimension_MONTHENDDATE.DATE"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "StockMonthlySnapshots",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "cortex-prj-dev.REPORTING.PlantsMD",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "StockMonthlySnapshots.MANDT = PlantsMD.Client_MANDT",
+                    "StockMonthlySnapshots.WERKS = PlantsMD.Plant_WERKS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "StockMonthlySnapshots",
+                "join_type": "CROSS JOIN",
+                "tabla_base": "LanguageKey",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [],
+                "rules": []
+            },
+            {
+                "view_name": "StockMonthlySnapshots",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "cortex-prj-dev.REPORTING.MaterialsMD",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "StockMonthlySnapshots.MANDT = MaterialsMD.Client_MANDT",
+                    "StockMonthlySnapshots.MATNR = MaterialsMD.MaterialNumber_MATNR",
+                    "MaterialsMD.Language_SPRAS = LanguageKey.LanguageKey_SPRAS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "StockMonthlySnapshots",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "cortex-prj-dev.REPORTING.MaterialTypesMD",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "MaterialsMD.Client_MANDT = MaterialTypesMD.Client_MANDT",
+                    "MaterialsMD.MaterialType_MTART = MaterialTypesMD.MaterialType_MTART",
+                    "MaterialTypesMD.LanguageKey_SPRAS = LanguageKey.LanguageKey_SPRAS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "StockMonthlySnapshots",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "cortex-prj-dev.REPORTING.MaterialGroupsMD",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "MaterialsMD.Client_MANDT = MaterialGroupsMD.Client_MANDT",
+                    "MaterialsMD.MaterialGroup_MATKL = MaterialGroupsMD.MaterialGroup_MATKL",
+                    "MaterialGroupsMD.Language_SPRAS = LanguageKey.LanguageKey_SPRAS"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

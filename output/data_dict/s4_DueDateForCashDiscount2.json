@@ -1,0 +1,38 @@
+{
+    "schema": {
+        "object_name": "s4_DueDateForCashDiscount2.sql",
+        "object_type": "function",
+        "description": "This function calculates the due date for cash discount 2 based on several input parameters. It uses a CASE statement to determine the due date, either by adding a specified number of days to a base date or by calling another function for a more complex calculation.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "cortex-prj-dev.REPORTING.NetDueDateCalc"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "SK2DT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "Ip_ZFBDT",
+                        "Ip_ZBD2T"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CASE WHEN Ip_ZBD2T IS NOT NULL THEN date_add(Ip_ZFBDT, INTERVAL cast(coalesce(Ip_ZBD2T, 0) AS INT64) DAY) ELSE `cortex-prj-dev.REPORTING.NetDueDateCalc`(Ip_Koart, Ip_ZFBDT, Ip_BLDAT, Ip_Shkzg, Ip_REBZG, Ip_ZBD3T, Ip_ZBD2T, Ip_ZBD1T) END",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "The calculated due date for cash discount 2. If Ip_ZBD2T is not null, it's calculated by adding Ip_ZBD2T days to Ip_ZFBDT. Otherwise, it uses the NetDueDateCalc function.",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": []
+    }
+}

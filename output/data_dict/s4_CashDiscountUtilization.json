@@ -1,0 +1,403 @@
+{
+    "schema": {
+        "object_name": "s4_CashDiscountUtilization.sql",
+        "object_type": "view",
+        "description": "This view calculates key performance indicators (KPIs) related to cash discount utilization for vendor invoices.  It aggregates data at the level of individual vendor invoices, providing sums and averages of cash discounts received and target cash discounts.",
+        "source": "cortex_framework",
+        "group_by": [
+            "AccountingDocumentsKPI.Client_MANDT",
+            "AccountingDocumentsKPI.CompanyCode_BUKRS",
+            "AccountingDocumentsKPI.CompanyText_BUTXT",
+            "AccountingDocumentsKPI.AccountNumberOfVendorOrCreditor_LIFNR",
+            "VendorsMD.NAME1",
+            "AccountingDocumentsKPI.AccountingDocumentNumber_BELNR",
+            "AccountingDocumentsKPI.TargetCurrency_TCURR"
+        ],
+        "dependencies": [
+            "REPORTING.AccountsPayable",
+            "REPORTING.AccountingDocuments",
+            "REPORTING.VendorsMD"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocumentsKPI",
+                        "AccountsPayable.Client_MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCode_BUKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocumentsKPI",
+                        "AccountsPayable.CompanyCode_BUKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyText_BUTXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocumentsKPI",
+                        "AccountsPayable.CompanyText_BUTXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountNumberOfVendorOrCreditor_LIFNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocumentsKPI",
+                        "AccountsPayable.AccountNumberOfVendorOrCreditor_LIFNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Account Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NAME1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "VendorsMD.NAME1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountingDocumentNumber_BELNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocumentsKPI",
+                        "AccountsPayable.AccountingDocumentNumber_BELNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Accounting Document Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TargetCurrency_TCURR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocumentsKPI",
+                        "AccountsPayable.TargetCurrency_TCURR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocumentsKPI",
+                        "AccountingDocumentsCDU.CurrencyKey_WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(AccountingDocumentsKPI.CurrencyKey_WAERS)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInLocalCurrency_DMBTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocumentsKPI",
+                        "AccountingDocumentsCDU.AmountInLocalCurrency_DMBTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(AccountingDocumentsKPI.AmountInLocalCurrency_DMBTR)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Amount in Local Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ClearingDate_AUGDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocumentsKPI",
+                        "AccountingDocumentsCDU.ClearingDate_AUGDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(AccountingDocumentsKPI.ClearingDate_AUGDT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Clearing Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DocumentNumberOfTheClearingDocument_AUGBL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocumentsKPI",
+                        "AccountingDocumentsCDU.DocumentNumberOfTheClearingDocument_AUGBL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(AccountingDocumentsKPI.DocumentNumberOfTheClearingDocument_AUGBL)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Document Number of the Clearing Document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostingDateInTheDocument_BUDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocumentsKPI",
+                        "AccountingDocumentsCDU.PostingDateInTheDocument_BUDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "ANY_VALUE(AccountingDocumentsKPI.PostingDateInTheDocument_BUDAT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Posting Date in the Document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CashDiscountReceivedInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocumentsKPI",
+                        "AccountsPayable.CashDiscountReceivedInSourceCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(AccountingDocumentsKPI.CashDiscountReceivedInSourceCurrency)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sum of Cash Discount Received in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CashDiscountReceivedInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocumentsKPI",
+                        "AccountsPayable.CashDiscountReceivedInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(AccountingDocumentsKPI.CashDiscountReceivedInTargetCurrency)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sum of Cash Discount Received in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TargetCashDiscountInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocumentsKPI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "AVG(AccountingDocumentsKPI.TargetCashDiscountInSourceCurrency)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Average Target Cash Discount in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TargetCashDiscountInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocumentsKPI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "AVG(AccountingDocumentsKPI.TargetCashDiscountInTargetCurrency)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Average Target Cash Discount in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "AccountingDocumentsKPI",
+                "join_type": "INNER JOIN",
+                "tabla_base": "cortex-prj-dev.REPORTING.AccountsPayable",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "AccountsPayable.Client_MANDT = AccountingDocumentsCDU.Client_MANDT",
+                    "AccountsPayable.CompanyCode_BUKRS = AccountingDocumentsCDU.CompanyCode_BUKRS",
+                    "AccountsPayable.AccountingDocumentNumber_BELNR = AccountingDocumentsCDU.DocumentNumberOfTheClearingDocument_AUGBL",
+                    "AccountingDocumentsCDU.AccountType_KOART = 'K'",
+                    "AccountingDocumentsCDU.PostingKey_BSCHL = '31'"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "AccountingDocumentsKPI",
+                "join_type": "LEFT OUTER JOIN",
+                "tabla_base": "AccountingDocumentsKPI",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "AccountingDocumentsKPI.Client_MANDT = VendorsMD.Client_MANDT",
+                    "AccountingDocumentsKPI.AccountNumberOfVendorOrCreditor_LIFNR = VendorsMD.AccountNumberOfVendorOrCreditor_LIFNR"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

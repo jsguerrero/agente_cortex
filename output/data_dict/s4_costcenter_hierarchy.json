@@ -1,0 +1,132 @@
+{
+    "schema": {
+        "object_name": "s4_costcenter_hierarchy.sql",
+        "object_type": "table",
+        "description": "Flattened cost center hierarchy table. Contains cost center information from different levels, including leaf nodes.  Provides a single row per cost center, regardless of hierarchy level.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.sethanahier0101",
+            "aecorsoft-prj-dev.CDC_S4.csks"
+        ],
+        "columns": [
+            {
+                "name": "mandt",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.sethanahier0101.mandt"
+                ],
+                "formula": null,
+                "description": "Client",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "setclass",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.sethanahier0101.setclass"
+                ],
+                "formula": null,
+                "description": "Set class",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "subclass",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.sethanahier0101.subclass"
+                ],
+                "formula": null,
+                "description": "Sub class",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "hiername",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.sethanahier0101.hierbase"
+                ],
+                "formula": null,
+                "description": "Hierarchy name",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "node",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.sethanahier0101.succ",
+                    "aecorsoft-prj-dev.CDC_S4.csks.kostl"
+                ],
+                "formula": "CAST(succ AS STRING)",
+                "description": "Cost center node ID",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "parent",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.sethanahier0101.pred"
+                ],
+                "formula": "CAST(pred AS STRING)",
+                "description": "Parent cost center node ID",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "level",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.sethanahier0101.hlevel"
+                ],
+                "formula": null,
+                "description": "Hierarchy level",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "isleafnode",
+                "dependencies": [],
+                "formula": null,
+                "description": "Indicates if the node is a leaf node",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        }
+    }
+}

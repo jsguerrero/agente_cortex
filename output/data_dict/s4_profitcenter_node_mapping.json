@@ -1,0 +1,163 @@
+{
+    "schema": {
+        "object_name": "s4_profitcenter_node_mapping.sql",
+        "object_type": "table",
+        "description": "This table maps each profit center to its ancestor nodes in the profit center hierarchy.  It includes leaf nodes and their parent nodes up to the root of the hierarchy.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.profitcenter_flattened"
+        ],
+        "columns": [
+            {
+                "name": "mandt",
+                "dependencies": [
+                    "ProfitCenterFlattened.mandt"
+                ],
+                "formula": null,
+                "description": "Client",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "setclass",
+                "dependencies": [
+                    "ProfitCenterFlattened.setclass"
+                ],
+                "formula": null,
+                "description": "Set class",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "subclass",
+                "dependencies": [
+                    "ProfitCenterFlattened.subclass"
+                ],
+                "formula": null,
+                "description": "Subclass",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "hiername",
+                "dependencies": [
+                    "ProfitCenterFlattened.hiername"
+                ],
+                "formula": null,
+                "description": "Hierarchy name",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "parent",
+                "dependencies": [
+                    "ProfitCenterFlattened.parent"
+                ],
+                "formula": null,
+                "description": "Parent node in the hierarchy",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "node",
+                "dependencies": [
+                    "ProfitCenterFlattened.node"
+                ],
+                "formula": null,
+                "description": "Current node in the hierarchy",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "profitcenter",
+                "dependencies": [
+                    "ProfitHierarchy.profitcenter"
+                ],
+                "formula": "node AS profitcenter",
+                "description": "Profit center ID",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "level",
+                "dependencies": [
+                    "ProfitCenterFlattened.level"
+                ],
+                "formula": null,
+                "description": "Level in the hierarchy",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "isleafnode",
+                "dependencies": [
+                    "ProfitCenterFlattened.isleafnode"
+                ],
+                "formula": null,
+                "description": "Indicates if the node is a leaf node",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": [
+            {
+                "view_name": "ProfitHierarchy",
+                "join_type": "INNER JOIN",
+                "tabla_base": "ProfitHierarchy",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "ProfitHierarchy.mandt = ProfitCenterFlattened.mandt",
+                    "ProfitHierarchy.setclass = ProfitCenterFlattened.setclass",
+                    "ProfitHierarchy.subclass = ProfitCenterFlattened.subclass",
+                    "ProfitHierarchy.hiername = ProfitCenterFlattened.hiername",
+                    "ProfitHierarchy.parent = ProfitCenterFlattened.node"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

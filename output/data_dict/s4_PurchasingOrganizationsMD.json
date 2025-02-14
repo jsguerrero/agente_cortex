@@ -1,0 +1,100 @@
+{
+    "schema": {
+        "object_name": "s4_PurchasingOrganizationsMD.sql",
+        "object_type": "view",
+        "description": "This view provides a summary of purchasing organizations from the t024e table in the CDC_S4 dataset.  It includes the client, purchasing organization, its text description, and the company code.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.t024e"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t024e.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "t024e.MANDT",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingOrganization_EKORG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t024e.EKORG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "t024e.EKORG",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Organization code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingOrganizationText_EKOTX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t024e.EKOTX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "t024e.EKOTX",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Description of the Purchasing Organization",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCode_BUKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t024e.BUKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "t024e.BUKRS",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": []
+    }
+}

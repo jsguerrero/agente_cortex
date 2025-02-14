@@ -1,0 +1,101 @@
+{
+    "schema": {
+        "object_name": "s4_StockCharacteristicsConfig.sql",
+        "object_type": "view",
+        "description": "This view categorizes stock characteristics based on the combination of BSTAUS_SG and SOBKZ fields from the matdoc table for Client 100.  It provides a higher-level classification of material stock status.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.matdoc"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.mandt"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client identification (MANDT)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StockCharacteristic_BSTAUS_SG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.bstaus_sg"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Stock characteristic from the source table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SpecialStockIndicator_SOBKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.sobkz"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Special stock indicator from the source table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StockCharacteristic",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.sobkz",
+                        "aecorsoft-prj-dev.CDC_S4.matdoc.bstaus_sg"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "CASE\n    WHEN sobkz = 'K' AND bstaus_sg = 'A' THEN 'VendorManaged'\n    WHEN sobkz != 'K' AND bstaus_sg = 'A' THEN 'Unrestricted'\n    WHEN bstaus_sg = 'B' THEN 'QualityInspection'\n    WHEN bstaus_sg = 'D' THEN 'Blocked'\n    WHEN bstaus_sg = 'H' THEN 'InTransit'\n    WHEN bstaus_sg = 'E' THEN 'Restricted'\n    WHEN bstaus_sg = 'C' THEN 'BlockedReturns'\n    WHEN bstaus_sg = 'F' THEN 'StockTransfer'\n    WHEN bstaus_sg = 'Q' THEN 'Unrestricted Use Material Provided To Vendor'\n    WHEN bstaus_sg = 'K' THEN 'Customer Consigment, Unrestricted Use'\n  END",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Categorized stock characteristic based on SOBKZ and BSTAUS_SG",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": []
+    }
+}

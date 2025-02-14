@@ -1,0 +1,1085 @@
+{
+    "schema": {
+        "object_name": "s4_AccountsPayable.sql",
+        "object_type": "view",
+        "description": "This view aggregates data from SAP S4HANA accounting and purchasing documents to provide key performance indicators (KPIs) related to accounts payable.  It joins data on vendors, companies, fiscal periods, and currency conversions to calculate overdue amounts, outstanding balances, and other financial metrics. The data is at the invoice level, with additional detail provided by joining with purchase order history.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.CurrencyConversion",
+            "REPORTING.AccountingDocuments",
+            "REPORTING.InvoiceDocuments_Flow",
+            "REPORTING.CompaniesMD",
+            "REPORTING.fiscal_date_dim",
+            "REPORTING.VendorsMD",
+            "REPORTING.VendorConfig",
+            "REPORTING.PurchaseDocumentsHistory"
+        ],
+        "columns": [
+            {
+                "name": "Client_MANDT",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Client ID",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CompanyCode_BUKRS",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Company Code",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CompanyText_BUTXT",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "CompaniesMD"
+                ],
+                "formula": null,
+                "description": "Company Text",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AccountNumberOfVendorOrCreditor_LIFNR",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Vendor Account Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NAME1",
+                "dependencies": [
+                    "VendorsMD"
+                ],
+                "formula": null,
+                "description": "Vendor Name",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AmountInLocalCurrency_DMBTR",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices"
+                ],
+                "formula": null,
+                "description": "Invoice Amount in Local Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AccountingDocumentNumber_BELNR",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices"
+                ],
+                "formula": null,
+                "description": "Accounting Document Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NumberOfLineItemWithinAccountingDocument_BUZEI",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Line Item Number within Accounting Document",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DocumentNumberOfTheClearingDocument_AUGBL",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Clearing Document Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TermsOfPaymentKey_ZTERM",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Terms of Payment Key",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AccountType_KOART",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Account Type",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ReasonCodeForPayments_RSTGR",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Reason Code for Payments",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PaymentBlockKey_ZLSPR",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Payment Block Key",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ClearingDate_AUGDT",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Clearing Date",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PostingDateInTheDocument_BUDAT",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Posting Date in the Document",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalYear_GJAHR",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Fiscal Year",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalPeriod_MONAT",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Fiscal Period",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DocFiscPeriod",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "FiscalDateDimension_BUDAT"
+                ],
+                "formula": null,
+                "description": "Document Fiscal Period",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "KeyFiscPeriod",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "FiscalDateDimension_KEYDATE"
+                ],
+                "formula": null,
+                "description": "Key Fiscal Period",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NetDueDate",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices"
+                ],
+                "formula": "DATE_ADD(IF(AccountingInvoices.AccountType_KOART = 'K' AND AccountingInvoices.BaselineDateForDueDateCalculation_ZFBDT IS NULL,AccountingInvoices.DocumentDateInDocument_BLDAT,AccountingInvoices.BaselineDateForDueDateCalculation_ZFBDT),INTERVAL CAST(CASE WHEN AccountingInvoices.AccountType_KOART = 'K' AND AccountingInvoices.NetPaymentTermsPeriod_ZBD3T IS NOT NULL THEN AccountingInvoices.NetPaymentTermsPeriod_ZBD3T WHEN AccountingInvoices.AccountType_KOART = 'K' AND AccountingInvoices.CashDiscountDays2_ZBD2T IS NOT NULL THEN AccountingInvoices.CashDiscountDays2_ZBD2T WHEN AccountingInvoices.AccountType_KOART = 'K' AND AccountingInvoices.CashDiscountDays1_ZBD1T IS NOT NULL THEN AccountingInvoices.CashDiscountDays1_ZBD1T WHEN AccountingInvoices.CashDiscountDays1_ZBD1T IS NULL THEN 0 WHEN AccountingInvoices.AccountType_KOART = 'K' AND AccountingInvoices.DebitcreditIndicator_SHKZG = 'H' AND AccountingInvoices.InvoiceToWhichTheTransactionBelongs_REBZG IS NULL THEN 0 ELSE 0 END AS INT64)DAY)",
+                "description": "Net Due Date",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "InvStatus_RBSTAT",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices"
+                ],
+                "formula": null,
+                "description": "Invoice Status",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PostingDate_BUDAT",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices"
+                ],
+                "formula": null,
+                "description": "Posting Date",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PurchasingDocumentNumber_EBELN",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Purchasing Document Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CurrencyKey_WAERS",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Currency Key",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SupplyingCountry_LANDL",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Supplying Country",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AccountingDocumenttype_BLART",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Accounting Document Type",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "InvoiceDocumenttype_BLART",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "InvoiceDocuments"
+                ],
+                "formula": null,
+                "description": "Invoice Document Type",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MovementType__inventoryManagement___BWART",
+                "dependencies": [
+                    "POOrderHistory"
+                ],
+                "formula": null,
+                "description": "Movement Type",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "POOrderHistory_AmountInLocalCurrency_DMBTR",
+                "dependencies": [
+                    "POOrderHistory"
+                ],
+                "formula": null,
+                "description": "PO Order History Amount in Local Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "POOrderHistory_AmountInTargetCurrency_DMBTR",
+                "dependencies": [
+                    "POOrderHistory",
+                    "CurrencyConversion"
+                ],
+                "formula": "POOrderHistory.AmountInLocalCurrency_DMBTR * CurrencyConversion.ExchangeRate_UKURS",
+                "description": "PO Order History Amount in Target Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "YearOfPostingDateInTheDocument_BUDAT",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Year of Posting Date in the Document",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "MonthOfPostingDateInTheDocument_BUDAT",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Month of Posting Date in the Document",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "WeekOfPostingDateInTheDocument_BUDAT",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Week of Posting Date in the Document",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "QuarterOfPostingDateInTheDocument_BUDAT",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "AccountingInvoices",
+                    "AccountingDocuments"
+                ],
+                "formula": null,
+                "description": "Quarter of Posting Date in the Document",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AmountInTargetCurrency_DMBTR",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "CurrencyConversion"
+                ],
+                "formula": "AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR * CurrencyConversion.ExchangeRate_UKURS",
+                "description": "Amount in Target Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ExchangeRate_UKURS",
+                "dependencies": [
+                    "CurrencyConversion"
+                ],
+                "formula": null,
+                "description": "Exchange Rate",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TargetCurrency_TCURR",
+                "dependencies": [
+                    "CurrencyConversion"
+                ],
+                "formula": null,
+                "description": "Target Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "OverdueAmountInSourceCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.AccountType_KOART = 'K' AND CURRENT_DATE() > AccountingInvoicesKPI.NetDueDate,AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR,0)",
+                "description": "Overdue Amount in Source Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "OverdueAmountInTargetCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "CurrencyConversion"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.AccountType_KOART = 'K' AND CURRENT_DATE() > AccountingInvoicesKPI.NetDueDate,AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR * CurrencyConversion.ExchangeRate_UKURS,0)",
+                "description": "Overdue Amount in Target Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "OutstandingButNotOverdueInSourceCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.AccountType_KOART = 'K' AND CURRENT_DATE() <= AccountingInvoicesKPI.NetDueDate,AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR,0)",
+                "description": "Outstanding But Not Overdue in Source Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "OutstandingButNotOverdueInTargetCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "CurrencyConversion"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.AccountType_KOART = 'K' AND CURRENT_DATE() <= AccountingInvoicesKPI.NetDueDate,AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR * CurrencyConversion.ExchangeRate_UKURS,0)",
+                "description": "Outstanding But Not Overdue in Target Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "OverdueOnPastDateInSourceCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.AccountType_KOART = 'K' AND AccountingInvoicesKPI.PostingDateInTheDocument_BUDAT < CURRENT_DATE() AND AccountingInvoicesKPI.NetDueDate < CURRENT_DATE() AND AccountingInvoicesKPI.ClearingDate_AUGDT IS NULL,AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR,0)+IF(AccountingInvoicesKPI.FollowOnDocumentType_REBZT = 'Z',AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR,0)",
+                "description": "Overdue on Past Date in Source Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "OverdueOnPastDateInTargetCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "CurrencyConversion"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.AccountType_KOART = 'K' AND AccountingInvoicesKPI.PostingDateInTheDocument_BUDAT < CURRENT_DATE() AND AccountingInvoicesKPI.NetDueDate < CURRENT_DATE() AND AccountingInvoicesKPI.ClearingDate_AUGDT IS NULL,AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR * CurrencyConversion.ExchangeRate_UKURS,0)+IF(AccountingInvoicesKPI.FollowOnDocumentType_REBZT = 'Z',AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR * CurrencyConversion.ExchangeRate_UKURS,0)",
+                "description": "Overdue on Past Date in Target Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PartialPaymentsInSourceCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.FollowOnDocumentType_REBZT = 'Z',AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR,0)",
+                "description": "Partial Payments in Source Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PartialPaymentsInTargetCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "CurrencyConversion"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.FollowOnDocumentType_REBZT = 'Z',AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR * CurrencyConversion.ExchangeRate_UKURS,0)",
+                "description": "Partial Payments in Target Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "LatePaymentsInSourceCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.AccountType_KOART = 'K' AND AccountingInvoicesKPI.ClearingDate_AUGDT > AccountingInvoicesKPI.NetDueDate,AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR,0)",
+                "description": "Late Payments in Source Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "LatePaymentsInTargetCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "CurrencyConversion"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.AccountType_KOART = 'K' AND AccountingInvoicesKPI.ClearingDate_AUGDT > AccountingInvoicesKPI.NetDueDate,AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR * CurrencyConversion.ExchangeRate_UKURS,0)",
+                "description": "Late Payments in Target Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "UpcomingPaymentsInSourceCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.AccountType_KOART = 'K' AND AccountingInvoicesKPI.NetDueDate BETWEEN CURRENT_DATE() AND DATE_ADD(CURRENT_DATE(), INTERVAL 14 DAY) AND AccountingInvoicesKPI.ClearingDate_AUGDT IS NULL,AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR,0)",
+                "description": "Upcoming Payments in Source Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "UpcomingPaymentsInTargetCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "CurrencyConversion"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.AccountType_KOART = 'K' AND AccountingInvoicesKPI.NetDueDate BETWEEN CURRENT_DATE() AND DATE_ADD(CURRENT_DATE(), INTERVAL 14 DAY) AND AccountingInvoicesKPI.ClearingDate_AUGDT IS NULL,AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR * CurrencyConversion.ExchangeRate_UKURS,0)",
+                "description": "Upcoming Payments in Target Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PotentialPenaltyInSourceCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "VendorConfig"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.AccountType_KOART = 'K' AND AccountingInvoicesKPI.ClearingDate_AUGDT > AccountingInvoicesKPI.NetDueDate,AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR,0) * COALESCE(SAFE_CAST(VendorConfig.LowField_LOW AS INT64), 0)",
+                "description": "Potential Penalty in Source Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PotentialPenaltyInTargetCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "CurrencyConversion",
+                    "VendorConfig"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.AccountType_KOART = 'K' AND AccountingInvoicesKPI.ClearingDate_AUGDT > AccountingInvoicesKPI.NetDueDate,AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR * CurrencyConversion.ExchangeRate_UKURS,0) * COALESCE(SAFE_CAST(VendorConfig.LowField_LOW AS INT64), 0)",
+                "description": "Potential Penalty in Target Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PurchaseInSourceCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "POOrderHistory"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.AccountType_KOART = 'M' AND POOrderHistory.MovementType__inventoryManagement___BWART IN ('101', '501'),AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR,IF(AccountingInvoicesKPI.AccountType_KOART = 'M' AND POOrderHistory.MovementType__inventoryManagement___BWART IN ('102', '502'),AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR * -1,0))",
+                "description": "Purchase in Source Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PurchaseInTargetCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "POOrderHistory",
+                    "CurrencyConversion"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.AccountType_KOART = 'M' AND POOrderHistory.MovementType__inventoryManagement___BWART IN ('101', '501'),AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR * CurrencyConversion.ExchangeRate_UKURS,IF(AccountingInvoicesKPI.AccountType_KOART = 'M' AND POOrderHistory.MovementType__inventoryManagement___BWART IN ('102', '502'),AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR * CurrencyConversion.ExchangeRate_UKURS * -1,0))",
+                "description": "Purchase in Target Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "IsParkedInvoice",
+                "dependencies": [
+                    "AccountingInvoicesKPI"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.Invstatus_RBSTAT = 'A', TRUE, FALSE)",
+                "description": "Is Parked Invoice",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "IsBlockedInvoice",
+                "dependencies": [
+                    "AccountingInvoicesKPI"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.PaymentBlockKey_ZLSPR IN ('A', 'B'), TRUE, FALSE)",
+                "description": "Is Blocked Invoice",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CashDiscountReceivedInSourceCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.AccountingDocumenttype_BLART IN ('KZ', 'ZP') AND AccountingInvoicesKPI.TransactionKey_KTOSL = 'SKE',AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR,0)",
+                "description": "Cash Discount Received in Source Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CashDiscountReceivedInTargetCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "CurrencyConversion"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.AccountingDocumenttype_BLART IN ('KZ', 'ZP') AND AccountingInvoicesKPI.TransactionKey_KTOSL = 'SKE',AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR * CurrencyConversion.ExchangeRate_UKURS,0)",
+                "description": "Cash Discount Received in Target Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TargetCashDiscountInSourceCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.PostingKey_BSCHL = '31',(AccountingInvoicesKPI.AmountEligibleForCashDiscountInDocumentCurrency_SKFBT * AccountingInvoicesKPI.CashDiscountPercentage1_ZBD1P) / 100,0)",
+                "description": "Target Cash Discount in Source Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TargetCashDiscountInTargetCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "CurrencyConversion"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.PostingKey_BSCHL = '31',(AccountingInvoicesKPI.AmountEligibleForCashDiscountInDocumentCurrency_SKFBT * CurrencyConversion.ExchangeRate_UKURS * AccountingInvoicesKPI.CashDiscountPercentage1_ZBD1P) / 100,0)",
+                "description": "Target Cash Discount in Target Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AmountOfOpenDebitItemsInSourceCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.Accounttype_KOART = 'K' AND AccountingInvoicesKPI.SpecialGlIndicator_UMSKZ = 'A',AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR,0)",
+                "description": "Amount of Open Debit Items in Source Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AmountOfOpenDebitItemsInTargetCurrency",
+                "dependencies": [
+                    "AccountingInvoicesKPI",
+                    "CurrencyConversion"
+                ],
+                "formula": "IF(AccountingInvoicesKPI.Accounttype_KOART = 'K' AND AccountingInvoicesKPI.SpecialGlIndicator_UMSKZ = 'A',AccountingInvoicesKPI.AmountInLocalCurrency_DMBTR * CurrencyConversion.ExchangeRate_UKURS,0)",
+                "description": "Amount of Open Debit Items in Target Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AmountOfReturnInSourceCurrency",
+                "dependencies": [
+                    "POOrderHistory"
+                ],
+                "formula": "IF(POOrderHistory.MovementType__inventoryManagement___BWART = '122',POOrderHistory.AmountInLocalCurrency_DMBTR * POOrderHistory.Quantity_MENGE,0)",
+                "description": "Amount of Return in Source Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "AmountOfReturnInTargetCurrency",
+                "dependencies": [
+                    "POOrderHistory",
+                    "CurrencyConversion"
+                ],
+                "formula": "IF(POOrderHistory.MovementType__inventoryManagement___BWART = '122',POOrderHistory.AmountInLocalCurrency_DMBTR * CurrencyConversion.ExchangeRate_UKURS * POOrderHistory.Quantity_MENGE,0)",
+                "description": "Amount of Return in Target Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": [
+            {
+                "view_name": "AccountingInvoices",
+                "join_type": "LEFT OUTER JOIN",
+                "tabla_base": "cortex-prj-dev.REPORTING.AccountingDocuments",
+                "uniones": [],
+                "is_complex_join": true,
+                "join_conditions": [
+                    "AccountingDocuments.Client_MANDT = InvoiceDocuments.Client_MANDT",
+                    "AccountingDocuments.CompanyCode_BUKRS = InvoiceDocuments.CompanyCode_BUKRS",
+                    "LEFT(AccountingDocuments.ObjectKey_AWKEY, 10) = InvoiceDocuments.InvoiceDocNum_BELNR",
+                    "AccountingDocuments.FiscalYear_GJAHR = InvoiceDocuments.FiscalYear_GJAHR",
+                    "LTRIM(AccountingDocuments.NumberOfLineItemWithinAccountingDocument_BUZEI, '0') = LTRIM(InvoiceDocuments.InvoiceDocLineNum_BUZEI, '0')"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "AccountingInvoicesKPI",
+                "join_type": "INNER JOIN",
+                "tabla_base": "AccountingInvoices",
+                "uniones": [],
+                "is_complex_join": true,
+                "join_conditions": [
+                    "AccountingInvoices.Client_MANDT = CompaniesMD.Client_MANDT",
+                    "AccountingInvoices.CompanyCode_BUKRS = CompaniesMD.CompanyCode_BUKRS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "AccountingInvoicesKPI",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "AccountingInvoices",
+                "uniones": [],
+                "is_complex_join": true,
+                "join_conditions": [
+                    "AccountingInvoices.Client_MANDT = FiscalDateDimension_BUDAT.MANDT",
+                    "CompaniesMD.FiscalyearVariant_PERIV = FiscalDateDimension_BUDAT.PERIV",
+                    "AccountingInvoices.PostingDateInTheDocument_BUDAT = FiscalDateDimension_BUDAT.DATE"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "AccountingInvoicesKPI",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "AccountingInvoices",
+                "uniones": [],
+                "is_complex_join": true,
+                "join_conditions": [
+                    "AccountingInvoices.Client_MANDT = FiscalDateDimension_KEYDATE.MANDT",
+                    "CompaniesMD.FiscalyearVariant_PERIV = FiscalDateDimension_KEYDATE.PERIV",
+                    "DATE_SUB(DATE_TRUNC(CURRENT_DATE(), MONTH), INTERVAL 1 DAY) = FiscalDateDimension_KEYDATE.DATE"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "LEFT OUTER JOIN",
+                "tabla_base": "AccountingInvoicesKPI",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "AccountingInvoicesKPI.Client_MANDT = VendorsMD.Client_MANDT",
+                    "AccountingInvoicesKPI.AccountNumberOfVendorOrCreditor_LIFNR = VendorsMD.AccountNumberOfVendorOrCreditor_LIFNR"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "LEFT OUTER JOIN",
+                "tabla_base": "AccountingInvoicesKPI",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "VendorsMD.AccountNumberOfVendorOrCreditor_LIFNR = ARRAY_REVERSE(SPLIT(VendorConfig.NameOfVariantVariable_NAME, '_'))[SAFE_OFFSET(0)]"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "AccountingInvoicesKPI",
+                "uniones": [],
+                "is_complex_join": true,
+                "join_conditions": [
+                    "AccountingInvoicesKPI.Client_MANDT = POOrderHistory.Client_MANDT",
+                    "AccountingInvoicesKPI.PurchasingDocumentNumber_EBELN = POOrderHistory.PurchasingDocumentNumber_EBELN",
+                    "AccountingInvoicesKPI.ItemNumberOfPurchasingDocument_EBELP = POOrderHistory.ItemNumberOfPurchasingDocument_EBELP",
+                    "AccountingInvoicesKPI.FiscalYear_GJAHR = POOrderHistory.MaterialDocumentYear_GJAHR",
+                    "AccountingInvoicesKPI.ObjectKey_AWKEY = CONCAT(POOrderHistory.NumberOfMaterialDocument_BELNR, POOrderHistory.MaterialDocumentYear_GJAHR)"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "AccountingInvoicesKPI",
+                "uniones": [],
+                "is_complex_join": true,
+                "join_conditions": [
+                    "AccountingInvoicesKPI.Client_MANDT = CurrencyConversion.Client_MANDT",
+                    "AccountingInvoicesKPI.CurrencyKey_WAERS = CurrencyConversion.FromCurrency_FCURR",
+                    "AccountingInvoicesKPI.PostingDateInTheDocument_BUDAT = CurrencyConversion.ConvDate"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

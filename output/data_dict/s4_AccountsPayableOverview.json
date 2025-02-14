@@ -1,0 +1,930 @@
+{
+    "schema": {
+        "object_name": "s4_AccountsPayableOverview.sql",
+        "object_type": "view",
+        "description": "This view provides an overview of accounts payable data, including overdue amounts, payments, potential penalties, and cash discount utilization.  The data is grouped by vendor and accounting document.",
+        "source": "cortex_framework",
+        "group_by": [
+            "AccountsPayable.Client_MANDT",
+            "AccountsPayable.CompanyCode_BUKRS",
+            "AccountsPayable.CompanyText_BUTXT",
+            "AccountsPayable.Name1",
+            "AccountsPayable.AccountingDocumentNumber_BELNR",
+            "AccountsPayable.AccountNumberOfVendorOrCreditor_LIFNR",
+            "AccountsPayable.CurrencyKey_WAERS",
+            "AccountsPayable.PostingDateInTheDocument_BUDAT",
+            "AccountsPayable.TargetCurrency_TCURR",
+            "APT.DocFiscPeriod"
+        ],
+        "dependencies": [
+            "REPORTING.AccountsPayable",
+            "REPORTING.AccountsPayableTurnover",
+            "REPORTING.AccountingDocuments"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.Client_MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCode_BUKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.CompanyCode_BUKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyText_BUTXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.CompanyText_BUTXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.Name1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountingDocumentNumber_BELNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.AccountingDocumentNumber_BELNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Accounting Document Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountNumberOfVendorOrCreditor_LIFNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.AccountNumberOfVendorOrCreditor_LIFNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Account Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostingDateInTheDocument_BUDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.PostingDateInTheDocument_BUDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Posting Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.CurrencyKey_WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TargetCurrency_TCURR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.TargetCurrency_TCURR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DocFiscPeriod",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "APT.DocFiscPeriod"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MonthOfPostingDateInTheDocument_BUDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.PostingDateInTheDocument_BUDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(AccountsPayable.MonthOfPostingDateInTheDocument_BUDAT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Month of Posting Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "YearOfPostingDateInTheDocument_BUDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.PostingDateInTheDocument_BUDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(AccountsPayable.YearOfPostingDateInTheDocument_BUDAT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Year of Posting Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuarterOfPostingDateInTheDocument_BUDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.PostingDateInTheDocument_BUDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(AccountsPayable.QuarterOfPostingDateInTheDocument_BUDAT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quarter of Posting Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WeekOfPostingDateInTheDocument_BUDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.PostingDateInTheDocument_BUDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(AccountsPayable.WeekOfPostingDateInTheDocument_BUDAT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Week of Posting Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ClearingDate_AUGDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.ClearingDate_AUGDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "MAX(AccountsPayable.ClearingDate_AUGDT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Clearing Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalDueAmountInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.OverdueAmountInSourceCurrency",
+                        "AccountsPayable.OutstandingButNotOverdueInSourceCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(SUM((AccountsPayable.OverdueAmountInSourceCurrency * -1) + (AccountsPayable.OutstandingButNotOverdueInSourceCurrency * -1)), 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Due Amount in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalDueAmountInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.OverdueAmountInTargetCurrency",
+                        "AccountsPayable.OutstandingButNotOverdueInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(SUM((AccountsPayable.OverdueAmountInTargetCurrency * -1) + (AccountsPayable.OutstandingButNotOverdueInTargetCurrency * -1)), 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Due Amount in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OverdueAmountInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.OverdueAmountInSourceCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(AccountsPayable.OverdueAmountInSourceCurrency * -1)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Overdue Amount in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OverdueAmountInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.OverdueAmountInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(AccountsPayable.OverdueAmountInTargetCurrency * -1)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Overdue Amount in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PastDueAmountInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.OverdueOnPastDateInSourceCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(AccountsPayable.OverdueOnPastDateInSourceCurrency * -1)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Past Due Amount in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PastDueAmountInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.OverdueOnPastDateInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(AccountsPayable.OverdueOnPastDateInTargetCurrency * -1)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Past Due Amount in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LatePaymentsInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.LatePaymentsInSourceCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(AccountsPayable.LatePaymentsInSourceCurrency * -1)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Late Payments in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LatePaymentsInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.LatePaymentsInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(AccountsPayable.LatePaymentsInTargetCurrency * -1)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Late Payments in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UpcomingPaymentsInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.UpcomingPaymentsInSourceCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(AccountsPayable.UpcomingPaymentsInSourceCurrency * -1)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Upcoming Payments in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UpcomingPaymentsInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.UpcomingPaymentsInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(AccountsPayable.UpcomingPaymentsInTargetCurrency * -1)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Upcoming Payments in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PotentialPenaltyInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.PotentialPenaltyInSourceCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(AccountsPayable.PotentialPenaltyInSourceCurrency * -1)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Potential Penalty in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PotentialPenaltyInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.PotentialPenaltyInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(AccountsPayable.PotentialPenaltyInTargetCurrency * -1)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Potential Penalty in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountsPayableTurnoverInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "APT.AccountsPayableTurnoverInSourceCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(MAX(APT.AccountsPayableTurnoverInSourceCurrency * -1), 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Accounts Payable Turnover in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountsPayableTurnoverInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "APT.AccountsPayableTurnoverInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(MAX(APT.AccountsPayableTurnoverInTargetCurrency * -1), 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Accounts Payable Turnover in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountParkedInvoice",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.IsParkedInvoice"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COUNTIF(AccountsPayable.IsParkedInvoice)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Count of Parked Invoices",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ParkedInvoiceAmountInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.IsParkedInvoice",
+                        "AccountsPayable.AmountInLocalCurrency_DMBTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(IF(AccountsPayable.IsParkedInvoice, AccountsPayable.AmountInLocalCurrency_DMBTR, 0))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Parked Invoice Amount in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ParkedInvoiceAmountInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.IsParkedInvoice",
+                        "AccountsPayable.AmountInTargetCurrency_DMBTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(IF(AccountsPayable.IsParkedInvoice, AccountsPayable.AmountInTargetCurrency_DMBTR, 0))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Parked Invoice Amount in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountBlockedInvoice",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.IsBlockedInvoice"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COUNTIF(AccountsPayable.IsBlockedInvoice)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Count of Blocked Invoices",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BlockedInvoiceAmountInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.IsBlockedInvoice",
+                        "AccountsPayable.AmountInLocalCurrency_DMBTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(IF(AccountsPayable.IsBlockedInvoice, (AccountsPayable.AmountInLocalCurrency_DMBTR * -1), 0))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Blocked Invoice Amount in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BlockedInvoiceAmountInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.IsBlockedInvoice",
+                        "AccountsPayable.AmountInTargetCurrency_DMBTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(IF(AccountsPayable.IsBlockedInvoice, (AccountsPayable.AmountInTargetCurrency_DMBTR * -1), 0))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Blocked Invoice Amount in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TargetCashDiscountInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.TargetCashDiscountInSourceCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(AccountsPayable.TargetCashDiscountInSourceCurrency)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target Cash Discount in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TargetCashDiscountInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.TargetCashDiscountInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(AccountsPayable.TargetCashDiscountInTargetCurrency)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target Cash Discount in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CashDiscountReceivedInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CashDiscountUtilization.CashDiscountReceived"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(CashDiscountUtilization.CashDiscountReceived)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cash Discount Received in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CashDiscountReceivedInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CashDiscountUtilization.CashDiscountReceived",
+                        "AccountsPayable.ExchangeRate_UKURS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SUM(CashDiscountUtilization.CashDiscountReceived * AccountsPayable.ExchangeRate_UKURS)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cash Discount Received in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CashDiscountUtilizationInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CashDiscountUtilization.CashDiscountReceived",
+                        "AccountsPayable.TargetCashDiscountInSourceCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SAFE_DIVIDE(SUM(CashDiscountUtilization.CashDiscountReceived), SUM(AccountsPayable.TargetCashDiscountInSourceCurrency))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cash Discount Utilization in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CashDiscountUtilizationInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CashDiscountUtilization.CashDiscountReceived",
+                        "AccountsPayable.ExchangeRate_UKURS",
+                        "AccountsPayable.TargetCashDiscountInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SAFE_DIVIDE(SUM(CashDiscountUtilization.CashDiscountReceived * AccountsPayable.ExchangeRate_UKURS), SUM(AccountsPayable.TargetCashDiscountInTargetCurrency))",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cash Discount Utilization in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`cortex-prj-dev.REPORTING.AccountsPayable` AS AccountsPayable",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "AccountsPayable.Client_MANDT = APT.Client_MANDT",
+                    "AccountsPayable.CompanyCode_BUKRS = APT.CompanyCode_BUKRS",
+                    "AccountsPayable.AccountNumberOfVendorOrCreditor_LIFNR = APT.AccountNumberOfVendorOrCreditor_LIFNR",
+                    "AccountsPayable.AccountingDocumentNumber_BELNR = APT.AccountingDocumentNumber_BELNR",
+                    "AccountsPayable.TargetCurrency_TCURR = APT.TargetCurrency_TCURR",
+                    "AccountsPayable.DocFiscPeriod = APT.DocFiscPeriod"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "LEFT OUTER JOIN",
+                "tabla_base": "`cortex-prj-dev.REPORTING.AccountsPayable` AS AccountsPayable",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "AccountsPayable.Client_MANDT = CashDiscountUtilization.Client_MANDT",
+                    "AccountsPayable.CompanyCode_BUKRS = CashDiscountUtilization.CompanyCode_BUKRS",
+                    "AccountsPayable.DocumentNumberOfTheClearingDocument_AUGBL = CashDiscountUtilization.AccountingDocumentNumber_BELNR"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

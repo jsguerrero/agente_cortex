@@ -1,0 +1,387 @@
+{
+    "schema": {
+        "object_name": "s4_UniversalLedgersMD.sql",
+        "object_type": "view",
+        "description": "This view joins data from finsc_ledger and finsc_ledger_t tables to provide a comprehensive view of universal ledgers, including their descriptions and configurations.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.finsc_ledger",
+            "aecorsoft-prj-dev.CDC_S4.finsc_ledger_t"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "finsc_ledger.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Ledger_RLDNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "finsc_ledger.RLDNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ledger number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Language_LANGU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "finsc_ledger_t.LANGU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name_NAME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "finsc_ledger_t.NAME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ledger name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LedgerType",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "finsc_ledger.LEDGER_TYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ledger type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ExtensionLedgerType_EXT_LEDGER_TYPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "finsc_ledger.EXT_LEDGER_TYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Extension ledger type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OwnerApplication_APPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "finsc_ledger.APPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Owner application",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SubApplication_SUBAPPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "finsc_ledger.SUBAPPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sub-application",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LeadingLedgerIndicator_XLEADING",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "finsc_ledger.XLEADING"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Leading ledger indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LedgerOfExtensionLedger_CORE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "finsc_ledger.CORE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ledger of extension ledger",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValuationView_VALUTYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "finsc_ledger.valutyp"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valuation view",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValuationViewSubtype_VALUSUBTYP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "finsc_ledger.VALUSUBTYP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valuation view subtype",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ManualPostingsNotAllowed_MAN_POST_NOT_ALLWD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "finsc_ledger.MAN_POST_NOT_ALLWD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Manual postings not allowed",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CorporateAccountingPrinciple_ACC_PRINCIPLE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "finsc_ledger.acc_PRINCIPLE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Corporate accounting principle",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FallbackLedger_FALLBACK_LEDGER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "finsc_ledger.FALLBACK_LEDGER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fallback ledger",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TechnicalLedger_TECH_LEDGER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "finsc_ledger.TECH_LEDGER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Technical ledger",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CashLedgerIndicator_XCASH_LEDGER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "finsc_ledger.XCASH_LEDGER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cash ledger indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.finsc_ledger` AS finsc_ledger",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "finsc_ledger.MANDT = finsc_ledger_t.MANDT",
+                    "finsc_ledger.RLDNR = finsc_ledger_t.RLDNR"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

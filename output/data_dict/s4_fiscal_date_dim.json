@@ -1,0 +1,414 @@
+{
+    "schema": {
+        "object_name": "s4_fiscal_date_dim.sql",
+        "object_type": "view",
+        "description": "This view generates a fiscal date dimension table, providing various fiscal calendar representations based on different scenarios defined in the source table t009.  It handles three cases: when xkale = 'X' (fiscal year aligns with calendar year), xjabh = 'X' (fiscal year is not a calendar year and has fiscal variants), and when both xkale and xjabh are NULL (custom fiscal variants). The data is at a daily granularity.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.t009",
+            "aecorsoft-prj-dev.CDC_S4.t009b",
+            "cortex-prj-dev.REPORTING.is_leap_year"
+        ],
+        "columns": [
+            {
+                "name": "mandt",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.t009.mandt"
+                ],
+                "formula": null,
+                "description": "Client",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "periv",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.t009.periv"
+                ],
+                "formula": null,
+                "description": "Fiscal Year Variant",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Date",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": null,
+                "description": "Date",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DateInt",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "CAST(FORMAT_DATE('%Y%m%d', dt) AS INT64)",
+                "description": "Date as Integer",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DateStr",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "FORMAT_DATE('%Y%m%d', dt)",
+                "description": "Date as String",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalPeriod",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "FORMAT_DATE('0%m', dt)",
+                "description": "Fiscal Period (MM)",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalYear",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "FORMAT_DATE('%Y', dt)",
+                "description": "Fiscal Year (YYYY)",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalYearPeriod",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "FORMAT_DATE('%Y0%m', dt)",
+                "description": "Fiscal Year Period (YYYYMM)",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalYearFirstDay",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "DATE_TRUNC(dt, YEAR)",
+                "description": "First Day of Fiscal Year",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalYearLastDay",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "LAST_DAY(dt, YEAR)",
+                "description": "Last Day of Fiscal Year",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalSemester",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "IF(EXTRACT(QUARTER FROM dt) IN (1, 2), 1, 2)",
+                "description": "Fiscal Semester (1 or 2)",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalSemesterStr",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "IF(EXTRACT(QUARTER FROM dt) IN (1, 2), '01', '02')",
+                "description": "Fiscal Semester as String",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalSemesterStr2",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "IF(EXTRACT(QUARTER FROM dt) IN (1, 2), '1st Semester', '2nd Semester')",
+                "description": "Fiscal Semester as String",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalQuarter",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "EXTRACT(QUARTER FROM dt)",
+                "description": "Fiscal Quarter (1-4)",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalQuarterStr",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "'0' || EXTRACT(QUARTER FROM dt)",
+                "description": "Fiscal Quarter as String",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalQuarterStr2",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "'Q' || EXTRACT(QUARTER FROM dt)",
+                "description": "Fiscal Quarter as String",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalWeek",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "EXTRACT(WEEK FROM dt)",
+                "description": "Fiscal Week (1-52)",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalWeekStr",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "'0' || EXTRACT(WEEK FROM dt)",
+                "description": "Fiscal Week as String",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "WeekStartDate",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "DATE_TRUNC(dt, WEEK)",
+                "description": "Start Date of Week",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "WeekEndDate",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "LAST_DAY(dt, WEEK)",
+                "description": "End Date of Week",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DayNameLong",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "FORMAT_DATE('%A', dt)",
+                "description": "Day Name (Long)",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DayNameShort",
+                "dependencies": [
+                    "dt"
+                ],
+                "formula": "FORMAT_DATE('%a', dt)",
+                "description": "Day Name (Short)",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "bdatj",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.t009b.bdatj"
+                ],
+                "formula": null,
+                "description": "Fiscal Year",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "bumon",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.t009b.bumon"
+                ],
+                "formula": null,
+                "description": "Fiscal Month",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "butag",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.t009b.butag"
+                ],
+                "formula": null,
+                "description": "Fiscal Day",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "reljr",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.t009b.reljr"
+                ],
+                "formula": null,
+                "description": "Relative Year",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "poper",
+                "dependencies": [
+                    "aecorsoft-prj-dev.CDC_S4.t009b.poper"
+                ],
+                "formula": null,
+                "description": "Fiscal Period",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.t009`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "t009.mandt = t009b.mandt",
+                    "t009.periv = t009b.periv"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

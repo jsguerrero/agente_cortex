@@ -1,0 +1,468 @@
+{
+    "schema": {
+        "object_name": "s4_financial_statement.sql",
+        "object_type": "table",
+        "description": "This table stores financial statement data at the fiscal year and period level for each company.  It includes data from accounting documents and incorporates logic to handle missing periods by copying data from previous periods.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.acdoca",
+            "aecorsoft-prj-dev.CDC_S4.t001",
+            "cortex-prj-dev.REPORTING.currency_decimal",
+            "cortex-prj-dev.REPORTING.fiscal_date_dim"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "client",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FiscalDimension.RCLNT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client identifier",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "companycode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FiscalDimension.RBUKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "businessarea",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocuments.RBUSA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ledger",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocuments.RLDNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ledger",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "profitcenter",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocuments.PRCTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Profit center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "costcenter",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocuments.RCNTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "glaccount",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocuments.RACCT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "General ledger account",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "fiscalyear",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FiscalDimension.FiscalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal year",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "fiscalperiod",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FiscalDimension.FiscalPeriod"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "fiscalquarter",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FiscalDimension.FiscalQuarter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal quarter",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "balancesheetandplaccountindicator",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocuments.GLACCOUNT_TYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator for balance sheet or profit and loss account",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "amount",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocuments.HSL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(AccountingDocuments.HSL, 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Transaction amount",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "currency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocuments.RHCUR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "companytext",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountingDocuments.BUTXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company text description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "sequence",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "FiscalDimension.sequence"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sequence number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "AccountingDocuments",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.acdoca` AS acdoca",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "acdoca.RCLNT = t001.MANDT",
+                    "acdoca.RBUKRS = t001.BUKRS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "AccountingDocuments",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.acdoca` AS acdoca",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "acdoca.RHCUR = currency_decimal.CURRKEY"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "AccountingDocuments",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.acdoca` AS acdoca",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "acdoca.RCLNT = FiscalDateDimension.MANDT",
+                    "t001.PERIV = FiscalDateDimension.PERIV",
+                    "acdoca.BUDAT = FiscalDateDimension.DATE"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "FiscalDimension",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "(SELECT DISTINCT RCLNT, RBUKRS, PERIV FROM AccountingDocuments) AS AccountingDocuments",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "AccountingDocuments.RCLNT = FiscalDateDimension.MANDT",
+                    "AccountingDocuments.PERIV = FiscalDateDimension.PERIV"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "financial_statement",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "FiscalDimension",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "FiscalDimension.RCLNT = AccountingDocuments.RCLNT",
+                    "FiscalDimension.RBUKRS = AccountingDocuments.RBUKRS",
+                    "FiscalDimension.FiscalYear = AccountingDocuments.FiscalYear",
+                    "FiscalDimension.FiscalPeriod = AccountingDocuments.FiscalPeriod"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`cortex-prj-dev.REPORTING.fiscal_date_dim` AS FiscalDateDim",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "FiscalDateDim.PERIV = FiscalDimension.PERIV"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "FiscalDimension",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "EXISTING_TRANSACTIONS.companycode = ALL_PERIODS.RBUKRS",
+                    "EXISTING_TRANSACTIONS.FiscalYear = ALL_PERIODS.fiscalyear",
+                    "EXISTING_TRANSACTIONS.FiscalPeriod = ALL_PERIODS.fiscalperiod"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "FiscalDimension AS FinDimension",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "FinDimension.RBUKRS = FinStatement.companycode",
+                    "FinDimension.FiscalYear = FinStatement.fiscalyear",
+                    "FinDimension.FiscalPeriod = FinStatement.fiscalperiod"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "GEN_REC",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "MASTER_SEQ.sequence BETWEEN GEN_REC.sequence AND (GEN_REC.sequence + GEN_REC.missing_periods)"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "PreviousPeriod",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "PreviousPeriod.sequence = CurrentPeriod.sequence - 1",
+                    "CONCAT(PreviousPeriod.glaccount, COALESCE(PreviousPeriod.profitcenter,''), PreviousPeriod.companycode, COALESCE(PreviousPeriod.businessarea,''), COALESCE(PreviousPeriod.costcenter,''), COALESCE(PreviousPeriod.ledger,'')) = CONCAT(CurrentPeriod.glaccount, COALESCE(CurrentPeriod.profitcenter,''), CurrentPeriod.companycode, COALESCE(CurrentPeriod.businessarea,''), COALESCE(CurrentPeriod.costcenter,''), COALESCE(CurrentPeriod.ledger,''))"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "resultant_rec",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "resultant_rec.sequence = lkp.sequence"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

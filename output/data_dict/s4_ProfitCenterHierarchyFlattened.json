@@ -1,0 +1,407 @@
+{
+    "schema": {
+        "object_name": "s4_ProfitCenterHierarchyFlattened.sql",
+        "object_type": "view",
+        "description": "Flattened Profit Center Hierarchy with language key. Granularity is at the level of Client, Setclass, Subclass, HierarchyName, ProfitCenterNode, ProfitCenter, and Language Key.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.Languages_T002",
+            "REPORTING.profit_centers",
+            "REPORTING.ProfitCenterHierarchiesMD",
+            "REPORTING.ProfitCentersMD"
+        ],
+        "columns": [
+            {
+                "is_valid": null,
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitCenters.mandt"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "is_valid": null,
+                "name": {
+                    "value": "HierarchyClass_SETCLASS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitCenters.setclass"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy Class",
+                    "is_valid": null
+                },
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "is_valid": null,
+                "name": {
+                    "value": "HierarchySubClass_SUBCLASS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitCenters.subclass"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy Subclass",
+                    "is_valid": null
+                },
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "is_valid": null,
+                "name": {
+                    "value": "HierarchyType_HIERBASE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitCenters.hiername"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy Type",
+                    "is_valid": null
+                },
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "is_valid": null,
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "LanguageKey.LanguageKey_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language Key",
+                    "is_valid": null
+                },
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "is_valid": null,
+                "name": {
+                    "value": "ProfitCenter_PRCTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitCenters.profitcenter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Profit Center",
+                    "is_valid": null
+                },
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "is_valid": null,
+                "name": {
+                    "value": "ProfitCenterNode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitCenters.node"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Profit Center Node",
+                    "is_valid": null
+                },
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "is_valid": null,
+                "name": {
+                    "value": "ParentNode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitCenters.parent"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Parent Node",
+                    "is_valid": null
+                },
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "is_valid": null,
+                "name": {
+                    "value": "ParentNodeText",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PCParentText.SetName_SETNAME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Parent Node Text",
+                    "is_valid": null
+                },
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "is_valid": null,
+                "name": {
+                    "value": "ProfitCenterNodeText",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "PCNodeText.SetName_SETNAME",
+                        "PCText.LongText_LTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(PCNodeText.SetName_SETNAME, PCText.LongText_LTEXT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Profit Center Node Text (Language Dependent)",
+                    "is_valid": null
+                },
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "is_valid": null,
+                "name": {
+                    "value": "Level",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitCenters.level"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Level in Hierarchy",
+                    "is_valid": null
+                },
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "is_valid": null,
+                "name": {
+                    "value": "IsLeafNode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "ProfitCenters.isleafnode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Is Leaf Node",
+                    "is_valid": null
+                },
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": [
+            {
+                "view_name": "ProfitCenters",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "cortex-prj-dev.REPORTING.profit_centers",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "ProfitCenters.mandt = PCParentText.Client_MANDT",
+                    "ProfitCenters.setclass = PCParentText.SetClass_SETCLASS",
+                    "ProfitCenters.subclass = PCParentText.OrganizationalUnit_SUBCLASS",
+                    "CAST(PCParentText.NodeNumber_SUCC AS STRING) = ProfitCenters.parent",
+                    "ProfitCenters.hiername = PCParentText.SetName_HIERBASE"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "PCParentText",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "cortex-prj-dev.REPORTING.ProfitCenterHierarchiesMD",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "ProfitCenters.mandt = PCNodeText.Client_MANDT",
+                    "ProfitCenters.setclass = PCNodeText.SetClass_SETCLASS",
+                    "ProfitCenters.subclass = PCNodeText.OrganizationalUnit_SUBCLASS",
+                    "CAST(PCNodeText.NodeNumber_SUCC AS STRING) = ProfitCenters.node",
+                    "ProfitCenters.hiername = PCNodeText.SetName_HIERBASE"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "PCNodeText",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "cortex-prj-dev.REPORTING.ProfitCenterHierarchiesMD",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "ProfitCenters.mandt = PCText.Client_MANDT",
+                    "ProfitCenters.subclass = PCText.ControllingArea_KOKRS",
+                    "ProfitCenters.node = PCText.ProfitCenter_PRCTR",
+                    "PCText.Language_SPRAS = LanguageKey.LanguageKey_SPRAS",
+                    "PCText.ValidToDate_DATBI = '9999-12-31'"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "LanguageKey",
+                "join_type": "CROSS JOIN",
+                "tabla_base": null,
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [],
+                "rules": []
+            },
+            {
+                "view_name": "PCText",
+                "join_type": "LEFT JOIN",
+                "tabla_base": "cortex-prj-dev.REPORTING.ProfitCentersMD",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "ProfitCenters.mandt = PCText.Client_MANDT",
+                    "ProfitCenters.subclass = PCText.ControllingArea_KOKRS",
+                    "ProfitCenters.node = PCText.ProfitCenter_PRCTR",
+                    "PCText.Language_SPRAS = LanguageKey.LanguageKey_SPRAS",
+                    "PCText.ValidToDate_DATBI = '9999-12-31'"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

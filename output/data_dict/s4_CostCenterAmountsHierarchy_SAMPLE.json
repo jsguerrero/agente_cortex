@@ -1,0 +1,163 @@
+{
+    "schema": {
+        "object_name": "s4_CostCenterAmountsHierarchy_SAMPLE.sql",
+        "object_type": "view",
+        "description": "This view joins cost center hierarchy data with accounting document data to provide cost center amounts at a granular level, filtered for a specific hierarchy class and leaf nodes.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.CostCenterHierarchyFlattened",
+            "REPORTING.AccountingDocuments"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "ParentHierarchy",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.CostCenterHierarchyFlattened.ParentNodeText"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Parent node text in the cost center hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ChildHierarchy",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.CostCenterHierarchyFlattened.CostCenterNode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Child node (cost center) in the hierarchy",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CostCenter_KOSTL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.CostCenterHierarchyFlattened.CostCenter_KOSTL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost center code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.CostCenterHierarchyFlattened.LanguageKey_SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CostCenterDescription",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.CostCenterHierarchyFlattened.CostCenterNodeText"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Description of the cost center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInLocalCurrency_DMBTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.AccountingDocuments.AmountInLocalCurrency_DMBTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Amount in local currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInDocumentCurrency_WRBTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "REPORTING.AccountingDocuments.AmountInDocumentCurrency_WRBTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Amount in document currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

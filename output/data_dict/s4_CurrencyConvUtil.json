@@ -1,0 +1,321 @@
+{
+    "schema": {
+        "object_name": "s4_CurrencyConvUtil.sql",
+        "object_type": "view",
+        "description": "This view provides currency conversion factors between source and target currencies for a specific client (mandt = '100'), considering historical validity periods.  It uses multiple CTEs to determine the maximum and minimum valid dates for each currency pair.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.tcurf",
+            "CDC_S4.tcurx"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_mandt",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "currUNI.mandt"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client identifier",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SourceCurrency_FCURR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "currUNI.fcurr"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Source currency code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TargetCurrency_TCURR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "currUNI.tcurr"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target currency code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateFROM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "currUNI.FROMGDATU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Start date of currency conversion validity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateTo",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "currUNI.ToGDATU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "End date of currency conversion validity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FFACT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t.FFACT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Factor from tcurf table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TFACT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t.TFACT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Factor from tcurf table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FROMCurrDecimal",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "x.currdec"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(x.currdec IS NULL, 2, x.currdec)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of decimal places for the source currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "toCurrDecimal",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "y.currdec"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(y.currdec IS NULL, 2, y.currdec)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of decimal places for the target currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConversionFactor",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "y.currdec",
+                        "x.currdec",
+                        "t.FFACT",
+                        "t.TFACT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "( 10 * ( IF(y.currdec IS NULL, 2, y.currdec) - IF(x.currdec IS NULL, 2, x.currdec) ) ) * (t.FFACT / t.TFACT)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Calculated currency conversion factor",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "validFROMDate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "currUNI.FROMGDATU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "( 99999999 - curr.FROMGDATU )",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Calculated valid from date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "validToDate",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "currUNI.ToGDATU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "( 99999998 - curr.ToGDATU )",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Calculated valid to date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "maxCURR",
+                "join_type": "INNER JOIN",
+                "tabla_base": "tcurf",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "tc1.mandt = tc2.mandt"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "currUNI",
+                "join_type": "INNER JOIN",
+                "tabla_base": "currUNI",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "curr.mandt = t.mandt",
+                    "curr.fcurr = t.fcurr",
+                    "curr.tcurr = t.tcurr",
+                    "curr.FROMGDATU = t.decGDATU"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "currUNI",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "curr.fcurr = x.currkey"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "currUNI",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "curr.tcurr = y.currkey",
+                    "curr.mandt = '100'"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

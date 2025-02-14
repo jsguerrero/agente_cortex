@@ -1,0 +1,1717 @@
+{
+    "schema": {
+        "object_name": "s4_POSchedule.sql",
+        "object_type": "view",
+        "description": "This view joins data from the eket table with the calendar_date_dim table to provide a detailed view of Purchase Order Schedule lines, enriched with calendar dimensions for the Item Delivery Date and Order Date of the Schedule Line.  The data is at the granularity of individual schedule lines.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.eket",
+            "aecorsoft-prj-dev.K9_PROCESSING.calendar_date_dim"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchasingDocumentNumber_EBELN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.EBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchasing Document Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemNumberOfPurchasingDocument_EBELP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.EBELP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item Number of Purchasing Document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryScheduleLineCounter_ETENR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.ETENR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Schedule Line Counter",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemDeliveryDate_EINDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.EINDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item Delivery Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StatisticsRelevantDeliveryDate_SLFDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.SLFDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Statistics Relevant Delivery Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CategoryOfDeliveryDate_LPEIN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.LPEIN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Category Of Delivery Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ScheduledQuantity_MENGE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.MENGE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Scheduled Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PreviousQuantity__deliveryScheduleLines___AMENG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.AMENG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Previous Quantity (delivery Schedule Lines)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuantityOfGoodsReceived_WEMNG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.WEMNG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quantity Of Goods Received",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IssuedQuantity_WAMNG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.WAMNG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Issued Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeliveryDateTimeSpot_UZEIT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.UZEIT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Delivery Date Time Spot",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchaseRequisitionNumber_BANFN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.BANFN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchase Requisition Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ItemNumberOfPurchaseRequisition_BNFPO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.BNFPO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Item Number Of Purchase Requisition",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CreationIndicator__purchaseRequisitionscheduleLines___ESTKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.ESTKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Creation Indicator (purchase requisition/schedule lines)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfQuotaArrangement_QUNUM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.QUNUM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number Of Quota Arrangement",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuotaArrangementItem_QUPOS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.QUPOS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quota Arrangement Item",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NoOfRemindersexpeditersForScheduleLine_MAHNZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.MAHNZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "No Of Reminders/expediters For Schedule Line",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OrderDateOfScheduleLine_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.BEDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Order Date Of Schedule Line",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfReservationdependentRequirements_RSNUM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.RSNUM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number Of Reservation-dependent Requirements",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BomExplosionNumber_SERNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.SERNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Bom Explosion Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ScheduleLineIsfixed_FIXKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.FIXKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Schedule Line Is fixed",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuantityDelivered__stockTransfer___GLMNG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.GLMNG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quantity Delivered (stock Transfer)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuantityReduced__mrp___DABMG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.DABMG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quantity Reduced (mrp)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BatchNumber_CHARG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.CHARG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Batch Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VendorBatchNumber_LICHA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.LICHA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Batch Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Components_CHKOM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.CHKOM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Components",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProductionVersion_VERID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.VERID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Production Version",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SchedulingAgreementReleaseType_ABART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.ABART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Scheduling Agreement Release Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CommittedQuantity_MNG02",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.MNG02"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Committed Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CommittedDate_DAT01",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.DAT01"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Committed Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PreviousDeliveryDate_ALTDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.ALTDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Previous Delivery Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RouteSchedule_AULWE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.AULWE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Route Schedule",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialAvailabilityDate_MBDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.MBDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Availability Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialStagingTime_MBUHR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.MBUHR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Staging Time",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LoadingDate_LDDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.LDDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Loading Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LoadingTime__localTimeRelatingToAShippingPoint___LDUHR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.LDUHR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Loading Time (local Time Relating To A Shipping Point)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TransportationPlanningDate_TDDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.TDDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Transportation Planning Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TranspPlanningTime__local_TDUHR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.TDUHR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Transp Planning Time (local)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GoodsIssueDate_WADAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.WADAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Goods Issue Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TimeOfGoodsIssue__local_RelatingToAPlant___WAUHR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.WAUHR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Time Of Goods Issue (local, Relating To A Plant)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GoodsReceiptEndDate_ELDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.ELDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Goods Receipt End Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GoodsReceiptEndTime__local__ELUHR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.ELUHR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Goods Receipt End Time (local)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfSerialNumbers_ANZSN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.ANZSN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number Of Serial Numbers",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Ind_ReservNotApplicableToMrpPurcReqNotCreated_NODISP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.NODISP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Ind. Reserv. Not Applicable To Mrp/Purc.Req. Not Created",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DescriptionOfAGeographicalRoute_GEO_ROUTE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.GEO_ROUTE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Description Of A Geographical Route",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RouteCodeForSapGlobalTradeServices_ROUTE_GTS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.ROUTE_GTS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Route Code For Sap Global Trade Services",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GoodsTrafficType_GTS_IND",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.GTS_IND"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Goods Traffic Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ForwardingAgent_TSP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.TSP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Forwarding Agent",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LocationNumberInApo_CD_LOCNO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.CD_LOCNO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Location Number In Apo",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ApoLocationType_CD_LOCTYPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.CD_LOCTYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Apo Location Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HandoverDateAtTheHandoverLocation_HANDOVERDATE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.HANDOVERDATE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Handover Date At The Handover Location",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HandoverTimeAtTheHandoverLocation_HANDOVERTIME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.HANDOVERTIME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Handover Time At The Handover Location",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ArunRequirementAllocatedQuantity_FSH_RALLOC_QTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.FSH_RALLOC_QTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Arun Requirement Allocated Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AllocatedStockQuantity_FSH_SALLOC_QTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.FSH_SALLOC_QTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Allocated Stock Quantity",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OrderSchedulingGroupId_FSH_OS_ID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.FSH_OS_ID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Order Scheduling Group Id",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UniqueNumberOfBudget_KEY_ID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.KEY_ID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Unique Number Of Budget",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RequiredBudget_OTB_VALUE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.OTB_VALUE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Required Budget",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OtbCurrency_OTB_CURR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.OTB_CURR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Otb Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReservedBudgetForOtbRelevantPurchasingDocument_OTB_RES_VALUE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.OTB_RES_VALUE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reserved Budget For Otb Relevant Purchasing Document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SpecialReleaseBudget_OTB_SPEC_VALUE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.OTB_SPEC_VALUE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Special Release Budget",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReasonProfileForOtbSpecialRelease_SPR_RSN_PROFILE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.SPR_RSN_PROFILE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reason Profile For Otb Special Release",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BudgetType_BUDG_TYPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.BUDG_TYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Budget Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OtbCheckStatus_OTB_STATUS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.OTB_STATUS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Otb Check Status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ReasonIndicatorForOtbCheckStatus_OTB_REASON",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.OTB_REASON"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Reason Indicator For Otb Check Status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TypeOfOtbCheck_CHECK_TYPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.CHECK_TYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Type Of Otb Check",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DatelineId__guid___DL_ID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.DL_ID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Dateline Id (guid)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TransferDate_HANDOVER_DATE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.HANDOVER_DATE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Transfer Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PurchaseOrderNotTransferredToScem_NO_SCEM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.NO_SCEM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Purchase Order Not Transferred To Scem",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CreationDateOfReminderMessageRecord_DNG_DATE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.DNG_DATE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Creation Date Of Reminder Message Record",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CreationTimeOfReminderMessageRecord_DNG_TIME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.DNG_TIME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Creation Time Of Reminder Message Record",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CancellationThreatMade_CNCL_ANCMNT_DONE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.CNCL_ANCMNT_DONE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cancellation Threat Made",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfCurrentDateShifts_DATESHIFT_NUMBER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "eket.DATESHIFT_NUMBER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number Of Current Date Shifts",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "YearOfItemDeliveryDate_EINDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_EINDT.CalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Year Of Item Delivery Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MonthOfItemDeliveryDate_EINDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_EINDT.CalMonth"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Month Of Item Delivery Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WeekOfItemDeliveryDate_EINDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_EINDT.CalWeek"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Week Of Item Delivery Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuarterOfItemDeliveryDate_EINDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_EINDT.CalQuarter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quarter Of Item Delivery Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "YearOfOrderDateOfScheduleLine_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_BEDAT.CalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Year Of Order Date Of Schedule Line",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MonthOfOrderDateOfScheduleLine_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_BEDAT.CalMonth"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Month Of Order Date Of Schedule Line",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WeekOfOrderDateOfScheduleLine_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_BEDAT.CalWeek"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Week Of Order Date Of Schedule Line",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuarterOfOrderDateOfScheduleLine_BEDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_BEDAT.CalQuarter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quarter Of Order Date Of Schedule Line",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

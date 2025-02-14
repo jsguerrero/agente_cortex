@@ -1,0 +1,1124 @@
+{
+    "schema": {
+        "object_name": "s4_ProfitCentersMD.sql",
+        "object_type": "view",
+        "description": "This view contains profit center data, including general information, address details, contact information, and associated texts, for a specific date (current date).  The data is at the profit center level.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.cepc",
+            "CDC_S4.cepct"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProfitCenter_PRCTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.PRCTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Profit Center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidToDate_DATBI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.DATBI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valid To Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ControllingArea_KOKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.KOKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Controlling Area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidFromDate_DATAB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.DATAB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valid From Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CreatedOn_ERSDA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.ERSDA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Created On",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "EnteredBy_USNAM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.USNAM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Entered By",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FieldNameOfCoPaCharacteristic_MERKMAL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.MERKMAL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Field Name of CoPa Characteristic",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Department_ABTEI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.ABTEI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Department",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PersonResponsibleForProfitCenter_VERAK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.VERAK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Person Responsible For Profit Center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UserResponsibleForTheProfitCenter_VERAK_USER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.VERAK_USER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "User Responsible For The Profit Center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SuccessorProfitCenter_NPRCTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.NPRCTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Successor Profit Center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryKey_LAND1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.LAND1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Title_ANRED",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.ANRED"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Title",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NAME1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.NAME1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NAME2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.NAME2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NAME3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.NAME3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NAME4",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.NAME4"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 4",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "City_ORT01",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.ORT01"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "City",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "District_ORT02",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.ORT02"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "District",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StreetAndHouseNumber_STRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.STRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street And House Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PoBox_PFACH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.PFACH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostalCode_PSTLZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.PSTLZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Postal Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "POBoxPostalCode_PSTL2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.PSTL2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box Postal Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CtrLanguage_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Center Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TeleboxNumber_TELBX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.TELBX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Telebox Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FirstTelephoneNumber_TELF1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.TELF1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "First Telephone Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SecondTelephoneNumber_TELF2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.TELF2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Second Telephone Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FaxNumber_TELFX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.TELFX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fax Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TeletexNumber_TELTX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.TELTX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Teletex Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TelexNumber_TELX1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.TELX1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Telex Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DataCommunicationLineNo_DATLT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.DATLT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Data Communication Line No",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PrinterNameForProfitCenter_DRNAM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.DRNAM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Printer Name For Profit Center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProfitCenterArea_KHINR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.KHINR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Profit Center Area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCode_BUKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.BUKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "JointVenture_VNAME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.VNAME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Joint Venture",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RecoveryIndicator_RECID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.RECID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Recovery Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "EquityType_ETYPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.ETYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Equity Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxJurisdiction_TXJCD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.TXJCD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax Jurisdiction",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Region_state_REGIO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.REGIO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Region/state",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UsageOfTheConditionTable_KVEWE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.KVEWE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Usage Of The Condition Table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Application_KAPPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.KAPPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Application",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Procedure__pricing__KALSM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.KALSM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Procedure (pricing)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LockIndicator_LOCK_IND",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.LOCK_IND"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Lock Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TemplateForFormulaPlanningInProfitCenters_PCA_TEMPLATE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.PCA_TEMPLATE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Template For Formula Planning In Profit Centers",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SegmentForSegmentalReporting_SEGMENT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPC.SEGMENT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Segment For Segmental Reporting",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Language_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPCT.SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TxtValidToDate_DATBI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPCT.DATBI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Text Valid To Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GeneralName_KTEXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPCT.KTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "General Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LongText_LTEXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPCT.LTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Long Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SearchTermForMatchcodeSearch_MCTXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CEPCT.MCTXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Search Term For Matchcode Search",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.cepc`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "CEPC.MANDT = CEPCT.MANDT",
+                    "CEPC.PRCTR = CEPCT.PRCTR",
+                    "CEPC.DATBI = CEPCT.DATBI",
+                    "CEPC.KOKRS = CEPCT.KOKRS"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

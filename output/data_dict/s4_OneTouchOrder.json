@@ -1,0 +1,186 @@
+{
+    "schema": {
+        "object_name": "s4_OneTouchOrder.sql",
+        "object_type": "view",
+        "description": "This view aggregates data from VBAP, VBEP, and LIPS tables to identify OneTouchOrders (orders with a count less than 2) and joins the result with VBRP to include the actual billed quantity.  The data is at the sales order item level.",
+        "source": "cortex_framework",
+        "group_by": [
+            "vbap.mandt",
+            "vbap.vbeln",
+            "vbap.posnr",
+            "vbap.kwmeng",
+            "vbap.netwr",
+            "vbap.recordstamp",
+            "vbep.mandt",
+            "vbep.vbeln",
+            "vbep.posnr",
+            "vbep.etenr",
+            "vbep.bmeng",
+            "lips.mandt",
+            "lips.vbeln",
+            "lips.posnr",
+            "lips.erdat",
+            "lips.aedat",
+            "lips.recordstamp"
+        ],
+        "dependencies": [
+            "RAW_S4.vbap",
+            "RAW_S4.vbep",
+            "RAW_S4.lips",
+            "CDC_S4.vbrp"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "VBAPClient_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "OneTouchOrder",
+                        "vbap",
+                        "MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client number from VBAP table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VBAPSalesDocument_VBELN",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "OneTouchOrder",
+                        "vbap",
+                        "VBELN"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales document number from VBAP table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VBAPSalesDocument_Item_POSNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "OneTouchOrder",
+                        "vbap",
+                        "POSNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sales document item number from VBAP table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VBAPTotalOrder_KWMENG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "OneTouchOrder",
+                        "vbap",
+                        "KWMENG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total order quantity from VBAP table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ActualBilledQuantity_FKIMG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "vbrp",
+                        "FKIMG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Actual billed quantity from VBRP table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OneTouchOrderCount",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "OneTouchOrder"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COUNT(*) ",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Count of OneTouchOrders",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": "OneTouchOrder",
+                "join_type": "INNER JOIN",
+                "tabla_base": "aecorsoft-prj-dev.CDC_S4.vbrp",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "OneTouchOrder.VBAPClient_MANDT = vbrp.mandt",
+                    "OneTouchOrder.VBAPSalesDocument_VBELN = vbrp.aubel",
+                    "OneTouchOrder.VBAPSalesDocument_Item_POSNR = vbrp.posnr"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

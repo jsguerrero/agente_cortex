@@ -1,0 +1,534 @@
+{
+    "schema": {
+        "object_name": "s4_AccountsPayableTurnover.sql",
+        "object_type": "view",
+        "description": "This view calculates key Accounts Payable (AP) metrics, including turnover, opening and closing balances, and period totals.  The data is grouped by Client, Company Code, Target Currency, and Fiscal Period.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.AccountsPayable"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.Client_MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCode_BUKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.CompanyCode_BUKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyText_BUTXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.CompanyText_BUTXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Text",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountNumberOfVendorOrCreditor_LIFNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.AccountNumberOfVendorOrCreditor_LIFNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Account Number of Vendor or Creditor",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NAME1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.NAME1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Vendor Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountingDocumentNumber_BELNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.AccountingDocumentNumber_BELNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Accounting Document Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfLineItemWithinAccountingDocument_BUZEI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.NumberOfLineItemWithinAccountingDocument_BUZEI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of Line Item Within Accounting Document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostingDateInTheDocument_BUDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.PostingDateInTheDocument_BUDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Posting Date in the Document",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountingDocumenttype_BLART",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.AccountingDocumenttype_BLART"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Accounting Document Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInLocalCurrency_DMBTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.AmountInLocalCurrency_DMBTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Amount in Local Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AmountInTargetCurrency_DMBTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.AmountInTargetCurrency_DMBTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Amount in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.CurrencyKey_WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TargetCurrency_TCURR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.TargetCurrency_TCURR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DocFiscPeriod",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.DocFiscPeriod"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalPurchasesInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.TotalPurchasesInSourceCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(AccountsPayable.TotalPurchasesInSourceCurrency, 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Purchases in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalPurchasesInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.TotalPurchasesInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(AccountsPayable.TotalPurchasesInTargetCurrency, 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Purchases in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OpeningAPInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.ClosingAPInSourceCurrency",
+                        "AccountsPayable.UnpaidPeriodAPInSourceCurrency",
+                        "AccountsPayable.PeriodAPInSourceCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(AccountsPayable.ClosingAPInSourceCurrency, 0) - COALESCE(UnpaidPeriodAPInSourceCurrency, 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Opening AP balance in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "OpeningAPInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.ClosingAPInTargetCurrency",
+                        "AccountsPayable.UnpaidPeriodAPInTargetCurrency",
+                        "AccountsPayable.PeriodAPInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(AccountsPayable.ClosingAPInTargetCurrency, 0) - COALESCE(UnpaidPeriodAPInTargetCurrency, 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Opening AP balance in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PeriodAPInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.PeriodAPInSourceCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(AccountsPayable.PeriodAPInSourceCurrency, 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Period AP in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PeriodAPInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.PeriodAPInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(AccountsPayable.PeriodAPInTargetCurrency, 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Period AP in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ClosingAPInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.ClosingAPInSourceCurrency",
+                        "AccountsPayable.UnpaidPeriodAPInSourceCurrency",
+                        "AccountsPayable.PeriodAPInSourceCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(AccountsPayable.ClosingAPInSourceCurrency, 0) - COALESCE(UnpaidPeriodAPInSourceCurrency, 0) + COALESCE(AccountsPayable.PeriodAPInSourceCurrency, 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Closing AP balance in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ClosingAPInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.ClosingAPInTargetCurrency",
+                        "AccountsPayable.UnpaidPeriodAPInTargetCurrency",
+                        "AccountsPayable.PeriodAPInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(AccountsPayable.ClosingAPInTargetCurrency, 0) - COALESCE(UnpaidPeriodAPInTargetCurrency, 0) + COALESCE(AccountsPayable.PeriodAPInTargetCurrency, 0)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Closing AP balance in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountsPayableTurnoverInSourceCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.TotalPurchasesInSourceCurrency",
+                        "AccountsPayable.ClosingAPInSourceCurrency",
+                        "AccountsPayable.UnpaidPeriodAPInSourceCurrency",
+                        "AccountsPayable.PeriodAPInSourceCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SAFE_DIVIDE(AccountsPayable.TotalPurchasesInSourceCurrency, ((COALESCE(AccountsPayable.ClosingAPInSourceCurrency, 0) - COALESCE(UnpaidPeriodAPInSourceCurrency, 0) + COALESCE(AccountsPayable.PeriodAPInSourceCurrency, 0)) * 2 - COALESCE(AccountsPayable.PeriodAPInSourceCurrency, 0)) / 2)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Accounts Payable Turnover in Source Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AccountsPayableTurnoverInTargetCurrency",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "AccountsPayable.TotalPurchasesInTargetCurrency",
+                        "AccountsPayable.ClosingAPInTargetCurrency",
+                        "AccountsPayable.UnpaidPeriodAPInTargetCurrency",
+                        "AccountsPayable.PeriodAPInTargetCurrency"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "SAFE_DIVIDE(AccountsPayable.TotalPurchasesInTargetCurrency, ((COALESCE(AccountsPayable.ClosingAPInTargetCurrency, 0) - COALESCE(UnpaidPeriodAPInTargetCurrency, 0) + COALESCE(AccountsPayable.PeriodAPInTargetCurrency, 0)) * 2 - COALESCE(AccountsPayable.PeriodAPInTargetCurrency, 0)) / 2)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Accounts Payable Turnover in Target Currency",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": []
+    }
+}

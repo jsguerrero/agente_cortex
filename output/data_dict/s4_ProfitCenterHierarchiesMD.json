@@ -1,0 +1,217 @@
+{
+    "schema": {
+        "object_name": "s4_ProfitCenterHierarchiesMD.sql",
+        "object_type": "view",
+        "description": "This view represents the Profit Center Hierarchy data from the sethanahier0106 table in the CDC_S4 dataset.  It provides a detailed breakdown of the hierarchy, including node relationships, levels, and descriptive attributes.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.sethanahier0106"
+        ],
+        "columns": [
+            {
+                "name": "Client_MANDT",
+                "dependencies": [
+                    "sethanahier0106.MANDT"
+                ],
+                "formula": null,
+                "description": "Client ID",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SetClass_SETCLASS",
+                "dependencies": [
+                    "sethanahier0106.SETCLASS"
+                ],
+                "formula": null,
+                "description": "Set Class",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "OrganizationalUnit_SUBCLASS",
+                "dependencies": [
+                    "sethanahier0106.SUBCLASS"
+                ],
+                "formula": null,
+                "description": "Organizational Unit Subclass",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SetName_HIERBASE",
+                "dependencies": [
+                    "sethanahier0106.HIERBASE"
+                ],
+                "formula": null,
+                "description": "Set Name (HIERBASE)",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NodeNumber_SUCC",
+                "dependencies": [
+                    "sethanahier0106.SUCC"
+                ],
+                "formula": null,
+                "description": "Successor Node Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NodeNumber_PRED",
+                "dependencies": [
+                    "sethanahier0106.PRED"
+                ],
+                "formula": null,
+                "description": "Predecessor Node Number",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Level_HLEVEL",
+                "dependencies": [
+                    "sethanahier0106.HLEVEL"
+                ],
+                "formula": null,
+                "description": "Hierarchy Level",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Identification_SETID",
+                "dependencies": [
+                    "sethanahier0106.SETID"
+                ],
+                "formula": null,
+                "description": "Set Identification",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SetName_SETNAME",
+                "dependencies": [
+                    "sethanahier0106.SETNAME"
+                ],
+                "formula": null,
+                "description": "Set Name (SETNAME)",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "Counter_VCOUNT",
+                "dependencies": [
+                    "sethanahier0106.VCOUNT"
+                ],
+                "formula": null,
+                "description": "Counter",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "SearchField_SEARCHFLD",
+                "dependencies": [
+                    "sethanahier0106.SEARCHFLD"
+                ],
+                "formula": null,
+                "description": "Search Field",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "LineCounter_OLD_LINE",
+                "dependencies": [
+                    "sethanahier0106.OLD_LINE"
+                ],
+                "formula": null,
+                "description": "Line Counter",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FromValue_VALUE_FROM",
+                "dependencies": [
+                    "sethanahier0106.VALUE_FROM"
+                ],
+                "formula": null,
+                "description": "From Value",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "ToValue_VALUE_TO",
+                "dependencies": [
+                    "sethanahier0106.VALUE_TO"
+                ],
+                "formula": null,
+                "description": "To Value",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": []
+    }
+}

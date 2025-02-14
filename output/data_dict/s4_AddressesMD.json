@@ -1,0 +1,2264 @@
+{
+    "schema": {
+        "object_name": "s4_AddressesMD.sql",
+        "object_type": "view",
+        "description": "This view joins address data from multiple tables (adrc, adr6, adrct) to provide a comprehensive view of customer addresses, including communication details.  It filters for addresses with a valid-to date of '9999-12-31', indicating active addresses.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.adrc",
+            "CDC_S4.adr6",
+            "CDC_S4.adrct"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.CLIENT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client identifier",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AddressNumber_ADDRNUMBER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.ADDRNUMBER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Address number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidFromDATE_FROM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.DATE_FROM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valid from date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VersionIdForInternationalAddresses_NATION",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.NATION"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Nation code for international addresses",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidToDate_DATE_TO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.DATE_TO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valid to date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FormOfAddressKey_TITLE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.TITLE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Form of address key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name1_NAME1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.NAME1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name2_NAME2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.NAME2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name3_NAME3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.NAME3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name4_NAME4",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.NAME4"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 4",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ConvertedNameField__withFormOfAddress___NAME_TEXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.NAME_TEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Converted name field with form of address",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CoName_NAME_CO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.NAME_CO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Co-name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "City_CITY1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.CITY1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "City",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "District_CITY2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.CITY2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "District",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CityCodeForCitystreetFile_CITY_CODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.CITY_CODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "City code for city street file",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DistrictCodeForCityAndStreetFile_CITYP_CODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.CITYP_CODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "District code for city and street file",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "City__differentFromPostalCity___HOME_CITY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.HOME_CITY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "City (different from postal city)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DifferentCityForCitystreetFile_CITYH_CODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.CITYH_CODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Different city for city street file",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CityFileTestStatus_CHCKSTATUS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.CHCKSTATUS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "City file test status",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RegionalStructureGrouping_REGIOGROUP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.REGIOGROUP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Regional structure grouping",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CityPostalCode_POST_CODE1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.POST_CODE1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "City postal code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PoBoxPostalCode_POST_CODE2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.POST_CODE2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box postal code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyPostalCode__forLargeCustomers___POST_CODE3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.POST_CODE3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company postal code (for large customers)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "cityPostalCodeExtension_PCODE1_EXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.PCODE1_EXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "City postal code extension",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PoBoxPostalCodeExtension_PCODE2_EXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.PCODE2_EXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box postal code extension",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PoBox_PO_BOX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.PO_BOX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PoBoxAddressUndeliverableFlag_DONT_USE_P",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.DONT_USE_P"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box address undeliverable flag",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_PoBoxWithoutNumber_PO_BOX_NUM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.PO_BOX_NUM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: PO Box without number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PoBoxCity_PO_BOX_LOC",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.PO_BOX_LOC"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box city",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CityPoBoxCode__cityFile___CITY_CODE2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.CITY_CODE2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "City PO Box code (city file)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RegionForPoBox_PO_BOX_REG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.PO_BOX_REG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Region for PO Box",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PoBoxCountry_PO_BOX_CTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.PO_BOX_CTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box country",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TransportationZoneToOrFromWhichTheGoodsAreDelivered_TRANSPZONE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.TRANSPZONE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Transportation zone",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Street_STREET",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.STREET"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StreetAddressUndeliverableFlag_DONT_USE_S",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.DONT_USE_S"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street address undeliverable flag",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StreetNumberForCitystreetFile_STREETCODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.STREETCODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street number for city street file",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HouseNumber_HOUSE_NUM1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.HOUSE_NUM1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "House number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "HouseNumberSupplement_HOUSE_NUM2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.HOUSE_NUM2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "House number supplement",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Street2_STR_SUPPL1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.STR_SUPPL1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Street3_STR_SUPPL2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.STR_SUPPL2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Street4_STR_SUPPL3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.STR_SUPPL3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street 4",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Street5_LOCATION",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.LOCATION"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street 5",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Building__numberOrCode___BUILDING",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.BUILDING"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Building (number or code)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FloorInBuilding_FLOOR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.FLOOR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Floor in building",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RoomOrAppartmentNumber_ROOMNUMBER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.ROOMNUMBER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Room or apartment number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryKey_COUNTRY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.COUNTRY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Language_LANGU",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.LANGU"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Region_REGION",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.REGION"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Region",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AddressGroup__key____businessAddressServices___ADDR_GROUP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.ADDR_GROUP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Address group (key)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_ThereAreMoreAddressGroupAssignments_FLAGGROUPS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.FLAGGROUPS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: There are more address group assignments",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_ThisIsAPersonalAddress_PERS_ADDR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.PERS_ADDR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: This is a personal address",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SearchTerm1_SORT1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.SORT1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Search term 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SearchTerm2_SORT2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.SORT2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Search term 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CommunicationMethod__key____businessAddressServices___DEFLT_COMM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.DEFLT_COMM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Communication method (key)",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FirstTelephone_TEL_NUMBER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.TEL_NUMBER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "First telephone number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FirstExtension_TEL_EXTENS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.TEL_EXTENS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "First extension",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FirstFaxNor_FAX_NUMBER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.FAX_NUMBER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "First fax number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FirstFax_FAX_EXTENS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.FAX_EXTENS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "First fax extension",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_TelephoneNumber__s__Defined_FLAGCOMM2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.FLAGCOMM2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: Telephone number defined",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_FaxNumber__s__Defined_FLAGCOMM3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.FLAGCOMM3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: Fax number defined",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_TeletexNumber__s__Defined_FLAGCOMM4",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.FLAGCOMM4"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: Teletex number defined",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_TelexNumber__s__Defined_FLAGCOMM5",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.FLAGCOMM5"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: Telex number defined",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "EMailAddressX_FLAGCOMM6",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.FLAGCOMM6"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Email address",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_Rml__remoteMail__Addresse__s__Defined_FLAGCOMM7",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.FLAGCOMM7"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: RML (remote mail) address defined",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_X400FLAGCOMM8",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.FLAGCOMM8"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: X.400",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_RfcDestination__s__Defined_FLAGCOMM9",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.FLAGCOMM9"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: RFC destination defined",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_PrinterDefined_FLAGCOMM10",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.FLAGCOMM10"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: Printer defined",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_SsfDefined_FLAGCOMM11",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.FLAGCOMM11"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: SSF defined",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_UriftpAddressDefined_FLAGCOMM12",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.FLAGCOMM12"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: URI/FTP address defined",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_PagerAddressDefined_FLAGCOMM13",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.FLAGCOMM13"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: Pager address defined",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name__fieldName1__InUppercaseForSearchHelp_MC_NAME1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.MC_NAME1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name (field name 1) in uppercase for search help",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CityNameInUppercaseForSearchHelp_MC_CITY1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.MC_CITY1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "City name in uppercase for search help",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StreetNameInUppercaseForSearchHelp_MC_STREET",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.MC_STREET"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street name in uppercase for search help",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AddressTimeZone_TIME_ZONE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.TIME_ZONE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Address time zone",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxJurisdiction_TAXJURCODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.TAXJURCODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax jurisdiction",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AddressRecordCreationOriginalLanguage_LANGU_CREA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.LANGU_CREA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Address record creation original language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UuidUsedInTheAddress_ADRC_UUID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.ADRC_UUID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "UUID used in the address",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Indicator_UuidCreatedLater_UUID_BELATED",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.UUID_BELATED"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator: UUID created later",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CategoryOfAnAddressId_ID_CATEGORY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.ID_CATEGORY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Category of an address ID",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ErrorStatusOfAddress_ADRC_ERR_STATUS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.ADRC_ERR_STATUS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Error status of address",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PoBoxLobby_PO_BOX_LOBBY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.PO_BOX_LOBBY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box lobby",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TypeOfDeliveryService_DELI_SERV_TYPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.DELI_SERV_TYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Type of delivery service",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "NumberOfDeliveryService_DELI_SERV_NUMBER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.DELI_SERV_NUMBER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Number of delivery service",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountyCodeForCounty_COUNTY_CODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.COUNTY_CODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "County code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "County_COUNTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.COUNTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "County",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TownshipCodeForTownship_TOWNSHIP_CODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.TOWNSHIP_CODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Township code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Township_TOWNSHIP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.TOWNSHIP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Township",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountyNameInUpperCaseForSearchHelp_MC_COUNTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.MC_COUNTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "County name in uppercase for search help",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TownshipNameInUpperCaseForSearchHelp_MC_TOWNSHIP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.MC_TOWNSHIP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Township name in uppercase for search help",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessPurposeCompletedFlag_XPCPT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrc.XPCPT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business purpose completed flag",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidFrom_DATE_FROM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrct.DATE_FROM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valid from date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "VersionInternationalAddresses_NATION",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrct.NATION"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Version international addresses",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AddressNotes_REMARK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adrct.REMARK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Address notes",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PersonNumber_PERSNUMBER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adr6.PERSNUMBER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Person number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidFromDate_DATE_FROM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adr6.DATE_FROM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valid from date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SequenceNumber_CONSNUMBER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adr6.CONSNUMBER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Sequence number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_ThisAddressIsTheDefaultAddress_FLGDEFAULT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adr6.FLGDEFAULT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: This address is the default address",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_ThisCommunicationNumberIsNotUsed_FLG_NOUSE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adr6.FLG_NOUSE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: This communication number is not used",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RecipientAddressInThisCommunicationType__mailSys_HOME_FLAG",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adr6.HOME_FLAG"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Recipient address in this communication type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "EMailAddress_SMTP_ADDR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adr6.SMTP_ADDR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Email address",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "EMailAddressSearchField_SMTP_SRCH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adr6.SMTP_SRCH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Email address search field",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_RecipientIsStandardRecipientForThisAddress_DFT_RECEIV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adr6.DFT_RECEIV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: Recipient is standard recipient for this address",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_ConnectedToAnSapSystem_R3_USER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adr6.R3_USER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: Connected to an SAP system",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RequiredDataEncoding__eMail___ENCODE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adr6.ENCODE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Required data encoding",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Flag_ReceiverCanReceiveTnefEncodingBySmtp_TNEF",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adr6.TNEF"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Flag: Receiver can receive TNEF encoding by SMTP",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CommunicationData_ValidFrom__yyyymmddhhmmss___VALID_FROM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adr6.VALID_FROM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Communication data valid from",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CommunicationData_ValidTo__yyyymmddhhmmss___VALID_TO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "adr6.VALID_TO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Communication data valid to",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null
+    }
+}

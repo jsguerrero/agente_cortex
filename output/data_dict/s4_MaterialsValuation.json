@@ -1,0 +1,741 @@
+{
+    "schema": {
+        "object_name": "s4_MaterialsValuation.sql",
+        "object_type": "view",
+        "description": "This view provides a detailed valuation of materials, combining data from MBEW and MBEWH tables in S/4HANA.  It includes material-level valuation data, currency conversion (optional), and temporal dimensions from a calendar date dimension. The data is at the material-valuation area level.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.mbew",
+            "CDC_S4.mbewh",
+            "CDC_S4.t001k",
+            "CDC_S4.t001",
+            "REPORTING.currency_decimal",
+            "K9_PROCESSING.calendar_date_dim"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbew.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MaterialNumber_MATNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbew.MATNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Material Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValuationType_BWTAR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbew.BWTAR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valuation Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValuationArea_BWKEY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbew.BWKEY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valuation Area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DeletionFlagForAllMaterialDataOfValuationType_LVORM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbew.LVORM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Deletion Flag for All Material Data of Valuation Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValuationCategory_BWTTY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbew.BWTTY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valuation Category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TotalValuatedStock_LBKUM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbew.LBKUM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Total Valuated Stock",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValueOfTotalValuatedStock_SALK3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbew.SALK3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Value of Total Valuated Stock",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PriceControlIndicator_VPRSV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbew.VPRSV"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Price Control Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PriceUnit_PEINH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbew.PEINH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Price Unit",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateOfTheLastPriceChange_LAEPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbew.LAEPR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date of the Last Price Change",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DateAsOfWhichThePriceIsValid_ZKDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbew.ZKDAT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Date As Of Which The Price Is Valid",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FiscalYearOfCurrentPeriod_LFGJA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbewh.LFGJA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fiscal Year of Current Period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrentPeriod_LFMON",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbewh.LFMON"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Current Period",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValuationClass_BKLAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbewh.BKLAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valuation Class",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "t001.WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "YearOfDateOfTheLastPriceChange_LAEPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_LAEPR.CalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Year Of Date Of The Last Price Change",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MonthOfDateOfTheLastPriceChange_LAEPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_LAEPR.CalMonth"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Month Of Date Of The Last Price Change",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WeekOfDateOfTheLastPriceChange_LAEPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_LAEPR.CalWeek"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Week Of Date Of The Last Price Change",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuarterOfDateOfTheLastPriceChange_LAEPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_LAEPR.CalQuarter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quarter Of Date Of The Last Price Change",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "YearOfDateAsOfWhichThePriceIsValid_ZKDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_ZKDAT.CalYear"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Year Of Date As Of Which The Price Is Valid",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MonthOfDateAsOfWhichThePriceIsValid_ZKDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_ZKDAT.CalMonth"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Month Of Date As Of Which The Price Is Valid",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "WeekOfDateAsOfWhichThePriceIsValid_ZKDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_ZKDAT.CalWeek"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Week Of Date As Of Which The Price Is Valid",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "QuarterOfDateAsOfWhichThePriceIsValid_ZKDAT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CalendarDateDimension_ZKDAT.CalQuarter"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Quarter Of Date As Of Which The Price Is Valid",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StandardCost_STPRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbew.STPRS",
+                        "currency_decimal.CURRFIX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(mbew.STPRS * currency_decimal.CURRFIX, mbew.STPRS)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Standard Cost",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "MovingAveragePrice_VERPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbew.VERPR",
+                        "currency_decimal.CURRFIX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(mbew.VERPR * currency_decimal.CURRFIX, mbew.VERPR)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Moving Average Price",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PreviousPrice_STPRV",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbew.STPRV",
+                        "currency_decimal.CURRFIX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(mbew.STPRV * currency_decimal.CURRFIX, mbew.STPRV)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Previous Price",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FuturePrice_ZKPRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbew.ZKPRS",
+                        "currency_decimal.CURRFIX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(mbew.ZKPRS * currency_decimal.CURRFIX, mbew.ZKPRS)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Future Price",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StandardPrice_STPRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbewh.STPRS",
+                        "currency_decimal.CURRFIX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(mbewh.STPRS * currency_decimal.CURRFIX, mbewh.STPRS)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Standard Price",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PeriodicUnitPrice_VERPR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "mbewh.VERPR",
+                        "currency_decimal.CURRFIX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "COALESCE(mbewh.VERPR * currency_decimal.CURRFIX, mbewh.VERPR)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Periodic Unit Price",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.mbew`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "mbew.MANDT = mbewh.MANDT",
+                    "mbew.MATNR = mbewh.MATNR",
+                    "mbew.BWKEY = mbewh.BWKEY",
+                    "mbew.BWTAR = mbewh.BWTAR"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.mbew`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "mbew.MANDT = t001k.MANDT",
+                    "mbew.BWKEY = t001k.BWKEY"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.t001k`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "t001.MANDT = t001k.MANDT",
+                    "t001.BUKRS = t001k.BUKRS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.t001k`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "t001.MANDT = t001k.MANDT",
+                    "t001.BUKRS = t001k.BUKRS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.t001`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "t001.WAERS = currency_decimal.CURRKEY"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.mbew`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "CalendarDateDimension_LAEPR.Date = mbew.LAEPR"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": "LEFT JOIN",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.mbew`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "CalendarDateDimension_ZKDAT.Date = mbew.ZKDAT"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

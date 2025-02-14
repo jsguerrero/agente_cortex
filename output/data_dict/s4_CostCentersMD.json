@@ -1,0 +1,1691 @@
+{
+    "schema": {
+        "object_name": "s4_CostCentersMD.sql",
+        "object_type": "view",
+        "description": "This view joins data from CSKS and CSKT tables to provide a comprehensive view of cost centers, including their attributes, descriptions, and validity periods.  The data is filtered to include only cost centers valid on the current date.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "CDC_S4.csks",
+            "CDC_S4.cskt"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "Client_MANDT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.MANDT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ControllingArea_KOKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.KOKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Controlling Area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CostCenter_KOSTL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.KOSTL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidTo_DATBI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.DATBI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valid To Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ValidFromDate_DATAB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.DATAB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Valid From Date",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LockIndicatorForActualPrimaryPostings_BKZKP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.BKZKP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Lock Indicator for Actual Primary Postings",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LockIndicatorForPlanPrimaryCosts_PKZKP",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.PKZKP"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Lock Indicator for Plan Primary Costs",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompanyCode_BUKRS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.BUKRS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Company Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "BusinessArea_GSBER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.GSBER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Business Area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CostCenterCategory_KOSAR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.KOSAR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Center Category",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PersonResponsible_VERAK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.VERAK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Person Responsible",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UserResponsible_VERAK_USER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.VERAK_USER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "User Responsible",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CurrencyKey_WAERS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.WAERS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Currency Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CostingSheet_KALSM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.KALSM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Costing Sheet",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TaxJurisdiction_TXJCD",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.TXJCD"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Tax Jurisdiction",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ProfitCenter_PRCTR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.PRCTR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Profit Center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Plant_WERKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.WERKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Plant",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LogicalSystem_LOGSYSTEM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.LOGSYSTEM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Logical System",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CreatedOn_ERSDA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.ERSDA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Created On",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "EnteredBy_USNAM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.USNAM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Entered By",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LockIndicatorForActualSecondaryCosts_BKZKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.BKZKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Lock Indicator for Actual Secondary Costs",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LockIndicatorForActualRevenuePostings_BKZER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.BKZER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Lock Indicator for Actual Revenue Postings",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LockIndicatorForCommitmentUpdate_BKZOB",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.BKZOB"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Lock Indicator for Commitment Update",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LockIndicatorForPlanSecondaryCosts_PKZKS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.PKZKS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Lock Indicator for Plan Secondary Costs",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LockIndicatorForPlanningRevenues_PKZER",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.PKZER"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Lock Indicator for Planning Revenues",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndicatorForAllowedAllocationMethods_VMETH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.VMETH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator for Allowed Allocation Methods",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndicatorForRecordingConsumptionQuantities_MGEFL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.MGEFL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator for Recording Consumption Quantities",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Department_ABTEI",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.ABTEI"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Department",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SubsequentCostCenter_NKOST",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.NKOST"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Subsequent Cost Center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "UsageOfTheConditionTable_KVEWE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.KVEWE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Usage of the Condition Table",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Application_KAPPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.KAPPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Application",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CoCcaOverheadKey_KOSZSCHL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.KOSZSCHL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "CoCca Overhead Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CountryKey_LAND1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.LAND1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Country Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Title_ANRED",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.ANRED"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Title",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name1_NAME1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.NAME1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 1",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name2_NAME2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.NAME2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 2",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name3_NAME3",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.NAME3"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 3",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Name4_NAME4",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.NAME4"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Name 4",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "City_ORT01",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.ORT01"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "City",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "District_ORT02",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.ORT02"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "District",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StreetAndHouseNumber_STRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.STRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Street and House Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PoBox_PFACH",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.PFACH"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PostalCode_PSTLZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.PSTLZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Postal Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "POBoxPostalCode_PSTL2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.PSTL2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "PO Box Postal Code",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Region_REGIO",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.REGIO"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Region",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "LanguageKey_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TeleboxNumber_TELBX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.TELBX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Telebox Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FirstTelephoneNumber_TELF1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.TELF1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "First Telephone Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SecondTelephoneNumber_TELF2",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.TELF2"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Second Telephone Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FaxNumber_TELFX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.TELFX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Fax Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TeletexNumber_TELTX",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.TELTX"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Teletex Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TelexNumber_TELX1",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.TELX1"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Telex Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "DataCommunicationLineNo_DATLT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.DATLT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Data Communication Line No",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "PrinterDestinationForCctrReport_DRNAM",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.DRNAM"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Printer Destination for Cctr Report",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "StandardHierarchyArea_KHINR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.KHINR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Standard Hierarchy Area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CostCollectorKey_CCKEY",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.CCKEY"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Cost Collector Key",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "CompletionFlagForTheCostCenterMasterRecord_KOMPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.KOMPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Completion Flag for the Cost Center Master Record",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "IndicatorObjectIsStatistical_STAKZ",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.STAKZ"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Indicator Object Is Statistical",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "ObjectNumber_OBJNR",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.OBJNR"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Object Number",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FunctionOfCostCenter_FUNKT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.FUNKT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Function of Cost Center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "AlternativeFunctionOfCostCenter_AFUNK",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.AFUNK"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Alternative Function of Cost Center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TemplateForActivityIndependentFormulaPlanning_CPI_TEMPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.CPI_TEMPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Template for Activity Independent Formula Planning",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "TemplateForActivityDependentFormulaPlanning_CPD_TEMPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.CPD_TEMPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Template for Activity Dependent Formula Planning",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "FunctionalArea_FUNC_AREA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.FUNC_AREA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Functional Area",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Template_ActivityIndependentAllocationToCostCenter_SCI_TEMPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.SCI_TEMPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Template_Activity Independent Allocation To Cost Center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Template_ActivityDependentAllocationToCostCenter_SCD_TEMPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.SCD_TEMPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Template_Activity Dependent Allocation To Cost Center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Template_ActualStatisticalKeyFigureOnCostCenter_SKI_TEMPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.SKI_TEMPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Template_Actual Statistical Key Figure On Cost Center",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Template_ActStatKeyFigureCostCenteractivityType_SKD_TEMPL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.SKD_TEMPL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Template_Act Stat Key Figure Cost Center activity Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "JointVenture_VNAME",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.VNAME"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Joint Venture",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RecoveryIndicator_RECID",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.RECID"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Recovery Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "EquityType_ETYPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.ETYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Equity Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "JointVentureObjectType_JV_OTYPE",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.JV_OTYPE"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Joint Venture Object Type",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "JibjibeClass_JV_JIBCL",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.JV_JIBCL"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Jibjibe Class",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "JibjibeSubclassA_JV_JIBSA",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.JV_JIBSA"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Jibjibe Subclass A",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "RegulatoryIndicator_FERC_IND",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKS.FERC_IND"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Regulatory Indicator",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Language_SPRAS",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKT.SPRAS"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Language",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "GeneralName_KTEXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKT.KTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "General Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "Description_LTEXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKT.LTEXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Description",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "SearchTermForMatchcodeUse_MCTXT",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "CSKT.MCTXT"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Search Term for Matchcode Use",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": "INNER",
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.csks`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "CSKS.MANDT = CSKT.mandt",
+                    "CSKS.KOKRS = CSKT.KOKRS",
+                    "CSKS.KOSTL = CSKT.KOSTL",
+                    "CSKS.DATBI = CSKT.DATBI"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

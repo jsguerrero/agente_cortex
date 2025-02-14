@@ -1,0 +1,248 @@
+{
+    "schema": {
+        "object_name": "s4_financial_statement_version.sql",
+        "object_type": "table",
+        "description": "Flattened financial statement version hierarchy. Contains hierarchical data for financial statements, including parent-child relationships and leaf node indicators.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "aecorsoft-prj-dev.CDC_S4.hrrp_directory",
+            "aecorsoft-prj-dev.CDC_S4.hrrp_node"
+        ],
+        "columns": [
+            {
+                "name": {
+                    "value": "mandt",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.hrrp_node.mandt"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Client",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "chartofaccounts",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "input_chartofaccounts",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Chart of Accounts",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "hiername",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.hrrp_node.hryid"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy Name",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "hierarchyversion",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.hrrp_node.hryver"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Hierarchy Version",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "parent",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.hrrp_node.nodetype",
+                        "aecorsoft-prj-dev.CDC_S4.hrrp_node.nodevalue",
+                        "aecorsoft-prj-dev.CDC_S4.hrrp_node.parnode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(nodetype = 'R', nodevalue, parnode)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Parent Node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "node",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.hrrp_node.hrynode"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "nodevalue",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.hrrp_node.nodevalue"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Node Value",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "level",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.hrrp_node.hrylevel"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": null,
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Level",
+                    "is_valid": null
+                },
+                "is_valid": null
+            },
+            {
+                "name": {
+                    "value": "isleafnode",
+                    "is_valid": null
+                },
+                "dependencies": {
+                    "value": [
+                        "aecorsoft-prj-dev.CDC_S4.hrrp_node.nodetype"
+                    ],
+                    "is_valid": null
+                },
+                "formula": {
+                    "value": "IF(nodetype = 'L', TRUE, FALSE)",
+                    "is_valid": null
+                },
+                "description": {
+                    "value": "Is Leaf Node",
+                    "is_valid": null
+                },
+                "is_valid": null
+            }
+        ],
+        "is_valid": null,
+        "joins": [
+            {
+                "view_name": null,
+                "join_type": null,
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.hrrp_directory`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "mandt='100'",
+                    "hryid= input_hiername",
+                    "hryvalto = (SELECT max(hryvalto) FROM `aecorsoft-prj-dev.CDC_S4.hrrp_directory` WHERE  mandt='100' AND hryid= input_hiername)"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": null,
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.hrrp_node`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "mandt = '100'",
+                    "hryid = input_hiername",
+                    "(nodetype in ('R','N') OR (nodetype='L' AND nodecls=input_chartofaccounts))",
+                    "hryver = hryversion"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": null,
+                "join_type": null,
+                "tabla_base": "`aecorsoft-prj-dev.CDC_S4.hrrp_node`",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "mandt = '100'",
+                    "hryid = input_hiername",
+                    "nodetype in ('N','L','R')",
+                    "hryver = hryversion"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}

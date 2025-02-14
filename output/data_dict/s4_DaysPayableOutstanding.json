@@ -1,0 +1,266 @@
+{
+    "schema": {
+        "object_name": "s4_DaysPayableOutstanding.sql",
+        "object_type": "view",
+        "description": "This view calculates the Days Payable Outstanding (DPO) for each company, currency, and fiscal period.  It aggregates Accounts Payable and Inventory data to compute DPO at a company-period level.",
+        "source": "cortex_framework",
+        "group_by": [],
+        "dependencies": [
+            "REPORTING.AccountsPayable",
+            "REPORTING.InventoryKeyMetrics",
+            "REPORTING.CompaniesMD",
+            "REPORTING.fiscal_date_dim"
+        ],
+        "columns": [
+            {
+                "name": "Client_MANDT",
+                "dependencies": [
+                    "AccountsPayableKPI",
+                    "AccountsPayableAgg",
+                    "AccountsPayable"
+                ],
+                "formula": null,
+                "description": "Client ID",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CompanyCode_BUKRS",
+                "dependencies": [
+                    "AccountsPayableKPI",
+                    "AccountsPayableAgg",
+                    "AccountsPayable"
+                ],
+                "formula": null,
+                "description": "Company Code",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "CompanyText_BUTXT",
+                "dependencies": [
+                    "AccountsPayableKPI",
+                    "AccountsPayableAgg",
+                    "AccountsPayable"
+                ],
+                "formula": null,
+                "description": "Company Text",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalYear",
+                "dependencies": [
+                    "AccountsPayableKPI",
+                    "AccountsPayableAgg",
+                    "AccountsPayable"
+                ],
+                "formula": "SUBSTR(AccountsPayable.DocFiscPeriod, 1, 4)",
+                "description": "Fiscal Year",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "FiscalPeriod",
+                "dependencies": [
+                    "AccountsPayableKPI",
+                    "AccountsPayableAgg",
+                    "AccountsPayable"
+                ],
+                "formula": "SUBSTR(AccountsPayable.DocFiscPeriod, 5, 3)",
+                "description": "Fiscal Period",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "TargetCurrency_TCURR",
+                "dependencies": [
+                    "AccountsPayableKPI",
+                    "AccountsPayableAgg",
+                    "AccountsPayable"
+                ],
+                "formula": null,
+                "description": "Target Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PeriodAPInSourceCurrency",
+                "dependencies": [
+                    "AccountsPayableKPI",
+                    "AccountsPayableAgg"
+                ],
+                "formula": "SUM(AccountsPayableAgg.OverdueAmountInSourceCurrency) OVER (PARTITION BY AccountsPayableAgg.Client_MANDT, AccountsPayableAgg.CompanyCode_BUKRS, AccountsPayableAgg.TargetCurrency_TCURR ORDER BY AccountsPayableAgg.FiscalYear, AccountsPayableAgg.FiscalPeriod)",
+                "description": "Cumulative Accounts Payable in Source Currency for the period",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "PeriodAPInTargetCurrency",
+                "dependencies": [
+                    "AccountsPayableKPI",
+                    "AccountsPayableAgg"
+                ],
+                "formula": "SUM(AccountsPayableAgg.OverdueAmountInTargetCurrency) OVER (PARTITION BY AccountsPayableAgg.Client_MANDT, AccountsPayableAgg.CompanyCode_BUKRS, AccountsPayableAgg.TargetCurrency_TCURR ORDER BY AccountsPayableAgg.FiscalYear, AccountsPayableAgg.FiscalPeriod)",
+                "description": "Cumulative Accounts Payable in Target Currency for the period",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "COGSInSourceCurrency",
+                "dependencies": [
+                    "InventoryMetricsAgg",
+                    "InventoryKeyMetrics"
+                ],
+                "formula": "SUM(InventoryKeyMetrics.CostOfGoodsSoldByMonth)",
+                "description": "Cost of Goods Sold in Source Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "COGSInTargetCurrency",
+                "dependencies": [
+                    "InventoryMetricsAgg",
+                    "InventoryKeyMetrics"
+                ],
+                "formula": "SUM(InventoryKeyMetrics.CostofGoodsSoldInTargetCurrency)",
+                "description": "Cost of Goods Sold in Target Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "NumberOfDays",
+                "dependencies": [
+                    "AccountsPayableKPI"
+                ],
+                "formula": "DATE_DIFF(AccountsPayableKPI.FiscalPeriodEnd, AccountsPayableKPI.FiscalPeriodStart, DAY) + 1",
+                "description": "Number of days in the fiscal period",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DaysPayableOutstandingInSourceCurrency",
+                "dependencies": [
+                    "AccountsPayableKPI",
+                    "InventoryMetricsAgg"
+                ],
+                "formula": "SAFE_DIVIDE(AccountsPayableKPI.PeriodAPInSourceCurrency * (DATE_DIFF(AccountsPayableKPI.FiscalPeriodEnd, AccountsPayableKPI.FiscalPeriodStart, DAY) + 1), InventoryMetricsAgg.COGSInSourceCurrency)",
+                "description": "Days Payable Outstanding in Source Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            },
+            {
+                "name": "DaysPayableOutstandingInTargetCurrency",
+                "dependencies": [
+                    "AccountsPayableKPI",
+                    "InventoryMetricsAgg"
+                ],
+                "formula": "SAFE_DIVIDE(AccountsPayableKPI.PeriodAPInTargetCurrency * (DATE_DIFF(AccountsPayableKPI.FiscalPeriodEnd, AccountsPayableKPI.FiscalPeriodStart, DAY) + 1), InventoryMetricsAgg.COGSInTargetCurrency)",
+                "description": "Days Payable Outstanding in Target Currency",
+                "is_valid": null,
+                "validation": {
+                    "comments": "",
+                    "validation_timestamp": null,
+                    "validated_by": "auto"
+                }
+            }
+        ],
+        "validation": {
+            "is_valid": null,
+            "comments": "",
+            "validation_timestamp": null,
+            "validated_by": "auto"
+        },
+        "joins": [
+            {
+                "view_name": "AccountsPayableKPI",
+                "join_type": "INNER JOIN",
+                "tabla_base": "AccountsPayableAgg",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "AccountsPayableAgg.Client_MANDT = Company.Client_MANDT",
+                    "AccountsPayableAgg.CompanyCode_BUKRS = Company.CompanyCode_BUKRS"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "AccountsPayableKPI",
+                "join_type": "INNER JOIN",
+                "tabla_base": "AccountsPayableAgg",
+                "uniones": [],
+                "is_complex_join": true,
+                "join_conditions": [
+                    "AccountsPayableAgg.Client_MANDT = Fiscal.mandt",
+                    "Company.FiscalyearVariant_PERIV = Fiscal.periv",
+                    "AccountsPayableAgg.FiscalYear = Fiscal.FiscalYear",
+                    "AccountsPayableAgg.FiscalPeriod = Fiscal.FiscalPeriod"
+                ],
+                "rules": []
+            },
+            {
+                "view_name": "DaysPayableOutstanding",
+                "join_type": "INNER JOIN",
+                "tabla_base": "AccountsPayableKPI",
+                "uniones": [],
+                "is_complex_join": false,
+                "join_conditions": [
+                    "AccountsPayableKPI.Client_MANDT = InventoryMetricsAgg.Client_MANDT",
+                    "AccountsPayableKPI.CompanyCode_BUKRS = InventoryMetricsAgg.CompanyCode_BUKRS",
+                    "AccountsPayableKPI.FiscalYear = InventoryMetricsAgg.FiscalYear",
+                    "AccountsPayableKPI.FiscalPeriod = InventoryMetricsAgg.FiscalPeriod",
+                    "AccountsPayableKPI.TargetCurrency_TCURR = InventoryMetricsAgg.TargetCurrency_TCURR"
+                ],
+                "rules": []
+            }
+        ]
+    }
+}
